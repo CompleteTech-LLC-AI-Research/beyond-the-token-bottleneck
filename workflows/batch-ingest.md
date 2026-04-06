@@ -69,7 +69,7 @@ Use this workflow to ingest `3+` sources in parallel, keep per-paper work isolat
 
 - The full list of papers or source files to ingest.
 - Any theme grouping that helps assign work cleanly.
-- Awareness that shared files are off-limits for subagents: `wiki/index.md`, `wiki/log.md`, MOCs, `CLAUDE.md`, `raw/index.md`, and `wiki/overview-state-of-field.md`.
+- Awareness that shared files are off-limits for subagents: `wiki/index.md`, `wiki/log.md`, MOCs, `AGENTS.md`, `raw/index.md`, and `wiki/overview-state-of-field.md`.
 
 ## Procedure
 
@@ -105,4 +105,3 @@ Use this workflow to ingest `3+` sources in parallel, keep per-paper work isolat
 - `workflows/verification.md` for post-subagent QA.
 - `workflows/enrich.md` for structural cleanup after ingest.
 - `workflows/synthesize.md` for new cross-cutting analysis pages.
-

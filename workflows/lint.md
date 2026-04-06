@@ -18,7 +18,7 @@ graph TD
     subgraph SS [Structural Integrity Check]
         style SS fill:#fff2cc,stroke:#d6b656
         S1[Verify file placement<br>wiki/, mocs/, concepts/]
-        S2[Validate paths in<br>raw/index.md & CLAUDE.md]
+S2[Validate paths in<br>raw/index.md & AGENTS.md]
         S3[Confirm index.md<br>directory tree counts]
         S1 --> S2 --> S3
     end
@@ -77,7 +77,7 @@ Use this workflow when you need to audit the wiki for quality issues, especially
 - `wiki/index.md`.
 - Relevant MOCs in `wiki/mocs/`.
 - `raw/index.md`.
-- `CLAUDE.md` workflow and path references.
+- `AGENTS.md` workflow and path references.
 
 ## Procedure
 1. Scan all wiki pages for content integrity issues:
@@ -93,8 +93,8 @@ Use this workflow when you need to audit the wiki for quality issues, especially
    - Concepts live in `wiki/concepts/`.
    - Full-path wiki-links in `raw/index.md` match actual file locations.
    - `wiki/index.md` directory tree counts match actual page counts.
-   - `CLAUDE.md` Current MOCs list matches the actual `wiki/mocs/*.md` files.
-   - No stale path references remain in `CLAUDE.md`, `README.md`, or index files after reorganizations.
+- `AGENTS.md` Current MOCs list matches the actual `wiki/mocs/*.md` files.
+- No stale path references remain in `AGENTS.md`, `README.md`, or index files after reorganizations.
    - Mermaid node labels use `<br>` for line breaks, not `\n` (which renders literally in Obsidian).
 3. Report findings and suggest fixes.
 4. Apply fixes only after user approval.

@@ -28,14 +28,14 @@ graph TD
         style Depth fill:#d5e8d4,stroke:#82b366
         D1[Flag pages below depth standard] --> D2[All themes have MOCs?]
         D2 --> D3[MOCs current?]
-        D3 --> D4["CLAUDE.md MOC list in sync?"]
+D3 --> D4["AGENTS.md MOC list in sync?"]
     end
 
     Depth --> Schema
 
     subgraph Schema["Schema & Overview Freshness"]
         style Schema fill:#ffe6cc,stroke:#d79b00
-        S1["Check overview-state-of-field.md triggers"] --> S2["Verify CLAUDE.md vs actual vault layout"]
+S1["Check overview-state-of-field.md triggers"] --> S2["Verify AGENTS.md vs actual vault layout"]
         S2 --> S3["Update path refs if reorganized"]
     end
 
@@ -75,7 +75,7 @@ Common triggers include:
 - The task is specifically a health check without the broader pass. Use `Lint`.
 
 ## Required Context
-- Compare the current vault state against `CLAUDE.md`, `README.md`, `wiki/index.md`, and `raw/index.md`.
+- Compare the current vault state against `AGENTS.md`, `README.md`, `wiki/index.md`, and `raw/index.md`.
 - Check both content integrity and structural integrity.
 - Use the current MOC list and path conventions as validation targets.
 
@@ -91,10 +91,10 @@ Common triggers include:
 5. Check MOC coverage:
    - all major themes have MOCs
    - MOCs are current
-   - the `CLAUDE.md` MOC list is in sync
+- the `AGENTS.md` MOC list is in sync
 6. Check whether `overview-state-of-field.md` needs updating using the documented triggers.
-7. Verify `CLAUDE.md` directory structure, path conventions, and workflow steps still match the actual vault layout.
-8. If the vault was reorganized, ensure all path references across `CLAUDE.md`, `README.md`, index files, and `raw/index.md` are updated.
+7. Verify `AGENTS.md` directory structure, path conventions, and workflow steps still match the actual vault layout.
+8. If the vault was reorganized, ensure all path references across `AGENTS.md`, `README.md`, index files, and `raw/index.md` are updated.
 9. Report all findings.
 10. Apply fixes only with user approval.
 11. Log the review in `wiki/log.md`.

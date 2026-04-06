@@ -7,7 +7,7 @@ graph TD
     subgraph Structural ["Structural Check"]
         S1[Check file directories]
         S2[Validate frontmatter]
-        S3[Confirm MOC list in CLAUDE.md]
+S3[Confirm MOC list in AGENTS.md]
         S1 --> S2 --> S3
     end
     style Structural fill:#dae8fc,stroke:#6c8ebf
@@ -83,7 +83,7 @@ Quality-assurance pass for work done by parallel subagents. Use it to catch stru
 2. Run the **structural check** directly as the coordinator:
    - Confirm files are in the correct directories, such as `wiki/` rather than the vault root, and the correct `sources/` subdirectory when relevant.
    - Confirm frontmatter is complete and consistent with existing pages, including `title:` and the correct `type:`.
-   - Confirm `CLAUDE.md`'s Current MOCs list matches the actual `wiki/mocs/*.md` files.
+- Confirm `AGENTS.md`'s Current MOCs list matches the actual `wiki/mocs/*.md` files.
 3. Run the **content accuracy check** in parallel, one review subagent per created page:
    - Each review agent reads the created page and every source page it references.
    - Cross-check author names, venues, years, specific numbers, and method descriptions.

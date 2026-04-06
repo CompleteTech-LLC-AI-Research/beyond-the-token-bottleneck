@@ -214,7 +214,7 @@ Before acting:
    - New source onboarding -> `workflows/ingest.md`
    - Question answering without wiki maintenance -> `workflows/query.md`
 5. Respect workflow boundaries:
-   - Shared files (`wiki/index.md`, `wiki/log.md`, MOCs, `wiki/overview-state-of-field.md`, `CLAUDE.md`) stay coordinator-owned unless the workflow explicitly says otherwise.
+- Shared files (`wiki/index.md`, `wiki/log.md`, MOCs, `wiki/overview-state-of-field.md`, `AGENTS.md`) stay coordinator-owned unless the workflow explicitly says otherwise.
    - If a workflow says to get user approval before applying fixes, stop and ask before editing.
 6. When no single workflow fits exactly, combine the minimum number needed and state which workflow is primary.
 
@@ -330,7 +330,7 @@ These files are authoritative. Keep this list in sync when adding, renaming, or 
 - `workflows/enrichment-audit.md` - Systematically find, prioritize, and execute enrichment workstreams across the wiki in parallel.
 - `workflows/plugin-audit.md` - Audit Obsidian plugin configuration and page compliance for math, diagrams, frontmatter, and export readiness.
 - `workflows/readme-github-maintenance.md` - Update `README.md` and GitHub-facing project metadata when the vault structure or published surface changes.
-- `workflows/schema-self-audit.md` - Verify that `CLAUDE.md` still matches the real vault layout, MOC inventory, workflow paths, and frontmatter usage.
+- `workflows/schema-self-audit.md` - Verify that `AGENTS.md` still matches the real vault layout, MOC inventory, workflow paths, and frontmatter usage.
 
 ## Depth Standard
 

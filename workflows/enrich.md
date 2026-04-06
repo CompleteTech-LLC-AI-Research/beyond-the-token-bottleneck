@@ -8,7 +8,7 @@ graph TD
         style MOC fill:#dae8fc,stroke:#6c8ebf
         M1[Check themes with 5+ uncovered pages]
         M2[Update existing MOCs for new pages]
-        M3[Verify CLAUDE.md MOC list matches files]
+M3[Verify AGENTS.md MOC list matches files]
         M1 --> M2 --> M3
     end
 
@@ -82,13 +82,13 @@ Use this workflow when the wiki already has content and you need to clean up str
 - Current wiki pages in the affected themes
 - `raw/index.md`
 - `raw/download_arxiv_papers.py` if arXiv assets were added
-- `CLAUDE.md` current workflow and MOC references
+- `AGENTS.md` current workflow and MOC references
 
 ## Procedure
 1. Run a lightweight MOC Gap Analysis:
    - Check whether any theme has 5+ uncovered pages.
    - Update existing MOCs when new pages are added to their theme.
-   - Verify the `CLAUDE.md` Current MOCs list matches actual MOC files.
+- Verify the `AGENTS.md` Current MOCs list matches actual MOC files.
 2. Audit backlinks:
    - Scan for entity and concept names mentioned in prose but not wiki-linked.
    - Add missing links.

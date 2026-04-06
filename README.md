@@ -93,7 +93,7 @@ beyond-the-token-bottleneck/
 │   ├── pdf/                          # ~35 source PDFs (arXiv, ACL, ICML, NeurIPS)
 │   ├── latex/                        # LaTeX source archives
 │   └── assets/                       # Static assets
-├── workflows/                        # Maintainer workflow playbooks used by CLAUDE.md
+├── workflows/                        # Maintainer workflow playbooks used by AGENTS.md
 ├── wiki/                             # Research wiki (65 pages)
 │   ├── sources/                      # Paper summaries by theme
 │   │   ├── reasoning/               #   Coconut, SoftCoT, Pause Tokens, ...
@@ -111,7 +111,7 @@ beyond-the-token-bottleneck/
 │   ├── index.md                     # Wiki index
 │   ├── log.md                       # Change log
 │   └── overview-state-of-field.md   # Top-level narrative
-├── CLAUDE.md                         # Wiki schema & LLM instructions
+├── AGENTS.md                         # Wiki schema & LLM instructions
 └── README.md
 ```
 
@@ -158,7 +158,7 @@ This vault implements the [**LLM Wiki pattern**](https://gist.github.com/karpath
 The workflow:
 
 1. **Ingest** — Source papers are collected into `raw/pdf/`
-2. **Summarize** — An LLM reads each paper and generates a structured source summary following the schema in `CLAUDE.md`
+2. **Summarize** — An LLM reads each paper and generates a structured source summary following the schema in `AGENTS.md`
 3. **Extract** — Entities (research groups) and concepts (ideas, frameworks) are identified and given their own pages
 4. **Cross-reference** — Every mention of a known entity or concept is linked. Contradictions and connections between papers are surfaced.
 5. **Synthesize** — Maps of Content provide guided reading paths. Analysis pages compare methods and identify frontier directions.
@@ -189,7 +189,7 @@ This wiki's [`latent-communication`](wiki/mocs/latent-communication.md) and [`me
 
 The methodology behind this vault. Karpathy's gist describes a three-layer architecture — **raw sources** (immutable), **the wiki** (LLM-generated), and **the schema** (configuration) — where the LLM acts as an active maintainer rather than a passive retriever.
 
-This repo is a production implementation of that pattern applied to a focused research domain. Our schema ([`CLAUDE.md`](CLAUDE.md)) defines page types, linking conventions, depth standards, and workflows. The LLM ingests papers, updates 10-15 pages per source, and maintains cross-references across 1280+ links — exactly the "bookkeeping" that makes knowledge bases collapse when maintained by hand.
+This repo is a production implementation of that pattern applied to a focused research domain. Our schema ([`AGENTS.md`](AGENTS.md)) defines page types, linking conventions, depth standards, and workflows. The LLM ingests papers, updates 10-15 pages per source, and maintains cross-references across 1280+ links — exactly the "bookkeeping" that makes knowledge bases collapse when maintained by hand.
 
 ---
 
@@ -249,6 +249,17 @@ This repo is a production implementation of that pattern applied to a focused re
 ## Topics Covered
 
 `latent-space-reasoning` `continuous-thought` `chain-of-thought` `multi-agent-systems` `LLM-communication` `KV-cache-sharing` `activation-communication` `embedding-space` `transformer-internals` `hidden-state-transfer` `vision-language-models` `self-distillation` `representation-learning` `platonic-representation-hypothesis` `multi-agent-debate` `training-free-inference` `latent-variable-models` `disentangled-representations` `cross-architecture` `practical-systems` `theoretical-foundations`
+
+---
+
+## License
+
+This repository uses split licensing:
+
+- Code and automation are licensed under Apache-2.0. See `LICENSE-APACHE`.
+- Original wiki and documentation content are licensed under CC BY 4.0. See `LICENSE-CC-BY`.
+
+Third-party papers, PDFs, LaTeX sources, and other imported research artifacts are not covered by these licenses and remain under their original terms.
 
 ---
 

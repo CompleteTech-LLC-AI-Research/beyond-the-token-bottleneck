@@ -30,7 +30,7 @@ graph TD
     end
 
     subgraph Consolidate["Consolidate & Verify"]
-        M1 --> N[Update shared files:<br/>index.md, log.md,<br/>CLAUDE.md MOC list]
+M1 --> N[Update shared files:<br/>index.md, log.md,<br/>AGENTS.md MOC list]
         M2 --> N
         M3 --> N
         N --> O[Run Verification<br/>on each new MOC]
@@ -97,14 +97,14 @@ Use this workflow when the task sounds like:
 11. Consolidate shared files after completion:
    - `index.md`
    - `log.md`
-   - CLAUDE.md Current MOCs list
+- AGENTS.md Current MOCs list
 12. Run Verification on each new MOC.
 
 ## Completion Checklist
 - MOC gaps are identified and prioritized.
 - Each proposed MOC has a clear title and reading path.
 - Shared files are not modified by subagents.
-- Consolidation is planned for `index.md`, `log.md`, and the CLAUDE.md MOCs list.
+- Consolidation is planned for `index.md`, `log.md`, and the AGENTS.md MOCs list.
 - Verification is queued for each created MOC.
 
 ## Related Workflows

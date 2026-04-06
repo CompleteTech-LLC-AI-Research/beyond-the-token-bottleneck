@@ -18,7 +18,7 @@ graph TD
 
 ## Purpose
 
-Verify that `CLAUDE.md` still matches the real vault layout, current MOC inventory, workflow references, and the frontmatter fields used by existing pages.
+Verify that `AGENTS.md` still matches the real vault layout, current MOC inventory, workflow references, and the frontmatter fields used by existing pages.
 
 ## When To Use
 
@@ -31,7 +31,7 @@ Verify that `CLAUDE.md` still matches the real vault layout, current MOC invento
 ## Trigger Phrases
 
 - `schema self-audit`
-- `audit CLAUDE.md`
+- `audit AGENTS.md`
 - `verify workflow references`
 - `check the schema`
 - `sync the schema with the vault`
@@ -51,7 +51,7 @@ Verify that `CLAUDE.md` still matches the real vault layout, current MOC invento
 
 ## Procedure
 
-1. Compare the directory structure listing in `CLAUDE.md` against the actual `ls` output.
+1. Compare the directory structure listing in `AGENTS.md` against the actual `ls` output.
 2. Compare the `Current MOCs` list against the actual `wiki/mocs/*.md` files.
 3. Check whether any theme has accumulated `5+` pages without a MOC, which should trigger `MOC Gap Analysis`.
 4. Verify that frontmatter templates include every field actually used in existing pages.
@@ -60,8 +60,8 @@ Verify that `CLAUDE.md` still matches the real vault layout, current MOC invento
 
 ## Completion Checklist
 
-- `CLAUDE.md` matches the actual vault directory structure.
-- `CLAUDE.md` lists the actual MOC files.
+- `AGENTS.md` matches the actual vault directory structure.
+- `AGENTS.md` lists the actual MOC files.
 - Workflow references point to real files.
 - Frontmatter templates reflect the fields used in the vault.
 - Any discovered drift was corrected.
@@ -71,4 +71,3 @@ Verify that `CLAUDE.md` still matches the real vault layout, current MOC invento
 - `workflows/moc-gap-analysis.md` for coverage gaps in navigation.
 - `workflows/review.md` for broader wiki-wide validation.
 - `workflows/enrich.md` for structural cleanup after drift is found.
-
