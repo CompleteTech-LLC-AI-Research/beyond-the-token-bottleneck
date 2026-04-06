@@ -1,0 +1,29 @@
+# Obsidian
+.obsidian/workspace.json
+.obsidian/workspace-mobile.json
+.obsidian/plugins/*/data.json
+.obsidian/cache
+.obsidian/raw/
+.obsidian/.obsidian/
+.obsidian/.claude/
+.trash/
+.DS_Store
+Untitled.canvas
+
+# Raw papers and source bundles
+raw/pdf/
+raw/latex/
+
+# OS
+Thumbs.db
+desktop.ini
+.DS_Store
+
+# Python
+__pycache__/
+
+# Temp files
+*.tmp
+*.bak
+*.swp
+*~

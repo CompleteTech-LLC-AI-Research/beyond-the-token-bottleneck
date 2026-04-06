@@ -1,0 +1,114 @@
+# MOC Gap Analysis
+
+```mermaid
+graph TD
+    subgraph Read["Read Existing Structure"]
+        A[Read all existing MOCs] --> C[Build theme inventory]
+        B[Read wiki/index.md] --> C
+    end
+
+    subgraph Inventory["Inventory & Gap Detection"]
+        C --> D[Group wiki pages by theme]
+        D --> E{Cluster has 5+ pages<br/>without a MOC?}
+        E -- No --> F[No gap — skip]
+        E -- Yes --> G[Assess reading order,<br/>narrative value,<br/>distinct dimension]
+    end
+
+    subgraph Propose["Propose New MOCs"]
+        G --> H[Draft title, page list,<br/>reading path, MOC connections]
+        H --> I[Present proposals to user]
+        I --> J{User approval?}
+        J -- Rejected --> K[Revise or drop]
+        K --> I
+    end
+
+    subgraph Create["Parallel MOC Creation"]
+        J -- Approved --> L[Spawn subagent per MOC]
+        L --> M1[Subagent 1:<br/>Create MOC file only]
+        L --> M2[Subagent 2:<br/>Create MOC file only]
+        L --> M3[Subagent N:<br/>Create MOC file only]
+    end
+
+    subgraph Consolidate["Consolidate & Verify"]
+        M1 --> N[Update shared files:<br/>index.md, log.md,<br/>CLAUDE.md MOC list]
+        M2 --> N
+        M3 --> N
+        N --> O[Run Verification<br/>on each new MOC]
+        O --> P[Done]
+    end
+
+    style Read fill:#dae8fc,stroke:#6c8ebf
+    style Inventory fill:#fff2cc,stroke:#d6b656
+    style Propose fill:#d5e8d4,stroke:#82b366
+    style Create fill:#ffe6cc,stroke:#d79b00
+    style Consolidate fill:#e1d5e7,stroke:#9673a6
+```
+
+## Purpose
+Structured review of MOC coverage to identify and fill navigation gaps.
+
+Use this workflow when the goal is to discover missing reading paths, not to deepen individual pages.
+
+## When To Use
+- The wiki has grown and navigation feels fragmented.
+- You need to decide whether a new MOC would add real value.
+- You are checking for themes with enough pages to justify a guided path.
+- You want to prioritize cross-cutting structure over local page edits.
+
+## Trigger Phrases
+Use this workflow when the task sounds like:
+- "find MOC gaps"
+- "review MOC coverage"
+- "identify missing MOCs"
+- "add a new MOC"
+- "check if a theme needs its own reading path"
+- "organize navigation paths"
+
+## Do Not Use When
+- The task is about fixing one page, one link, or one source summary.
+- The user wants content expansion rather than navigation design.
+- The user already named the exact MOC file to create or edit.
+- The request is for a full wiki review, lint pass, or enrichment audit instead.
+
+## Required Context
+- Read all existing MOCs.
+- Read `wiki/index.md`.
+- Inventory wiki pages by theme.
+- Use the current vault structure as the source of truth.
+
+## Procedure
+1. Read all existing MOCs and `wiki/index.md`.
+2. Inventory all wiki pages by theme.
+3. Identify clusters of 5+ pages that share a coherent theme but lack a dedicated MOC.
+4. Focus especially on cross-cutting themes that span existing MOC boundaries, such as "cross-architecture compatibility" across communication and unified frameworks.
+5. For each gap, assess:
+   - Does the cluster have a natural reading order?
+   - Would a narrative reading path add value beyond existing MOCs?
+   - Is it a distinct dimension, such as a constraint axis, rather than a subset of an existing MOC?
+6. Propose specific MOCs with:
+   - title
+   - pages to include
+   - reading path outline
+   - connections to existing MOCs
+7. Get user approval, then create.
+8. Use parallel subagents if creating 2+ MOCs.
+9. Ensure each subagent creates only its own MOC file.
+10. Do not let subagents update shared files.
+11. Consolidate shared files after completion:
+   - `index.md`
+   - `log.md`
+   - CLAUDE.md Current MOCs list
+12. Run Verification on each new MOC.
+
+## Completion Checklist
+- MOC gaps are identified and prioritized.
+- Each proposed MOC has a clear title and reading path.
+- Shared files are not modified by subagents.
+- Consolidation is planned for `index.md`, `log.md`, and the CLAUDE.md MOCs list.
+- Verification is queued for each created MOC.
+
+## Related Workflows
+- `workflows/verification.md`
+- `workflows/enrich.md`
+- `workflows/review.md`
+- `workflows/schema-self-audit.md`

@@ -1,0 +1,40 @@
+/* Side-by-side callouts: use two consecutive callouts with |left and |right */
+/* Example:
+   > [!diagram|left]
+   > content...
+
+   > [!notation|right]
+   > content...
+*/
+
+/* Any callout with |left or |right metadata becomes an inline-block column */
+.callout[data-callout-metadata="left"],
+.callout[data-callout-metadata="right"] {
+  display: inline-block;
+  vertical-align: top;
+  background: transparent;
+  border: none;
+  box-shadow: none;
+  padding: 0;
+}
+
+.callout[data-callout-metadata="left"] {
+  width: 58%;
+  margin-right: 2%;
+}
+
+.callout[data-callout-metadata="right"] {
+  width: 38%;
+}
+
+/* Hide the callout title bar for these */
+.callout[data-callout-metadata="left"] .callout-title,
+.callout[data-callout-metadata="right"] .callout-title {
+  display: none;
+}
+
+/* Remove callout content padding */
+.callout[data-callout-metadata="left"] .callout-content,
+.callout[data-callout-metadata="right"] .callout-content {
+  padding: 0;
+}
