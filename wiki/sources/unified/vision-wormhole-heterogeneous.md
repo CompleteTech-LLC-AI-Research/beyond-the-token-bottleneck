@@ -3,7 +3,6 @@ type: source
 title: "The Vision Wormhole: Latent-Space Communication in Heterogeneous Multi-Agent Systems"
 source_file: "[[raw/pdf/arxiv-2602.15382.pdf]]"
 latex_source: "[[raw/latex/arxiv-2602.15382.tar.gz]]"
-venue_pdfs: ["[[raw/pdf/openreview-xTh4AwVKdw.pdf|OpenReview]]"]
 author: "Xiaoze Liu, Ruowang Zhang, Weichen Yu, Siheng Xiong, Liu He, Feijie Wu, Hoin Jung, Matt Fredrikson, Xiaoqian Wang, Jing Gao"
 date_published: "2026-02-17"
 date_ingested: "2026-04-06"

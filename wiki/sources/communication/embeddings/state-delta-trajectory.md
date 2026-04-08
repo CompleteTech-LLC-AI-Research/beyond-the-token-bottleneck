@@ -3,7 +3,6 @@ type: source
 title: "Augmenting Multi-Agent Communication with State Delta Trajectory"
 source_file: "[[raw/pdf/arxiv-2506.19209.pdf]]"
 latex_source: "[[raw/latex/arxiv-2506.19209.tar.gz]]"
-venue_pdfs: ["[[raw/pdf/acl-2025.emnlp-main.518.pdf|EMNLP 2025]]"]
 author: "Yichen Tang, Weihang Su, Yujia Zhou, Yiqun Liu, Min Zhang, Shaoping Ma, Qingyao Ai"
 date_published: "2025-06-23"
 date_ingested: "2026-04-06"

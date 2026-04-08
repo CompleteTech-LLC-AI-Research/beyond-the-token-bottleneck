@@ -3,7 +3,6 @@ type: source
 title: "Let Models Speak Ciphers: Multiagent Debate through Embeddings"
 source_file: "[[raw/pdf/arxiv-2310.06272.pdf]]"
 latex_source: "[[raw/latex/arxiv-2310.06272.tar.gz]]"
-venue_pdfs: ["[[raw/pdf/openreview-sehRvaIPQQ.pdf|OpenReview]]"]
 author: "Chau Pham, Boyi Liu, Yingxiang Yang, Zhengyu Chen, Tianyi Liu, Jianbo Yuan, Bryan A. Plummer, Zhaoran Wang, Hongxia Yang"
 date_published: "2023-10-10"
 date_ingested: "2026-04-06"
