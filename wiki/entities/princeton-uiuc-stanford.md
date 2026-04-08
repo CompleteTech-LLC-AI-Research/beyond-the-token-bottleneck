@@ -16,7 +16,7 @@ A multi-institutional collaboration behind two of the most significant unified f
 | Date | Paper | Role | Key Result |
 |------|-------|------|------------|
 | Nov 2025 | [[latentmas-collaboration\|LatentMAS]] | Lead (multi-institution) | First unified latent reasoning + communication; training-free; GSM8K 95.2% |
-| Feb 2026 | [[agent-primitives-building-blocks\|Agent Primitives]] | UIUC lead | Composable latent operators; beats 10 MAS baselines |
+| Feb 2026 | [[agent-primitives-building-blocks\|Agent Primitives]] | Lead (multi-institution) | Composable latent operators; beats 10 MAS baselines |
 
 ## Research Themes
 
@@ -34,7 +34,7 @@ The author teams overlap significantly within the consortium and connect outward
 
 This represents a concentration of multi-agent systems expertise across three top CS departments, with complementary strengths: Princeton's optimization/RL, UIUC's graph/network theory, Stanford's NLP.
 
-### Cross-Entity Connections
+### Cross-Entity Collaboration Summary
 
 | Partner Entity | Connection | Nature |
 |---|---|---|
