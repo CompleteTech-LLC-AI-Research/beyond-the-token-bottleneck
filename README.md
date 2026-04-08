@@ -105,7 +105,7 @@ beyond-the-token-bottleneck/
 │   │   ├── unified/                 #   LatentMAS, Vision Wormhole, ...
 │   │   └── meta/                    #   Scaling, expressivity theory, latent reasoning analyses
 │   ├── concepts/                    # 10 cross-cutting concept pages
-│   ├── entities/                    # 12 research group profiles
+│   ├── entities/                    # 13 research group profiles (+ 26 reusable partials)
 │   ├── analyses/                    # 7 synthesis & comparison pages
 │   ├── mocs/*.md                    # 9 Maps of Content
 │   ├── index.md                     # Wiki index
