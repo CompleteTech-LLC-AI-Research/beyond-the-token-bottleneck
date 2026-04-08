@@ -15,6 +15,10 @@ tags: [kv-cache, shared-latent-space, module-portability, cross-model]
 
 # Latent Space Communication via K-V Cache Alignment
 
+## One-liner
+
+![[kv-cache-alignment-shared-space/one-liner]]
+
 ## Summary
 
 This paper, from [[google-deepmind|Google DeepMind]], proposes learning a **global shared KV-cache representation space** that any model in a pool can read from and write to. Each model is augmented with two adapters: one to translate its KV-cache **into** the shared space (T[α→Ω]) and one to translate **from** the shared space into its own latent space (T[Ω→α]). Inspired by the **interlingua** concept from machine translation — a single shared representation that mediates between all language pairs — this creates a universal "language" for [[kv-cache-communication]] that scales linearly with the number of models.

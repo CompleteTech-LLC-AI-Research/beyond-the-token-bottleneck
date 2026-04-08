@@ -16,6 +16,10 @@ tags: [multiagent-debate, foundational, reasoning, factuality]
 
 # Improving Factuality and Reasoning in Language Models through Multiagent Debate
 
+## One-liner
+
+![[multiagent-debate-du-et-al/one-liner]]
+
 ## Summary
 
 The **foundational paper** for LLM [[multiagent-debate|multiagent debate]]. Established for the first time that having multiple LLM instances debate each other -- sharing responses, critiquing, and revising over multiple rounds -- improves both reasoning accuracy and factual correctness across diverse tasks. Nearly every paper in this wiki benchmarks against "NLD" (natural language debate) as introduced here. All experiments use ChatGPT (gpt-3.5-turbo) with black-box API access only.

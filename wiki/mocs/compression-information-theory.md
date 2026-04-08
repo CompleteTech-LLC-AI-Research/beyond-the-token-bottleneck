@@ -1,5 +1,6 @@
 ---
 type: overview
+category: lens
 title: "Compression & Information-Theoretic Bounds"
 created: "2026-04-06"
 updated: "2026-04-06"
@@ -82,14 +83,7 @@ The frontier research directions synthesize these threads into actionable resear
 
 Taken together, these sources suggest a layered structure to the compression question:
 
-| System | Compression ratio | What's compressed | Task-dependent? |
-|--------|------------------|-------------------|-----------------|
-| SoftCoT | ~4x (soft vs hard tokens) | Reasoning cues | Mild |
-| Interlat (trained) | ~46x (full to 8-step) | Full reasoning trajectory | Moderate (4-6% drop) |
-| KVComm | ~3x (30% of layers) | Attention context | Strong (selective > full on some tasks) |
-| LatentCompress | ~2000x (MB to 512B) | Inter-agent message | Very strong (GSM8K: lossless; GPQA: lossy) |
-
-The pattern: **the minimum sufficient bandwidth is not a fixed quantity --- it scales with the intrinsic information complexity of the task.** Simple tasks (GSM8K, easy MATH) tolerate extreme compression because the relevant information is low-dimensional. Complex tasks (GPQA, multi-hop QA, Level-5 MATH) resist compression because the reasoning depends on high-dimensional context that cannot be summarized without loss.
+![[compression-ratios]]
 
 This points toward an adaptive compression framework: systems that dynamically allocate bandwidth based on task complexity, transmitting 512 bytes for arithmetic and megabytes for scientific reasoning. No existing system does this, but LatentCompress's Direction #1 (adaptive slot count) and KVComm's layer selection (which implicitly adapts to the information structure of each layer) are steps in this direction.
 

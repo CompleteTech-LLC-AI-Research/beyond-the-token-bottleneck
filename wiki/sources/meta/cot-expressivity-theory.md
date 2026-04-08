@@ -16,6 +16,10 @@ tags: [theoretical, cot-expressivity, circuit-complexity, foundational]
 
 # Towards Revealing the Mystery behind Chain of Thought: A Theoretical Perspective
 
+## One-liner
+
+![[cot-expressivity-theory/one-liner]]
+
 ## Summary
 
 The first rigorous theoretical explanation of **why Chain-of-Thought works** in transformers, using circuit complexity theory. Proves that bounded-depth transformers **cannot** solve basic arithmetic or linear equations without CoT (assuming $\text{TC}^0 \neq \text{NC}^1$), but **constant-size** transformers **can** solve them with CoT. The key insight: **CoT increases the effective circuit depth** by looping outputs back as inputs, breaking through the $\text{TC}^0$ barrier. This paper provides the theoretical backbone for all latent reasoning work -- any mechanism that adds effective depth (CoT tokens, pause tokens, continuous thoughts, recurrence) should yield similar expressivity gains.

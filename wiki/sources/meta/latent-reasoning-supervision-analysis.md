@@ -16,6 +16,10 @@ tags: [latent-reasoning, analysis, bfs, shortcut, supervision, foundational]
 
 # How Do Latent Reasoning Methods Perform Under Weak and Strong Supervision?
 
+## One-liner
+
+![[latent-reasoning-supervision-analysis/one-liner]]
+
 ## Summary
 
 The first comprehensive empirical analysis of the **internal mechanisms** of [[latent-space-reasoning|latent reasoning]] methods. Cui et al. test four representative latent reasoning approaches — [[coconut-reasoning-latent-space|Coconut]], CODI, SIM-CoT, and CoLaR — on GPT-2 and LLaMA-3.2-1B-Instruct against GSM8K-Aug and ProsQA, and report two findings that **directly challenge** the central narrative of the field:

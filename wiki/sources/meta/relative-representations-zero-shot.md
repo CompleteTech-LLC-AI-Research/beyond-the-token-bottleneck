@@ -15,6 +15,10 @@ tags: [representation-alignment, zero-shot-stitching, cross-model, foundational]
 
 # Relative Representations Enable Zero-Shot Latent Space Communication
 
+## One-liner
+
+![[relative-representations-zero-shot/one-liner]]
+
 ## Summary
 
 Establishes that well-trained neural networks produce latent spaces related by approximately **angle-preserving (isometric) transformations**. By representing each data point as a vector of cosine similarities to a fixed set of anchor samples, the representation becomes invariant to rotations/reflections — enabling **zero-shot model stitching** with no learned mapping. This is the practical foundation for why linear projections work in [[cache-to-cache-semantic-communication|C2C]], [[kv-cache-alignment-shared-space|KV Cache Alignment]], and [[activation-communication-harvard|AC]].

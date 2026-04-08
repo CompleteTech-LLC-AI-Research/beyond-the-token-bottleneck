@@ -1,5 +1,6 @@
 ---
 type: overview
+category: synthesis
 title: "Unified Frameworks"
 created: "2026-04-06"
 updated: "2026-04-06"
@@ -13,19 +14,28 @@ Systems that combine **latent reasoning within agents** and **latent communicati
 ## The Three Unified Systems
 
 ### LatentMAS — Training-Free Latent Collaboration
+
 **[[latentmas-collaboration]]** (Princeton/UIUC/Stanford, 2025)
 
-The first system to combine both. Agents reason internally via hidden-state feedback (like [[coconut-reasoning-latent-space|Coconut]]) and share their reasoning via KV-cache transfer. Uses ridge regression alignment (no training required). GSM8K: 95.2% vs 83.7% single agent, 4× faster than text-based MAS. Theoretical compression: 471.4× over text. **Limitation**: requires homogeneous architecture (same model family).
+![[latentmas-collaboration/one-liner]]
+
+**Unified-frameworks lens**: the first system to combine reasoning and communication in a single training-free framework. GSM8K: 95.2% vs 83.7% single agent.
 
 ### Vision Wormhole — Heterogeneous Cross-Architecture
+
 **[[vision-wormhole-heterogeneous]]** (Purdue/CMU, 2026)
 
-Solves the heterogeneous architecture problem by repurposing VLM visual input pathways as a universal continuous channel. Different model families can communicate because the visual pathway is designed to accept external continuous inputs. This is an architectural insight rather than an alignment technique — it sidesteps the cross-architecture compatibility problem entirely.
+![[vision-wormhole-heterogeneous/one-liner]]
+
+**Unified-frameworks lens**: an architectural insight rather than an alignment technique — sidesteps the cross-architecture compatibility problem entirely by exploiting an existing continuous-input channel.
 
 ### Agent Primitives — Composable Latent Operators
+
 **[[agent-primitives-building-blocks]]** (UIUC, 2026)
 
-Defines a library of composable operators (Review, Voting, Planning) that structure how agents share and aggregate KV-cache representations. Rather than ad-hoc multi-agent designs, provides reusable building blocks. The [[scaling-agent-systems|Scaling paper]] shows composable primitives outperform monolithic MAS designs.
+![[agent-primitives-building-blocks/one-liner]]
+
+**Unified-frameworks lens**: provides reusable building blocks rather than ad-hoc multi-agent designs. The [[scaling-agent-systems|Scaling paper]] shows composable primitives outperform monolithic MAS.
 
 ## How They Connect
 

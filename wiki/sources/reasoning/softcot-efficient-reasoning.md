@@ -15,6 +15,10 @@ tags: [latent-reasoning, continuous-thought, soft-tokens, catastrophic-forgettin
 
 # SoftCoT: Soft Chain-of-Thought for Efficient Reasoning with LLMs
 
+## One-liner
+
+![[softcot-efficient-reasoning/one-liner]]
+
 ## Summary
 
 **SoftCoT** addresses a critical limitation of [[latent-space-reasoning]] approaches like [[coconut-reasoning-latent-space|Coconut]]: when applied to modern instruction-tuned LLMs (rather than GPT-2), continuous reasoning methods cause **[[catastrophic-forgetting|catastrophic forgetting]]** that degrades performance below the zero-shot baseline. SoftCoT solves this by **externalizing** the continuous reasoning to a small frozen assistant model, projecting the resulting "soft thought tokens" into the backbone LLM's embedding space via a lightweight trainable projection layer. The backbone LLM remains completely frozen.

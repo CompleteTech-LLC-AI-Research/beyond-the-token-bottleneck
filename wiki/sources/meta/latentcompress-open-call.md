@@ -12,6 +12,10 @@ tags: [latent-communication, compression, slot-attention, experimental, collabor
 
 # LatentCompress: Open Call for Latent Communication Research
 
+## One-liner
+
+![[latentcompress-open-call/one-liner]]
+
 ## Summary
 
 An open research project that has achieved **512-byte compressed latent communication** between LLM agents — matching baseline accuracy (91%) on GSM8K while replacing MB-scale KV-cache transfers. Uses a slot-attention architecture (4 slots × 64 dim = 512 bytes) trained on top of frozen Qwen3-14B in a 4-agent sequential pipeline. Claims to be the world's 4th team working on this problem and the most extreme compression ratio (~1/2000 vs full KV).

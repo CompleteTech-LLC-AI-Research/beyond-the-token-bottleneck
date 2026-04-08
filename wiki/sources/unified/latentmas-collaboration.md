@@ -16,6 +16,10 @@ tags: [latent-communication, kv-cache, training-free, multi-agent]
 
 # Latent Collaboration in Multi-Agent Systems (LatentMAS)
 
+## One-liner
+
+![[latentmas-collaboration/one-liner]]
+
 ## Summary
 
 **LatentMAS** unifies [[latent-space-reasoning]] and latent communication in a single **training-free** framework. Each agent generates "latent thoughts" by feeding hidden states back as input embeddings (like [[coconut-reasoning-latent-space|Coconut]]), then transfers its full **layer-wise KV caches** (including the latent thoughts) to the next agent. Only the final agent decodes to text. No adapters, no training, no learned projections. Evaluated across 9 benchmarks, 3 model scales (Qwen3-4B/8B/14B), and 2 MAS topologies (sequential, hierarchical).

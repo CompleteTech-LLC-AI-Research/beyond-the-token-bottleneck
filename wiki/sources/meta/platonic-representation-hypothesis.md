@@ -16,6 +16,10 @@ tags: [theoretical, representation-convergence, cross-model, foundational]
 
 # The Platonic Representation Hypothesis
 
+## One-liner
+
+![[platonic-representation-hypothesis/one-liner]]
+
 ## Summary
 
 Claims that representations learned by AI models -- across different architectures, training objectives, datasets, and even modalities -- are **converging toward a shared statistical model of reality**. Larger, more capable models are more aligned with each other. The converged endpoint is the "platonic representation" -- a kernel based on **pointwise mutual information (PMI)** of co-occurrence statistics in the real world. If true, this is the theoretical foundation for why cross-model [[activation-communication]] works without learned projections.
