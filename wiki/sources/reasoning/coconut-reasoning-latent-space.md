@@ -3,7 +3,6 @@ type: source
 title: "Training Large Language Models to Reason in a Continuous Latent Space"
 source_file: "[[raw/pdf/arxiv-2412.06769.pdf]]"
 latex_source: "[[raw/latex/arxiv-2412.06769.tar.gz]]"
-venue_pdfs: ["[[raw/pdf/openreview-Itxz7S4Ip3.pdf|OpenReview]]"]
 author: "Shibo Hao, Sainbayar Sukhbaatar, DiJia Su, Xian Li, Zhiting Hu, Jason Weston, Yuandong Tian"
 date_published: "2024-12-09"
 date_ingested: "2026-04-06"

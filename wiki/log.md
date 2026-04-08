@@ -8,6 +8,18 @@ created: "2026-04-06"
 
 Chronological record of all wiki activity.
 
+## [2026-04-08] lint | Redundancy cleanup — phantom venue PDFs and latent-communication MOC collapse
+
+Two-part cleanup completing the redundancy audit started earlier today. The KVComm rename from the same audit landed separately as commit `b97a8a3` (PR #2); the workflow refinements that codify the audit landed as commit `e4b1f68` (PR #3). This entry covers the remaining wiki/source edits.
+
+**Phantom venue PDFs pruned (9 source pages).** Stripped `venue_pdfs:` frontmatter from the 9 source pages still carrying broken OpenReview/ACL references after the kvcomm-rename PR landed: `coconut-reasoning-latent-space`, `softcot-efficient-reasoning`, `cipher-multiagent-debate-embeddings`, `state-delta-trajectory`, `activation-communication-harvard`, `interlat-latent-space-agents`, `cache-to-cache-semantic-communication`, `thought-communication-multiagent`, `vision-wormhole-heterogeneous`. (The two `kvcomm-*` source pages and `raw/index.md` were already pruned via PR #2.) No body footers affected.
+
+**MOC overlap collapsed.** [[latent-communication]] and [[communication-depth-spectrum]] both organized the same papers along the same depth axis; the former even deferred to the latter for "the full 10-level walkthrough." Reduced `latent-communication.md` from 71 → 45 lines: removed the entire "Depth Spectrum" paper-by-paper section (replaced with a one-line pointer), kept the unique cross-cutting concepts, key entities, theoretical foundations, and connections sections. The two MOCs are now genuinely orthogonal — `latent-communication` is the thematic hub, `communication-depth-spectrum` is the paper walkthrough.
+
+**Side-effect: in-prose backlink fix in 2 source pages.** PR #2's kvcomm rename merge left two source pages with stale `[[kvcomm-selective-kv-sharing|...]]` and `[[kvcomm-online-cross-context|...]]` references in body prose: `activation-communication-harvard.md` and `cache-to-cache-semantic-communication.md`. This commit completes PR #2 by rewriting those references to the new slugs. (`wiki/log.md` historical entries containing the old slugs are intentionally left unchanged — point-in-time records.)
+
+Pages updated (11): `wiki/mocs/latent-communication.md`, `wiki/log.md`, plus 9 source pages (`venue_pdfs:` prune) of which 2 also receive in-prose backlink fixes.
+
 ## [2026-04-08] gap-analysis + ingest | Wang et al. (2025) — Towards Inference-time Scaling for Continuous Space Reasoning
 
 Performed the gap-analysis workflow end-to-end, second iteration of the day. **Phase 1**: re-audited [[frontier-research-directions]], [[contradictions]], [[open-questions]], and [[benchmark-overlap]] for the highest-priority unresolved gap after the morning's Cui et al. ingest. Top gap: the **Pass@100 / Maj@100 amplification gap** that Cui et al. identified — latent reasoning preserves correct candidates (Pass@100 +20pp) but fails to amplify them at decode (Maj@100 −3pp vs explicit). Marked as **High** priority in `contradictions.md` #9, redirecting the entire frontier-scale agenda. The gap statement: *the wiki tracks that iterative latent reasoning encodes a richer candidate distribution than explicit CoT yet collapses at majority voting, but lacks any paper that proposes or empirically tests a decoding/aggregation/training method to recover this latent diversity advantage.*

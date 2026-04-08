@@ -3,7 +3,6 @@ type: source
 title: "Communicating Activations Between Language Model Agents"
 source_file: "[[raw/pdf/arxiv-2501.14082.pdf]]"
 latex_source: "[[raw/latex/arxiv-2501.14082.tar.gz]]"
-venue_pdfs: ["[[raw/pdf/openreview-W6RPXUUFic.pdf|OpenReview]]"]
 author: "Vignav Ramesh, Kenneth Li"
 date_published: "2025-01-24"
 date_ingested: "2026-04-06"
@@ -49,7 +48,7 @@ The paper provides a 2D contour plot scanning all $(k,j)$ pairs $\in \{1,\ldots,
 - **Mid-late layers (~20-26)**: "Enriched entity representations" — entities in the prompt have been populated with additional facts about them from the model's weights. This is the **richest** representation of the input.
 - **Final layers (27-32)**: Representations are optimized for next-token prediction — information not needed for that narrow objective is discarded. Richer contextual knowledge is "thrown away."
 
-This layer-depth finding aligns with [[kvcomm-selective-kv-sharing|KVComm]]'s hypothesis H1 (intermediate layers encode the most transferable semantic knowledge), despite the two papers approaching the problem from different angles.
+This layer-depth finding aligns with [[kvcomm-kth-selective|KVComm]]'s hypothesis H1 (intermediate layers encode the most transferable semantic knowledge), despite the two papers approaching the problem from different angles.
 
 ## Key Results
 
@@ -155,7 +154,7 @@ AC introduces a critical distinction: **what matters is not just the depth of re
 
 - **[[activation-communication]]**: This is the **definitive empirical paper** for the concept. It validates that raw activation transfer works, identifies the optimal layer depth (mid-late), establishes the enriched entity representation theory, and demonstrates cross-family communication without learned projections.
 - **[[cipher-multiagent-debate-embeddings|CIPHER]]**: AC communicates a "strict superset" of CIPHER's information. CIPHER uses probability-weighted output embeddings; AC uses intermediate activations that encode richer information. AC also saves compute (partial forward pass vs. CIPHER's full sequential generation).
-- **[[kvcomm-selective-kv-sharing|KVComm]]**: Both find that intermediate layers are most informative for communication. KVComm found hidden states suffer from information concentration bias on the last token; AC confirms this but argues replace-at-one-layer is sufficient because B retains its own representations at other positions. KVComm advocates for KV pairs (attention-native integration); AC advocates for residual-stream activations (richer per position, but more invasive replacement).
+- **[[kvcomm-kth-selective|KVComm]]**: Both find that intermediate layers are most informative for communication. KVComm found hidden states suffer from information concentration bias on the last token; AC confirms this but argues replace-at-one-layer is sufficient because B retains its own representations at other positions. KVComm advocates for KV pairs (attention-native integration); AC advocates for residual-stream activations (richer per position, but more invasive replacement).
 - **[[state-delta-trajectory|SDE]]**: SDE refines AC's approach for same-model settings by using **deltas** (inter-token differences) instead of raw states, avoiding context contamination. AC works cross-model; SDE works same-model only.
 - **[[interlat-latent-space-agents|Interlat]]**: Extends AC from single-vector replacement to full-sequence hidden-state transmission with a learned communication adapter.
 - **[[continuous-vs-discrete-representation]]**: AC provides the clearest empirical case that continuous activations beat discrete text at a fraction of the compute.

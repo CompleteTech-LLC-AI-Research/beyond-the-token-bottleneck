@@ -3,7 +3,6 @@ type: source
 title: "Enabling Agents to Communicate Entirely in Latent Space"
 source_file: "[[raw/pdf/arxiv-2511.09149.pdf]]"
 latex_source: "[[raw/latex/arxiv-2511.09149.tar.gz]]"
-venue_pdfs: ["[[raw/pdf/openreview-rmYbgsehTd.pdf|OpenReview]]"]
 author: "Zhuoyun Du, Runze Wang, Huiyu Bai, Zouying Cao, Xiaoyong Zhu, Yu Cheng, Bo Zheng, Wei Chen, Haochao Ying"
 date_published: "2025-11-14"
 date_ingested: "2026-04-06"

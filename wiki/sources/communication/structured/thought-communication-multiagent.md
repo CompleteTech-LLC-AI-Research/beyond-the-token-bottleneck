@@ -3,7 +3,6 @@ type: source
 title: "Thought Communication in Multiagent Collaboration"
 source_file: "[[raw/pdf/arxiv-2510.20733.pdf]]"
 latex_source: "[[raw/latex/arxiv-2510.20733.tar.gz]]"
-venue_pdfs: ["[[raw/pdf/openreview-tq9lyV9Cml.pdf|OpenReview]]"]
 author: "Yujia Zheng, Zhuokai Zhao, Zijian Li, Yaqi Xie, Mingze Gao, Lizhu Zhang, Kun Zhang"
 date_published: "2025-10-23"
 date_ingested: "2026-04-06"

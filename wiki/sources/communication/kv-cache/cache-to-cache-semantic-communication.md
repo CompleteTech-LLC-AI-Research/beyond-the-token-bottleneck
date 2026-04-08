@@ -3,7 +3,6 @@ type: source
 title: "Cache-to-Cache: Direct Semantic Communication Between Large Language Models"
 source_file: "[[raw/pdf/arxiv-2510.03215.pdf]]"
 latex_source: "[[raw/latex/arxiv-2510.03215.tar.gz]]"
-venue_pdfs: ["[[raw/pdf/openreview-LeatkxrBCi.pdf|OpenReview]]"]
 author: "Tianyu Fu, Zihan Min, Hanling Zhang, Jichao Yan, Guohao Dai, Wanli Ouyang, Yu Wang"
 date_published: "2025-10-04"
 date_ingested: "2026-04-06"
@@ -18,7 +17,7 @@ tags: [kv-cache, cross-model, learned-fusion, multi-llm]
 
 ## Summary
 
-**Cache-to-Cache (C2C)**, from [[tsinghua|Tsinghua University]] and collaborators, proposes a learned neural cache fuser that projects and merges the KV-cache from a source ("Sharer") model into the representation space of a target ("Receiver") model. Unlike [[kvcomm-selective-kv-sharing|KVComm]]'s training-free concatenation (which requires same-architecture models), C2C's learned fuser enables communication across **different model families and sizes** — Qwen to LLaMA, 0.6B to 14B, general to specialized. This is the first approach to enable cross-architecture [[kv-cache-communication]].
+**Cache-to-Cache (C2C)**, from [[tsinghua|Tsinghua University]] and collaborators, proposes a learned neural cache fuser that projects and merges the KV-cache from a source ("Sharer") model into the representation space of a target ("Receiver") model. Unlike [[kvcomm-kth-selective|KVComm]]'s training-free concatenation (which requires same-architecture models), C2C's learned fuser enables communication across **different model families and sizes** — Qwen to LLaMA, 0.6B to 14B, general to specialized. This is the first approach to enable cross-architecture [[kv-cache-communication]].
 
 ## Oracle Experiments: Why KV-Cache Communication Works
 
@@ -153,17 +152,17 @@ The two approaches are potentially complementary: KV Cache Alignment's shared sp
 
 ## Limitations
 
-- **Requires training the fuser**: Unlike [[kvcomm-selective-kv-sharing|KVComm]] (training-free), C2C requires training a per-pair fuser module. Training cost depends on embedding dimension, not model parameter count (efficient), but still adds overhead.
+- **Requires training the fuser**: Unlike [[kvcomm-kth-selective|KVComm]] (training-free), C2C requires training a per-pair fuser module. Training cost depends on embedding dimension, not model parameter count (efficient), but still adds overhead.
 - **One fuser per model pair**: A fuser trained for Qwen→LLaMA may not transfer to Qwen→Gemma. The number of fusers scales as $O(N^2)$ with the number of model pair combinations, motivating [[kv-cache-alignment-shared-space|KV Cache Alignment]]'s $O(N)$ shared-space alternative.
 - **Alignment heuristics**: Token and layer alignment use heuristics (string-based matching, terminal alignment) that may lose information in edge cases. Learned alignment (e.g., via attention-based token matching) could improve robustness.
 - **No multi-round communication**: C2C is evaluated in a single-round Sharer→Receiver setting, not iterative debate. Whether the fuser remains effective when the Receiver's cache has already been fused in a prior round is unknown.
-- **No layer selection integration**: C2C's learnable gate decides per-layer whether to fuse, but does not incorporate [[kvcomm-selective-kv-sharing|KVComm]]'s attention-importance scoring. Combining the two signals (learned gating + calibration-based selection) could improve both efficiency and quality.
+- **No layer selection integration**: C2C's learnable gate decides per-layer whether to fuse, but does not incorporate [[kvcomm-kth-selective|KVComm]]'s attention-importance scoring. Combining the two signals (learned gating + calibration-based selection) could improve both efficiency and quality.
 
 ## Position in the KV-Cache Communication Cluster
 
 C2C addresses **how to fuse across architectures** — the cross-model projection problem. It pairs with:
-- [[kvcomm-selective-kv-sharing|KVComm]]: which addresses **what to share** (layer selection for same-architecture models)
-- [[kvcomm-online-cross-context|KVCOMM-online]]: which addresses **how to make sharing efficient** (cache reuse via offset estimation)
+- [[kvcomm-kth-selective|KVComm]]: which addresses **what to share** (layer selection for same-architecture models)
+- [[kvcomm-duke-online-reuse|KVCOMM-online]]: which addresses **how to make sharing efficient** (cache reuse via offset estimation)
 
 The three papers together cover complementary dimensions of [[kv-cache-communication]].
 

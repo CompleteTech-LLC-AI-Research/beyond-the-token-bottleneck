@@ -3,7 +3,6 @@ type: source
 title: "SoftCoT: Soft Chain-of-Thought for Efficient Reasoning with LLMs"
 source_file: "[[raw/pdf/arxiv-2502.12134.pdf]]"
 latex_source: "[[raw/latex/arxiv-2502.12134.tar.gz]]"
-venue_pdfs: ["[[raw/pdf/acl-2025.acl-long.1137.pdf|ACL 2025]]"]
 author: "Yige Xu, Xu Guo, Zhiwei Zeng, Chunyan Miao"
 date_published: "2025-02-17"
 date_ingested: "2026-04-06"
