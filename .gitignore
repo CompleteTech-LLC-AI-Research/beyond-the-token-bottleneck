@@ -27,3 +27,7 @@ __pycache__/
 *.bak
 *.swp
 *~
+
+# Local agent / tooling state
+.codex/
+.mcp.json
