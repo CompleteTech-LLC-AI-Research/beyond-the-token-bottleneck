@@ -34,7 +34,7 @@ The author teams overlap significantly within the consortium and connect outward
 
 This represents a concentration of multi-agent systems expertise across three top CS departments, with complementary strengths: Princeton's optimization/RL, UIUC's graph/network theory, Stanford's NLP.
 
-### Cross-Entity Connections
+### Cross-Entity Collaboration Summary
 
 | Partner Entity | Connection | Nature |
 |---|---|---|
