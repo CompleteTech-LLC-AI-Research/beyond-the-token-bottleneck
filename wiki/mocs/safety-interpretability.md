@@ -39,7 +39,7 @@ Next, read **[[thinking-states-latent-reasoning|Thinking States]]** to understan
 
 **[[contradictions|Contradictions & Tensions]]**, particularly Tension #8 ("Interpretability: Feature or Dealbreaker?"), articulates the core design conflict. Thinking States preserves interpretability by generating NL thoughts before compression. [[coconut-reasoning-latent-space|Coconut]]'s opaque continuous thoughts enable BFS superposition --- qualitatively superior computation impossible with interpretable intermediate steps. You cannot have a human-readable intermediate step that simultaneously encodes multiple hypotheses. This is not a contradiction to resolve but a fundamental trade-off to navigate. The proposed creative resolution: use ThoughtComm's disentanglement to provide *post-hoc* interpretability of opaque continuous thoughts, giving the power of superposition during computation and the auditability of disentanglement after the fact.
 
-### 6a. The Worst Case: When Latent Reasoning Isn't Even Used
+### 7. The Worst Case: When Latent Reasoning Isn't Even Used
 
 **[[latent-reasoning-supervision-analysis|Cui et al. (2026)]]** introduces a third, even more troubling failure mode for auditability: **the model isn't using its own latent reasoning at all**. Their depth ablation and noise-injection experiments show that most latent reasoning methods retain non-trivial accuracy even when latent steps are entirely disabled or destroyed by Gaussian noise far exceeding the embedding magnitude. Attention analysis on Coconut/ProsQA confirms that the top-10 attended tokens during answer generation come *exclusively* from the input question, never from the latent reasoning tokens.
 
@@ -47,11 +47,11 @@ The safety implication: **even a perfectly disentangled latent audit tool is use
 
 The mitigation Cui et al. propose — stronger supervision (CoLaR-style token-level alignment) — eliminates shortcut behavior but **destroys latent diversity**, collapsing the model to ~3 distinct outcome trajectories vs. ~16 for weakly supervised methods. This is the **supervision–exploration trade-off** documented under [[catastrophic-forgetting#The Second Barrier: The Supervision–Exploration Trade-Off|catastrophic forgetting's second barrier]]. For safety practitioners, the takeaway is that any audit tool must include a **causality test** (does perturbing the latent state actually change the output?) before its conclusions can be trusted.
 
-### 7. The Unsolved Questions
+### 8. The Unsolved Questions
 
 **[[open-questions|Open Questions]]** collects the safety-relevant unknowns across the wiki. The "Structure & Interpretability" cluster is most directly relevant: Can disentangled latent thoughts reveal *why* agents disagree? Can the framework distinguish informative thoughts from noise? Does pairwise identifiability composition remain robust with dozens or hundreds of agents? And under "Safety & Robustness": Can a malicious agent craft embedding vectors that exploit the receiver's processing in ways discrete tokens cannot? These are not abstract concerns --- adversarial latent messages are a concrete attack surface that no current system defends against.
 
-### 8. Where the Field Must Go
+### 9. Where the Field Must Go
 
 **[[frontier-research-directions|Frontier Research Directions]]** identifies the research paths that will determine whether latent systems become auditable. Direction #2 --- disentangling superposed reasoning paths by applying ThoughtComm's identifiability framework to [[coconut-reasoning-latent-space|Coconut]]'s superposed continuous thoughts --- is the most safety-relevant. If successful, it would create explicit, controllable tree search in latent space: the model reasons in opaque superposition, then a disentanglement module makes the search tree explicit and steerable. This is the best candidate for resolving the interpretability-vs-power tension. Direction #8 (learned compression bounds) is also safety-relevant: understanding the minimum bandwidth for inter-agent communication constrains the attack surface and the audit burden.
 
