@@ -13,11 +13,7 @@ Google's research division (distinct from [[google-deepmind|Google DeepMind]]). 
 
 ## Contribution Timeline
 
-| Date | Paper | Role | Key Result |
-|------|-------|------|------------|
-| Oct 2023 | [[pause-tokens\|Pause Tokens]] | Lead (with CMU) | Existence proof: transformers use non-linguistic computation |
-| Dec 2025 | [[scaling-agent-systems\|Scaling Agent Systems]] | Co-lead (with DeepMind, MIT) | Quantitative scaling framework; task-contingent coordination |
-| Feb 2026 | [[thinking-states-latent-reasoning\|Thinking States]] | Lead | Supervised latent reasoning; 2.66× speedup; identifies state ambiguity |
+![[google-research/timeline]]
 
 ## Research Themes
 
@@ -63,12 +59,4 @@ The trajectory shows Google Research moving from proof-of-concept to deployment 
 
 ## Key Researchers
 
-- **Ido Amos**: First author on Thinking States. Leads the production-oriented latent reasoning effort.
-- **Avi Caciularu**: Co-author on Thinking States; NLP expertise.
-- **Mor Geva**: Co-author on Thinking States; interpretability and internal representations. Her expertise in understanding model internals informs the deep-to-shallow recurrence design.
-- **Amir Globerson**: Senior researcher on Thinking States.
-- **Jonathan Herzig**: Co-author on Thinking States.
-- **Lior Shani**: Co-author on Thinking States.
-- **Idan Szpektor**: Senior researcher on Thinking States.
-- **Sachin Goyal**: First author on Pause Tokens ([[cmu|CMU]] affiliation). Bridges the CMU–Google Research collaboration.
-- **Yubin Kim**: Lead author on Scaling Agent Systems (Google Research). Connects to [[google-deepmind|DeepMind]] and [[mit|MIT]] scaling work.
+![[google-research/researchers]]

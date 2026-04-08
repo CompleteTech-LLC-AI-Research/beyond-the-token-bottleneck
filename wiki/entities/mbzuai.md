@@ -13,9 +13,7 @@ The Mohamed bin Zayed University of Artificial Intelligence, based in Abu Dhabi.
 
 ## Contribution Timeline
 
-| Date | Paper | Role | Key Result |
-|------|-------|------|------------|
-| Oct 2025 | [[thought-communication-multiagent\|ThoughtComm]] | Co-lead (with CMU, Meta AI) | Identifiable latent thoughts; MATH 93% |
+![[mbzuai/timeline]]
 
 ## Research Themes
 
@@ -49,6 +47,4 @@ MBZUAI has a single paper in this collection (Oct 2025), but its position in the
 
 ## Key Researchers
 
-- **Yaqi Xie**: Co-author on ThoughtComm. Contributes causal representation learning expertise.
-- **Mingze Gao**: Co-author on ThoughtComm. Works on structured latent space design.
-- **Zijian Li**: Co-author on ThoughtComm. Listed with MBZUAI affiliation in the author list.
+![[mbzuai/researchers]]

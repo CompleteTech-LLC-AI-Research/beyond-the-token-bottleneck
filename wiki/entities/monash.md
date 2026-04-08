@@ -13,9 +13,7 @@ Australian academic research group contributing the **first empirical study of i
 
 ## Contribution Timeline
 
-| Date | Paper | Role | Key Result |
-|------|-------|------|------------|
-| Oct 2025 | [[inference-time-scaling-continuous-reasoning\|Wang et al. (Inference-time Scaling for Continuous Reasoning)]] | Sole institution | Demonstrates dropout-based sampling unlocks Pass@32 of 44.43% on COCONUT (GPT-2/GSM8K) but PRM/ORM reranking recovers only 19.8% of the headroom; diagnoses geometric homogeneity (IsoScore$\star \approx 0.013$) as the root cause |
+![[monash/timeline]]
 
 ## Research Themes
 
@@ -60,10 +58,7 @@ Monash is a new entity in this collection. Natural next steps for the same group
 
 ## Key Researchers
 
-- **Minghan Wang** (first author, Monash): Designed the dropout-sampling protocol and the PRM/ORM training pipeline. Also the first author on follow-up work in continuous-space reasoning expected from this group.
-- **Thuy-Trang Vu** (Monash): Co-author on the experimental design and the geometric-properties analysis.
-- **Ehsan Shareghi** (Monash): Senior co-author. Research interests in NLP and language model evaluation.
-- **Gholamreza Haffari** (Monash): Senior advisor. Long-standing research interest in machine translation and structured prediction, which informs the trajectory-dynamics methodology.
+![[monash/researchers]]
 
 ## Why This Entity Matters
 

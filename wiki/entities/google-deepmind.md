@@ -13,10 +13,7 @@ Google's AI research lab. Contributor of the most architecturally ambitious appr
 
 ## Contribution Timeline
 
-| Date | Paper | Role | Key Result |
-|------|-------|------|------------|
-| Dec 2025 | [[scaling-agent-systems\|Scaling Agent Systems]] | Co-lead (with Google Research, MIT) | Quantitative scaling framework; task-contingent coordination |
-| Jan 2026 | [[kv-cache-alignment-shared-space\|KV Cache Alignment]] | Lead | O(N) shared space; self-improvement effect; zero-shot extensibility |
+![[google-deepmind/timeline]]
 
 ## Research Themes
 
@@ -68,7 +65,4 @@ Google DeepMind's KV Cache Alignment paper (Jan 2026) is architecturally ambitio
 
 ## Key Researchers
 
-- **Lucio M. Dery**: Corresponding author on KV Cache Alignment; designed the shared space architecture. The key architect of the interlingua approach.
-- **Arthur Szlam**: Senior researcher on KV Cache Alignment; also associated with DiPaCo distributed training (relevant to distributed multi-agent systems). Previously at FAIR, providing a historical link to [[fair-meta|Meta AI]].
-- **Yubin Kim**: Lead author on the Scaling Agent Systems paper (Google Research/DeepMind).
-- **Zohar Yahav, Henry Prior, Qixuan Feng, Jiajun Shen**: Co-authors on KV Cache Alignment.
+![[google-deepmind/researchers]]

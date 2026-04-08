@@ -13,10 +13,7 @@ A multi-institutional collaboration behind two of the most significant unified f
 
 ## Contribution Timeline
 
-| Date | Paper | Role | Key Result |
-|------|-------|------|------------|
-| Nov 2025 | [[latentmas-collaboration\|LatentMAS]] | Lead (multi-institution) | First unified latent reasoning + communication; training-free; GSM8K 95.2% |
-| Feb 2026 | [[agent-primitives-building-blocks\|Agent Primitives]] | UIUC lead | Composable latent operators; beats 10 MAS baselines |
+![[princeton-uiuc-stanford/timeline]]
 
 ## Research Themes
 
@@ -59,10 +56,4 @@ The trajectory moves from monolithic system to composable architecture. The next
 
 ## Key Researchers
 
-- **Jiaru Zou**: First author on LatentMAS. Designed the training-free unified pipeline.
-- **Mengdi Wang**: Senior advisor (Princeton); optimization and RL. Her optimization expertise drives the ridge regression alignment approach in LatentMAS.
-- **James Zou**: Senior advisor (Stanford); statistical ML. Appears in both the multi-agent and medical AI literature.
-- **Hanghang Tong, Jingrui He**: Senior advisors (UIUC); graph learning. Their graph-theoretic perspective explains LatentMAS's topology-aware design (sequential, hierarchical).
-- **Yejin Choi**: Co-advisor (Stanford/UW); NLP. The key cross-entity figure — co-authors LatentMAS and [[icot-internalize-cot|iCoT]] ([[harvard|Harvard]]), bridging reasoning internalization and unified frameworks.
-- **Haibo Jin**: First author on Agent Primitives. Designed the composable primitive abstraction.
-- **Haohan Wang**: Senior advisor on Agent Primitives (UIUC). Leads the UIUC contribution to the primitives framework.
+![[princeton-uiuc-stanford/researchers]]

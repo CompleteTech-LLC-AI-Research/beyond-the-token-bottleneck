@@ -13,10 +13,7 @@ A leading Chinese research university. Primary contributor to cross-architecture
 
 ## Contribution Timeline
 
-| Date | Paper | Role | Key Result |
-|------|-------|------|------------|
-| Jun 2025 | [[state-delta-trajectory\|SDE]] | Lead | Deltas outperform raw states; +7.3pp over CIPHER |
-| Oct 2025 | [[cache-to-cache-semantic-communication\|C2C]] | Lead | First cross-architecture KV-cache fusion; 2.5× speedup |
+![[tsinghua/timeline]]
 
 ## Research Themes
 
@@ -54,8 +51,4 @@ The trajectory suggests Tsinghua is building toward a **unified cross-architectu
 
 ## Key Researchers
 
-- **Yu Wang**: Corresponding author on C2C; systems and architecture focus. The senior figure driving Tsinghua's communication systems program.
-- **Tianyu Fu**: Co-first author on C2C (joint Tsinghua/Infinigence AI). Dual affiliation reflects the industry collaboration pattern.
-- **Yichen Tang**: First author on SDE. Bridges information retrieval and multi-agent communication.
-- **Qingyao Ai**: Senior advisor on SDE; information retrieval background. His THUIR group provides the evaluation methodology expertise.
-- **Wanli Ouyang**: Co-author on C2C (Shanghai AI Lab). Senior figure connecting Shanghai AI Lab to Tsinghua's vision.
+![[tsinghua/researchers]]
