@@ -36,7 +36,7 @@ The "in the same `wiki/sources/**/` directory" qualifier matters because cross-d
 
 ## Used by
 
-- `workflows/ingest.md` (expected, PR 2b — Procedure step 3, "Pick a slug")
-- `workflows/batch-ingest.md` (expected, PR 2b — applies to every paper in the batch)
-- `workflows/lint.md` (expected, PR 2b — Redundancy & Dead-Reference Audit, section C)
+- `workflows/ingest.md` (Procedure step 3, "Pick a slug")
+- `workflows/batch-ingest.md` (applies to every paper in the batch)
+- `workflows/lint.md` (Redundancy & Dead-Reference Audit, section C)
 - `workflows/_shared/procedures/bulk-source-rename.md` — the retroactive fix when this rule was violated

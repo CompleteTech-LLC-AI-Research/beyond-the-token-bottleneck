@@ -49,9 +49,10 @@ Return to the calling workflow and proceed with its next numbered step. This fra
 
 ## Used by
 
-- `workflows/ingest.md` (expected, PR 2b — Procedure step 15, replacing the current one-line pointer)
-- `workflows/batch-ingest.md` (expected, PR 2b — final consolidation step)
-- `workflows/gap-analysis.md` (expected, PR 2b — Phase 6, replacing the inlined long form that this fragment is sourced from)
-- `workflows/enrich.md` (expected, PR 2b — final step)
-- `workflows/synthesize.md` (expected, PR 2b — final step)
-- `workflows/enrichment-audit.md` (expected, PR 2b — Phase 4 final step)
+- `workflows/ingest.md` (Procedure step 13)
+- `workflows/batch-ingest.md` (Procedure step 7)
+- `workflows/gap-analysis.md` (Phase 6 — this fragment is the canonical home of the procedure that used to live inline in Phase 6)
+- `workflows/enrich.md` (Procedure step 6)
+- `workflows/synthesize.md` (Procedure step 8)
+- `workflows/enrichment-audit.md` (Phase 4 step 5)
+- `workflows/moc-gap-analysis.md` (Procedure step 12)

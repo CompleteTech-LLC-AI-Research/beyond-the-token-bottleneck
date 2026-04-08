@@ -1,8 +1,8 @@
 # Glossary
 
-Canonical names for concepts that have drifted across existing workflows. Workflows MUST use the canonical term in new prose. The lint workflow's terminology check (expected, PR 2b) flags drift variants for normalization.
+Canonical names for concepts that have drifted across existing workflows. Workflows MUST use the canonical term in new prose. The lint workflow's terminology check flags drift variants for normalization.
 
-This glossary expands the seed in [`../CONVENTIONS.md`](../CONVENTIONS.md). When you add a new term, add it here and remove it from the seed. The seed is being deprecated in favor of this fragment.
+This glossary is the single source of truth for canonical terminology — `workflows/CONVENTIONS.md` points here and contains no inline glossary. When you encounter a term that drifts, add it here.
 
 ## Terms
 
@@ -89,12 +89,12 @@ This glossary expands the seed in [`../CONVENTIONS.md`](../CONVENTIONS.md). When
 ## How this glossary is enforced
 
 - **Authoring time:** Workflows reference this glossary when introducing new prose. Use the canonical term, not a drift variant.
-- **Lint time:** The lint workflow's terminology check (expected, PR 2b) greps for drift variants and flags them for normalization.
+- **Lint time:** The lint workflow's terminology check greps for drift variants and flags them for normalization.
 - **Review time:** The review workflow surfaces drift variants in its findings list.
 
 ## Used by
 
-- `workflows/CONVENTIONS.md` (the seed glossary will be removed once this fragment is referenced from the main workflows; until then, both exist with this fragment as the canonical source)
-- `workflows/lint.md` (expected, PR 2b — terminology check)
-- `workflows/review.md` (expected, PR 2b — terminology drift in findings)
-- All workflow files (expected, PR 2b — every workflow that uses any term in this glossary should use the canonical form)
+- `workflows/CONVENTIONS.md` (one-line pointer; CONVENTIONS.md no longer carries a seed glossary)
+- `workflows/lint.md` (terminology drift scan, Procedure step 6)
+- `workflows/review.md` (terminology drift scan, Procedure step 9)
+- All workflow files (every workflow that uses any term in this glossary should use the canonical form)

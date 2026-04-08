@@ -6,13 +6,13 @@ graph TD
     B --> C["Create Source Page"]
     C --> D["Update Entity &<br/>Concept Pages"]
     D --> E["Update Institution<br/>Entity Pages"]
-    E --> F["Update wiki/index.md"]
-    F --> G["Update MOC<br/>Reading Paths"]
-    G --> H["Update arXiv<br/>Downloader Script"]
-    H --> I["Update raw/index.md<br/>Asset Mapping"]
-    I --> J["Check Living<br/>Analyses"]
-    J --> K["Append to<br/>wiki/log.md"]
+    E --> F["update-index-and-assets<br/>(wiki/index, raw/index,<br/>downloader, checklist row)"]
+    F --> G["moc-update<br/>per affected MOC"]
+    G --> J["living-analyses-review<br/>(per item)"]
+    J --> J2["stale-count-sweep"]
+    J2 --> K["Append to<br/>wiki/log.md"]
     K --> L["Report Outcome<br/>to User"]
+    L --> M["commit-and-push"]
 
     subgraph read ["Input & Reading"]
         A
@@ -31,14 +31,14 @@ graph TD
         E
         F
         G
-        H
-        I
         J
+        J2
     end
 
     subgraph complete ["Completion & Reporting"]
         K
         L
+        M
     end
 
     style read fill:#dae8fc,stroke:#6c8ebf,color:#333
@@ -82,49 +82,29 @@ Do not use this workflow when the task is only to answer a question, run a lint 
 1. Read the source file in `raw/`.
 2. Discuss key takeaways with the user. Ask what to emphasize if unclear.
 3. **Pick a slug that disambiguates by default.** Before creating the file, `Glob wiki/sources/**/*.md` and check whether the leading hyphen-token of your candidate slug already exists (e.g., another `kvcomm-*` or `coconut-*`). If it does, use the hybrid form `<technique>-<institution>-<distinguisher>.md` so collisions never accumulate.
-4. Create a source summary page in the appropriate `wiki/sources/` subdirectory. Include:
-   - Full frontmatter: `type`, `title`, `source_file`, `latex_source` (if available), `author`, `date_published`, `date_ingested`, `created`, `tags`.
-   - If venue duplicate PDFs exist **and the file is actually present in `raw/pdf/`**, add `venue_pdfs:`. **Never list a venue PDF you have not downloaded** — verify each path with `Glob` before writing the frontmatter. Phantom `venue_pdfs:` entries propagate into `raw/index.md` and break lint passes weeks later.
-   - A `## Source Materials` footer linking to the PDF and LaTeX source. Both paths must already exist on disk.
-   - Section-specific detail per the depth standard.
+4. Create a source page in the appropriate `wiki/sources/` subdirectory.
+   - Author the frontmatter, then run [verify frontmatter completeness](_shared/procedures/verify-frontmatter-completeness.md) in full and return here before continuing. The fragment is the canonical schema; per-type field lists live there, not here.
+   - **Conditional `venue_pdfs:`**: only list a venue PDF when the file is actually present in `raw/pdf/` — verify each path with `Glob` before writing the frontmatter. Phantom `venue_pdfs:` entries propagate into `raw/index.md` and break lint passes weeks later. (This invariant is repeated inline because losing it in delegation has bitten previous ingests; the fragment also enforces it.)
+   - Add a `## Source Materials` footer linking to the PDF and LaTeX source. Both paths must already exist on disk.
+   - Fill in section-specific detail per the depth standard.
 5. For each significant entity or concept mentioned:
    - If a page exists, update it with new information and cite the new source.
    - If no page exists, create one with `title:` in frontmatter.
 6. For each institution involved, update or create the entity page. Entity pages use the **partial structure** defined in `workflows/_shared/procedures/entity-partials.md`: a narrative shell at `wiki/entities/<slug>.md` plus partials at `wiki/entities/<slug>/timeline.md` (the Contribution Timeline table) and `wiki/entities/<slug>/researchers.md` (the Key Researchers list), embedded into the shell via `![[<slug>/timeline]]` and `![[<slug>/researchers]]`.
    - **Existing entity**: edit only `wiki/entities/<slug>/timeline.md` to add a new row for the ingested paper, and `wiki/entities/<slug>/researchers.md` if the paper introduces new key researchers. Any MOC or analysis that transcludes these partials updates automatically — do not also hand-edit those consumers.
    - **New entity**: follow the "Adding a new entity under this convention" checklist in `workflows/_shared/procedures/entity-partials.md`. Create the shell, the two partials (with `type: entity-partial` frontmatter), and add the entity to `wiki/index.md`'s Entities section with the partial subdirectory reflected in the directory-tree counts.
-7. Update `wiki/index.md` and verify directory tree counts.
-8. Update relevant MOC pages (`wiki/mocs/*.md`) to add the new source or concept to the correct reading path.
-9. If the source is on arXiv, update `raw/download_arxiv_papers.py` so the downloader includes the new paper ID and the correct LaTeX storage mode (`archive` vs `extract`).
-10. Update `raw/index.md` to add the new PDF and LaTeX source to the asset mapping. **Also append a new row to `raw/checklist.md`** (the URL audit trail, parallel to `raw/index.md`'s asset map). The checklist has eight columns: `Paper | Original refs from list | Canonical PDF download | Canonical LaTeX/source download | PDF present | Local PDF | LaTeX present | Local LaTeX/source`. Fill the row as follows:
-    - **Paper**: the paper title.
-    - **Original refs from list**: `arXiv:XXXX.XXXXX` plus any venue-duplicate IDs (OpenReview, ACL, EMNLP, ICLR, NeurIPS, ICML) that appear in the "Duplicate PDFs (Venue Copies)" section of `raw/index.md` for this paper. Separate multiple refs with `;`. **Only include venue refs whose PDF is actually present in `raw/pdf/`** — same constraint as step 4's `venue_pdfs:` frontmatter.
-    - **Canonical PDF download**: `https://arxiv.org/pdf/{id}` (use the bare ID, no version suffix unless intentionally pinning).
-    - **Canonical LaTeX/source download**: `https://arxiv.org/e-print/{id}`.
-    - **PDF present** / **LaTeX present**: `Yes` once the downloader has run.
-    - **Local PDF**: `raw/pdf/arxiv-XXXX.XXXXX.pdf`. **Do not use `reference/pdf/...`** — that is a stale historical path from a pre-move vault layout and has caused drift in the past.
-    - **Local LaTeX/source**: must match the actual on-disk format chosen in `raw/download_arxiv_papers.py`. Use `raw/latex/arxiv-XXXX.XXXXX/` (trailing slash) for `extract`-mode papers whose source was unpacked into a directory, and `raw/latex/arxiv-XXXX.XXXXX.tar.gz` for `archive`-mode papers stored as a tarball.
-
-    The invariant: every arXiv paper listed in `raw/index.md`'s "Canonical PDFs" table must have exactly one corresponding row in `raw/checklist.md`. Non-arXiv sources (e.g., the latentcompress GitHub project) are intentionally excluded from the checklist.
-11. **Review living analyses per-item.** Run the [living analyses review](_shared/procedures/living-analyses-review.md) in full, then return here and continue with step 12. Every numbered direction in `frontier-research-directions.md` and every numbered tension in `contradictions.md` must be reviewed individually — the high-level "is this page relevant?" question hides individual matches.
-12. **Mandatory:** Run the [stale count sweep](_shared/procedures/stale-count-sweep.md). This is a first-class regression class — do not skip. The common-offender list and grep patterns live in the fragment; apply them against the pre-ingest count (N) and the post-ingest count (N+1 or N+k). When complete, return here and continue with step 13.
-13. Append an entry to `wiki/log.md`.
-14. Report the outcome to the user: pages created, pages updated, and any contradictions found.
-15. **Commit and push** (mirrors `workflows/gap-analysis.md` Phase 6 — apply the same discipline when ingest is invoked directly). Stage research files by explicit path (not `git add -A`); never stage pre-existing in-progress work, `.codex/`, `.mcp.json`, or `.obsidian/graph.json`. Commit on `master` with a descriptive message and the `Co-Authored-By` trailer. Push `master`. **If workflow files were also touched**, create a feature branch, commit workflow changes on the branch, push, and open a PR with a Summary + Test plan body — never commit workflow changes directly to `master`. See `workflows/gap-analysis.md` Phase 6 for the full procedure.
+7. **Sync indexes and assets.** Run [update index and assets](_shared/procedures/update-index-and-assets.md) in full, then return here and continue with step 8. The fragment owns: `wiki/index.md` directory-tree counts and entry-list updates, `raw/index.md` PDF/LaTeX/venue-PDF tables, `raw/download_arxiv_papers.py` reproducibility, and the appended row in `raw/checklist.md` via [raw checklist row](_shared/procedures/raw-checklist-row.md).
+8. **Update relevant MOC reading paths.** For each MOC whose theme the new source touches, run [moc update](_shared/procedures/moc-update.md), then return here and continue with step 9. Insert each new entry in the position the MOC's ordering principle dictates — not appended at the end.
+9. **Review living analyses per-item.** Run the [living analyses review](_shared/procedures/living-analyses-review.md) in full, then return here and continue with step 10. Every numbered direction in `frontier-research-directions.md` and every numbered tension in `contradictions.md` must be reviewed individually — the high-level "is this page relevant?" question hides individual matches.
+10. **Mandatory:** Run the [stale count sweep](_shared/procedures/stale-count-sweep.md). This is a first-class regression class — do not skip. The common-offender list and grep patterns live in the fragment; apply them against the pre-ingest count (N) and the post-ingest count (N+1 or N+k). When complete, return here and continue with step 11.
+11. Append an entry to `wiki/log.md`.
+12. Report the outcome to the user: pages created, pages updated, and any contradictions found.
+13. **Commit and push.** Run [commit and push](_shared/procedures/commit-and-push.md) in full. The fragment owns the research-vs-workflow split, the explicit-path staging discipline, the `Co-Authored-By` trailer requirement, and the feature-branch + PR rule for any workflow file changes.
 
 ## Completion Checklist
 
-- The source page exists in the correct `wiki/sources/` location.
-- All relevant entity and concept pages were updated or created.
-- `wiki/index.md` reflects the new pages **and** all directory-tree counts (sources, entities, MOCs, analyses, concepts) are updated.
-- Relevant MOCs include the new reading path entries.
-- `raw/index.md` and `raw/download_arxiv_papers.py` were updated if needed.
-- `raw/checklist.md` includes a new row for the ingested paper, with `raw/pdf/...` (not `reference/...`) paths and any venue-duplicate refs.
-- Every numbered direction in `frontier-research-directions.md` and every numbered tension in `contradictions.md` was reviewed individually (not just the page as a whole).
-- All living analyses reviewed per `_shared/procedures/living-analyses-review.md`.
-- Stale count sweep performed per `_shared/procedures/stale-count-sweep.md` — every common-offender file re-verified by name.
-- `README.md` badge counts, paragraph text, and per-thread `(N papers)` summary headers all reflect the new count.
-- `wiki/log.md` includes the ingest entry.
+- All items in [`_shared/checklists/base.md`](_shared/checklists/base.md) hold.
+- All items in [`_shared/checklists/ingest-additions.md`](_shared/checklists/ingest-additions.md) hold.
 
 ## Related Workflows
 

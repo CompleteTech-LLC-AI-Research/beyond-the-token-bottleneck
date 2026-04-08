@@ -86,31 +86,28 @@ Use this workflow when the wiki already has content and you need to clean up str
 
 ## Procedure
 1. Run a lightweight MOC Gap Analysis:
-   - Check whether any theme has 5+ uncovered pages.
-   - Update existing MOCs when new pages are added to their theme.
-- Verify the `AGENTS.md` Current MOCs list matches actual MOC files.
+   - Check whether any theme has 5+ uncovered pages (a full check belongs to `workflows/moc-gap-analysis.md`; this is a quick scan).
+   - For each existing MOC whose reading path needs an update, run [moc update](_shared/procedures/moc-update.md), then return here and continue.
+   - Verify the `AGENTS.md` Current MOCs list matches actual MOC files.
 2. Audit backlinks:
    - Scan for entity and concept names mentioned in prose but not wiki-linked.
    - Add missing links.
    - Check that cross-concept references are bidirectional where the connection is discussed on both sides.
 3. Verify raw asset linking:
-   - Ensure all source pages have `source_file:`, `latex_source:`, and `venue_pdfs:` when applicable.
+   - Run [verify frontmatter completeness](_shared/procedures/verify-frontmatter-completeness.md) on each source page touched by the pass, then return here.
    - Ensure all source pages include a `## Source Materials` footer.
    - Add section-specific PDF citations like `[[raw/pdf/file.pdf|Paper §X]]` to concept pages for key claims.
-4. Sync indexes:
-   - Verify `wiki/index.md` directory tree counts match actual page counts.
-   - Verify all pages appear in the appropriate index sections.
-5. Update `raw/index.md` if new PDFs or LaTeX sources were added.
-6. Update `raw/download_arxiv_papers.py` if arXiv assets were added so the download list stays reproducible.
-7. Update `wiki/log.md` with what changed.
+4. **Sync indexes and assets.** Run [update index and assets](_shared/procedures/update-index-and-assets.md) in full, then return here and continue with step 5. The fragment owns: `wiki/index.md` directory-tree counts and entry-list updates, `raw/index.md` PDF/LaTeX/venue-PDF tables, and `raw/download_arxiv_papers.py` reproducibility.
+5. Update `wiki/log.md` with what changed.
+6. **Commit and push.** Run [commit and push](_shared/procedures/commit-and-push.md) in full.
+
+If the pass turns up a slug-collision rename, follow [bulk source rename](_shared/procedures/bulk-source-rename.md) — it is the only context where `sed` is the blessed tool, and the verification step is non-negotiable.
 
 ## Completion Checklist
+- All items in [`_shared/checklists/base.md`](_shared/checklists/base.md) hold.
 - MOC coverage gaps were checked and only expected gaps remain.
 - Internal links are present where prose refers to entities or concepts.
 - Source pages expose required asset metadata and source-material footers.
-- Index counts and page listings match the actual vault state.
-- Any arXiv-related changes are reflected in `raw/download_arxiv_papers.py`.
-- The work is logged in `wiki/log.md`.
 
 ## Related Workflows
 - `workflows/lint.md`

@@ -29,22 +29,15 @@ Every workflow file MUST use the following heading order. Sections marked option
 
 Optional trailing sections (such as `## Notes for Future Refinement`) may appear after `## Related Workflows` but must not displace any of the required sections above.
 
-## Terminology glossary (seed)
+## Terminology
 
-Canonical names for concepts that have drifted across existing workflows. This seed will be expanded in PR 2's `_shared/glossary.md`.
-
-| Canonical term | Deprecated / drift variants | Notes |
-| --- | --- | --- |
-| living analyses | gap-tracking analysis pages; analysis pages in `wiki/analyses/` | The six+ files under `wiki/analyses/` that must be checked on every ingest. `gap-analysis.md` uses "gap-tracking analysis pages"; `ingest.md` uses "living analysis". Prefer "living analyses". |
-| source page | source summary page; source file page | A markdown page under `wiki/sources/**/` that summarizes a single paper. `ingest.md` mixes "source summary page" and "source page". Prefer "source page". |
-| reading path | reading path outline; MOC reading path | The ordered traversal baked into a MOC. `ingest.md` uses "reading path"; older drafts used "reading path outline". Prefer "reading path". |
-| coordinator-only files | shared files; off-limits for agents; do-not-touch files | Files that only the coordinator (human or orchestrator agent) may edit. Prefer "coordinator-only files"; avoid "shared" (ambiguous with `_shared/` fragments). |
+Canonical terms and drift variants are tracked in [`_shared/glossary.md`](_shared/glossary.md). New terms go in the glossary, not here. The lint and review workflows grep for the drift variants enumerated there and surface them as findings.
 
 ## Meta-rules
 
 - Never reference a file path without verifying it exists on disk. Phantom references propagate into indexes and break lint passes weeks later.
 - Log entries in `wiki/log.md` are point-in-time records — never backdate, never rewrite, never sweep counts inside them.
-- Workflow file changes go via feature branch + PR, never directly to `master` (see `ingest.md:123` and `gap-analysis.md` Phase 6).
+- Workflow file changes go via feature branch + PR, never directly to `master` (see [`_shared/procedures/commit-and-push.md`](_shared/procedures/commit-and-push.md) for the canonical procedure).
 - Mermaid node labels use `<br>` for line breaks, not `\n` (which renders literally in Obsidian).
 - Fragment links use relative paths from the workflow file's location (e.g. `_shared/procedures/stale-count-sweep.md`, not `/workflows/_shared/...`).
 

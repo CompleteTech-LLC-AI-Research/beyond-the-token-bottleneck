@@ -83,30 +83,30 @@ Common triggers include:
 1. Run the full lint checklist:
    - contradictions, orphans, red links, stale claims, and missing cross-references
    - file placement, path references, and count accuracy
-2. Spot-check that all pages have required frontmatter fields:
-   - `type`, `title`, `created`
-   - `source_file` and `latex_source` for source pages
+2. **Spot-check frontmatter completeness on a sample of pages.** Run [verify frontmatter completeness](_shared/procedures/verify-frontmatter-completeness.md) on the sample, then return here. The fragment is the canonical schema; the per-type field lists live there, not here.
 3. Verify all source pages have the `## Source Materials` footer.
 4. Identify pages below the depth standard and flag them for expansion.
 5. Check MOC coverage:
    - all major themes have MOCs
    - MOCs are current
-- the `AGENTS.md` MOC list is in sync
+   - the `AGENTS.md` MOC list is in sync
 6. Check whether `overview-state-of-field.md` needs updating using the documented triggers.
 7. Verify `AGENTS.md` directory structure, path conventions, and workflow steps still match the actual vault layout.
 8. If the vault was reorganized, ensure all path references across `AGENTS.md`, `README.md`, index files, and `raw/index.md` are updated.
-9. Report all findings.
-10. Apply fixes only with user approval.
-11. Log the review in `wiki/log.md`.
+9. **Terminology drift scan.** Grep for the drift variants enumerated in [glossary](_shared/glossary.md) and add them to the findings list. Do not silently rewrite — drift variants surface as findings so the user sees the pattern.
+10. Report all findings.
+11. Apply fixes only with user approval.
+12. Log the review in `wiki/log.md`.
 
 ## Completion Checklist
+- All items in [`_shared/checklists/base.md`](_shared/checklists/base.md) hold.
+- All items in [`_shared/checklists/audit-additions.md`](_shared/checklists/audit-additions.md) hold.
 - Lint findings are reported.
 - Frontmatter and source-material coverage are checked.
 - Depth gaps are identified.
 - MOC coverage and overview freshness are checked.
 - Schema and path consistency are verified.
-- Fixes are only applied after approval.
-- The review is logged in `wiki/log.md`.
+- Terminology drift findings (if any) are in the report.
 
 ## Related Workflows
 - `Lint` for a narrower health check.

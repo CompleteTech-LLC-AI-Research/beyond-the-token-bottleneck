@@ -69,34 +69,29 @@ Use this workflow to ingest `3+` sources in parallel, keep per-paper work isolat
 
 - The full list of papers or source files to ingest.
 - Any theme grouping that helps assign work cleanly.
-- Awareness that shared files are off-limits for subagents: `wiki/index.md`, `wiki/log.md`, MOCs, `AGENTS.md`, `raw/index.md`, and `wiki/overview-state-of-field.md`.
+- The canonical list of coordinator-only files that subagents must not edit, in [`_shared/rules/shared-file-off-limits.md`](_shared/rules/shared-file-off-limits.md).
 
 ## Procedure
 
 1. Identify every paper to ingest and group them by theme when that reduces overlap.
-2. Launch parallel subagents, one per paper, and give each agent a narrow prompt:
-   - Own only its assigned source page and any directly related concept or entity pages.
-   - Use the full `Ingest` workflow for that one paper.
-   - Do not edit shared files.
-   - Preserve factual accuracy, source citations, and file-path conventions.
-3. Keep the subagent prompt explicit about scope boundaries.
-   - Example instruction: "Refactor only the pages for `paper X`; do not touch shared indexes or MOCs."
-   - Example instruction: "If you need a shared file, report it instead of editing it."
-4. After all subagents complete, consolidate shared files yourself:
-   - Update `wiki/index.md` with all new pages and verify directory tree counts.
-   - Update relevant MOCs with new reading-path entries.
-   - Update `raw/index.md` with new assets.
-   - Append all log entries to `wiki/log.md` in chronological order.
-   - Check living analyses: `contradictions.md`, `open-questions.md`, and `benchmark-overlap.md`.
-5. Run the `Verification` workflow on all subagent output.
+2. **Dispatch the parallel subagents under the protocol.** Run [parallel subagent protocol](_shared/procedures/parallel-subagent-protocol.md) in full, then return here and continue with step 3. The fragment owns: per-agent scope boundaries, the canonical coordinator-only file enumeration, the report-not-edit instruction, and the dispatch contract. Each subagent's task is "run `workflows/ingest.md` end-to-end on paper X" — the protocol fragment's invariants ensure the per-paper work stays isolated.
+3. **Spot-check the agent output.** Run [spot check agent output](_shared/procedures/spot-check-agent-output.md), then return here and continue with step 4. If the spot check escalates (2+ issues across the sample), pause and run `workflows/verification.md` in full before consolidation.
+4. **Consolidate the coordinator-only files** that subagents could not touch:
+   - Run [update index and assets](_shared/procedures/update-index-and-assets.md) once for the whole batch (the fragment's count step uses the post-batch filesystem, so it produces correct counts in one pass).
+   - Run [moc update](_shared/procedures/moc-update.md) once per affected MOC (one call per reading path that gained an entry, not one call per ingested paper).
+   - Run [stale count sweep](_shared/procedures/stale-count-sweep.md) — the count drift from a multi-paper batch is the highest-leverage place for the sweep.
+   - Run [living analyses review](_shared/procedures/living-analyses-review.md) — every numbered direction in `frontier-research-directions.md` and every numbered tension in `contradictions.md` must be reviewed individually, even though the new pages came from different agents.
+   - Append a single chronological-order entry per paper to `wiki/log.md`.
+5. Run the `Verification` workflow on all subagent output. The spot check in step 3 is the lightweight first pass; verification is the heavyweight per-page review.
 6. Update `wiki/overview-state-of-field.md` if the batch materially changes the field picture.
+7. **Commit and push.** Run [commit and push](_shared/procedures/commit-and-push.md) in full. The fragment owns the research-vs-workflow split, the explicit-path staging discipline, the `Co-Authored-By` trailer requirement, and the feature-branch + PR rule for any workflow file changes.
 
 ## Completion Checklist
 
+- All items in [`_shared/checklists/base.md`](_shared/checklists/base.md) hold.
+- All items in [`_shared/checklists/ingest-additions.md`](_shared/checklists/ingest-additions.md) hold (each ingested paper must satisfy them, even though the per-paper work was done by a subagent).
 - Every source was assigned to exactly one subagent.
-- No subagent touched shared files.
-- Shared indexes and logs were consolidated after all agents finished.
-- Verification was run on the final output.
+- The spot check passed (or the escalation to full verification was performed before consolidation).
 - The overview page was updated only if the batch changed the field narrative.
 
 ## Related Workflows

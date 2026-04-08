@@ -33,7 +33,7 @@ Return to the calling workflow and proceed with its next numbered step. This fra
 
 ## Used by
 
-- `workflows/enrichment-audit.md` (expected, PR 2b — Phase 4 step 4, replacing the inlined "Spot-check agent output" line)
-- `workflows/verification.md` (expected, PR 2b — as the entry-point lightweight check before the heavier per-page review subagents are dispatched)
-- `workflows/batch-ingest.md` (expected, PR 2b — after parallel ingest phase, before consolidation)
-- `workflows/moc-gap-analysis.md` (expected, PR 2b — after parallel MOC-creation subagents complete)
+- `workflows/enrichment-audit.md` (Phase 4 step 4, replacing the inlined "Spot-check agent output" line)
+- `workflows/verification.md` (as the entry-point lightweight check before the heavier per-page review subagents are dispatched)
+- `workflows/batch-ingest.md` (after parallel ingest phase, before consolidation)
+- `workflows/moc-gap-analysis.md` (after parallel MOC-creation subagents complete)

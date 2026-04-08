@@ -31,5 +31,5 @@ Return to the calling workflow and proceed with its next numbered step. This fra
 
 ## Used by
 
-- `workflows/ingest.md` (expected, PR 2b — Procedure step 8)
-- `workflows/batch-ingest.md` (expected, PR 2b — once per ingested paper, before consolidation)
+- `workflows/ingest.md` (Procedure step 8)
+- `workflows/batch-ingest.md` (once per ingested paper, before consolidation)

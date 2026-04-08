@@ -53,8 +53,8 @@ Return to the calling workflow and proceed with its next numbered step. This fra
 
 ## Used by
 
-- `workflows/batch-ingest.md` (expected, PR 2b — Procedure step 2, replacing the inlined "Launch parallel subagents" enumeration)
-- `workflows/verification.md` (expected, PR 2b — Procedure step 3, "Run the content accuracy check in parallel")
-- `workflows/moc-gap-analysis.md` (expected, PR 2b — Procedure steps 8–11, "Use parallel subagents if creating 2+ MOCs")
-- `workflows/enrichment-audit.md` (expected, PR 2b — Phase 3, "Execute in Parallel")
-- `workflows/plugin-audit.md` (expected, PR 2b — Procedure step 3, "Bulk fix any issues found using parallel subagents")
+- `workflows/batch-ingest.md` (Procedure step 2, replacing the inlined "Launch parallel subagents" enumeration)
+- `workflows/verification.md` (Procedure step 3, "Run the content accuracy check in parallel")
+- `workflows/moc-gap-analysis.md` (Procedure steps 8–11, "Use parallel subagents if creating 2+ MOCs")
+- `workflows/enrichment-audit.md` (Phase 3, "Execute in Parallel")
+- `workflows/plugin-audit.md` (Procedure step 3, "Bulk fix any issues found using parallel subagents")
