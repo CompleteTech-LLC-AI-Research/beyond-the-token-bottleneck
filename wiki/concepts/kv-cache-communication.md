@@ -2,7 +2,7 @@
 type: concept
 title: "KV-Cache Communication"
 created: "2026-04-06"
-updated: "2026-04-06"
+updated: "2026-04-08"
 tags: [core-concept, latent-communication]
 ---
 
@@ -144,17 +144,11 @@ graph TD
 
 ## Relation to the Communication Spectrum
 
-KV-cache communication sits in the **middle-to-high** range of the [[embedding-space-communication]] spectrum:
+![[depth-spectrum]]
 
-```mermaid
-graph LR
-    A["Natural Language<br>---<br>Shallowest<br>Universal"] --> B["Output Embeddings<br>(CIPHER)<br>---<br>Output layer<br>Shared tokenizer"]
-    B --> C["Disentangled Thoughts<br>---<br>Learned latent space<br>Trained autoencoder"]
-    C --> D["KV-Cache<br>---<br>Attention layers<br>Same/learned arch"]
-    D --> E["Hidden States<br>---<br>Full state<br>Same arch"]
-```
+KV-cache communication occupies **stage 3** of this spine — one step deeper than output embeddings ([[embedding-space-communication|CIPHER-style methods]]) and one step shallower than [[activation-communication|hidden-state activation sharing]]. Its distinctive property among the five stages is that injection is **non-destructive**: the receiver attends to the sender's context through its own attention mechanism rather than overwriting its residual stream, which is exactly the dilemma [[kvcomm-kth-selective|KVComm]] identifies when comparing KV pairs to hidden-state replacement or averaging.
 
-[[cache-to-cache-semantic-communication|C2C]] pushes KV-cache communication leftward on the compatibility axis (cross-architecture), while [[kvcomm-kth-selective|KVComm]]'s layer selection pushes it rightward on the efficiency axis (less data transmitted).
+Within this stage-3 slot, the four papers above move along orthogonal axes layered on top of the depth spine: [[cache-to-cache-semantic-communication|C2C]] and [[kv-cache-alignment-shared-space|KV Cache Alignment]] push cross-architecture compatibility (normally lost as you move deeper), [[kvcomm-kth-selective|KVComm]]'s layer selection trades bandwidth for efficiency, and [[kvcomm-duke-online-reuse|KVCOMM-online]] attacks the prefill cost that grows with cache size. The depth–compatibility trade-off described in the embed is what makes each of these axes load-bearing rather than incidental.
 
 ## Open Questions
 

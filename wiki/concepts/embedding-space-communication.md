@@ -2,7 +2,7 @@
 type: concept
 title: "Embedding-Space Communication"
 created: "2026-04-06"
-updated: "2026-04-06"
+updated: "2026-04-08"
 tags: [core-concept, latent-communication]
 ---
 
@@ -43,53 +43,33 @@ Consider a position where the model assigns probability 0.45 to token A and 0.40
 
 ## Approaches — A Spectrum of Depth
 
-> For the full 10-level spectrum as a standalone guided reference, see **[[communication-depth-spectrum]]**.
+Embedding-space communication sits at one stage of a broader continuum. The canonical framing:
 
-Embedding-space communication is not a single technique but a **spectrum** defined by *where* in the transformer stack the communication happens:
+![[depth-spectrum]]
 
-### 1. Output Embedding Averages (Shallowest)
+Within that spine, this concept focuses on stage 2 — **output embeddings** — and its relationship to the stages immediately above (tokens) and below (KV-cache, activations).
+
+### Output Embedding Averages (the embedding-space stage)
+
 - Introduced by [[cipher-multiagent-debate-embeddings|CIPHER (Pham et al., 2023)]].
 - Each "token" transmitted is the expected embedding under the model's output distribution: emb(t) = Σ p(vocabᵢ) · emb(vocabᵢ) ([[raw/pdf/arxiv-2310.06272.pdf|CIPHER §3.1]]).
-- Stays within the **convex hull** of the vocabulary's embedding space, so the receiver can process it through its normal embedding layer.
+- Stays within the **convex hull** of the vocabulary's embedding space (see [The Convex Hull Constraint](#the-convex-hull-constraint) below), so the receiver can process it through its normal embedding layer.
 - **Pros**: No architectural changes, works with any model sharing the same tokenizer, human-interpretable via nearest-neighbor decoding.
-- **Cons**: Only captures output-layer information; deeper internal representations are still lost.
+- **Cons**: Only captures output-layer information; deeper internal representations (see [[kv-cache-communication]], [[activation-communication]]) are still lost.
 
-### 2. KV-Cache Sharing (Middle)
-- See [[kv-cache-communication]].
-- Shares key-value pairs from specific transformer layers. The receiver incorporates the sender's cached representations directly into its attention mechanism, as if it had "seen" the sender's context.
-- **Pros**: Richer than output embeddings — captures layer-specific representations. Can be selective (share only certain layers or heads).
-- **Cons**: Tighter coupling between models. Requires compatible architectures or alignment layers.
+### Structure as an Orthogonal Axis
 
-### 3. Raw Activation / Hidden-State Sharing (Deepest)
-- See [[activation-communication]].
-- Shares intermediate hidden states or full activation vectors from within the transformer stack.
-- **Pros**: Maximum information transfer — the receiver gets the sender's full computational state.
-- **Cons**: Strongest compatibility requirements. Hidden-state distributions can differ significantly even between models with the same architecture but different training.
+Depth is not the only dimension. [[thought-communication-multiagent|ThoughtComm (Zheng et al., 2025)]] adds **structure** on top of the depth spine: a sparsity-regularized autoencoder extracts **disentangled latent factors** from agent hidden states, then selectively routes them based on recovered [[thought-structure|shared/private structure]]. This is orthogonal to where on the depth axis the communication is tapped — it's about *how* the latent signal is organized before transmission, with identifiability guarantees via [[latent-variable-model]] theory. The cost is a learned autoencoder between sender and receiver.
 
-### 2.5. Disentangled Latent Thoughts (Structured)
-- See [[thought-structure]].
-- Introduced by [[thought-communication-multiagent|ThoughtComm (Zheng et al., 2025)]]. Uses a sparsity-regularized autoencoder to extract **disentangled latent factors** from agent hidden states, then selectively routes them based on the recovered [[thought-structure|shared/private structure]].
-- **Pros**: Adds organization to latent communication — identifies what's shared vs. private, routes selectively, provides identifiability guarantees via [[latent-variable-model]] theory.
-- **Cons**: Requires autoencoder training. Adds a learned component between sender and receiver.
+### Embedding-Specific Methods at a Glance
 
-### The Depth–Compatibility Trade-off
+The table below lists methods that either live at the output-embedding stage or add structure on top of the latent communication axis. For KV-cache and activation methods, see [[kv-cache-communication]] and [[activation-communication]] respectively.
 
-There is a fundamental trade-off: **deeper communication carries more information but demands tighter architectural alignment**. [[thought-communication-multiagent|ThoughtComm]] adds a new dimension: **structure** — not just depth of representation, but organization of what's communicated.
-
-| Level | What's shared | Information density | Compatibility requirement | Key paper |
-|-------|--------------|--------------------|-|-|
-| Natural language | Discrete tokens | Lowest (~15 bits/pos) | Any model | — |
-| Output embeddings | Soft token vectors | Medium | Shared tokenizer | [[cipher-multiagent-debate-embeddings\|CIPHER]] |
-| State deltas | Inter-token hidden-state differences | Medium-High | Same model weights | [[state-delta-trajectory\|SDE]] |
-| Disentangled thoughts | Structured latent factors | Medium-High | Trained autoencoder | [[thought-communication-multiagent\|ThoughtComm]] |
-| Vision-pathway injection | Encoded latent rollouts | Medium-High | VLMs + trained codec | [[vision-wormhole-heterogeneous\|Vision Wormhole]] |
-| KV-cache (selected layers) | Attention key-value pairs | High | Same architecture | [[kvcomm-kth-selective\|KVComm]] |
-| KV-cache (cross-arch.) | Projected + fused KV pairs | High | Learned fuser/shared space | [[cache-to-cache-semantic-communication\|C2C]], [[kv-cache-alignment-shared-space\|KV Alignment]] |
-| Single activation | Last-token residual stream | High | Roughly aligned embeddings | [[activation-communication-harvard\|AC]] |
-| Full hidden-state sequence | All-position last-layer states | Highest (~40K bits/pos) | Trained adapter | [[interlat-latent-space-agents\|Interlat]] |
-| KV-cache + latent thoughts | Full working memory | Highest | Same architecture | [[latentmas-collaboration\|LatentMAS]] |
-
-*Compiled from all sources; see individual papers for primary data.*
+| Method | What's shared | Compatibility requirement | Key paper |
+| ------ | ------------- | ------------------------- | --------- |
+| CIPHER | Soft token vectors (convex hull) | Shared tokenizer | [[cipher-multiagent-debate-embeddings\|CIPHER]] |
+| Disentangled thoughts | Structured latent factors | Trained autoencoder | [[thought-communication-multiagent\|ThoughtComm]] |
+| Vision-pathway injection | Encoded latent rollouts | VLMs + trained codec | [[vision-wormhole-heterogeneous\|Vision Wormhole]] |
 
 ## Key Trade-offs (Detailed)
 
