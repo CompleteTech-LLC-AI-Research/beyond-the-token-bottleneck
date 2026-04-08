@@ -6,6 +6,7 @@
 .obsidian/raw/
 .obsidian/.obsidian/
 .obsidian/.claude/
+.obsidian/graph.json
 .trash/
 .DS_Store
 Untitled.canvas
