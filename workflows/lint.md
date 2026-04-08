@@ -109,9 +109,64 @@ Use this workflow when you need to audit the wiki for quality issues, especially
    - Confirm the two counts match. If they do not, flag the delta.
    - Grep `raw/checklist.md` for `reference/pdf/` and `reference/latex/`. Zero matches are required — these are stale historical paths from a directory move and must be rewritten to `raw/pdf/...` / `raw/latex/...`.
    - For each canonical PDF arxiv ID in `raw/index.md`, confirm a matching row exists in `raw/checklist.md` (match by arxiv ID in either the "Original refs from list" column or the "Local PDF" path). Flag any arxiv IDs present in `raw/index.md` but missing from `raw/checklist.md`, and any rows in `raw/checklist.md` whose arxiv ID is not in `raw/index.md`.
-5. Report findings and suggest fixes.
-6. Apply fixes only after user approval.
-7. Log the lint pass in `wiki/log.md`.
+5. Run the **Redundancy & Dead-Reference Audit** (see section below). This is a four-class sub-pass that catches phantom raw assets, source-page ↔ raw asset bijection breaks, slug collisions, and MOC/concept overlap.
+6. Report findings and suggest fixes.
+7. Apply fixes only after user approval.
+8. Log the lint pass in `wiki/log.md`.
+
+## Redundancy & Dead-Reference Audit
+
+A focused sub-pass that catches the four classes of bug found in the 2026-04-08 audit. Run all four checks; report each class separately.
+
+### A. Phantom raw asset references
+
+Every `source_file:`, `latex_source:`, and `venue_pdfs:` value, plus every `[[raw/...|...]]` body link, must point to an actual file on disk.
+
+1. `Glob raw/pdf/*` and `Glob raw/latex/*` to enumerate what exists.
+2. `Grep -n 'source_file:|latex_source:|venue_pdfs:' wiki/sources/` to enumerate frontmatter claims.
+3. `Grep -n '\[\[raw/' wiki` to enumerate body-link claims.
+4. Diff: any path referenced but not present is a phantom. Fix by either (a) re-acquiring the file, or (b) deleting the reference and updating `raw/index.md` and the summary table.
+
+### B. Source-page ↔ raw asset bijection
+
+The wiki's invariant: every `arxiv:` ID in `wiki/sources/**/*.md` maps 1:1 to a PDF in `raw/pdf/`, and vice versa. Exceptions: pages with no `arxiv:` field (external projects, GitHub-only sources).
+
+1. `Grep -n '^arxiv:' wiki/sources` → list of ingested arXiv IDs.
+2. `Glob raw/pdf/arxiv-*.pdf` → list of stored PDFs.
+3. Diff. An ID in (1) but not (2) means a missing download. A PDF in (2) but not (1) means an unreferenced raw asset (potentially redundant).
+4. Cross-check the same against `raw/index.md`'s "Canonical PDFs" table — any row that no longer matches a source page is stale.
+
+### C. Slug collisions and naming ambiguity
+
+When two source pages share a leading filename token (e.g., `kvcomm-*`, `coconut-*`), readers can't disambiguate without opening both. Flag any cluster of 2+ files in the same `wiki/sources/**/` directory whose slugs share the first token.
+
+1. `Glob wiki/sources/**/*.md` and group basenames by their first hyphenated token.
+2. For any group with size ≥ 2 from different papers, suggest a hybrid rename: `<technique>-<institution>-<distinguisher>.md` (e.g., `kvcomm-kth-selective.md` vs `kvcomm-duke-online-reuse.md`).
+3. Renames are bulk operations — see "Bulk source-page rename" below.
+
+### D. MOC and concept overlap
+
+Two MOCs are redundant when one defers to the other for its primary content. Two concept pages are redundant when their bullet lists overlap by more than ~50%.
+
+1. `Grep -n 'see \*\*\[\[|see the full' wiki/mocs/` — explicit deferrals are a smell.
+2. For any MOC whose body section is duplicated in another MOC, propose collapsing it to the unique scaffolding (cross-cutting concepts, key entities, theoretical foundations) and adding a one-line pointer to the canonical source.
+3. For concept-page overlap, prefer keeping the synthesis page and folding the duplicate into a section anchor.
+
+## Bulk source-page rename
+
+When option **C** above triggers (or any other rename of a source page slug), follow this exact sequence to keep all backlinks consistent. **Do not** edit one file at a time — the surface area is large enough that a single missed link breaks navigation.
+
+1. **Enumerate references first**: `Grep '\[\[<old-slug>' .` — confirm the count and the files affected.
+2. **Move the file with `git mv`** so history is preserved. Never use `Write` to create a new file alongside the old.
+3. **Bulk rewrite all references**. The blessed tool for this single case is `sed` (the only place where `sed` overrides the "use Edit, not sed" default), because (a) the slug is unique enough that collateral damage is impossible to introduce, and (b) the alternative is 30+ Read+Edit pairs:
+
+   ```bash
+   find wiki raw -name "*.md" -print0 | xargs -0 sed -i 's/<old-slug>/<new-slug>/g'
+   ```
+
+4. **Verify**: re-run `Grep '<old-slug>' .` — must return zero matches.
+5. **Update `raw/index.md`** if the source page is also referenced there (the sed pass usually handles this — confirm).
+6. **Log it** in `wiki/log.md` with action `lint` or `update`, listing both the old and new slugs.
 
 ## Completion Checklist
 - Findings are grouped by content vs structural issues.
