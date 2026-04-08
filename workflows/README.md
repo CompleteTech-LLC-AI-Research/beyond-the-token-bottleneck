@@ -10,11 +10,12 @@ Workflows are grouped by phase. Use the phase that matches the user's intent, th
 
 ### Create — introduce new content
 
-| Workflow | Use when... |
-| --- | --- |
-| [ingest](create/ingest.md) | Onboarding 1-2 new source papers into the wiki and propagating them through indexes, MOCs, and logs. |
-| [batch-ingest](create/batch-ingest.md) | Onboarding 3+ sources in one session via parallel subagents, then consolidating shared files. |
-| [synthesize](create/synthesize.md) | Building a cross-cutting analysis page (comparison, timeline, contradictions, frontier) from existing sources. |
+| Workflow                               | Use when...                                                                                                    |
+| -------------------------------------- | -------------------------------------------------------------------------------------------------------------- |
+| [ingest](create/ingest.md)             | Onboarding 1-2 new source papers into the wiki and propagating them through indexes, MOCs, and logs.           |
+| [batch-ingest](create/batch-ingest.md) | Onboarding 3+ sources in one session via parallel subagents, then consolidating shared files.                  |
+| [synthesize](create/synthesize.md)     | Building a cross-cutting analysis page (comparison, timeline, contradictions, frontier) from existing sources. |
+|                                        |                                                                                                                |
 
 ### Enrich — deepen existing content
 
