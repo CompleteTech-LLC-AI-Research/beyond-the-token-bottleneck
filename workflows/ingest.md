@@ -90,7 +90,9 @@ Do not use this workflow when the task is only to answer a question, run a lint 
 5. For each significant entity or concept mentioned:
    - If a page exists, update it with new information and cite the new source.
    - If no page exists, create one with `title:` in frontmatter.
-6. For each institution involved, update or create the entity page with a contribution timeline entry.
+6. For each institution involved, update or create the entity page. Entity pages use the **partial structure** defined in `workflows/_shared/procedures/entity-partials.md`: a narrative shell at `wiki/entities/<slug>.md` plus partials at `wiki/entities/<slug>/timeline.md` (the Contribution Timeline table) and `wiki/entities/<slug>/researchers.md` (the Key Researchers list), embedded into the shell via `![[<slug>/timeline]]` and `![[<slug>/researchers]]`.
+   - **Existing entity**: edit only `wiki/entities/<slug>/timeline.md` to add a new row for the ingested paper, and `wiki/entities/<slug>/researchers.md` if the paper introduces new key researchers. Any MOC or analysis that transcludes these partials updates automatically — do not also hand-edit those consumers.
+   - **New entity**: follow the "Adding a new entity under this convention" checklist in `workflows/_shared/procedures/entity-partials.md`. Create the shell, the two partials (with `type: entity-partial` frontmatter), and add the entity to `wiki/index.md`'s Entities section with the partial subdirectory reflected in the directory-tree counts.
 7. Update `wiki/index.md` and verify directory tree counts.
 8. Update relevant MOC pages (`wiki/mocs/*.md`) to add the new source or concept to the correct reading path.
 9. If the source is on arXiv, update `raw/download_arxiv_papers.py` so the downloader includes the new paper ID and the correct LaTeX storage mode (`archive` vs `extract`).

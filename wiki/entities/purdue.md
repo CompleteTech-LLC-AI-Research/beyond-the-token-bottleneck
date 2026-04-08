@@ -13,9 +13,7 @@ Lead institution on the [[vision-wormhole-heterogeneous|Vision Wormhole]] — th
 
 ## Contribution Timeline
 
-| Date | Paper | Role | Key Result |
-|------|-------|------|------------|
-| Feb 2026 | [[vision-wormhole-heterogeneous\|Vision Wormhole]] | Lead (multi-institution) (with CMU, Contextual AI, Georgia Tech) | VLM visual pathway as universal heterogeneous channel; +6.3pp vs TextMAS |
+![[purdue/timeline]]
 
 ## Research Themes
 
@@ -59,8 +57,4 @@ Purdue has a single paper in this collection (Feb 2026), but its architectural i
 
 ## Key Researchers
 
-- **Xiaoze Liu**: First author; designed the wormhole architecture. The core architect of the visual pathway communication concept.
-- **Ruowang Zhang**: Co-author (Contextual AI affiliation).
-- **Matt Fredrikson**: Co-author ([[cmu|CMU]] affiliation); his security/robustness expertise suggests adversarial analysis of the communication channel may follow.
-- **Jing Gao**: Senior advisor; data mining and ML.
-- **Xiaoqian Wang**: Co-advisor.
+![[purdue/researchers]]

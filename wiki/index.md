@@ -24,7 +24,7 @@ wiki/
 │   ├── unified/             # Reasoning + communication combined (3)
 │   └── meta/                # Frameworks, scaling, foundations (8)
 ├── concepts/                # 10 concept pages
-├── entities/                # 13 entity pages
+├── entities/                # 13 entity pages + 26 partials (timeline.md, researchers.md per entity)
 └── analyses/                # 7 analysis pages
 ```
 
