@@ -2,7 +2,7 @@
 
 ### What happens when LLMs stop talking and start *thinking* in vectors?
 
-[![Papers Tracked](https://img.shields.io/badge/papers_tracked-26+-blue?style=for-the-badge)](wiki/analyses/paper-timeline.md) [![Wiki Pages](https://img.shields.io/badge/wiki_pages-67-green?style=for-the-badge)](wiki/) [![Cross References](https://img.shields.io/badge/cross_references-1300+-purple?style=for-the-badge)](wiki/) [![Built With](https://img.shields.io/badge/built_with-Obsidian-7C3AED?style=for-the-badge&logo=obsidian&logoColor=white)](https://obsidian.md)
+[![Papers Tracked](https://img.shields.io/badge/papers_tracked-27+-blue?style=for-the-badge)](wiki/analyses/paper-timeline.md) [![Wiki Pages](https://img.shields.io/badge/wiki_pages-69-green?style=for-the-badge)](wiki/) [![Cross References](https://img.shields.io/badge/cross_references-1300+-purple?style=for-the-badge)](wiki/) [![Built With](https://img.shields.io/badge/built_with-Obsidian-7C3AED?style=for-the-badge&logo=obsidian&logoColor=white)](https://obsidian.md)
 
 An open research wiki mapping the frontier of **latent-space reasoning**, **continuous thought**, and **inter-agent latent communication** in large language models.
 
@@ -20,7 +20,7 @@ Large language models are internally continuous systems — dense vectors in **R
 
 > **What happens when you remove it — both within a single model and between collaborating models?**
 
-This wiki systematically tracks **26+ papers** (Dec 2022 – Apr 2026) exploring that question, organized into a deeply cross-referenced knowledge graph with 1300+ internal links.
+This wiki systematically tracks **27+ papers** (Dec 2022 – Apr 2026) exploring that question, organized into a deeply cross-referenced knowledge graph with 1300+ internal links.
 
 ---
 
@@ -94,7 +94,7 @@ beyond-the-token-bottleneck/
 │   ├── latex/                        # LaTeX source archives
 │   └── assets/                       # Static assets
 ├── workflows/                        # Maintainer workflow playbooks used by AGENTS.md
-├── wiki/                             # Research wiki (67 pages)
+├── wiki/                             # Research wiki (69 pages)
 │   ├── sources/                      # Paper summaries by theme
 │   │   ├── reasoning/               #   Coconut, SoftCoT, Pause Tokens, ...
 │   │   ├── communication/           #   CIPHER, AC, KVComm, C2C, ...
@@ -204,7 +204,7 @@ This repo is a production implementation of that pattern applied to a focused re
 ## Papers Tracked
 
 <details>
-<summary><strong>Latent Reasoning (6 papers)</strong></summary>
+<summary><strong>Latent Reasoning (7 papers)</strong></summary>
 
 | Year | Paper | Authors | Venue |
 |------|-------|---------|-------|
@@ -213,6 +213,7 @@ This repo is a production implementation of that pattern applied to a focused re
 | 2024 | [Coconut: Reasoning in Continuous Latent Space](https://arxiv.org/abs/2412.06769) | Hao et al. | ICLR 2025 |
 | 2025 | [SoftCoT: Soft Chain-of-Thought](https://arxiv.org/abs/2502.12134) | Xu et al. | ACL 2025 |
 | 2025 | [Reasoning by Superposition](https://arxiv.org/abs/2505.12514) | Zhu et al. | NeurIPS 2025 |
+| 2025 | [Towards Inference-time Scaling for Continuous Space Reasoning](https://arxiv.org/abs/2510.12167) | Wang et al. | arXiv |
 | 2026 | [Thinking States: Supervised Latent Reasoning](https://arxiv.org/abs/2602.08332) | Amos et al. | arXiv |
 
 </details>

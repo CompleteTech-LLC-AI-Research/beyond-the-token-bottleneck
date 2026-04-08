@@ -53,6 +53,7 @@ PAPER_SPECS = [
     PaperSpec("2506.19209", "archive"),
     PaperSpec("2510.03215", "archive"),
     PaperSpec("2510.03346", "archive"),
+    PaperSpec("2510.12167", "archive"),
     PaperSpec("2510.12872", "archive"),
     PaperSpec("2510.20733", "archive"),
     PaperSpec("2511.09149", "archive"),

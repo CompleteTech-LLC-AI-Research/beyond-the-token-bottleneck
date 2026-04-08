@@ -22,6 +22,13 @@ A unified comparison of all methods in this wiki across key dimensions. For theo
 | [[thinking-states-latent-reasoning\|Thinking States]] | Compressed NL → states | Yes (teacher forcing) | No | 2.66× speedup | Qwen2.5-0.5B/1.5B | OOD generalization 97.71% |
 | [[pause-tokens\|Pause Tokens]] | Learnable embeddings | Yes (pretraining + finetune) | No | Minimal (width only) | 130M, 1B | SQuAD +19.5 EM pts |
 
+### Diagnostic & Inference-Time Augmentations
+
+| Method | Target | Training | What It Tests | Scale | Key Result |
+|---|---|---|---|---|---|
+| [[latent-reasoning-supervision-analysis\|Cui et al. (Improved Coconut)]] | COCONUT, CODI, SIM-CoT, CoLaR | Modified curriculum (Coconut only) | Shortcut behavior + BFS hypothesis + supervision–exploration trade-off | GPT-2, LLaMA-3.2-1B | Improved Coconut +7pp on GSM8K-Aug; falsifies iterative BFS |
+| [[inference-time-scaling-continuous-reasoning\|Wang et al. (PRM/ORM Reranking)]] | COCONUT | PRM (hard + soft) + ORM via MATH-Shepherd MC annotation | Whether discrete-space inference-time scaling transfers to continuous space | GPT-2 | Pass@32 = 44.43%; best reranker recovers only 19.8% of headroom; geometric homogeneity diagnosed (IsoScore$\star \approx 0.013$) |
+
 ### Communication Methods (Inter-Agent)
 
 | Method | Channel | Training | Cross-Arch | Compute vs NL | Scale Tested | Key Result |

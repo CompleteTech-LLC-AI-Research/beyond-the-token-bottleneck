@@ -8,11 +8,11 @@ tags: [synthesis, benchmarks, comparison]
 
 # Benchmark Overlap Analysis
 
-A systematic survey of which benchmarks appear across the 26 source papers, identifying evaluation convergence points, comparable results, and blind spots in the field's testing practices.
+A systematic survey of which benchmarks appear across the 27 source papers, identifying evaluation convergence points, comparable results, and blind spots in the field's testing practices.
 
 ## Methodology
 
-Each of the 26 source pages was examined for empirical benchmarks used, models tested, and key results reported. Papers that are purely theoretical (no empirical benchmarks on standard datasets) are excluded from the benchmark matrix but noted in the model coverage section. Of 26 papers, 19 report results on identifiable benchmarks; 7 are theoretical, framework-level, or use only synthetic/custom tasks. The 19th empirical paper is [[latent-reasoning-supervision-analysis|Cui et al. (2026)]], which tests four latent reasoning methods (Coconut, CODI, SIM-CoT, CoLaR) on GSM8K-Aug and ProsQA — results reported under the GSM8K and ProsQA-related entries below.
+Each of the 27 source pages was examined for empirical benchmarks used, models tested, and key results reported. Papers that are purely theoretical (no empirical benchmarks on standard datasets) are excluded from the benchmark matrix but noted in the model coverage section. Of 27 papers, 20 report results on identifiable benchmarks; 7 are theoretical, framework-level, or use only synthetic/custom tasks. The 19th empirical paper is [[latent-reasoning-supervision-analysis|Cui et al. (2026)]], which tests four latent reasoning methods (Coconut, CODI, SIM-CoT, CoLaR) on GSM8K-Aug and ProsQA — results reported under the GSM8K and ProsQA-related entries below. The 20th is [[inference-time-scaling-continuous-reasoning|Wang et al. (2025)]], which tests inference-time scaling (dropout sampling + PRM/ORM reranking) on COCONUT/GPT-2 against GSM8K — results reported under the GSM8K entry.
 
 ---
 
@@ -77,6 +77,9 @@ The most widely used benchmark in this collection. Results are difficult to comp
 | [[latent-reasoning-supervision-analysis\|Cui et al. (CODI)]] | LLaMA-3.2-1B | Distillation + outcome loss | 55.57% | -- | Highest CODI accuracy at this scale |
 | [[latent-reasoning-supervision-analysis\|Cui et al. (SIM-CoT)]] | LLaMA-3.2-1B | Decoder reconstruction loss | 56.03% | -- | Strong-supervision variant |
 | [[latent-reasoning-supervision-analysis\|Cui et al. (CoLaR)]] | LLaMA-3.2-1B | Token-level compression alignment | 25.23% | -- | Strong supervision collapses latent capacity |
+| [[inference-time-scaling-continuous-reasoning\|Wang et al. (deterministic COCONUT)]] | GPT-2 (117M) | Reproduction baseline | 31.08% | -- | Backbone for inference-time scaling study |
+| [[inference-time-scaling-continuous-reasoning\|Wang et al. (Pass@32)]] | GPT-2 (117M) | Dropout-sampled COCONUT, oracle selection | 44.43% | 31.08% (det.) | Pass@N upper bound; exceeds GPT-2 text CoT |
+| [[inference-time-scaling-continuous-reasoning\|Wang et al. (PRM-HE BoN)]] | GPT-2 (117M) | MATH-Shepherd-style PRM (hard) reranker | 33.36% | 31.08% (det.) | +2.28pp; recovers only 19.8% of Pass@N headroom |
 
 **Key observations**: GSM8K results span from 8.5% ([[pause-tokens|Pause Tokens]] at 1B) to 95.2% ([[latentmas-collaboration|LatentMAS]] at Qwen3-14B). The benchmark saturates at scale -- multi-agent approaches on 7B+ models consistently achieve 85-95%. Reasoning-only methods ([[coconut-reasoning-latent-space|Coconut]], [[icot-internalize-cot|iCoT]]) at GPT-2 scale underperform CoT, while communication methods at 7B+ scale exceed it.
 
@@ -138,7 +141,7 @@ Papers use different MMLU subsets, making direct comparison difficult.
 
 2. **Open-ended generation / instruction following**: No paper evaluates on AlpacaEval, MT-Bench, WildBench, or similar instruction-following benchmarks. All results are on closed-form tasks (QA, math, code). Whether latent methods preserve generation quality and instruction adherence is unknown.
 
-3. **Multilingual benchmarks**: Zero multilingual evaluation across all 25 papers. [[relative-representations-zero-shot|Relative Representations]] demonstrates cross-lingual stitching but on sentiment classification, not reasoning.
+3. **Multilingual benchmarks**: Zero multilingual evaluation across all 27 papers. [[relative-representations-zero-shot|Relative Representations]] demonstrates cross-lingual stitching but on sentiment classification, not reasoning.
 
 4. **Safety and robustness**: No adversarial robustness testing (beyond [[agent-primitives-building-blocks|Agent Primitives]]' noise injection experiment). No evaluation on TruthfulQA, BBQ bias, or jailbreak resistance. [[latentcompress-open-call|LatentCompress]] raises the safety concern but provides no standard safety benchmark evaluation.
 
@@ -193,7 +196,7 @@ Papers use different MMLU subsets, making direct comparison difficult.
 | 70B | 3 | [[cipher-multiagent-debate-embeddings\|CIPHER]], [[agent-primitives-building-blocks\|AgPrim]], [[activation-communication-harvard\|AC]] |
 | Frontier (API) | 2 | Scaling Agent Systems, AgPrim (Organizer) |
 
-**Critical gap**: No paper tests latent reasoning methods ([[coconut-reasoning-latent-space|Coconut]], [[icot-internalize-cot|iCoT]], [[thinking-states-latent-reasoning|Thinking States]]) at 7B+ scale. Coconut and iCoT are GPT-2 only; [[softcot-efficient-reasoning|SoftCoT]] tests at 7-8B but only the two-model variant (not Coconut-style self-contained loop); Thinking States tests at 0.5B-1.5B. [[latent-reasoning-supervision-analysis|Cui et al. (2026)]] tests four methods (Coconut, CODI, SIM-CoT, CoLaR) at GPT-2 and LLaMA-3.2-1B, joining the same <2B cluster. Whether the BFS-via-superposition phenomenon persists at frontier scale — and whether the supervision–exploration trade-off Cui et al. document scales or relaxes — remains the single most important open experimental question in the field.
+**Critical gap**: No paper tests latent reasoning methods ([[coconut-reasoning-latent-space|Coconut]], [[icot-internalize-cot|iCoT]], [[thinking-states-latent-reasoning|Thinking States]]) at 7B+ scale. Coconut and iCoT are GPT-2 only; [[softcot-efficient-reasoning|SoftCoT]] tests at 7-8B but only the two-model variant (not Coconut-style self-contained loop); Thinking States tests at 0.5B-1.5B. [[latent-reasoning-supervision-analysis|Cui et al. (2026)]] tests four methods (Coconut, CODI, SIM-CoT, CoLaR) at GPT-2 and LLaMA-3.2-1B, joining the same <2B cluster. [[inference-time-scaling-continuous-reasoning|Wang et al. (2025)]] also tests COCONUT only at GPT-2 (117M), the same scale as the original COCONUT paper. Whether the BFS-via-superposition phenomenon persists at frontier scale — and whether the supervision–exploration trade-off Cui et al. document and the geometric homogeneity Wang et al. measure scale or relax — remains the single most important open experimental question in the field.
 
 ---
 
@@ -246,4 +249,4 @@ Where multiple communication papers test on the same benchmark and model family,
 
 ## Source Materials
 
-This analysis synthesizes data from all 25 source pages in `wiki/sources/`. No raw files were consulted.
+This analysis synthesizes data from all 27 source pages in `wiki/sources/`. No raw files were consulted.

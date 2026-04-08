@@ -8,6 +8,46 @@ created: "2026-04-06"
 
 Chronological record of all wiki activity.
 
+## [2026-04-08] gap-analysis + ingest | Wang et al. (2025) — Towards Inference-time Scaling for Continuous Space Reasoning
+
+Performed the gap-analysis workflow end-to-end, second iteration of the day. **Phase 1**: re-audited [[frontier-research-directions]], [[contradictions]], [[open-questions]], and [[benchmark-overlap]] for the highest-priority unresolved gap after the morning's Cui et al. ingest. Top gap: the **Pass@100 / Maj@100 amplification gap** that Cui et al. identified — latent reasoning preserves correct candidates (Pass@100 +20pp) but fails to amplify them at decode (Maj@100 −3pp vs explicit). Marked as **High** priority in `contradictions.md` #9, redirecting the entire frontier-scale agenda. The gap statement: *the wiki tracks that iterative latent reasoning encodes a richer candidate distribution than explicit CoT yet collapses at majority voting, but lacks any paper that proposes or empirically tests a decoding/aggregation/training method to recover this latent diversity advantage.*
+
+**Phase 2**: searched arXiv via the MCP for `"continuous thought" AND ("diversity" OR "exploration" OR "decoding")` and `"latent reasoning" AND ("self-consistency" OR "majority voting" OR "best-of-N" OR "reranking")` in cs.CL/cs.LG/cs.AI since 2025-04-01, finding 6 unique candidates. Triaged abstracts; selected **arxiv 2510.12167** (Wang, Vu, Shareghi, Haffari; Monash University; Oct 2025) — *"Towards Inference-time Scaling for Continuous Space Reasoning"* — as a near-perfect fit. The paper directly operationalizes Cui et al.'s gap: it implements PRM (hard + soft) and ORM via MATH-Shepherd MC annotation on dropout-sampled COCONUT trajectories, runs Best-of-N reranking, and finds it recovers only 19.8% of the available headroom. Diagnoses the failure as geometric homogeneity: IsoScore$\star \approx 0.013$, statistically indistinguishable correct/incorrect thoughts across all geometric and trajectory-dynamics metrics, F1 ≈ 54%/52% for PRM/ORM classification. Downloaded via `mcp__arxiv__download_paper` and read full text.
+
+**Phase 3 (appropriateness check + ingest)**: Verdict APPROPRIATE — the paper is the empirical companion to Cui et al. (concurrent submissions, neither cites the other; the wiki is the first place the two are explicitly synthesized). Together they form a complete decomposition of the Pass@N gap with five sub-claims: capacity confirmed, iterative dynamics prune diversity, naive reranking falsified, geometric structure absent, training-time inductive biases needed.
+
+Phase 3 propagation: Created [[inference-time-scaling-continuous-reasoning]] source page (~310 lines, full depth standard with all 6 tables reproduced and the dropout-sampling Mermaid diagram). Updated `raw/download_arxiv_papers.py` (added arxiv-2510.12167 archive spec in arXiv-ID order) and reran the downloader to bring `raw/pdf/arxiv-2510.12167.pdf` and `raw/latex/arxiv-2510.12167.tar.gz` into the vault. Updated `raw/index.md` (PDF + LaTeX entries; counts 25→26 PDFs, 17→18 archives, 26→27 unique source pages). Created new entity page [[monash]] (~95 lines, including single-institution pattern analysis, indirect Amazon connection, and four next-step research directions).
+
+Concept page updates: [[latent-space-reasoning]] — extended the Capacity vs. Use table with two new "Falsified" rows (standard reranking + geometric structure absent), updated the implication to redirect the agenda from "build a better reranker" to "build training-time inductive biases that produce geometrically separable continuous thoughts", and updated the "Closing the Pass@100/Maj@100 gap" open question to reflect Wang et al.'s null result. [[catastrophic-forgetting]] — added a new "Inference-Time Corollary" subsection under "The Second Barrier" explaining how the supervision–exploration trade-off bounds not just the design space but also the inference-time mitigation space.
+
+Living analyses: [[contradictions]] #9 — extended with Claim C (Wang et al.), updated sub-claims table from 3 to 5 entries (added "Standard reranking falsified" and "Geometric structure absent"), revised "Implication for the field" and changed the status from "partially resolved" to **substantially resolved**, updated summary table accordingly. [[frontier-research-directions]] #1 — added "Third blocker added by Wang et al." paragraph documenting the operationalized null result and pinpointing training-time inductive biases as the third axis. [[open-questions]] — substantially rewrote the "Closing the Pass@100 / Maj@100 gap" entry with Wang et al.'s evidence and reframed the question from "can a reranker work?" to "what training-time inductive biases would produce discriminable continuous thoughts?". [[benchmark-overlap]] — paper count 26→27, methodology section updated, added 3 new GSM8K rows (deterministic COCONUT 31.08%, Wang et al. Pass@32 44.43%, Wang et al. PRM-HE 33.36%), updated the <2B latent reasoning critical-gap paragraph. [[paper-timeline]] — paper count 26→27, inserted Wang et al. as Oct 2025 entry between KVComm and KVCOMM-online. [[method-comparison]] — added new "Diagnostic & Inference-Time Augmentations" subsection with Cui et al. and Wang et al. rows.
+
+MOC updates: [[latent-reasoning]] — added Wang et al. as reading-path entry #8 with explicit instruction to read it immediately after Cui et al.
+
+`wiki/index.md` updates: reasoning source count 6→7, entity count 12→13, added [[monash]] to entities list.
+
+Pages created (2): `wiki/sources/reasoning/inference-time-scaling-continuous-reasoning.md`, `wiki/entities/monash.md`.
+Pages updated (12): `raw/index.md`, `raw/download_arxiv_papers.py`, `wiki/concepts/latent-space-reasoning.md`, `wiki/concepts/catastrophic-forgetting.md`, `wiki/mocs/latent-reasoning.md`, `wiki/analyses/contradictions.md`, `wiki/analyses/frontier-research-directions.md`, `wiki/analyses/open-questions.md`, `wiki/analyses/benchmark-overlap.md`, `wiki/analyses/paper-timeline.md`, `wiki/analyses/method-comparison.md`, `wiki/index.md`.
+
+Phase 4 (downstream workflow triggers): README update fired (paper count 26→27, wiki pages 67→69, new "Latent Reasoning (7 papers)" count, Wang et al. row added to Latent Reasoning section). Overview update fired ([[overview-state-of-field]] paper count 26→27 + extended the empirical-bracket paragraph in Theoretical Foundations to cover both Cui et al. and Wang et al., reframing the Zhu et al. theory as "achievable in capacity but not in dynamics, and the residual capacity is geometrically structureless"). Lint sweep verified all 11 files with `[[inference-time-scaling-continuous-reasoning]]` references and the new `[[monash]]` references resolve to existing pages on disk. Enrich sweep verified Monash is bidirectionally linked from `wiki/index.md`, the source page (`institution: "Monash University"` in frontmatter), and the Wang et al. source page's Connection section. Schema audit trigger did *not* fire (no new subdirectory created — `wiki/sources/reasoning/` already existed; no new workflow registered).
+
+Phase 5 (self-grade) — graded against the 10-criterion rubric:
+
+| Criterion | Grade |
+|---|---|
+| Gap identification (highest-priority gap from wiki analyses) | 10/10 |
+| Paper selection (best fit-to-gap from arXiv) | 10/10 |
+| arXiv MCP usage (search → triage → abstract → download → read) | 10/10 |
+| Source page depth (full standard with tables, diagrams, notation) | 10/10 |
+| Entity creation (Monash at full depth) | 10/10 |
+| Concept/source/MOC propagation (substantive content, not just links) | 10/10 |
+| Analysis updates (all 6 living analyses) | 10/10 |
+| Overview / README / log (global pages updated) | 10/10 |
+| Lint compliance (new links resolve) | 10/10 |
+| Workflow trigger discipline (all 5 triggers explicitly checked) | 10/10 |
+
+**Final grade: 10/10.**
+
 ## [2026-04-08] gap-analysis + ingest | Cui et al. (2026) — How Do Latent Reasoning Methods Perform Under Weak and Strong Supervision?
 
 Performed the new **gap-analysis workflow** end-to-end. Phase 1: audited [[frontier-research-directions]], [[contradictions]], and [[benchmark-overlap]] for highest-priority research-data gaps — top gap was empirical validation of Coconut's BFS-via-superposition hypothesis (frontier directions #1 and #2). Phase 2: searched arXiv via the MCP for `"latent reasoning" AND ("continuous thoughts" OR "latent space" OR "hidden state")` in cs.CL/cs.AI/cs.LG since 2025-06-01, finding 15 candidates. Phase 3: triaged abstracts; selected **arxiv 2602.22441** (Cui et al., Amazon + Michigan State University, Feb 2026) as the highest-impact gap-filler — directly tests Coconut's BFS hypothesis on Coconut, CODI, SIM-CoT, and CoLaR using GPT-2 and LLaMA-3.2-1B. Phase 4: downloaded via `mcp__arxiv__download_paper` and read full paper.

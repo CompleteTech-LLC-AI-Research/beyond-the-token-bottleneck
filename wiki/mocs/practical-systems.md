@@ -58,7 +58,7 @@ Use this table to narrow your method choice based on deployment constraints:
 
 - **[[benchmark-overlap|Benchmark Overlap Analysis]]** — Maps which benchmarks appear across multiple papers, exposing where results are directly comparable and where claimed improvements may reflect benchmark selection rather than genuine gains. Essential context for interpreting the method comparison table above.
 - **[[contradictions|Contradictions]]** — Documents deployment-relevant tensions across the literature, including conflicting claims about training-free viability, cross-architecture compatibility by depth, and when MAS helps vs. hurts. Read this to understand the caveats behind the Decision Guide.
-- **[[paper-timeline|Paper Timeline]]** — Chronological view of all 25 papers showing the field's acceleration from theoretical foundations (2022-2023) through the 2025 Cambrian explosion to 2026 unification. Useful for understanding which results build on which, and for gauging the maturity of different approaches.
+- **[[paper-timeline|Paper Timeline]]** — Chronological view of all 27 papers showing the field's acceleration from theoretical foundations (2022-2023) through the 2025 Cambrian explosion to 2026 unification. Useful for understanding which results build on which, and for gauging the maturity of different approaches.
 
 ## Connections
 

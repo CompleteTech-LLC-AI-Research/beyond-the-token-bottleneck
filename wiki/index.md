@@ -5,6 +5,7 @@ created: "2026-04-06"
 updated: "2026-04-08"
 ---
 
+
 # Wiki Index
 
 A catalog of all pages in the wiki, organized by research theme. Updated on every ingest.
@@ -14,7 +15,7 @@ wiki/
 ├── mocs/*.md                # Maps of Content — guided reading paths (9)
 ├── overview-*.md            # High-level narrative syntheses (1)
 ├── sources/
-│   ├── reasoning/           # Intra-agent latent reasoning (6)
+│   ├── reasoning/           # Intra-agent latent reasoning (7)
 │   ├── communication/
 │   │   ├── embeddings/      # Output-layer communication (2)
 │   │   ├── activations/     # Hidden-state communication (2)
@@ -23,7 +24,7 @@ wiki/
 │   ├── unified/             # Reasoning + communication combined (3)
 │   └── meta/                # Frameworks, scaling, foundations (8)
 ├── concepts/                # 10 concept pages
-├── entities/                # 12 entity pages
+├── entities/                # 13 entity pages
 └── analyses/                # 7 analysis pages
 ```
 
@@ -78,6 +79,7 @@ Navigate by research theme. Each MOC provides a guided reading path with narrati
 - [[mit]] — MIT: Multiagent Debate, Platonic Rep Hypothesis, Scaling paper. Origin point for debate paradigm; collaborates with Google.
 - [[mbzuai]] — MBZUAI: ThoughtComm (co-lead with CMU, FAIR). Gulf-Western research bridge.
 - [[amazon]] — Amazon: Latent Reasoning Supervision Analysis. First systematic empirical critique of latent reasoning's BFS hypothesis; identifies the supervision–exploration trade-off.
+- [[monash]] — Monash University: Inference-time Scaling for Continuous Reasoning. First implementation of PRM/ORM reranking for COCONUT; diagnoses geometric homogeneity as the root cause of the Pass@N / Maj@N gap.
 
 ---
 

@@ -13,10 +13,10 @@ See also: [[checklist]] — Paper download checklist mapping URLs to local files
 ## Naming Conventions
 
 - **`arxiv-XXXX.XXXXX.pdf`** — canonical arXiv PDFs
-- **`openreview-XXXXXXXX.pdf`** — OpenReview venue copies
-- **`acl-YYYY.venue-type.NNNN.pdf`** — ACL Anthology venue copies
 - **`arxiv-XXXX.XXXXX/`** — extracted arXiv LaTeX source directories
 - **`arxiv-XXXX.XXXXX.tar.gz`** — compressed arXiv source archives
+
+If venue copies (OpenReview, ACL Anthology, etc.) are added in the future, name them `openreview-XXXXXXXX.pdf` or `acl-YYYY.venue-type.NNNN.pdf` and list them under a "Duplicate PDFs" section.
 
 ---
 
@@ -38,6 +38,7 @@ Each PDF below is the primary copy used for ingestion. The wiki source page was 
 | `raw/pdf/arxiv-2511.09149.pdf` | [[wiki/sources/communication/activations/interlat-latent-space-agents]] |
 | `raw/pdf/arxiv-2510.03346.pdf` | [[wiki/sources/communication/kv-cache/kvcomm-selective-kv-sharing]] |
 | `raw/pdf/arxiv-2510.03215.pdf` | [[wiki/sources/communication/kv-cache/cache-to-cache-semantic-communication]] |
+| `raw/pdf/arxiv-2510.12167.pdf` | [[wiki/sources/reasoning/inference-time-scaling-continuous-reasoning]] |
 | `raw/pdf/arxiv-2601.06123.pdf` | [[wiki/sources/communication/kv-cache/kv-cache-alignment-shared-space]] |
 | `raw/pdf/arxiv-2510.12872.pdf` | [[wiki/sources/communication/kv-cache/kvcomm-online-cross-context]] |
 | `raw/pdf/arxiv-2510.20733.pdf` | [[wiki/sources/communication/structured/thought-communication-multiagent]] |
@@ -57,26 +58,6 @@ Each PDF below is the primary copy used for ingestion. The wiki source page was 
 | Source | Wiki Source Page |
 |--------|-----------------|
 | GitHub repository (no PDF) | [[wiki/sources/meta/latentcompress-open-call]] |
-
----
-
-## Duplicate PDFs (Venue Copies)
-
-These are published-venue copies of papers already listed above. They map to the same wiki source page as the canonical arXiv PDF.
-
-| Duplicate PDF | Canonical PDF | Venue | Wiki Source Page |
-|---------------|---------------|-------|-----------------|
-| `raw/pdf/openreview-Itxz7S4Ip3.pdf` | `arxiv-2412.06769.pdf` | OpenReview | [[wiki/sources/reasoning/coconut-reasoning-latent-space]] |
-| `raw/pdf/openreview-rmYbgsehTd.pdf` | `arxiv-2511.09149.pdf` | OpenReview | [[wiki/sources/communication/activations/interlat-latent-space-agents]] |
-| `raw/pdf/openreview-xTh4AwVKdw.pdf` | `arxiv-2602.15382.pdf` | OpenReview | [[wiki/sources/unified/vision-wormhole-heterogeneous]] |
-| `raw/pdf/openreview-tq9lyV9Cml.pdf` | `arxiv-2510.20733.pdf` | OpenReview | [[wiki/sources/communication/structured/thought-communication-multiagent]] |
-| `raw/pdf/openreview-yGOytgjurF.pdf` | `arxiv-2510.12872.pdf` | OpenReview | [[wiki/sources/communication/kv-cache/kvcomm-online-cross-context]] |
-| `raw/pdf/openreview-F7rUng23nw.pdf` | `arxiv-2510.03346.pdf` | OpenReview | [[wiki/sources/communication/kv-cache/kvcomm-selective-kv-sharing]] |
-| `raw/pdf/openreview-LeatkxrBCi.pdf` | `arxiv-2510.03215.pdf` | OpenReview | [[wiki/sources/communication/kv-cache/cache-to-cache-semantic-communication]] |
-| `raw/pdf/openreview-W6RPXUUFic.pdf` | `arxiv-2501.14082.pdf` | OpenReview | [[wiki/sources/communication/activations/activation-communication-harvard]] |
-| `raw/pdf/openreview-sehRvaIPQQ.pdf` | `arxiv-2310.06272.pdf` | OpenReview | [[wiki/sources/communication/embeddings/cipher-multiagent-debate-embeddings]] |
-| `raw/pdf/acl-2025.acl-long.1137.pdf` | `arxiv-2502.12134.pdf` | ACL 2025 | [[wiki/sources/reasoning/softcot-efficient-reasoning]] |
-| `raw/pdf/acl-2025.emnlp-main.518.pdf` | `arxiv-2506.19209.pdf` | EMNLP 2025 | [[wiki/sources/communication/embeddings/state-delta-trajectory]] |
 
 ---
 
@@ -109,6 +90,7 @@ Each LaTeX source corresponds 1:1 to the PDF with the same arXiv ID. Some papers
 | `raw/latex/arxiv-2506.19209.tar.gz` | `arxiv-2506.19209.pdf` | [[wiki/sources/communication/embeddings/state-delta-trajectory]] |
 | `raw/latex/arxiv-2510.03215.tar.gz` | `arxiv-2510.03215.pdf` | [[wiki/sources/communication/kv-cache/cache-to-cache-semantic-communication]] |
 | `raw/latex/arxiv-2510.03346.tar.gz` | `arxiv-2510.03346.pdf` | [[wiki/sources/communication/kv-cache/kvcomm-selective-kv-sharing]] |
+| `raw/latex/arxiv-2510.12167.tar.gz` | `arxiv-2510.12167.pdf` | [[wiki/sources/reasoning/inference-time-scaling-continuous-reasoning]] |
 | `raw/latex/arxiv-2510.12872.tar.gz` | `arxiv-2510.12872.pdf` | [[wiki/sources/communication/kv-cache/kvcomm-online-cross-context]] |
 | `raw/latex/arxiv-2510.20733.tar.gz` | `arxiv-2510.20733.pdf` | [[wiki/sources/communication/structured/thought-communication-multiagent]] |
 | `raw/latex/arxiv-2511.09149.tar.gz` | `arxiv-2511.09149.pdf` | [[wiki/sources/communication/activations/interlat-latent-space-agents]] |
@@ -126,11 +108,10 @@ Each LaTeX source corresponds 1:1 to the PDF with the same arXiv ID. Some papers
 
 | Category | Count |
 |----------|-------|
-| Canonical PDFs | 25 |
+| Canonical PDFs | 26 |
 | Non-PDF sources | 1 (GitHub) |
-| Duplicate venue PDFs | 11 |
-| **Total PDFs** | **36** |
+| **Total PDFs** | **26** |
 | LaTeX directories | 9 |
-| LaTeX archives | 17 |
-| **Total LaTeX** | **26** |
-| **Unique wiki source pages** | **26** |
+| LaTeX archives | 18 |
+| **Total LaTeX** | **27** |
+| **Unique wiki source pages** | **27** |

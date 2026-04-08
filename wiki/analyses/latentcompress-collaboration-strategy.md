@@ -22,7 +22,7 @@ tags: [synthesis, strategy, collaboration, latentcompress]
 
 ## What We Have That They Don't
 
-Their analysis references only 3 papers ([[latentmas-collaboration|LatentMAS]], [[interlat-latent-space-agents|Interlat]], [[vision-wormhole-heterogeneous|Vision Wormhole]]). Our wiki covers **25 papers** spanning the full research landscape. This gives us several insights they're missing:
+Their analysis references only 3 papers ([[latentmas-collaboration|LatentMAS]], [[interlat-latent-space-agents|Interlat]], [[vision-wormhole-heterogeneous|Vision Wormhole]]). Our wiki covers **27 papers** spanning the full research landscape. This gives us several insights they're missing:
 
 ### 1. Superposition Reasoning (Their Blind Spot)
 
@@ -113,5 +113,5 @@ These are all **complementary** to their stated directions — they'd get novel 
 
 > **Interest area**: Direction 1 (compressor) + Direction 2 (native pretraining), with a novel angle: investigating whether slot-attention compression naturally disentangles the superposed reasoning paths discovered by [[coconut-reasoning-latent-space|Coconut]] (ICLR 2025). If verified, this connects compression research to controllable latent tree search and makes latent communication auditable by design.
 >
-> **What I bring**: A comprehensive analysis of 25 papers spanning the full latent communication landscape ([[cipher-multiagent-debate-embeddings|CIPHER]] through Vision Wormhole), identifying three under-explored directions that complement your existing work: (1) superposition disentanglement via compression slots, (2) state-delta compression as an alternative to raw hidden-state compression, (3) the self-improvement effect through latent mediation.
+> **What I bring**: A comprehensive analysis of 27 papers spanning the full latent communication landscape ([[cipher-multiagent-debate-embeddings|CIPHER]] through Vision Wormhole), identifying three under-explored directions that complement your existing work: (1) superposition disentanglement via compression slots, (2) state-delta compression as an alternative to raw hidden-state compression, (3) the self-improvement effect through latent mediation.
 
