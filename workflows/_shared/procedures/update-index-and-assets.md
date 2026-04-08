@@ -44,8 +44,8 @@ Return to the calling workflow and proceed with its next numbered step. This fra
 
 ## Used by
 
-- `workflows/ingest.md` (expected, PR 2b — Procedure steps 7, 9, 10, replacing the inlined directory-tree update + raw/index.md + downloader update)
-- `workflows/batch-ingest.md` (expected, PR 2b — Procedure step 4, the consolidation pass)
-- `workflows/enrich.md` (expected, PR 2b — Procedure steps 4, 5, 6, the index/raw/downloader sync sub-steps)
-- `workflows/synthesize.md` (expected, PR 2b — Procedure step 5, "Update `wiki/index.md` and any relevant MOCs")
-- `workflows/enrichment-audit.md` (expected, PR 2b — Phase 4 step 1, "Update `wiki/index.md` with new or changed page counts and entries")
+- `workflows/ingest.md` (Procedure steps 7, 9, 10, replacing the inlined directory-tree update + raw/index.md + downloader update)
+- `workflows/batch-ingest.md` (Procedure step 4, the consolidation pass)
+- `workflows/enrich.md` (Procedure steps 4, 5, 6, the index/raw/downloader sync sub-steps)
+- `workflows/synthesize.md` (Procedure step 5, "Update `wiki/index.md` and any relevant MOCs")
+- `workflows/enrichment-audit.md` (Phase 4 step 1, "Update `wiki/index.md` with new or changed page counts and entries")

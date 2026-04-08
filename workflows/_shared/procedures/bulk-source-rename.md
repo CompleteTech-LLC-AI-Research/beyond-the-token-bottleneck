@@ -38,5 +38,5 @@ Return to the calling workflow and proceed with its next numbered step. This fra
 
 ## Used by
 
-- `workflows/lint.md` (expected, PR 2b — Redundancy & Dead-Reference Audit, section C, replacing the inlined "Bulk source-page rename" section)
-- `workflows/enrich.md` (expected, PR 2b — when a slug change is part of the pass)
+- `workflows/lint.md` (Redundancy & Dead-Reference Audit, section C, replacing the inlined "Bulk source-page rename" section)
+- `workflows/enrich.md` (when a slug change is part of the pass)

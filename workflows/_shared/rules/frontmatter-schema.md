@@ -59,7 +59,7 @@ Phantom file path entries in `source_file:`, `latex_source:`, or `venue_pdfs:` p
 
 - `workflows/_shared/procedures/verify-frontmatter-completeness.md` — canonical schema source for the per-page check
 - `workflows/_shared/procedures/raw-checklist-row.md` — the raw-checklist row format depends on `source_file:` and `latex_source:` field consistency
-- `workflows/schema-self-audit.md` (expected, PR 2b)
-- `workflows/lint.md` (expected, PR 2b)
-- `workflows/ingest.md`, `workflows/batch-ingest.md` (expected, PR 2b — page creation must conform)
-- `workflows/review.md`, `workflows/plugin-audit.md`, `workflows/verification.md` (expected, PR 2b — verification consumers)
+- `workflows/schema-self-audit.md`
+- `workflows/lint.md`
+- `workflows/ingest.md`, `workflows/batch-ingest.md` (page creation must conform)
+- `workflows/review.md`, `workflows/plugin-audit.md`, `workflows/verification.md` (verification consumers)

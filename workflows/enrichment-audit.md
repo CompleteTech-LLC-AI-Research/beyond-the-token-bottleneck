@@ -111,30 +111,21 @@ Data-driven gap-finding pass that inventories enrichment opportunities across th
 
 ### Phase 3: Execute in Parallel
 1. Create one task per independent workstream, such as expanding thin source pages, deepening concept pages, or creating a benchmark analysis.
-2. Launch parallel agent teams, one agent per task.
-3. Give each agent:
-   - The specific files to read and modify.
-   - The wiki conventions for frontmatter, linking, and depth.
-   - Clear file ownership boundaries to avoid merge conflicts.
-4. Keep shared files off-limits for agents:
-   - `index.md`
-   - `log.md`
-   - `overview-state-of-field.md`
-   - MOCs
-5. Track completion as tasks finish and report results incrementally to the user.
+2. **Dispatch the parallel agents under the protocol.** Run [parallel subagent protocol](_shared/procedures/parallel-subagent-protocol.md) in full, then return here and continue with Phase 4. The fragment owns: per-agent scope boundaries, the canonical coordinator-only file enumeration (replacing the drifted 4-item list this phase used to inline), the report-not-edit instruction, and the dispatch contract. Track completion as tasks finish and report results incrementally to the user — the protocol fragment makes this explicit.
 
 ### Phase 4: Consolidate
-1. Update `wiki/index.md` with new or changed page counts and entries.
-2. Append all activity to `wiki/log.md`.
-3. Update MOCs if new content changes reading paths.
-4. Spot-check agent output, including a sample of numbers, links, and frontmatter.
+1. **Sync indexes and assets.** Run [update index and assets](_shared/procedures/update-index-and-assets.md), then return here and continue with step 2. The fragment owns the `wiki/index.md` count and entry-list updates.
+2. **Update affected MOCs.** For each MOC whose reading path gained an entry during Phase 3, run [moc update](_shared/procedures/moc-update.md). Skip if no MOC was affected.
+3. **Spot-check the agent output.** Run [spot check agent output](_shared/procedures/spot-check-agent-output.md), then return here and continue with step 4. If the spot check escalates (2+ issues across the sample), pause and run `workflows/verification.md` in full before logging.
+4. Append all activity to `wiki/log.md` as a single audit entry per workstream.
+5. **Commit and push.** Run [commit and push](_shared/procedures/commit-and-push.md) in full.
 
 ## Completion Checklist
+- All items in [`_shared/checklists/base.md`](_shared/checklists/base.md) hold.
+- All items in [`_shared/checklists/audit-additions.md`](_shared/checklists/audit-additions.md) hold.
 - All gaps are prioritized by impact.
 - User approval has been obtained before execution.
 - Parallel tasks had disjoint file ownership.
-- Shared files were updated only during consolidation.
-- `wiki/index.md`, `wiki/log.md`, and relevant MOCs are in sync.
 
 ## Related Workflows
 - `workflows/lint.md`

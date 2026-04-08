@@ -50,5 +50,5 @@ The `reference/` prefix predates a directory reorganization that moved everythin
 - `workflows/_shared/procedures/raw-checklist-row.md` (canonical row format that enforces the prefixes)
 - `workflows/_shared/procedures/verify-frontmatter-completeness.md` (per-page check that validates path resolution)
 - `workflows/_shared/rules/frontmatter-schema.md` (the conditional `venue_pdfs:` clause references this rule)
-- `workflows/ingest.md`, `workflows/batch-ingest.md` (expected, PR 2b — applies to every page-creation step)
-- `workflows/lint.md` (expected, PR 2b — applies to phantom detection sub-pass)
+- `workflows/ingest.md`, `workflows/batch-ingest.md` (applies to every page-creation step)
+- `workflows/lint.md` (applies to phantom detection sub-pass)

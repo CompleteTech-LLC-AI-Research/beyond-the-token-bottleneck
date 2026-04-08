@@ -45,6 +45,6 @@ Return to the calling workflow and proceed with its next numbered step. This fra
 
 ## Used by
 
-- `workflows/ingest.md` (expected, PR 2b — Procedure step 10)
-- `workflows/batch-ingest.md` (expected, PR 2b — once per ingested paper)
-- `workflows/gap-analysis.md` (expected, PR 2b — Phase 5 ingest substep)
+- `workflows/ingest.md` (Procedure step 10)
+- `workflows/batch-ingest.md` (once per ingested paper)
+- `workflows/gap-analysis.md` (Phase 5 ingest substep)

@@ -32,4 +32,4 @@ This rule has been enforced multiple times after near-misses where bulk-update p
 - `workflows/_shared/procedures/stale-count-sweep.md` (canonical exclusion)
 - `workflows/_shared/procedures/bulk-source-rename.md` (canonical exclusion)
 - `workflows/CONVENTIONS.md` Meta-rules (this rule is also stated as a meta-rule there; the rule fragment is the canonical long form)
-- `workflows/ingest.md`, `workflows/batch-ingest.md`, `workflows/lint.md`, `workflows/review.md`, `workflows/enrich.md`, `workflows/synthesize.md`, `workflows/gap-analysis.md`, `workflows/enrichment-audit.md` (expected, PR 2b — every workflow that appends to log.md must respect this rule)
+- `workflows/ingest.md`, `workflows/batch-ingest.md`, `workflows/lint.md`, `workflows/review.md`, `workflows/enrich.md`, `workflows/synthesize.md`, `workflows/gap-analysis.md`, `workflows/enrichment-audit.md` (every workflow that appends to log.md must respect this rule)

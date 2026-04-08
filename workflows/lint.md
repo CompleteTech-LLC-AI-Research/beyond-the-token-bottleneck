@@ -104,9 +104,10 @@ Use this workflow when you need to audit the wiki for quality issues, especially
    - Grep `raw/checklist.md` for `reference/pdf/` and `reference/latex/`. Zero matches are required — these are stale historical paths from a directory move and must be rewritten to `raw/pdf/...` / `raw/latex/...`.
    - For each canonical PDF arxiv ID in `raw/index.md`, confirm a matching row exists in `raw/checklist.md` (match by arxiv ID in either the "Original refs from list" column or the "Local PDF" path). Flag any arxiv IDs present in `raw/index.md` but missing from `raw/checklist.md`, and any rows in `raw/checklist.md` whose arxiv ID is not in `raw/index.md`.
 5. Run the **Redundancy & Dead-Reference Audit** (see section below). This is a four-class sub-pass that catches phantom raw assets, source-page ↔ raw asset bijection breaks, slug collisions, and MOC/concept overlap.
-6. Report findings and suggest fixes.
-7. Apply fixes only after user approval.
-8. Log the lint pass in `wiki/log.md`.
+6. **Terminology drift scan.** Grep for the drift variants enumerated in [glossary](_shared/glossary.md) and add them to the findings list. Do not silently rewrite — drift variants surface as findings so the user sees the pattern.
+7. Report findings and suggest fixes.
+8. Apply fixes only after user approval.
+9. Log the lint pass in `wiki/log.md`.
 
 ## Redundancy & Dead-Reference Audit
 
@@ -136,7 +137,7 @@ When two source pages share a leading filename token (e.g., `kvcomm-*`, `coconut
 
 1. `Glob wiki/sources/**/*.md` and group basenames by their first hyphenated token.
 2. For any group with size ≥ 2 from different papers, suggest a hybrid rename: `<technique>-<institution>-<distinguisher>.md` (e.g., `kvcomm-kth-selective.md` vs `kvcomm-duke-online-reuse.md`).
-3. Renames are bulk operations — see "Bulk source-page rename" below.
+3. Renames are bulk operations — run [bulk source rename](_shared/procedures/bulk-source-rename.md) for each rename. The fragment owns the `git mv` + `sed` + verify sequence and is the only context where `sed` is the blessed tool.
 
 ### D. MOC and concept overlap
 
@@ -146,27 +147,12 @@ Two MOCs are redundant when one defers to the other for its primary content. Two
 2. For any MOC whose body section is duplicated in another MOC, propose collapsing it to the unique scaffolding (cross-cutting concepts, key entities, theoretical foundations) and adding a one-line pointer to the canonical source.
 3. For concept-page overlap, prefer keeping the synthesis page and folding the duplicate into a section anchor.
 
-## Bulk source-page rename
-
-When option **C** above triggers (or any other rename of a source page slug), follow this exact sequence to keep all backlinks consistent. **Do not** edit one file at a time — the surface area is large enough that a single missed link breaks navigation.
-
-1. **Enumerate references first**: `Grep '\[\[<old-slug>' .` — confirm the count and the files affected.
-2. **Move the file with `git mv`** so history is preserved. Never use `Write` to create a new file alongside the old.
-3. **Bulk rewrite all references**. The blessed tool for this single case is `sed` (the only place where `sed` overrides the "use Edit, not sed" default), because (a) the slug is unique enough that collateral damage is impossible to introduce, and (b) the alternative is 30+ Read+Edit pairs:
-
-   ```bash
-   find wiki raw -name "*.md" -print0 | xargs -0 sed -i 's/<old-slug>/<new-slug>/g'
-   ```
-
-4. **Verify**: re-run `Grep '<old-slug>' .` — must return zero matches.
-5. **Update `raw/index.md`** if the source page is also referenced there (the sed pass usually handles this — confirm).
-6. **Log it** in `wiki/log.md` with action `lint` or `update`, listing both the old and new slugs.
-
 ## Completion Checklist
+- All items in [`_shared/checklists/base.md`](_shared/checklists/base.md) hold.
+- All items in [`_shared/checklists/audit-additions.md`](_shared/checklists/audit-additions.md) hold.
 - Findings are grouped by content vs structural issues.
 - Proposed fixes are specific and actionable.
-- No files were edited without approval.
-- The lint pass is logged in `wiki/log.md` after changes are made.
+- Terminology drift findings (if any) are in the report.
 
 ## Related Workflows
 - `workflows/query.md`

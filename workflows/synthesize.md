@@ -98,16 +98,16 @@ Create cross-cutting analysis pages that connect multiple sources and concepts i
    - Collaboration strategy for external engagement opportunities.
    - Benchmark overlap for coverage matrices and blind spots across papers.
 4. Create the analysis page with citations to all relevant sources.
-5. Update `wiki/index.md` and any relevant MOCs.
-6. Append the work to `wiki/log.md`.
+5. **Sync indexes and assets.** Run [update index and assets](_shared/procedures/update-index-and-assets.md) in full, then return here and continue with step 6. The fragment owns the `wiki/index.md` directory-tree count and entry-list update for the new analysis page.
+6. **Update affected MOC reading paths.** For each MOC whose theme the new analysis touches, run [moc update](_shared/procedures/moc-update.md). Skip if no MOC is affected (a synthesis page that creates a new theme may need no immediate MOC update).
+7. Append the work to `wiki/log.md`.
+8. **Commit and push.** Run [commit and push](_shared/procedures/commit-and-push.md) in full.
 
 ## Completion Checklist
 
+- All items in [`_shared/checklists/base.md`](_shared/checklists/base.md) hold.
 - The analysis type matches the synthesis problem.
 - The page cites all relevant source and concept pages.
-- `wiki/index.md` reflects the new or updated analysis page.
-- Relevant MOCs point to the new reading path.
-- `wiki/log.md` records the change.
 
 ## Related Workflows
 
