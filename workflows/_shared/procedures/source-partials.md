@@ -117,8 +117,8 @@ Future revisions of a one-liner edit only the partial; the shell and every MOC c
 
 ## Used by
 
-- `workflows/ingest.md` — when an ingest creates a new source page, the one-liner partial is created in the same step.
-- `workflows/lint.md` — should check that every `wiki/sources/**/*.md` source shell has a matching `<slug>/one-liner.md` partial and a `## One-liner` heading with the embed underneath.
+- `workflows/create/ingest.md` — when an ingest creates a new source page, the one-liner partial is created in the same step.
+- `workflows/audit/lint.md` — should check that every `wiki/sources/**/*.md` source shell has a matching `<slug>/one-liner.md` partial and a `## One-liner` heading with the embed underneath.
 
 ## Relationship to other partial types
 
