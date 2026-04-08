@@ -34,10 +34,7 @@ This MOC is the **thematic hub** for latent communication: concepts, entities, a
 
 ## Theoretical Foundations
 
-- **[[platonic-representation-hypothesis]]** — Why cross-family activation communication works: models converge to shared statistical structure.
-- **[[relative-representations-zero-shot]]** — Zero-shot model stitching via cosine-similarity anchors.
-- **[[linearity-relation-decoding]]** — Linear relational embeddings; explains enriched entity representations at mid-layers.
-- **[[latent-variable-model]]** — Identifiability theory underpinning ThoughtComm.
+See **[[theoretical-foundations]]** for the full reading path through the representation-geometry and convergence results that ground this thread (Hernandez et al., Moschella et al., Huh et al.) plus the ThoughtComm identifiability theory in [[latent-variable-model]].
 
 ## Connections
 
