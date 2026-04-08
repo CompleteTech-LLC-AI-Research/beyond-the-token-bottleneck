@@ -37,7 +37,7 @@ For a 70B-parameter model (L=80, H=64, d=128), each token's full KV-cache is $2 
 
 ### vs. Natural Language (Tokens)
 
-The standard [[multiagent-debate]] approach. Natural language requires the sender to sequentially generate tokens (slow, lossy) and the receiver to parse them (ambiguous). KV-cache communication eliminates both steps — the sender only needs a single prefill pass, and the receiver integrates information through attention.
+The standard [[multi-agent-debate]] approach. Natural language requires the sender to sequentially generate tokens (slow, lossy) and the receiver to parse them (ambiguous). KV-cache communication eliminates both steps — the sender only needs a single prefill pass, and the receiver integrates information through attention.
 
 ### vs. Output Embeddings ([[cipher-multiagent-debate-embeddings|CIPHER]])
 

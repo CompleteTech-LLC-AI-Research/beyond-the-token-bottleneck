@@ -20,7 +20,7 @@ This MOC is the **thematic hub** for latent communication: concepts, entities, a
 - **[[activation-communication]]** — Hidden-state synthesis: 5-paper comparison, cross-model compatibility spectrum, information concentration problem.
 - **[[kv-cache-communication]]** — KV-cache synthesis: 4 design dimensions, combined stack vision.
 - **[[thought-structure]]** — Shared/private decomposition, agreement routing.
-- **[[multiagent-debate]]** — The debate paradigm these communication methods plug into.
+- **[[multi-agent-debate]]** — The debate paradigm these communication methods plug into.
 - **[[temperature-diversity]]** — Anchor/explorer dynamics and diversity's role in embedding-space debate.
 
 ## Key Entities

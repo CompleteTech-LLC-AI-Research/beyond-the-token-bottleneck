@@ -30,7 +30,7 @@ The discrete bottleneck appears in multiple contexts within this wiki, and **the
 ### Inter-Agent Communication
 - **Discrete**: Agents exchange natural language messages. Each token collapses the sender's full belief distribution into one choice.
 - **Continuous**: Agents exchange embedding vectors ([[embedding-space-communication|CIPHER]]), KV-cache entries ([[kv-cache-communication]]), or hidden-state activations ([[activation-communication]]).
-- **Evidence**: [[cipher-multiagent-debate-embeddings|CIPHER]] shows 0.5-5.0% accuracy improvement from continuous communication in [[multiagent-debate]].
+- **Evidence**: [[cipher-multiagent-debate-embeddings|CIPHER]] shows 0.5-5.0% accuracy improvement from continuous communication in [[multi-agent-debate]].
 
 ### Intra-Agent Reasoning
 - **Discrete**: The model reasons through chain-of-thought — discrete token sequences.

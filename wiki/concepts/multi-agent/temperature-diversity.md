@@ -8,9 +8,9 @@ tags: [technique, multi-agent]
 
 # Temperature Diversity
 
-Temperature diversity is the standard knob for inducing the response variation that [[multiagent-debate]] depends on; this concept covers the mechanism in depth.
+Temperature diversity is the standard knob for inducing the response variation that [[multi-agent-debate]] depends on; this concept covers the mechanism in depth.
 
-**Temperature diversity** is the practice of running agents at **different temperatures** in a [[multiagent-debate]] to encourage complementary information contributions. Rather than an implementation detail, temperature diversity is a first-class design parameter that accounts for a substantial portion of performance gains in [[embedding-space-communication|embedding-based communication]] systems like [[cipher-multiagent-debate-embeddings|CIPHER]].
+**Temperature diversity** is the practice of running agents at **different temperatures** in a [[multi-agent-debate]] to encourage complementary information contributions. Rather than an implementation detail, temperature diversity is a first-class design parameter that accounts for a substantial portion of performance gains in [[embedding-space-communication|embedding-based communication]] systems like [[cipher-multiagent-debate-embeddings|CIPHER]].
 
 ## Background: What Temperature Does
 

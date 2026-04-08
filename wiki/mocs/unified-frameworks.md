@@ -72,7 +72,7 @@ graph TD
 
 - **[[scaling-agent-systems]]** — Quantitative framework: 5 architectures, 180 configs. Key finding: scaling is task-contingent, not monotonic. Composable primitives > ad-hoc designs.
 - **[[multiagent-debate-du-et-al]]** — Du et al.'s foundational debate protocol that all unified systems build upon.
-- **[[multiagent-debate]]** — The debate paradigm: capability thresholds, architecture comparison, scaling principles.
+- **[[multi-agent-debate]]** — The debate paradigm: capability thresholds, architecture comparison, scaling principles.
 
 ## Meta & Applied
 

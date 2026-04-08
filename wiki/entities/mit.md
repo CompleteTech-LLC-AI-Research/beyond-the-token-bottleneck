@@ -9,7 +9,7 @@ tags: [organization, university]
 
 # MIT / Google Brain
 
-MIT and Google Brain (now merged into [[google-deepmind|Google DeepMind]]) jointly produced the foundational paper that established [[multiagent-debate|multi-agent debate]] as a research paradigm.
+MIT and Google Brain (now merged into [[google-deepmind|Google DeepMind]]) jointly produced the foundational paper that established [[multi-agent-debate|multi-agent debate]] as a research paradigm.
 
 ## Contribution Timeline
 

@@ -84,7 +84,7 @@ Synthesized from all 27 papers in this collection. Each direction below represen
 - Cluster delta trajectories from diverse reasoning tasks — do common patterns emerge?
 - Test cross-task transfer: extract deltas from math reasoning, apply to logic reasoning
 - Build a delta library and test retrieval-augmented reasoning (find nearest delta, inject, measure accuracy vs. CoT)
-- Compare delta-based communication to all existing approaches in a controlled [[multiagent-debate|multi-agent debate]] setting
+- Compare delta-based communication to all existing approaches in a controlled [[multi-agent-debate|multi-agent debate]] setting
 
 ---
 

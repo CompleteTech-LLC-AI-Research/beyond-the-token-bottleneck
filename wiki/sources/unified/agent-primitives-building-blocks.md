@@ -331,7 +331,7 @@ graph LR
 - **[[kv-cache-communication]]**: Agent Primitives use KV-cache not just for transmission but to implement the computation structure itself. The RoPE re-encoding finding is a critical implementation detail for any KV-cache concatenation approach. The formal input-output alignment assumption (Equation 2) establishes the theoretical foundation.
 - **[[latentmas-collaboration|LatentMAS]]**: Both use KV-cache transfer, but LatentMAS uses aggressive chunking ($m=40$) that causes instability on LLaMA (-10.1% average). Agent Primitives are more conservative and stable. LatentMAS is slightly more token-efficient but at the cost of backbone-dependent catastrophic failures.
 - **[[scaling-agent-systems|Scaling Agent Systems]]**: Agent Primitives' composable design addresses the task-architecture mismatch problem — the Organizer selects the right primitive composition per task, with the Knowledge Pool providing structural guidance from 45 prior MAS designs across 5 frameworks.
-- **[[multiagent-debate]]**: Multi-Agent Debate is one of the 5 frameworks contributing to the Knowledge Pool. The Voting primitive generalizes the debate-then-select pattern into latent space.
+- **[[multi-agent-debate]]**: Multi-Agent Debate is one of the 5 frameworks contributing to the Knowledge Pool. The Voting primitive generalizes the debate-then-select pattern into latent space.
 - **[[cache-to-cache-semantic-communication|Cache-to-Cache]]**: Both use KV-cache projection for inter-model communication, but Agent Primitives restrict to same-model settings to satisfy the input-output alignment assumption.
 
 ## Source Materials

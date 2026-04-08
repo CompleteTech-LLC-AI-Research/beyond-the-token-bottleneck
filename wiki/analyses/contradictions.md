@@ -45,7 +45,7 @@ Systematic tracking of claims that conflict or exist in tension across papers in
 
 ## 3. Scaling: More Agents Help vs. Hurt
 
-**Claim A**: [[multiagent-debate|Multi-agent debate]] consistently improves over single agents. Du et al. shows +8pp on GSM8K; LatentMAS shows +11.5pp; ThoughtComm scales positively with more rounds.
+**Claim A**: [[multi-agent-debate|Multi-agent debate]] consistently improves over single agents. Du et al. shows +8pp on GSM8K; LatentMAS shows +11.5pp; ThoughtComm scales positively with more rounds.
 — [[multiagent-debate-du-et-al|Du et al.]], [[latentmas-collaboration|LatentMAS]], [[thought-communication-multiagent|ThoughtComm]]
 
 **Claim B**: Multi-agent scaling is **task-contingent**, not monotonic. Benefits range from +80.9% (finance) to **-70%** (sequential planning). Capability saturation occurs at ~45% single-agent accuracy.
