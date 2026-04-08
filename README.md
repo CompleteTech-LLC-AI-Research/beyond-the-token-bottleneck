@@ -125,6 +125,14 @@ beyond-the-token-bottleneck/
 
 ---
 
+## Knowledge Graph
+
+![Obsidian graph view colored by note type](assets/graph-color-groups.png)
+
+The Obsidian graph view is configured with an Excel-style categorical palette so each wiki section is visually distinct: concepts (blue), entities (orange), sources (gray), analyses (gold), MOCs (green), top-level wiki notes (dark blue), `raw/` (light orange), and `workflows/` (dark green).
+
+---
+
 ## Obsidian Setup
 
 This vault is designed for [Obsidian](https://obsidian.md). Clone and open the repo as a vault.
