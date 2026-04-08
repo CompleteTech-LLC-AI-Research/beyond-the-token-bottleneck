@@ -69,21 +69,21 @@ Use this workflow when the task sounds like:
 1. Inventory plugins by reading `.obsidian/community-plugins.json` and each plugin's `manifest.json` and `data.json`.
 2. For each plugin, check compliance:
    - LaTeX Suite / Extended MathJax: scan all wiki pages for unwrapped math, Unicode math symbols such as `∈`, `ℝ`, and `≈`, plaintext subscripts like `h_T`, or expressions outside `$...$` delimiters. Convert any found.
-   - Pandoc: run [verify frontmatter completeness](_shared/procedures/verify-frontmatter-completeness.md) on a sample of pages, then return here. The universal-minimum check covers the `title:` requirement; the fragment is the canonical schema.
+   - Pandoc: run [verify frontmatter completeness](../_shared/procedures/verify-frontmatter-completeness.md) on a sample of pages, then return here. The universal-minimum check covers the `title:` requirement; the fragment is the canonical schema.
    - Preamble: check that macros in `preamble.sty` are used consistently, with no raw `\mathbb{R}` when `\R` is available.
    - Diagrams: check for ASCII art in code blocks that should be Mermaid. Check for `.drawio` files, which should not exist. Check for `\n` inside Mermaid node labels — replace with `<br>`. Check for math notation (subscripts, superscripts, LaTeX-like expressions) in Mermaid node labels — these should use the side-by-side notation pattern (`[!diagram|left]` + `[!notation|right]` callouts) per AGENTS.md §Diagram Maintenance rule 6.
-3. **Bulk fix any issues found using parallel subagents.** Run [parallel subagent protocol](_shared/procedures/parallel-subagent-protocol.md) in full, then return here and continue with step 4. The fragment owns scope boundaries (one agent per file group) and the canonical coordinator-only file enumeration.
+3. **Bulk fix any issues found using parallel subagents.** Run [parallel subagent protocol](../_shared/procedures/parallel-subagent-protocol.md) in full, then return here and continue with step 4. The fragment owns scope boundaries (one agent per file group) and the canonical coordinator-only file enumeration.
 4. Log the audit in `wiki/log.md`.
 
 ## Completion Checklist
-- All items in [`_shared/checklists/base.md`](_shared/checklists/base.md) hold.
-- All items in [`_shared/checklists/audit-additions.md`](_shared/checklists/audit-additions.md) hold.
+- All items in [`../_shared/checklists/base.md`](../_shared/checklists/base.md) hold.
+- All items in [`../_shared/checklists/audit-additions.md`](../_shared/checklists/audit-additions.md) hold.
 - Plugin inventory has been checked.
 - Math, frontmatter, diagram, and preamble compliance have been scanned.
 - Any fixes are grouped by file family, not mixed across unrelated files.
 
 ## Related Workflows
-- `workflows/review.md`
-- `workflows/lint.md`
-- `workflows/enrichment-audit.md`
-- `workflows/schema-self-audit.md`
+- `workflows/audit/review.md`
+- `workflows/audit/lint.md`
+- `workflows/audit/enrichment-audit.md`
+- `workflows/audit/schema-self-audit.md`

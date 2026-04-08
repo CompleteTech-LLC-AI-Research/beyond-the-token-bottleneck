@@ -207,13 +207,13 @@ Before acting:
 2. Choose the **narrowest** workflow that fully covers the task. Do not default to `review` or `query` when a more specific workflow fits.
 3. Read the primary workflow file first. Read secondary workflow files only when the primary workflow explicitly calls for them.
 4. Prefer explicit trigger matches over vague similarity:
-   - 3+ new sources or explicit parallel ingest -> `workflows/batch-ingest.md`
-   - Any parallel subagent output that needs QA -> `workflows/verification.md`
-   - Whole-vault once-over -> `workflows/review.md`
-   - Enrichment gap-finding plus prioritization -> `workflows/enrichment-audit.md`
-   - Find a wiki gap and procure a new paper to fill it -> `workflows/gap-analysis.md`
-   - New source onboarding -> `workflows/ingest.md`
-   - Question answering without wiki maintenance -> `workflows/query.md`
+   - 3+ new sources or explicit parallel ingest -> `workflows/create/batch-ingest.md`
+   - Any parallel subagent output that needs QA -> `workflows/audit/verification.md`
+   - Whole-vault once-over -> `workflows/audit/review.md`
+   - Enrichment gap-finding plus prioritization -> `workflows/audit/enrichment-audit.md`
+   - Find a wiki gap and procure a new paper to fill it -> `workflows/audit/gap-analysis.md`
+   - New source onboarding -> `workflows/create/ingest.md`
+   - Question answering without wiki maintenance -> `workflows/query/query.md`
 5. Respect workflow boundaries:
 - Shared files (`wiki/index.md`, `wiki/log.md`, MOCs, `wiki/overview-state-of-field.md`, `AGENTS.md`) stay coordinator-owned unless the workflow explicitly says otherwise.
    - If a workflow says to get user approval before applying fixes, stop and ask before editing.
@@ -318,21 +318,21 @@ The MathJax preamble at `.obsidian/plugins/obsidian-latex/preamble.sty` defines 
 
 These files are authoritative. Keep this list in sync when adding, renaming, or removing workflows.
 
-- `workflows/ingest.md` - Add a new source and propagate the resulting updates across source pages, entities, concepts, indexes, MOCs, raw assets, and logs.
-- `workflows/gap-analysis.md` - Identify a gap from existing analyses, procure a paper from arXiv via the MCP, conditionally ingest it, and trigger downstream workflows. The proactive counterpart to `ingest.md`.
-- `workflows/query.md` - Answer a user question from the wiki with targeted reading and `[[wiki-links]]` citations.
-- `workflows/lint.md` - Run a health check for content integrity, structural drift, stale paths, and missing cross-references.
-- `workflows/batch-ingest.md` - Ingest 3+ sources in parallel, then consolidate shared files and run verification.
-- `workflows/moc-gap-analysis.md` - Audit MOC coverage, propose new MOCs, and coordinate creation without shared-file conflicts.
-- `workflows/verification.md` - Quality-check parallel subagent output for structure, accuracy, overstatement, and missing coverage before merge.
-- `workflows/enrich.md` - Improve navigation, backlinks, asset linking, index sync, and discoverability without adding new substantive content.
-- `workflows/expand.md` - Deepen thin source, concept, and entity pages to meet the depth standard.
-- `workflows/synthesize.md` - Create cross-cutting analysis pages that connect multiple sources and concepts.
-- `workflows/review.md` - Run a full wiki once-over that combines lint, enrich, depth checks, and schema consistency review.
-- `workflows/enrichment-audit.md` - Systematically find, prioritize, and execute enrichment workstreams across the wiki in parallel.
-- `workflows/plugin-audit.md` - Audit Obsidian plugin configuration and page compliance for math, diagrams, frontmatter, and export readiness.
-- `workflows/readme-github-maintenance.md` - Update `README.md` and GitHub-facing project metadata when the vault structure or published surface changes.
-- `workflows/schema-self-audit.md` - Verify that `AGENTS.md` still matches the real vault layout, MOC inventory, workflow paths, and frontmatter usage.
+- `workflows/create/ingest.md` - Add a new source and propagate the resulting updates across source pages, entities, concepts, indexes, MOCs, raw assets, and logs.
+- `workflows/audit/gap-analysis.md` - Identify a gap from existing analyses, procure a paper from arXiv via the MCP, conditionally ingest it, and trigger downstream workflows. The proactive counterpart to `ingest.md`.
+- `workflows/query/query.md` - Answer a user question from the wiki with targeted reading and `[[wiki-links]]` citations.
+- `workflows/audit/lint.md` - Run a health check for content integrity, structural drift, stale paths, and missing cross-references.
+- `workflows/create/batch-ingest.md` - Ingest 3+ sources in parallel, then consolidate shared files and run verification.
+- `workflows/audit/moc-gap-analysis.md` - Audit MOC coverage, propose new MOCs, and coordinate creation without shared-file conflicts.
+- `workflows/audit/verification.md` - Quality-check parallel subagent output for structure, accuracy, overstatement, and missing coverage before merge.
+- `workflows/enrich/enrich.md` - Improve navigation, backlinks, asset linking, index sync, and discoverability without adding new substantive content.
+- `workflows/enrich/expand.md` - Deepen thin source, concept, and entity pages to meet the depth standard.
+- `workflows/create/synthesize.md` - Create cross-cutting analysis pages that connect multiple sources and concepts.
+- `workflows/audit/review.md` - Run a full wiki once-over that combines lint, enrich, depth checks, and schema consistency review.
+- `workflows/audit/enrichment-audit.md` - Systematically find, prioritize, and execute enrichment workstreams across the wiki in parallel.
+- `workflows/audit/plugin-audit.md` - Audit Obsidian plugin configuration and page compliance for math, diagrams, frontmatter, and export readiness.
+- `workflows/meta/readme-github-maintenance.md` - Update `README.md` and GitHub-facing project metadata when the vault structure or published surface changes.
+- `workflows/audit/schema-self-audit.md` - Verify that `AGENTS.md` still matches the real vault layout, MOC inventory, workflow paths, and frontmatter usage.
 
 ## Depth Standard
 

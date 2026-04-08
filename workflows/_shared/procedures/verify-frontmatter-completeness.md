@@ -35,7 +35,7 @@ For the full per-type schema, the recognized `type:` enumeration, and the field-
 ## Invariants
 
 - The universal minimum (`type`, `title`, `created`) is non-negotiable for every wiki page. No exceptions.
-- `type:` values must come from the canonical enumeration. Custom or freeform `type:` values are caught by `workflows/schema-self-audit.md`.
+- `type:` values must come from the canonical enumeration. Custom or freeform `type:` values are caught by `workflows/audit/schema-self-audit.md`.
 - File path references in frontmatter must exist on disk. Phantom `source_file:`, `latex_source:`, or `venue_pdfs:` entries are bugs, not documentation.
 - The conditional `venue_pdfs:` is only listed when the venue PDF is in `raw/pdf/`. Listing it before the file is downloaded creates a phantom that propagates into `raw/index.md` and breaks lint passes weeks later.
 - During a review/audit pass, this procedure flags findings rather than silently fixing them. Silent fixes hide drift patterns.
@@ -47,8 +47,8 @@ Return to the calling workflow and proceed with its next numbered step. This fra
 
 ## Used by
 
-- `workflows/ingest.md` (Procedure step 4, "Create a source page")
-- `workflows/enrich.md` (Procedure step 3, raw asset linking pass)
-- `workflows/review.md` (Procedure step 2, "Spot-check that all pages have required frontmatter fields")
-- `workflows/plugin-audit.md` (Procedure step 2, Pandoc compliance check; the universal-minimum check covers the `title:` requirement)
-- `workflows/verification.md` (Procedure step 2, "Confirm frontmatter is complete and consistent")
+- `workflows/create/ingest.md` (Procedure step 4, "Create a source page")
+- `workflows/enrich/enrich.md` (Procedure step 3, raw asset linking pass)
+- `workflows/audit/review.md` (Procedure step 2, "Spot-check that all pages have required frontmatter fields")
+- `workflows/audit/plugin-audit.md` (Procedure step 2, Pandoc compliance check; the universal-minimum check covers the `title:` requirement)
+- `workflows/audit/verification.md` (Procedure step 2, "Confirm frontmatter is complete and consistent")

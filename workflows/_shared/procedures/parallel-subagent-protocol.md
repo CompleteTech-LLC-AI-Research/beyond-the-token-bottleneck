@@ -9,10 +9,10 @@ The off-limits file enumeration in this fragment is the **complete** list. Earli
 ## When to run
 
 - Before launching any parallel-subagent phase. The coordinator reads this fragment, applies the contract to its subagent prompts, and only then dispatches.
-- Inside `workflows/batch-ingest.md` (per-paper ingest agents).
-- Inside `workflows/verification.md` (per-page review agents — note: review agents return findings only, never edit).
-- Inside `workflows/moc-gap-analysis.md` (per-MOC creation agents).
-- Inside `workflows/enrichment-audit.md` Phase 3 (per-task enrichment agents).
+- Inside `workflows/create/batch-ingest.md` (per-paper ingest agents).
+- Inside `workflows/audit/verification.md` (per-page review agents — note: review agents return findings only, never edit).
+- Inside `workflows/audit/moc-gap-analysis.md` (per-MOC creation agents).
+- Inside `workflows/audit/enrichment-audit.md` Phase 3 (per-task enrichment agents).
 - Anywhere a workflow says "launch parallel subagents" or "dispatch in parallel".
 
 ## Procedure
@@ -32,7 +32,7 @@ The off-limits file enumeration in this fragment is the **complete** list. Earli
 
 5. **Track completion incrementally.** Do not wait for all agents to finish before reporting. Surface per-agent completion to the user as it happens; this lets long-running phases stay observable.
 
-6. **After all subagents complete, run the [spot-check agent output](spot-check-agent-output.md) sub-procedure** before consolidation. The spot-check is the minimum trust-but-verify pass; if it escalates to full verification, run `workflows/verification.md` before consolidating shared files.
+6. **After all subagents complete, run the [spot-check agent output](spot-check-agent-output.md) sub-procedure** before consolidation. The spot-check is the minimum trust-but-verify pass; if it escalates to full verification, run `workflows/audit/verification.md` before consolidating shared files.
 
 7. **Consolidate shared files yourself, as the coordinator.** Update each off-limits file from step 3 with the aggregated outputs of the subagents. Stage and commit the consolidation as a single coherent change, not interleaved with subagent work.
 
@@ -53,8 +53,8 @@ Return to the calling workflow and proceed with its next numbered step. This fra
 
 ## Used by
 
-- `workflows/batch-ingest.md` (Procedure step 2, replacing the inlined "Launch parallel subagents" enumeration)
-- `workflows/verification.md` (Procedure step 3, "Run the content accuracy check in parallel")
-- `workflows/moc-gap-analysis.md` (Procedure steps 8–11, "Use parallel subagents if creating 2+ MOCs")
-- `workflows/enrichment-audit.md` (Phase 3, "Execute in Parallel")
-- `workflows/plugin-audit.md` (Procedure step 3, "Bulk fix any issues found using parallel subagents")
+- `workflows/create/batch-ingest.md` (Procedure step 2, replacing the inlined "Launch parallel subagents" enumeration)
+- `workflows/audit/verification.md` (Procedure step 3, "Run the content accuracy check in parallel")
+- `workflows/audit/moc-gap-analysis.md` (Procedure steps 8–11, "Use parallel subagents if creating 2+ MOCs")
+- `workflows/audit/enrichment-audit.md` (Phase 3, "Execute in Parallel")
+- `workflows/audit/plugin-audit.md` (Procedure step 3, "Bulk fix any issues found using parallel subagents")

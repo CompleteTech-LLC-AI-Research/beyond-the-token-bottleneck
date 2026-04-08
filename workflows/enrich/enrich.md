@@ -71,10 +71,10 @@ Use this workflow when the wiki already has content and you need to clean up str
 - `structural cleanup`
 
 ## Do Not Use When
-- You need to add or deepen substantive page content. Use `workflows/expand.md`.
-- You need a broader health check or issue scan. Use `workflows/lint.md`.
-- You are ingesting new papers or sources. Use `workflows/ingest.md`.
-- You need a full wiki review pass. Use `workflows/review.md`.
+- You need to add or deepen substantive page content. Use `workflows/enrich/expand.md`.
+- You need a broader health check or issue scan. Use `workflows/audit/lint.md`.
+- You are ingesting new papers or sources. Use `workflows/create/ingest.md`.
+- You need a full wiki review pass. Use `workflows/audit/review.md`.
 
 ## Required Context
 - `wiki/index.md`
@@ -86,32 +86,32 @@ Use this workflow when the wiki already has content and you need to clean up str
 
 ## Procedure
 1. Run a lightweight MOC Gap Analysis:
-   - Check whether any theme has 5+ uncovered pages (a full check belongs to `workflows/moc-gap-analysis.md`; this is a quick scan).
-   - For each existing MOC whose reading path needs an update, run [moc update](_shared/procedures/moc-update.md), then return here and continue.
+   - Check whether any theme has 5+ uncovered pages (a full check belongs to `workflows/audit/moc-gap-analysis.md`; this is a quick scan).
+   - For each existing MOC whose reading path needs an update, run [moc update](../_shared/procedures/moc-update.md), then return here and continue.
    - Verify the `AGENTS.md` Current MOCs list matches actual MOC files.
 2. Audit backlinks:
    - Scan for entity and concept names mentioned in prose but not wiki-linked.
    - Add missing links.
    - Check that cross-concept references are bidirectional where the connection is discussed on both sides.
 3. Verify raw asset linking:
-   - Run [verify frontmatter completeness](_shared/procedures/verify-frontmatter-completeness.md) on each source page touched by the pass, then return here.
+   - Run [verify frontmatter completeness](../_shared/procedures/verify-frontmatter-completeness.md) on each source page touched by the pass, then return here.
    - Ensure all source pages include a `## Source Materials` footer.
    - Add section-specific PDF citations like `[[raw/pdf/file.pdf|Paper §X]]` to concept pages for key claims.
-4. **Sync indexes and assets.** Run [update index and assets](_shared/procedures/update-index-and-assets.md) in full, then return here and continue with step 5. The fragment owns: `wiki/index.md` directory-tree counts and entry-list updates, `raw/index.md` PDF/LaTeX/venue-PDF tables, and `raw/download_arxiv_papers.py` reproducibility.
+4. **Sync indexes and assets.** Run [update index and assets](../_shared/procedures/update-index-and-assets.md) in full, then return here and continue with step 5. The fragment owns: `wiki/index.md` directory-tree counts and entry-list updates, `raw/index.md` PDF/LaTeX/venue-PDF tables, and `raw/download_arxiv_papers.py` reproducibility.
 5. Update `wiki/log.md` with what changed.
-6. **Commit and push.** Run [commit and push](_shared/procedures/commit-and-push.md) in full.
+6. **Commit and push.** Run [commit and push](../_shared/procedures/commit-and-push.md) in full.
 
-If the pass turns up a slug-collision rename, follow [bulk source rename](_shared/procedures/bulk-source-rename.md) — it is the only context where `sed` is the blessed tool, and the verification step is non-negotiable.
+If the pass turns up a slug-collision rename, follow [bulk source rename](../_shared/procedures/bulk-source-rename.md) — it is the only context where `sed` is the blessed tool, and the verification step is non-negotiable.
 
 ## Completion Checklist
-- All items in [`_shared/checklists/base.md`](_shared/checklists/base.md) hold.
+- All items in [`../_shared/checklists/base.md`](../_shared/checklists/base.md) hold.
 - MOC coverage gaps were checked and only expected gaps remain.
 - Internal links are present where prose refers to entities or concepts.
 - Source pages expose required asset metadata and source-material footers.
 
 ## Related Workflows
-- `workflows/lint.md`
-- `workflows/expand.md`
-- `workflows/ingest.md`
-- `workflows/review.md`
-- `workflows/moc-gap-analysis.md`
+- `workflows/audit/lint.md`
+- `workflows/enrich/expand.md`
+- `workflows/create/ingest.md`
+- `workflows/audit/review.md`
+- `workflows/audit/moc-gap-analysis.md`

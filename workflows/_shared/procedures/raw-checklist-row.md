@@ -45,6 +45,6 @@ Return to the calling workflow and proceed with its next numbered step. This fra
 
 ## Used by
 
-- `workflows/ingest.md` (Procedure step 10)
-- `workflows/batch-ingest.md` (once per ingested paper)
-- `workflows/gap-analysis.md` (Phase 5 ingest substep)
+- `workflows/create/ingest.md` (Procedure step 10)
+- `workflows/create/batch-ingest.md` (once per ingested paper)
+- `workflows/audit/gap-analysis.md` (Phase 5 ingest substep)

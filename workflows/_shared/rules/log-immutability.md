@@ -24,7 +24,7 @@ This rule has been enforced multiple times after near-misses where bulk-update p
 
 - `workflows/_shared/procedures/stale-count-sweep.md` Invariants — explicit `wiki/log.md` exclusion in the sweep procedure.
 - `workflows/_shared/procedures/bulk-source-rename.md` — the sed-rewrite pattern excludes `wiki/log.md` by scoping to `wiki/sources/` and `raw/`, not the vault root.
-- `workflows/lint.md` Redundancy & Dead-Reference Audit — would surface log-entry rewrites as anomalies in the wiki's git history if a violation slipped through.
+- `workflows/audit/lint.md` Redundancy & Dead-Reference Audit — would surface log-entry rewrites as anomalies in the wiki's git history if a violation slipped through.
 - Manual: `git log -p wiki/log.md` should show only appends. Any modification to a previously-appended line is a violation worth investigating.
 
 ## Used by
@@ -32,4 +32,4 @@ This rule has been enforced multiple times after near-misses where bulk-update p
 - `workflows/_shared/procedures/stale-count-sweep.md` (canonical exclusion)
 - `workflows/_shared/procedures/bulk-source-rename.md` (canonical exclusion)
 - `workflows/CONVENTIONS.md` Meta-rules (this rule is also stated as a meta-rule there; the rule fragment is the canonical long form)
-- `workflows/ingest.md`, `workflows/batch-ingest.md`, `workflows/lint.md`, `workflows/review.md`, `workflows/enrich.md`, `workflows/synthesize.md`, `workflows/gap-analysis.md`, `workflows/enrichment-audit.md` (every workflow that appends to log.md must respect this rule)
+- `workflows/create/ingest.md`, `workflows/create/batch-ingest.md`, `workflows/audit/lint.md`, `workflows/audit/review.md`, `workflows/enrich/enrich.md`, `workflows/create/synthesize.md`, `workflows/audit/gap-analysis.md`, `workflows/audit/enrichment-audit.md` (every workflow that appends to log.md must respect this rule)

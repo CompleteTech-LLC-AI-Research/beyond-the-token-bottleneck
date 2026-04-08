@@ -103,4 +103,4 @@ Return to the calling workflow and proceed with its next numbered step. This fra
 
 ## Used by
 
-- `workflows/ingest.md` — when an ingest introduces a new entity or adds a paper to an existing entity's timeline.
+- `workflows/create/ingest.md` — when an ingest introduces a new entity or adds a paper to an existing entity's timeline.

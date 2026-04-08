@@ -67,10 +67,10 @@ Use this workflow when you need to audit the wiki for quality issues, especially
 - `review for drift`
 
 ## Do Not Use When
-- You only need to answer a question from the wiki. Use `workflows/query.md`.
-- You are adding new source material. Use `workflows/ingest.md`.
-- You are deepening existing pages rather than checking integrity. Use `workflows/expand.md`.
-- You are performing a broader full-wiki pass. Use `workflows/review.md`.
+- You only need to answer a question from the wiki. Use `workflows/query/query.md`.
+- You are adding new source material. Use `workflows/create/ingest.md`.
+- You are deepening existing pages rather than checking integrity. Use `workflows/enrich/expand.md`.
+- You are performing a broader full-wiki pass. Use `workflows/audit/review.md`.
 
 ## Required Context
 - Current `wiki/` structure and recent edits.
@@ -96,7 +96,7 @@ Use this workflow when you need to audit the wiki for quality issues, especially
    - `AGENTS.md` Current MOCs list matches the actual `wiki/mocs/*.md` files.
    - No stale path references remain in `AGENTS.md`, `README.md`, or index files after reorganizations.
    - Mermaid node labels use `<br>` for line breaks, not `\n` (which renders literally in Obsidian).
-3. Run the [stale count sweep](_shared/procedures/stale-count-sweep.md) — catches the regression class where prose counts drift after ingests. Follow every sub-rule in the fragment (authoritative count method, grep patterns, common-offender re-verification, log.md exclusion, non-paper count sweep). When complete, return here and continue with step 4.
+3. Run the [stale count sweep](../_shared/procedures/stale-count-sweep.md) — catches the regression class where prose counts drift after ingests. Follow every sub-rule in the fragment (authoritative count method, grep patterns, common-offender re-verification, log.md exclusion, non-paper count sweep). When complete, return here and continue with step 4.
 4. **Checklist sync check** (catches drift between `raw/index.md` and `raw/checklist.md`, the URL audit trail). The checklist tracks arXiv papers only; non-arXiv sources (e.g., the latentcompress GitHub project) are intentionally excluded, so the row count must be compared against the *Canonical PDFs* count in `raw/index.md`'s summary table, **not** the total unique source pages count.
    - Count the canonical PDF rows in `raw/index.md` (the "Canonical PDFs" table, excluding the venue-duplicate section and any non-arXiv rows).
    - Count the data rows in `raw/checklist.md` (the markdown table, excluding the header and separator rows).
@@ -104,7 +104,7 @@ Use this workflow when you need to audit the wiki for quality issues, especially
    - Grep `raw/checklist.md` for `reference/pdf/` and `reference/latex/`. Zero matches are required — these are stale historical paths from a directory move and must be rewritten to `raw/pdf/...` / `raw/latex/...`.
    - For each canonical PDF arxiv ID in `raw/index.md`, confirm a matching row exists in `raw/checklist.md` (match by arxiv ID in either the "Original refs from list" column or the "Local PDF" path). Flag any arxiv IDs present in `raw/index.md` but missing from `raw/checklist.md`, and any rows in `raw/checklist.md` whose arxiv ID is not in `raw/index.md`.
 5. Run the **Redundancy & Dead-Reference Audit** (see section below). This is a four-class sub-pass that catches phantom raw assets, source-page ↔ raw asset bijection breaks, slug collisions, and MOC/concept overlap.
-6. **Terminology drift scan.** Grep for the drift variants enumerated in [glossary](_shared/glossary.md) and add them to the findings list. Do not silently rewrite — drift variants surface as findings so the user sees the pattern.
+6. **Terminology drift scan.** Grep for the drift variants enumerated in [glossary](../_shared/glossary.md) and add them to the findings list. Do not silently rewrite — drift variants surface as findings so the user sees the pattern.
 7. Report findings and suggest fixes.
 8. Apply fixes only after user approval.
 9. Log the lint pass in `wiki/log.md`.
@@ -137,7 +137,7 @@ When two source pages share a leading filename token (e.g., `kvcomm-*`, `coconut
 
 1. `Glob wiki/sources/**/*.md` and group basenames by their first hyphenated token.
 2. For any group with size ≥ 2 from different papers, suggest a hybrid rename: `<technique>-<institution>-<distinguisher>.md` (e.g., `kvcomm-kth-selective.md` vs `kvcomm-duke-online-reuse.md`).
-3. Renames are bulk operations — run [bulk source rename](_shared/procedures/bulk-source-rename.md) for each rename. The fragment owns the `git mv` + `sed` + verify sequence and is the only context where `sed` is the blessed tool.
+3. Renames are bulk operations — run [bulk source rename](../_shared/procedures/bulk-source-rename.md) for each rename. The fragment owns the `git mv` + `sed` + verify sequence and is the only context where `sed` is the blessed tool.
 
 ### D. MOC and concept overlap
 
@@ -148,15 +148,15 @@ Two MOCs are redundant when one defers to the other for its primary content. Two
 3. For concept-page overlap, prefer keeping the synthesis page and folding the duplicate into a section anchor.
 
 ## Completion Checklist
-- All items in [`_shared/checklists/base.md`](_shared/checklists/base.md) hold.
-- All items in [`_shared/checklists/audit-additions.md`](_shared/checklists/audit-additions.md) hold.
+- All items in [`../_shared/checklists/base.md`](../_shared/checklists/base.md) hold.
+- All items in [`../_shared/checklists/audit-additions.md`](../_shared/checklists/audit-additions.md) hold.
 - Findings are grouped by content vs structural issues.
 - Proposed fixes are specific and actionable.
 - Terminology drift findings (if any) are in the report.
 
 ## Related Workflows
-- `workflows/query.md`
-- `workflows/ingest.md`
-- `workflows/expand.md`
-- `workflows/review.md`
-- `workflows/batch-ingest.md`
+- `workflows/query/query.md`
+- `workflows/create/ingest.md`
+- `workflows/enrich/expand.md`
+- `workflows/audit/review.md`
+- `workflows/create/batch-ingest.md`

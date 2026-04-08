@@ -2,7 +2,7 @@
 
 ## Statement
 
-Every wiki page MUST have frontmatter conforming to the canonical schema for its `type:`. Pages without a recognized `type:` are invisible to `workflows/schema-self-audit.md` and break plugin compatibility.
+Every wiki page MUST have frontmatter conforming to the canonical schema for its `type:`. Pages without a recognized `type:` are invisible to `workflows/audit/schema-self-audit.md` and break plugin compatibility.
 
 ## Schema
 
@@ -52,14 +52,14 @@ Phantom file path entries in `source_file:`, `latex_source:`, or `venue_pdfs:` p
 ## How violations are caught
 
 - `workflows/_shared/procedures/verify-frontmatter-completeness.md` — the per-page check, run during ingest, review, plugin-audit, and verification passes.
-- `workflows/schema-self-audit.md` — the vault-wide audit that inventories pages by `type:` and flags inconsistencies.
-- `workflows/lint.md` Redundancy & Dead-Reference Audit, section A — phantom path detection in frontmatter.
+- `workflows/audit/schema-self-audit.md` — the vault-wide audit that inventories pages by `type:` and flags inconsistencies.
+- `workflows/audit/lint.md` Redundancy & Dead-Reference Audit, section A — phantom path detection in frontmatter.
 
 ## Used by
 
 - `workflows/_shared/procedures/verify-frontmatter-completeness.md` — canonical schema source for the per-page check
 - `workflows/_shared/procedures/raw-checklist-row.md` — the raw-checklist row format depends on `source_file:` and `latex_source:` field consistency
-- `workflows/schema-self-audit.md`
-- `workflows/lint.md`
-- `workflows/ingest.md`, `workflows/batch-ingest.md` (page creation must conform)
-- `workflows/review.md`, `workflows/plugin-audit.md`, `workflows/verification.md` (verification consumers)
+- `workflows/audit/schema-self-audit.md`
+- `workflows/audit/lint.md`
+- `workflows/create/ingest.md`, `workflows/create/batch-ingest.md` (page creation must conform)
+- `workflows/audit/review.md`, `workflows/audit/plugin-audit.md`, `workflows/audit/verification.md` (verification consumers)

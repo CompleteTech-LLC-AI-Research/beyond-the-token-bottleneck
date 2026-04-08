@@ -49,7 +49,7 @@ The cost of forbidding subagent edits to these files is small (the coordinator c
 
 - `workflows/_shared/procedures/parallel-subagent-protocol.md` — enforces the rule at subagent dispatch time. Subagent prompts MUST include the enumeration and the "report, do not edit" instruction.
 - `workflows/_shared/procedures/spot-check-agent-output.md` — would surface unexpected edits to coordinator-only files in the post-phase sample.
-- `workflows/verification.md` — full verification pass would catch any edits to coordinator-only files in the parallel-phase output.
+- `workflows/audit/verification.md` — full verification pass would catch any edits to coordinator-only files in the parallel-phase output.
 - Manual: `git diff --stat` on the parallel-phase output should show zero changes to any file in this enumeration.
 
 ## How to extend the enumeration
@@ -61,4 +61,4 @@ When a new file becomes coordinator-only — typically because a workflow change
 - `workflows/_shared/procedures/parallel-subagent-protocol.md` (canonical enforcement point — every subagent dispatch consumes this enumeration)
 - `workflows/_shared/procedures/spot-check-agent-output.md` (post-phase verification reference)
 - `workflows/_shared/procedures/commit-and-push.md` (the "do not touch" bucket overlaps with this enumeration)
-- `workflows/batch-ingest.md`, `workflows/verification.md`, `workflows/moc-gap-analysis.md`, `workflows/enrichment-audit.md`, `workflows/plugin-audit.md` (replacing each workflow's drifted inline enumeration)
+- `workflows/create/batch-ingest.md`, `workflows/audit/verification.md`, `workflows/audit/moc-gap-analysis.md`, `workflows/audit/enrichment-audit.md`, `workflows/audit/plugin-audit.md` (replacing each workflow's drifted inline enumeration)

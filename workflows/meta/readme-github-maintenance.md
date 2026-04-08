@@ -72,10 +72,10 @@ The vault is published at `CompleteTech-LLC-AI-Research/beyond-the-token-bottlen
 
 ## Related Workflows
 
-- `workflows/ingest.md`
-- `workflows/query.md`
-- `workflows/lint.md`
-- `workflows/batch-ingest.md`
-- `workflows/moc-gap-analysis.md`
-- `workflows/schema-self-audit.md`
+- `workflows/create/ingest.md`
+- `workflows/query/query.md`
+- `workflows/audit/lint.md`
+- `workflows/create/batch-ingest.md`
+- `workflows/audit/moc-gap-analysis.md`
+- `workflows/audit/schema-self-audit.md`
 
