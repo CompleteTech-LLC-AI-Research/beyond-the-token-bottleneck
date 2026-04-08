@@ -13,5 +13,5 @@ Temperature is best understood as a **proxy for the deeper quantity**: coverage 
 
 ## Used by
 
-- [[multiagent-debate]]
+- [[multi-agent-debate]]
 - [[temperature-diversity]]

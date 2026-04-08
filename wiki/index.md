@@ -60,7 +60,7 @@ Navigate by research theme. Each MOC provides a guided reading path with narrati
 - [[kv-cache-communication]] — 4 design dimensions with 4 papers
 - [[thought-structure]] — Shared/private decomposition, agreement routing
 - [[latent-variable-model]] — Identifiability theory for ThoughtComm
-- [[multiagent-debate]] — Debate paradigm, scaling principles, architecture comparison
+- [[multi-agent-debate]] — Debate paradigm, scaling principles, architecture comparison
 - [[temperature-diversity]] — Anchor/explorer dynamics in embedding-space debate
 
 ---
