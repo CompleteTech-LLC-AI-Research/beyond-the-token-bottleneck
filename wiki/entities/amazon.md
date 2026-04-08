@@ -37,16 +37,7 @@ Amazon has no direct co-authorship with other wiki entities, but Cui et al. is m
 - **[[fair-meta|FAIR at Meta]]**: Directly tests, critiques, and improves [[coconut-reasoning-latent-space|Coconut]]. The Improved Coconut variant should be cited by any future work building on Coconut. Amazon's findings constrain the credibility of FAIR's emergent-BFS narrative.
 - **[[cmu|CMU]] / UC Berkeley / UC San Diego (via Zhu et al.)**: Empirically falsifies the *iterative* BFS extension of [[superposition-coconut-theory|Zhu et al.'s superposition theory]], while confirming the *capacity* claim. The two papers together bracket what is and isn't true about parallel BFS in latent space.
 - **CODI / SIM-CoT / CoLaR authors** (Shen et al., Wei et al., Tan et al.): Cui et al. is the first paper to evaluate these methods side-by-side under a unified taxonomy. None of these methods currently have wiki source pages, but they are first-class objects in the supervision-strength comparison.
-
-### The Industry-Lab Pattern
-
-Amazon's contribution fits a recognizable pattern of industrial-lab research in this collection: large companies (Amazon, [[google-research|Google Research]], [[google-deepmind|Google DeepMind]], [[fair-meta|FAIR]]) publishing **breadth-first analytical work** that surveys, critiques, or unifies the academic literature. Compare:
-
-- **Amazon (Cui et al.)**: Comprehensive analysis of four latent reasoning methods, identifies systemic issues.
-- **Google DeepMind / Research / MIT (Scaling paper)**: 180-configuration empirical scaling framework for multi-agent systems.
-- **FAIR (Coconut)**: Foundational method paper that defines the field.
-
-These industry contributions establish or test the **central claims** that the academic literature builds on. Their findings have outsized influence on the field's research agenda.
+- See [[research-positioning-patterns|Research positioning patterns]] for analysis of Amazon's industry-lab role in the collection.
 
 ## Strategic Position
 
