@@ -22,7 +22,9 @@ Every fragment under `wiki/concepts/_partials/framings/` (and `wiki/concepts/_pa
      | grep -v '/README\.md$'
    ```
 
-2. **Forward check — consumer existence.** For each fragment, extract the `[[basename]]` wikilinks from its `## Used by` section and confirm every listed consumer resolves to a real `wiki/concepts/<basename>.md` file. Any `## Used by` entry whose target file is missing is a phantom and must be flagged.
+   Concept pages live in thematic subdirectories under `wiki/concepts/` (e.g. `communication/`, `reasoning/`, `multi-agent/`); the checks below resolve consumer wikilinks by basename across all subdirectories, excluding anything under `_partials/`.
+
+2. **Forward check — consumer existence.** For each fragment, extract the `[[basename]]` wikilinks from its `## Used by` section and confirm every listed consumer resolves to a real concept file somewhere under `wiki/concepts/` (excluding `_partials/`). Any `## Used by` entry whose target basename is missing is a phantom and must be flagged.
 
    ```bash
    for fragment in wiki/concepts/_partials/framings/*.md wiki/concepts/_partials/definitions/*.md; do
@@ -32,7 +34,8 @@ Every fragment under `wiki/concepts/_partials/framings/` (and `wiki/concepts/_pa
      consumers=$(awk '/^## Used by/{flag=1; next} flag' "$fragment" \
        | grep -oE '\[\[[^]]+\]\]' | sed 's/\[\[//; s/\]\]//')
      for c in $consumers; do
-       [ -f "wiki/concepts/${c}.md" ] || echo "PHANTOM: $fragment lists [[${c}]] but wiki/concepts/${c}.md does not exist"
+       found=$(find wiki/concepts -path '*/_partials*' -prune -o -name "${c}.md" -print 2>/dev/null | head -n1)
+       [ -n "$found" ] || echo "PHANTOM: $fragment lists [[${c}]] but no ${c}.md exists under wiki/concepts/"
      done
    done
    ```
@@ -47,23 +50,24 @@ Every fragment under `wiki/concepts/_partials/framings/` (and `wiki/concepts/_pa
      consumers=$(awk '/^## Used by/{flag=1; next} flag' "$fragment" \
        | grep -oE '\[\[[^]]+\]\]' | sed 's/\[\[//; s/\]\]//')
      for c in $consumers; do
-       target="wiki/concepts/${c}.md"
-       [ -f "$target" ] || continue
+       target=$(find wiki/concepts -path '*/_partials*' -prune -o -name "${c}.md" -print 2>/dev/null | head -n1)
+       [ -n "$target" ] || continue
        grep -qF "![[${base}]]" "$target" \
          || echo "BROKEN FOOTER: $fragment claims ${c} consumes it, but ${target} has no ![[${base}]] embed"
      done
    done
    ```
 
-4. **Orphan check — no zero-consumer fragments.** For every fragment file, confirm that `![[<fragment-basename>]]` appears in at least one `wiki/concepts/*.md`. Zero matches = orphan = flag.
+4. **Orphan check — no zero-consumer fragments.** For every fragment file, confirm that `![[<fragment-basename>]]` appears in at least one concept file under `wiki/concepts/` (excluding `_partials/`). Zero matches = orphan = flag.
 
    ```bash
    for fragment in wiki/concepts/_partials/framings/*.md wiki/concepts/_partials/definitions/*.md; do
      [ -f "$fragment" ] || continue
      [ "$(basename "$fragment")" = "README.md" ] && continue
      base=$(basename "$fragment" .md)
-     if ! grep -lF "![[${base}]]" wiki/concepts/*.md >/dev/null 2>&1; then
-       echo "ORPHAN: $fragment is not embedded by any wiki/concepts/*.md"
+     consumer_files=$(find wiki/concepts -path '*/_partials*' -prune -o -name '*.md' -print 2>/dev/null)
+     if ! echo "$consumer_files" | xargs grep -lF "![[${base}]]" >/dev/null 2>&1; then
+       echo "ORPHAN: $fragment is not embedded by any concept file under wiki/concepts/"
      fi
    done
    ```

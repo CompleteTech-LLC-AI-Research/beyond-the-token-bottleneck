@@ -358,7 +358,7 @@ When creating stub pages for concepts not yet covered by an ingested source, inc
 
 - Lowercase, hyphenated. The folder provides the type — **do not add type prefixes** to filenames.
 - Source summaries: `wiki/sources/<theme>/short-title.md` (e.g., `wiki/sources/reasoning/coconut-reasoning-latent-space.md`).
-- Concepts: `wiki/concepts/descriptive-name.md` (e.g., `wiki/concepts/latent-space-reasoning.md`).
+- Concepts: `wiki/concepts/<theme>/descriptive-name.md`, where `<theme>` is one of `communication/`, `reasoning/`, `theory/`, `multi-agent/`, or `challenges/` (e.g., `wiki/concepts/reasoning/latent-space-reasoning.md`). Cross-cutting fragments live under `wiki/concepts/_partials/`.
 - Entities: `wiki/entities/institution-name.md` (e.g., `wiki/entities/harvard.md`).
 - Analyses: `wiki/analyses/topic.md` (e.g., `wiki/analyses/open-questions.md`).
 - MOCs: `wiki/mocs/theme-name.md` (e.g., `wiki/mocs/latent-reasoning.md`).
