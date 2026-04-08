@@ -2,7 +2,7 @@
 type: analysis
 title: "Open Questions"
 created: "2026-04-06"
-updated: "2026-04-06"
+updated: "2026-04-08"
 tags: [open-questions, synthesis]
 ---
 
@@ -35,8 +35,12 @@ The central unsolved tension for latent reasoning on instruction-tuned models.
 - What's the optimal **hybrid discrete-continuous ratio**? [[thinking-states-latent-reasoning|Thinking States]] generates NL thoughts then compresses. Is this "best of both worlds" or an awkward compromise? — [[latent-space-reasoning]]
 - LatentMAS catastrophically fails on LLaMA-based backbones (DeepSeek-R1-Distill-Llama-70B drops -10.1pp average) despite being training-free. Is this a failure of the ridge-regression alignment or a fundamental architectural sensitivity? [[agent-primitives-building-blocks|Agent Primitives]] shows LLaMA's extreme sensitivity to RoPE misalignment as a possible root cause. — [[latentmas-collaboration]], [[agent-primitives-building-blocks]]
 - Could RL-based approaches (PPO/GRPO on latent thought quality) enable latent reasoning on instruction-tuned models without the curriculum training that causes forgetting? — [[frontier-research-directions]]
+- **Solving the supervision–exploration trade-off**: Stronger supervision eliminates [[latent-reasoning-supervision-analysis|shortcut behavior]] but **destroys latent diversity** (CoLaR collapses to ~3 distinct outcomes vs. ~16 for Coconut). Is there a training scheme that prevents shortcut behavior without collapsing the multi-candidate capacity? Candidates: information-bottleneck objectives, contrastive losses on latent diversity, hybrid curricula combining strong and weak supervision phases. — [[catastrophic-forgetting]], [[latent-reasoning-supervision-analysis]]
+- **Closing the Pass@100 / Maj@100 gap**: [[latent-reasoning-supervision-analysis|Cui et al.]] show that latent reasoning preserves correct candidates (Pass@100 ~70-82%) but fails to amplify them at decode time (Maj@100 ~40%, *below* explicit reasoning). Can a latent-aware reranker, learned aggregator, or alternative decoding strategy recover the latent diversity advantage? — [[latent-space-reasoning]], [[latent-reasoning-supervision-analysis]]
 
 The LLaMA sensitivity finding from Agent Primitives is particularly important because it suggests the forgetting barrier may be architecture-dependent, not universal. A systematic study comparing Qwen, LLaMA, Gemma, and Mistral families under identical latent reasoning training would clarify whether some architectures are inherently more amenable to latent-space modification.
+
+The supervision–exploration trade-off is **orthogonal** to the alignment trade-off: it concerns the new latent capability rather than pre-existing instruction-tuning. Together they bound the latent reasoning design space from both sides — see [[catastrophic-forgetting#The Second Barrier: The Supervision–Exploration Trade-Off|catastrophic forgetting's second barrier]] for the joint discussion.
 
 ## Cross-Architecture Compatibility
 

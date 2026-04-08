@@ -62,6 +62,7 @@ PAPER_SPECS = [
     PaperSpec("2602.03695", "archive"),
     PaperSpec("2602.08332", "archive"),
     PaperSpec("2602.15382", "archive"),
+    PaperSpec("2602.22441", "archive"),
 ]
 
 PDF_DIR = Path("./pdf")

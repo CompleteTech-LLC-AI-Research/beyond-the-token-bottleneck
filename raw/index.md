@@ -50,6 +50,7 @@ Each PDF below is the primary copy used for ingestion. The wiki source page was 
 | `raw/pdf/arxiv-2209.15430.pdf` | [[wiki/sources/meta/relative-representations-zero-shot]] |
 | `raw/pdf/arxiv-2308.09124.pdf` | [[wiki/sources/meta/linearity-relation-decoding]] |
 | `raw/pdf/arxiv-2305.14325.pdf` | [[wiki/sources/meta/multiagent-debate-du-et-al]] |
+| `raw/pdf/arxiv-2602.22441.pdf` | [[wiki/sources/meta/latent-reasoning-supervision-analysis]] |
 
 ## Non-PDF Source
 
@@ -117,6 +118,7 @@ Each LaTeX source corresponds 1:1 to the PDF with the same arXiv ID. Some papers
 | `raw/latex/arxiv-2602.03695.tar.gz` | `arxiv-2602.03695.pdf` | [[wiki/sources/unified/agent-primitives-building-blocks]] |
 | `raw/latex/arxiv-2602.08332.tar.gz` | `arxiv-2602.08332.pdf` | [[wiki/sources/reasoning/thinking-states-latent-reasoning]] |
 | `raw/latex/arxiv-2602.15382.tar.gz` | `arxiv-2602.15382.pdf` | [[wiki/sources/unified/vision-wormhole-heterogeneous]] |
+| `raw/latex/arxiv-2602.22441.tar.gz` | `arxiv-2602.22441.pdf` | [[wiki/sources/meta/latent-reasoning-supervision-analysis]] |
 
 ---
 
@@ -124,11 +126,11 @@ Each LaTeX source corresponds 1:1 to the PDF with the same arXiv ID. Some papers
 
 | Category | Count |
 |----------|-------|
-| Canonical PDFs | 24 |
+| Canonical PDFs | 25 |
 | Non-PDF sources | 1 (GitHub) |
 | Duplicate venue PDFs | 11 |
-| **Total PDFs** | **35** |
+| **Total PDFs** | **36** |
 | LaTeX directories | 9 |
-| LaTeX archives | 16 |
-| **Total LaTeX** | **25** |
-| **Unique wiki source pages** | **25** |
+| LaTeX archives | 17 |
+| **Total LaTeX** | **26** |
+| **Unique wiki source pages** | **26** |

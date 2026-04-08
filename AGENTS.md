@@ -211,6 +211,7 @@ Before acting:
    - Any parallel subagent output that needs QA -> `workflows/verification.md`
    - Whole-vault once-over -> `workflows/review.md`
    - Enrichment gap-finding plus prioritization -> `workflows/enrichment-audit.md`
+   - Find a wiki gap and procure a new paper to fill it -> `workflows/gap-analysis.md`
    - New source onboarding -> `workflows/ingest.md`
    - Question answering without wiki maintenance -> `workflows/query.md`
 5. Respect workflow boundaries:
@@ -318,6 +319,7 @@ The MathJax preamble at `.obsidian/plugins/obsidian-latex/preamble.sty` defines 
 These files are authoritative. Keep this list in sync when adding, renaming, or removing workflows.
 
 - `workflows/ingest.md` - Add a new source and propagate the resulting updates across source pages, entities, concepts, indexes, MOCs, raw assets, and logs.
+- `workflows/gap-analysis.md` - Identify a gap from existing analyses, procure a paper from arXiv via the MCP, conditionally ingest it, and trigger downstream workflows. The proactive counterpart to `ingest.md`.
 - `workflows/query.md` - Answer a user question from the wiki with targeted reading and `[[wiki-links]]` citations.
 - `workflows/lint.md` - Run a health check for content integrity, structural drift, stale paths, and missing cross-references.
 - `workflows/batch-ingest.md` - Ingest 3+ sources in parallel, then consolidate shared files and run verification.

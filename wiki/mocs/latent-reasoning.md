@@ -2,7 +2,7 @@
 type: overview
 title: "Latent Reasoning"
 created: "2026-04-06"
-updated: "2026-04-06"
+updated: "2026-04-08"
 tags: [moc, latent-reasoning]
 ---
 
@@ -20,6 +20,7 @@ Start with the theoretical motivation, then the breakthrough result, then the re
 4. **[[superposition-coconut-theory]]** — Rigorous theoretical backing: continuous CoT implements parallel BFS in $D$ steps vs $O(n^2)$ for discrete.
 5. **[[icot-internalize-cot]]** — iCoT: the direct precursor to Coconut. Progressive CoT token removal curriculum.
 6. **[[pause-tokens]]** — Minimal baseline: pause tokens as existence proof that transformers use non-linguistic computation.
+7. **[[latent-reasoning-supervision-analysis]]** — The empirical reckoning: Cui et al. (2026) test the BFS hypothesis directly. Capacity is real (Pass@100 advantage of 20+ points), but the iterative process exhibits *implicit pruning*, not BFS expansion. Identifies the supervision–exploration trade-off as a second training-time barrier complementary to catastrophic forgetting. Read this **after** Coconut and Superposition Theory to understand what is and isn't true about parallel BFS in latent space.
 
 ## The Catastrophic Forgetting Barrier
 

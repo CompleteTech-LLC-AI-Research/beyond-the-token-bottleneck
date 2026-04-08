@@ -2,7 +2,7 @@
 type: overview
 title: "Safety, Interpretability & Auditability of Latent Systems"
 created: "2026-04-06"
-updated: "2026-04-06"
+updated: "2026-04-08"
 tags: [moc, safety, interpretability]
 ---
 
@@ -37,6 +37,14 @@ Next, read **[[thinking-states-latent-reasoning|Thinking States]]** to understan
 ### 6. The Fundamental Tension: Interpretability vs. Superposition Power
 
 **[[contradictions|Contradictions & Tensions]]**, particularly Tension #8 ("Interpretability: Feature or Dealbreaker?"), articulates the core design conflict. Thinking States preserves interpretability by generating NL thoughts before compression. [[coconut-reasoning-latent-space|Coconut]]'s opaque continuous thoughts enable BFS superposition --- qualitatively superior computation impossible with interpretable intermediate steps. You cannot have a human-readable intermediate step that simultaneously encodes multiple hypotheses. This is not a contradiction to resolve but a fundamental trade-off to navigate. The proposed creative resolution: use ThoughtComm's disentanglement to provide *post-hoc* interpretability of opaque continuous thoughts, giving the power of superposition during computation and the auditability of disentanglement after the fact.
+
+### 6a. The Worst Case: When Latent Reasoning Isn't Even Used
+
+**[[latent-reasoning-supervision-analysis|Cui et al. (2026)]]** introduces a third, even more troubling failure mode for auditability: **the model isn't using its own latent reasoning at all**. Their depth ablation and noise-injection experiments show that most latent reasoning methods retain non-trivial accuracy even when latent steps are entirely disabled or destroyed by Gaussian noise far exceeding the embedding magnitude. Attention analysis on Coconut/ProsQA confirms that the top-10 attended tokens during answer generation come *exclusively* from the input question, never from the latent reasoning tokens.
+
+The safety implication: **even a perfectly disentangled latent audit tool is useless if the model is bypassing the latent channel entirely**. An auditor inspecting Coconut's continuous thoughts on ProsQA would see structured representations that have no causal influence on the output. This is a strictly worse situation than opaque-but-used reasoning, because it provides the *appearance* of auditable computation while the actual decision-making happens through input-side shortcuts.
+
+The mitigation Cui et al. propose — stronger supervision (CoLaR-style token-level alignment) — eliminates shortcut behavior but **destroys latent diversity**, collapsing the model to ~3 distinct outcome trajectories vs. ~16 for weakly supervised methods. This is the **supervision–exploration trade-off** documented under [[catastrophic-forgetting#The Second Barrier: The Supervision–Exploration Trade-Off|catastrophic forgetting's second barrier]]. For safety practitioners, the takeaway is that any audit tool must include a **causality test** (does perturbing the latent state actually change the output?) before its conclusions can be trusted.
 
 ### 7. The Unsolved Questions
 

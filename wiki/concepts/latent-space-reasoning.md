@@ -2,7 +2,7 @@
 type: concept
 title: "Latent-Space Reasoning"
 created: "2026-04-06"
-updated: "2026-04-06"
+updated: "2026-04-08"
 tags: [core-concept, latent-reasoning]
 ---
 
@@ -157,9 +157,9 @@ This is not a metaphor — it's a mathematical identity. The quantum mechanics a
 
 This is directly analogous to the advantage of [[embedding-space-communication]] over discrete tokens: the weighted average embedding in [[cipher-multiagent-debate-embeddings|CIPHER]] encodes uncertainty across multiple tokens. Coconut extends this principle from communication to reasoning.
 
-### Emergent BFS
+### Emergent BFS — and Why It Doesn't Quite Work
 
-The superposition property gives rise to **emergent breadth-first search** (BFS):
+The superposition property gives rise to what Coconut described as **emergent breadth-first search** (BFS):
 
 1. **Step 1**: The continuous thought maintains probability mass on all immediate next steps (broad exploration).
 2. **Step 2**: Paths are evaluated and weaker candidates are pruned (narrowing).
@@ -171,6 +171,24 @@ The BFS behavior is **not explicitly trained** ([[raw/pdf/arxiv-2412.06769.pdf|C
 - The continuous representation's ability to encode superpositions
 - The training objective's pressure to predict the correct final answer
 - The gradient-based optimization finding that maintaining multiple paths improves expected accuracy
+
+#### The Capacity vs. Use Distinction (Cui et al., 2026)
+
+[[latent-reasoning-supervision-analysis|Cui et al. (2026)]] conducted the first systematic empirical test of whether the iterative latent process actually performs BFS. Their hybrid latent–text rollout protocol (run $n$ latent prefix steps, then sample 100 stochastic text continuations at $T = 1$) **partially confirms and partially falsifies** the claim:
+
+- **Capacity is real**: Latent reasoning's Pass@100 (~70-82%) consistently exceeds explicit reasoning's (~44-62%) by 20+ points across all prefix lengths. A single latent vector *does* encode multiple correct candidates, exactly as [[superposition-coconut-theory|Zhu et al.]] proved theoretically.
+- **Iterative BFS is false**: Increasing latent prefix length **decreases** the diversity of next-step distributions (avg. 18.75 → 15.84 distinct outcomes from 1 to 5 latent steps). True BFS would *expand* the frontier, not contract it. The latent process exhibits **implicit pruning**, not breadth-first exploration.
+- **Amplification fails**: Latent reasoning's majority-vote accuracy is **3-4 points lower** than explicit reasoning's, despite the larger correct-candidate pool. The reasoning loop preserves diversity but fails to concentrate probability mass on the correct candidate.
+
+This is the cleanest experimental separation to date of three distinct claims:
+
+| Claim | Status | Evidence |
+|---|---|---|
+| Latent vectors *can* encode multiple candidates | Confirmed | Zhu et al. theory; Cui et al. Pass@100 advantage |
+| The iterative process *does* expand the frontier | **Falsified** | Cui et al. distinct-outcome counts decrease with depth |
+| The process *amplifies* the correct candidate | **Falsified** | Cui et al. majority-vote accuracy below explicit reasoning |
+
+The implication: **the latent reasoning loop is not failing for lack of representational capacity — it is failing because the optimization process prunes its own diversity**. This redirects the [[frontier-research-directions|frontier-scale superposition reasoning agenda]] from "scale up Coconut" to "fix the amplification problem".
 
 ### The Height–Confidence Principle
 
@@ -200,6 +218,23 @@ Optimizer state is reset between stages, suggesting that each stage requires fun
 ### The Catastrophic Forgetting Barrier
 
 [[softcot-efficient-reasoning|SoftCoT]] reveals a critical barrier: Coconut's curriculum works on GPT-2 but **damages instruction-tuned models**. LoRA-adapted Coconut on LLaMA-3.1-8B-Instruct drops GSM8K from 79.61% to 76.12% — below zero-shot CoT. See [[catastrophic-forgetting]] for full details. This means **any approach that modifies the backbone** (Coconut, iCoT) may be fundamentally incompatible with frontier instruction-tuned models.
+
+### The Supervision–Exploration Trade-Off
+
+[[latent-reasoning-supervision-analysis|Cui et al. (2026)]] identifies a **second** training-time barrier orthogonal to catastrophic forgetting. Sweeping four representative methods (Coconut, CODI, SIM-CoT, CoLaR) across the supervision spectrum, they find a fundamental tension:
+
+| Supervision strength | Shortcut behavior | Latent diversity (distinct outcomes/100 samples) | Pass@100 |
+|---|---|---|---|
+| Weak ([[coconut-reasoning-latent-space\|Coconut]], CODI) | Severe — most methods retain accuracy at depth=0 and under noise injection | High (15.84 for Improved Coconut on GPT-2) | High (~70%) |
+| Strong (SIM-CoT, **CoLaR**) | Eliminated — CoLaR collapses to ~0% at depth=0 | Low (3.21 for CoLaR on GPT-2) | Low (~23%) |
+
+**The trade-off**: stronger supervision constrains latent representations enough to prevent shortcut behavior but **simultaneously destroys the multi-candidate capacity** that makes latent reasoning theoretically interesting. Weaker supervision preserves capacity but allows the model to bypass its own latent steps.
+
+This is **distinct from** the alignment trade-off:
+- **Alignment trade-off** (SoftCoT): Backbone modification damages instruction-tuning. *Mitigation*: frozen-backbone designs.
+- **Supervision–exploration trade-off** (Cui et al.): The supervision signal that fixes shortcut behavior also destroys latent capacity. *Mitigation*: **none yet**.
+
+Together, the two trade-offs **bound the latent reasoning design space from both sides** — and they explain why no method in this collection has successfully matched both strong CoT performance AND demonstrably-used latent reasoning at the same time.
 
 ### Three Solutions to the Training Challenge
 
@@ -256,9 +291,11 @@ Coconut's continuous thoughts are exactly the kind of representation shared in a
 
 ## Open Questions
 
-- **Scaling to frontier models**: Does BFS emergence persist with larger, more capable models? [[softcot-efficient-reasoning|SoftCoT]] and [[latentmas-collaboration|LatentMAS]] test at 7-14B; [[coconut-reasoning-latent-space|Coconut]] only at GPT-2 scale.
+- **Scaling to frontier models**: Does BFS emergence persist with larger, more capable models? [[softcot-efficient-reasoning|SoftCoT]] and [[latentmas-collaboration|LatentMAS]] test at 7-14B; [[coconut-reasoning-latent-space|Coconut]] only at GPT-2 scale, and [[latent-reasoning-supervision-analysis|Cui et al.]] confirm the same scale ceiling at LLaMA-3.2-1B. Whether the supervision–exploration trade-off and the amplification gap persist or relax at larger scale is the most pressing empirical question.
+- **Closing the Pass@100 / Maj@100 gap**: [[latent-reasoning-supervision-analysis|Cui et al.]] show that latent reasoning preserves correct candidates (Pass@100 ~70-82%) but fails to amplify them at decode time (Maj@100 ~40%). Can a latent-aware reranker, learned aggregator, or alternative decoding strategy recover the latent diversity advantage?
 - **Catastrophic forgetting solutions**: Can latent reasoning be trained without damaging instruction-tuned models? SoftCoT's externalization and LatentMAS's training-free approach are workarounds; is there a fundamental fix?
+- **Solving the supervision–exploration trade-off**: Is there a training scheme that prevents shortcut behavior without collapsing latent diversity? Candidate approaches: information-bottleneck objectives, contrastive losses on latent diversity, hybrid curricula combining strong and weak supervision phases.
 - **Hybrid discrete-continuous reasoning**: [[thinking-states-latent-reasoning|Thinking States]] generates discrete NL thoughts then compresses them. Is this "best of both worlds" or an awkward compromise? What's the optimal discrete/continuous ratio?
-- **Interpretability**: How do we audit, debug, and verify reasoning that happens in an opaque continuous space? Thinking States preserves interpretability via NL thoughts; Coconut and LatentMAS do not.
+- **Interpretability**: How do we audit, debug, and verify reasoning that happens in an opaque continuous space? Thinking States preserves interpretability via NL thoughts; Coconut and LatentMAS do not. [[latent-reasoning-supervision-analysis|Cui et al.]] add a new wrinkle: when the model isn't using its own latent reasoning, interpretability becomes irrelevant *and* misleading.
 - **State ambiguity**: Thinking States identifies the problem of reasoning about the wrong quantity before seeing the question. Can bidirectional architectures or question-prepending solve this generally?
 - **Beyond reasoning**: Can latent-space reasoning apply to creative generation, dialogue, or other tasks?

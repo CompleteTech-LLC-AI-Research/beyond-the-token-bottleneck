@@ -2,7 +2,7 @@
 type: index
 title: "Wiki Index"
 created: "2026-04-06"
-updated: "2026-04-06"
+updated: "2026-04-08"
 ---
 
 # Wiki Index
@@ -21,9 +21,9 @@ wiki/
 │   │   ├── kv-cache/        # KV-cache communication (4)
 │   │   └── structured/      # Disentangled/structured (1)
 │   ├── unified/             # Reasoning + communication combined (3)
-│   └── meta/                # Frameworks, scaling, foundations (7)
+│   └── meta/                # Frameworks, scaling, foundations (8)
 ├── concepts/                # 10 concept pages
-├── entities/                # 11 entity pages
+├── entities/                # 12 entity pages
 └── analyses/                # 7 analysis pages
 ```
 
@@ -77,6 +77,7 @@ Navigate by research theme. Each MOC provides a guided reading path with narrati
 - [[purdue]] — Purdue: Vision Wormhole. Collaborates with CMU, Contextual AI, Georgia Tech.
 - [[mit]] — MIT: Multiagent Debate, Platonic Rep Hypothesis, Scaling paper. Origin point for debate paradigm; collaborates with Google.
 - [[mbzuai]] — MBZUAI: ThoughtComm (co-lead with CMU, FAIR). Gulf-Western research bridge.
+- [[amazon]] — Amazon: Latent Reasoning Supervision Analysis. First systematic empirical critique of latent reasoning's BFS hypothesis; identifies the supervision–exploration trade-off.
 
 ---
 
@@ -86,7 +87,7 @@ Navigate by research theme. Each MOC provides a guided reading path with narrati
 - [[method-comparison]] — Unified comparison table across all methods and key dimensions
 - [[open-questions]] — All open questions across the wiki, grouped by theme
 - [[frontier-research-directions]] — 8 paradigm-shift directions synthesized from all papers
-- [[contradictions]] — 8 tensions and contradictions between papers, with resolution status
+- [[contradictions]] — 9 tensions and contradictions between papers, with resolution status
 - [[latentcompress-collaboration-strategy]] — LatentCompress collaboration mapping and strategy
 - [[benchmark-overlap]] — Benchmark overlap across papers: coverage matrix, focused comparisons, blind spots
 

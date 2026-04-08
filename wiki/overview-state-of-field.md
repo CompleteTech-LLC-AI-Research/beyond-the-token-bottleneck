@@ -2,13 +2,13 @@
 type: overview
 title: "State of the Field: Latent Reasoning & Communication (April 2026)"
 created: "2026-04-06"
-updated: "2026-04-06"
+updated: "2026-04-08"
 tags: [overview, state-of-field]
 ---
 
 # State of the Field: Latent Reasoning & Communication (April 2026)
 
-This page provides a single narrative synthesis of the research landscape tracked in this wiki — 25 papers spanning December 2022 to April 2026, covering how LLMs can reason and communicate in continuous representation space rather than through discrete tokens. For the full page inventory and guided reading paths, see [[index]].
+This page provides a single narrative synthesis of the research landscape tracked in this wiki — 26 papers spanning December 2022 to April 2026, covering how LLMs can reason and communicate in continuous representation space rather than through discrete tokens. For the full page inventory and guided reading paths, see [[index]].
 
 ## The Central Insight
 
@@ -24,6 +24,8 @@ The starting point is the **depth bottleneck**: [[cot-expressivity-theory|Feng e
 
 [[superposition-coconut-theory|Zhu et al. (NeurIPS 2025)]] formalized exactly how continuous reasoning exploits its advantage over discrete tokens. They proved that continuous CoT implements **parallel BFS via superposition**: each latent vector encodes the complete frontier of reachable vertices. A 2-layer transformer solves graph reachability in $D$ steps (graph diameter) vs. $O(n^2)$ for discrete CoT. This is not a constant-factor speedup — it is a complexity-class transition.
 
+**The empirical bracket on this theory** comes from [[latent-reasoning-supervision-analysis|Cui et al. (Amazon, Feb 2026)]], which conducted the first systematic test of whether the iterative latent process actually performs BFS in practice. Their findings split the literature's central narrative cleanly: the **capacity** to encode multiple candidates is real (latent reasoning's Pass@100 exceeds explicit reasoning's by 20+ points), but the **iterative dynamics** are pruning, not expansion (distinct outcomes *decrease* monotonically with latent depth, and majority-vote accuracy is 3-4 points *below* explicit reasoning). Zhu et al.'s theoretical bound is achievable in capacity but not in dynamics — the gradient-based optimization process actively destroys the very property the theory permits. This is the strongest empirical evidence to date that scaling Coconut alone will not produce frontier-scale BFS; the optimization process must also be redesigned. See [[contradictions|tension #9]] for the full discussion.
+
 On the representation side, three results converge to explain why cross-model transfer works at all. [[linearity-relation-decoding|Hernandez et al. (ICLR 2024)]] showed that ~48% of tested relation types in transformers are well-approximated by affine transforms, with mid-layer representations richer than final-layer ones. [[relative-representations-zero-shot|Moschella et al. (ICLR 2023)]] proved that well-trained networks produce latent spaces related by approximately angle-preserving transformations, enabling zero-shot model stitching that jumps from 6% to 80%+ accuracy. And the [[platonic-representation-hypothesis|Platonic Representation Hypothesis (Huh et al., ICML 2024)]] makes the strongest claim: all sufficiently capable models converge toward a shared pointwise mutual information kernel reflecting the statistical structure of reality. Together, these results predict that simple linear projections should suffice for cross-model alignment — and the empirical results confirm it.
 
 ## Thread 1: Latent Reasoning (Intra-Agent)
@@ -37,6 +39,8 @@ The quest to make models reason without producing tokens has a clear lineage, tr
 **The breakthrough**: [[coconut-reasoning-latent-space|Coconut (Hao et al., 2024)]] demonstrated that feeding a model's last hidden state back as its next input embedding creates a "continuous thought" loop. The model reasons silently in vector space, producing language only when communicating results. The stunning finding: continuous thoughts spontaneously encode **multiple reasoning paths simultaneously** (emergent BFS), achieving 97.0% on planning tasks vs. 77.5% for chain-of-thought.
 
 **The barrier**: Coconut only works on base models. [[softcot-efficient-reasoning|SoftCoT (ACL 2025)]] showed that Coconut's curriculum training **damages instruction-tuned models** — LLaMA-3.1-8B drops from 79.61% to 76.12% on GSM8K. This [[catastrophic-forgetting]] barrier is the central unsolved problem for deploying latent reasoning in production. The instruction-tuning pipeline creates a delicate balance that curriculum training disrupts, as documented in [[contradictions]].
+
+**A second, orthogonal barrier**: [[latent-reasoning-supervision-analysis|Cui et al. (2026)]] documents a **supervision–exploration trade-off** that bounds the design space from a different angle. Strong supervision (CoLaR-style token-level alignment) eliminates shortcut behavior but **destroys latent diversity** (collapsing to ~3 distinct outcomes vs. ~16 for weakly-supervised methods); weak supervision preserves capacity but lets the model bypass its own latent steps entirely (most methods retain accuracy at depth=0 and under noise injection). Together, the catastrophic forgetting barrier and the supervision–exploration trade-off **bound the latent reasoning design space from both sides**, explaining why no method has yet matched both strong CoT performance AND demonstrably-used latent reasoning at the same time.
 
 **Three workarounds** exist, each with trade-offs:
 
@@ -131,7 +135,7 @@ Six institutions drive most of the work tracked here:
 | [[google-deepmind\|Google DeepMind]] | [[kv-cache-alignment-shared-space\|KV Cache Alignment]], [[scaling-agent-systems\|Scaling paper]] | Scalable shared spaces |
 | [[google-research\|Google Research]] | [[thinking-states-latent-reasoning\|Thinking States]] | Production-viable latent reasoning |
 
-Additional contributors include [[harvard|Harvard]] (AC, iCoT, Du et al. debate), [[princeton-uiuc-stanford|Princeton/UIUC/Stanford]] ([[latentmas-collaboration|LatentMAS]], [[agent-primitives-building-blocks|Agent Primitives]]), [[purdue|Purdue]] ([[vision-wormhole-heterogeneous|Vision Wormhole]]), [[mit|MIT]] ([[multiagent-debate-du-et-al|Multiagent Debate]], [[platonic-representation-hypothesis|Platonic Representation Hypothesis]]), and [[mbzuai|MBZUAI]] (ThoughtComm). The [[paper-timeline|paper timeline]] shows the field's acceleration from theoretical foundations (2022-2023) through a 2025 Cambrian explosion to 2026 unification efforts.
+Additional contributors include [[harvard|Harvard]] (AC, iCoT, Du et al. debate), [[princeton-uiuc-stanford|Princeton/UIUC/Stanford]] ([[latentmas-collaboration|LatentMAS]], [[agent-primitives-building-blocks|Agent Primitives]]), [[purdue|Purdue]] ([[vision-wormhole-heterogeneous|Vision Wormhole]]), [[mit|MIT]] ([[multiagent-debate-du-et-al|Multiagent Debate]], [[platonic-representation-hypothesis|Platonic Representation Hypothesis]]), [[mbzuai|MBZUAI]] (ThoughtComm), and **[[amazon|Amazon]]** ([[latent-reasoning-supervision-analysis|Latent Reasoning Supervision Analysis]] — the first systematic empirical critique of the field's central BFS hypothesis, in collaboration with Michigan State University). The [[paper-timeline|paper timeline]] shows the field's acceleration from theoretical foundations (2022-2023) through a 2025 Cambrian explosion to 2026 unification efforts and the first wave of diagnostic critique.
 
 ## Where This Is Heading
 

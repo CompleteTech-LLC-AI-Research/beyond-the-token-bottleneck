@@ -2,7 +2,7 @@
 type: analysis
 title: "Frontier Research Directions: Under-Explored Paradigm Shifts"
 created: "2026-04-06"
-updated: "2026-04-06"
+updated: "2026-04-08"
 tags: [synthesis, research-directions, frontier]
 ---
 
@@ -25,6 +25,8 @@ Synthesized from all 25 papers in this collection. Each direction below represen
 - Probe whether SoftCoT's externalized soft thoughts encode superposition (the assistant model might maintain BFS even if the backbone doesn't)
 - Explore RL-based approaches (PPO/GRPO on latent thought quality) as an alternative to curriculum training that might avoid [[catastrophic-forgetting|catastrophic forgetting]]
 
+**Blocker added by [[latent-reasoning-supervision-analysis|Cui et al. (2026)]]**: Even if scale-related issues are solved, the iterative latent process *prunes* its own diversity rather than expanding it (distinct outcomes decrease from 18.75 to 15.84 as latent depth grows from 1 to 5 steps). Pass@100 latent advantage of 20+ points over explicit reasoning is not converted into majority-vote accuracy — Coconut sits 3-4 points *below* explicit reasoning on Maj@100 across all prefix lengths. The frontier-scale agenda must therefore include a **second axis**: not just scaling Coconut, but redesigning the latent loop to amplify rather than prune the correct candidate. Candidate approaches: latent-aware decoding strategies (best-of-N over latent rollouts with a learned reranker), training objectives that reward diversity preservation, or hybrid latent-text rollouts that exploit Pass@100 directly.
+
 ---
 
 ## 2. Disentangling Superposed Reasoning Paths
@@ -39,6 +41,8 @@ Synthesized from all 25 papers in this collection. Each direction below represen
 - Apply sparsity-regularized autoencoders ([[thought-communication-multiagent|ThoughtComm]]'s architecture) to Coconut's intermediate continuous thoughts
 - Measure whether the recovered latent dimensions correspond to distinct reasoning paths (validate against the probing results in Coconut)
 - Design an intervention: after disentangling, prune low-quality paths and re-superpose the remaining ones before the next latent step
+
+**Blocker added by [[latent-reasoning-supervision-analysis|Cui et al. (2026)]]**: The disentanglement target itself shrinks under iterative latent reasoning. Cui et al. show that distinct outcome counts *decrease* with latent depth — by step 5, the latent state encodes only ~16 distinct paths on Coconut/GPT-2 vs. 18.75 at step 1. A disentangler applied at step 5 would have less to recover than one applied at step 1. The implication is that disentanglement should be applied **early** in the latent loop (step 1 or 2), and the recovered candidates should be re-injected as separate latent trajectories before the implicit pruning takes effect. Alternatively, the supervision–exploration trade-off must be solved first to keep diversity high enough for late-step disentanglement to be useful.
 
 ---
 

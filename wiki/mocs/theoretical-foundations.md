@@ -2,7 +2,7 @@
 type: overview
 title: "Theoretical Foundations"
 created: "2026-04-06"
-updated: "2026-04-06"
+updated: "2026-04-08"
 tags: [moc, theory]
 ---
 
@@ -19,6 +19,8 @@ Read these in order. Each builds on the previous, moving from "why reasoning ste
 2. **[[continuous-vs-discrete-representation]]** — With the depth bottleneck established, the next question is: does it matter *how* we add reasoning steps? This concept page synthesizes the information-theoretic argument that continuous representations carry orders of magnitude more information than discrete tokens — from superposition of hypotheses to the full distributional belief lost at every sampling step. The gap is not incremental; it is a **complexity-class transition**.
 
 3. **[[superposition-coconut-theory|Superposition Theory (Zhu et al., NeurIPS 2025)]]** — Formalizes exactly *how* continuous reasoning exploits the advantage identified above. Proves that continuous CoT implements **parallel BFS via superposition**: each latent vector encodes the complete frontier of reachable vertices. A 2-layer transformer solves graph reachability in $D$ steps (graph diameter) vs. $O(n^2)$ for discrete CoT. This is the theoretical backbone for why [[coconut-reasoning-latent-space|Coconut]] outperforms discrete CoT on planning tasks. See the [[coconut-reasoning-latent-space|Coconut]] source page for the full empirical results — 97% ProsQA accuracy via hidden-state feedback and emergent BFS.
+
+    > **Empirical bracket — read alongside step 3**: [[latent-reasoning-supervision-analysis|Cui et al. (2026)]] tests whether the iterative latent reasoning process *actually* implements BFS as the theory permits. Confirms the **capacity** claim (Pass@100 advantage of 20+ points over explicit reasoning) but **falsifies the iterative BFS claim**: distinct outcomes *decrease* with latent depth, and majority-vote accuracy is *lower* than explicit reasoning. The latent process exhibits implicit pruning, not breadth-first expansion. Together, Zhu et al. and Cui et al. **bracket what is and isn't true** about parallel BFS in latent space — capacity exists, dynamics fail.
 
 4. **[[linearity-relation-decoding|Linearity of Relation Decoding (Hernandez et al., ICLR 2024)]]** — Shifts from reasoning to representation geometry. Shows that ~48% of tested relation types in transformers are well-approximated by **affine relational embeddings**, and that mid-layer representations are richer than final-layer ones (the "mode switch"). This explains why [[activation-communication|activation communication]] targets intermediate layers and why simple linear projections succeed at cross-model alignment. Also reveals that models encode facts they never output — a fundamental argument for latent over textual communication.
 

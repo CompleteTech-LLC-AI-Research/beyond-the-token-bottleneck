@@ -7,7 +7,7 @@ author: "Hanlin Zhu, Shibo Hao, Jiantao Jiao, Stuart Russell, Zhiting Hu, Yuando
 date_published: "2025-05-19"
 date_ingested: "2026-04-06"
 created: "2026-04-06"
-updated: "2026-04-06"
+updated: "2026-04-08"
 venue: "NeurIPS 2025"
 arxiv: "2505.12514"
 institution: "UC Berkeley, UC San Diego, Meta AI"
@@ -257,6 +257,20 @@ This means **BFS emerges from training dynamics, not from explicit supervision**
 This paper is the theoretical foundation for [[frontier-research-directions|direction #1 (superposition reasoning at frontier scale)]] and [[frontier-research-directions|direction #2 (disentangling superposed paths)]]. If [[latentcompress-open-call|LatentCompress]]'s slot-attention compression naturally disentangles these superposition states into individual slots, it would connect compression research to this theory directly -- each slot might correspond to one BFS frontier vertex.
 
 The relationship to [[cot-expressivity-theory|Feng et al.]] is complementary: Feng et al. prove CoT adds **depth** (breaking the $\text{TC}^0$ barrier); Zhu et al. prove continuous CoT additionally exploits **width** (superposition). Together they explain why continuous thoughts outperform discrete CoT on planning tasks -- continuous thoughts leverage both depth (through recurrence) and width (through superposition) simultaneously.
+
+## Empirical Counterpart: Cui et al. (2026)
+
+[[latent-reasoning-supervision-analysis|Cui et al. (2026)]] provides the **empirical bracket** for Zhu et al.'s theory, separating two claims that the literature conflated:
+
+| Claim | Source | Status |
+|---|---|---|
+| Latent vectors *can* encode normalized mixtures over the reachable set $V_c$ (see [[#Core Theoretical Results]]) | Zhu et al. (this paper) — proven by construction | **Confirmed** |
+| The iterative latent process *does* expand the BFS frontier across steps | Implicit in Coconut's narrative | **Falsified** by Cui et al.'s diversity analysis (distinct outcomes *decrease* with depth) |
+| The process *amplifies* the correct candidate before final readout | Implied | **Falsified** — Cui et al. find majority-vote accuracy 3-4 points below explicit reasoning |
+
+The synthesis: Zhu et al.'s theoretical construction is achievable in **representational capacity** (a single continuous thought can be a uniform mixture over the reachable set), but the **gradient-based optimization process** of practically-trained latent reasoning models (Coconut, CODI, SIM-CoT, CoLaR) actively prunes that mixture as latent steps progress. The 2-layer, trained-from-scratch GPT-2 in Zhu et al.'s experiments demonstrates the achievable maximum; the practical methods Cui et al. test fall well short of it.
+
+This is **not** a refutation of Zhu et al. — the construction stands and the capacity claim is independently confirmed by Cui et al.'s Pass@100 analysis. But it does mean the **realizable** advantage of latent reasoning over explicit CoT is much smaller than the construction suggests, and that closing the gap requires new training schemes, not just larger models. See the [[contradictions|contradictions analysis]] for the full discussion.
 
 ## Source Materials
 

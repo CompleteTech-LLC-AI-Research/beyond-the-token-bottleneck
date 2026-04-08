@@ -2,13 +2,13 @@
 type: analysis
 title: "Paper Timeline & Field Evolution"
 created: "2026-04-06"
-updated: "2026-04-06"
+updated: "2026-04-08"
 tags: [synthesis, timeline, chronology]
 ---
 
 # Paper Timeline & Field Evolution
 
-Chronological view of all 25 papers tracked in this wiki, showing how the field evolved from theoretical foundations through to unified frameworks.
+Chronological view of all 26 papers tracked in this wiki, showing how the field evolved from theoretical foundations through to unified frameworks.
 
 ## Timeline
 
@@ -74,9 +74,10 @@ Chronological view of all 25 papers tracked in this wiki, showing how the field 
 | Feb 2026 | [[agent-primitives-building-blocks\|Agent Primitives]] (Jin et al.) | Unified | Composable Review/Voting/Planning operators, beats 10 MAS baselines |
 | Feb 2026 | [[thinking-states-latent-reasoning\|Thinking States]] (Amos et al.) | Reasoning | Supervised latent reasoning, teacher forcing, identifies state ambiguity |
 | Feb 2026 | [[vision-wormhole-heterogeneous\|Vision Wormhole]] (Liu et al.) | Unified | VLM visual pathway as universal heterogeneous channel |
+| Feb 2026 | [[latent-reasoning-supervision-analysis\|Latent Reasoning Supervision Analysis]] (Cui et al.) | Reasoning / Meta | **First empirical reckoning**: tests Coconut's BFS hypothesis directly. Capacity confirmed (Pass@100 advantage 20+ pts), iterative BFS falsified (diversity *decreases* with depth). Identifies the supervision–exploration trade-off. |
 | 2026 | [[latentcompress-open-call\|LatentCompress]] | Meta | 512-byte compression baseline, bandwidth-accuracy curves |
 
-2026 focuses on making latent methods **practical**: solving cross-architecture compatibility ([[kv-cache-alignment-shared-space|KV Alignment]], [[vision-wormhole-heterogeneous|Vision Wormhole]]), providing composable abstractions ([[agent-primitives-building-blocks|Agent Primitives]]), and pushing toward production viability ([[thinking-states-latent-reasoning|Thinking States]]).
+2026 focuses on making latent methods **practical**: solving cross-architecture compatibility ([[kv-cache-alignment-shared-space|KV Alignment]], [[vision-wormhole-heterogeneous|Vision Wormhole]]), providing composable abstractions ([[agent-primitives-building-blocks|Agent Primitives]]), pushing toward production viability ([[thinking-states-latent-reasoning|Thinking States]]), and **diagnostic critique** ([[latent-reasoning-supervision-analysis|Cui et al.]]) — the first systematic empirical test of whether the field's central hypothesis (BFS via superposition) actually holds. Cui et al. mark a transition from a pure proof-of-concept phase into a more mature phase where claims are rigorously tested and the design space is bounded by *trade-offs*, not just unsolved engineering problems.
 
 ## Citation Chains
 

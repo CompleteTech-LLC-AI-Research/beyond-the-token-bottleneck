@@ -2,7 +2,7 @@
 type: analysis
 title: "Contradictions & Tensions Between Papers"
 created: "2026-04-06"
-updated: "2026-04-06"
+updated: "2026-04-08"
 tags: [synthesis, contradictions, tensions]
 ---
 
@@ -130,6 +130,28 @@ Systematic tracking of claims that conflict or exist in tension across papers in
 
 ---
 
+## 9. BFS as Faithful Structured Search vs. Implicit Pruning
+
+**Claim A**: Coconut's continuous thoughts implement **emergent breadth-first search** — each latent step expands a frontier of candidate reasoning paths, with weaker candidates pruned only as the model approaches a confident answer. Theoretically formalized by Zhu et al. (2025), who prove that a 2-layer transformer can encode the full reachable-vertex set as a normalized superposition.
+— [[coconut-reasoning-latent-space|Coconut (Hao et al., 2024)]], [[superposition-coconut-theory|Zhu et al. (2025)]]
+
+**Claim B**: Latent reasoning *can* encode multiple candidates (Pass@100 over 100 stochastic rollouts is 20+ points higher than explicit reasoning), but the *iterative* process exhibits **implicit pruning**, not BFS expansion. Distinct outcomes *decrease* monotonically with latent depth (avg. 18.75 → 15.84 from 1 to 5 latent steps), the opposite of true BFS. Majority-vote accuracy is *lower* than explicit reasoning by 3-4 points, meaning the larger candidate pool is not being concentrated on the correct answer.
+— [[latent-reasoning-supervision-analysis|Cui et al. (2026)]]
+
+**Status**: **Partially resolved by Cui et al. — capacity confirmed, dynamics falsified**. The cleanest decomposition to date of three claims that the literature conflated:
+
+| Sub-claim | Status | Evidence |
+|---|---|---|
+| Latent vectors can encode multiple candidates | Confirmed | Zhu et al. theoretical construction; Cui et al. Pass@100 advantage |
+| The iterative process expands the frontier | **Falsified** | Cui et al. distinct-outcome counts decrease with depth |
+| The process amplifies the correct candidate | **Falsified** | Cui et al. majority-vote below explicit reasoning |
+
+**Implication for the field**: Zhu et al.'s theoretical bound is achievable in *capacity* but not in *dynamics*. Practical methods (Coconut, CODI, SIM-CoT, CoLaR) prune their own diversity during the latent loop. The [[frontier-research-directions|frontier-scale superposition reasoning agenda]] must redirect from "scale up Coconut" to "fix the amplification problem" — a latent-aware decoding strategy that recovers the latent diversity advantage, or a training scheme that prevents implicit pruning without collapsing capacity. Cui et al. propose neither; both remain open.
+
+**Resolution needed**: A controlled comparison of best-of-N CoT, self-consistency CoT, and latent-aware best-of-N decoding on the same model. If latent-aware aggregation closes the Pass@100 / Maj@100 gap, the BFS hypothesis is rescued in a weakened form: capacity is real, exploitation requires external machinery. If it doesn't, the latent reasoning advantage may be entirely a representational artifact with no algorithmic payoff.
+
+---
+
 ## Summary Table
 
 | # | Tension | Papers | Status | Priority |
@@ -142,3 +164,4 @@ Systematic tracking of claims that conflict or exist in tension across papers in
 | 6 | Training-free competitive / trained richer | Multiple | Design trade-off | Low — understood trade-off |
 | 7 | BFS excels at search / fails at math | [[coconut-reasoning-latent-space\|Coconut]] (internal) | Task-dependent, acknowledged | Low — well understood |
 | 8 | Interpretability needed / prevents superposition | [[thinking-states-latent-reasoning\|Thinking States]] vs [[coconut-reasoning-latent-space\|Coconut]] | Fundamental tension | Medium — needs creative resolution |
+| 9 | BFS as faithful search / implicit pruning | [[coconut-reasoning-latent-space\|Coconut]], [[superposition-coconut-theory\|Zhu et al.]] vs [[latent-reasoning-supervision-analysis\|Cui et al.]] | Partially resolved — capacity confirmed, dynamics falsified | **High** — redirects the entire frontier-scale latent reasoning agenda |

@@ -2,7 +2,7 @@
 type: analysis
 title: "Method Comparison"
 created: "2026-04-06"
-updated: "2026-04-06"
+updated: "2026-04-08"
 tags: [synthesis, comparison]
 ---
 
@@ -127,6 +127,7 @@ These papers provide theoretical grounding rather than new methods:
 | [[linearity-relation-decoding\|Linearity of Relations]] | Linear relational embeddings; mid-layer enrichment | Why layer ~26 is optimal for AC |
 | [[scaling-agent-systems\|Scaling Framework]] | Task-contingent coordination; 5 architectures × 180 configs | When multi-agent helps vs hurts |
 | [[latentcompress-open-call\|LatentCompress]] | 512-byte compression baseline; bandwidth-accuracy curves | Practical compression targets |
+| [[latent-reasoning-supervision-analysis\|Latent Reasoning Supervision Analysis]] (Cui et al.) | Empirical test of Coconut's BFS hypothesis on 4 methods (Coconut, CODI, SIM-CoT, CoLaR); identifies the supervision–exploration trade-off and Improved Coconut variant | Falsifies the iterative-BFS claim while confirming the capacity claim; bounds the latent reasoning design space |
 
 ## Method Selection Guide
 
