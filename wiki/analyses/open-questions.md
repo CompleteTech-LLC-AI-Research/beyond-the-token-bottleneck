@@ -98,7 +98,7 @@ How to organize, audit, and debug latent communication. This cluster connects di
 
 Unexplored combinations of existing techniques. The methods in this wiki address orthogonal dimensions (what to share, how to fuse, how to select layers, how to structure). The most promising near-term research may not be new methods but systematic combinations of existing ones.
 
-- Can [[kvcomm-selective-kv-sharing|KVComm]]'s attention-based layer selection improve C2C's gating, or vice versa? — [[kv-cache-communication]]
+- Can [[kvcomm-kth-selective|KVComm]]'s attention-based layer selection improve C2C's gating, or vice versa? — [[kv-cache-communication]]
 - Could **token-level** KV selection (which positions to share) further improve efficiency beyond layer selection? — [[kv-cache-communication]]
 - Could disentangled thought extraction be applied **specifically to KV-caches**, combining [[thought-communication-multiagent|ThoughtComm]]'s structure with KV's attention-native integration? — [[kv-cache-communication]]
 - Could [[agent-primitives-building-blocks|Agent Primitives]]' composable primitive design be combined with [[vision-wormhole-heterogeneous|Vision Wormhole]]'s cross-architecture channel to create **heterogeneous composable MAS** where different primitives use different backbone models? — [[agent-primitives-building-blocks]], [[vision-wormhole-heterogeneous]]

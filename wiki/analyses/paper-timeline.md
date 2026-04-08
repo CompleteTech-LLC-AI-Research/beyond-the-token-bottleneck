@@ -48,10 +48,10 @@ Chronological view of all 27 papers tracked in this wiki, showing how the field 
 | Feb 2025 | [[softcot-efficient-reasoning\|SoftCoT]] (Xu et al.) | Reasoning | Frozen backbone + external assistant. Discovers [[catastrophic-forgetting|catastrophic forgetting]] barrier. |
 | May 2025 | [[superposition-coconut-theory\|Superposition Theory]] (Zhu et al.) | Theory | Rigorous proof: continuous CoT = parallel BFS, $D$ steps vs $O(n^2)$ |
 | Jun 2025 | [[state-delta-trajectory\|SDE]] (Tang et al.) | Communication | Hidden-state *deltas* outperform raw states. Reasoning dynamics > reasoning states. |
-| Oct 2025 | [[kvcomm-selective-kv-sharing\|KVComm]] (Shi et al.) | Communication | 30% of KV layers $\approx$ full performance. Training-free. |
+| Oct 2025 | [[kvcomm-kth-selective\|KVComm]] (Shi et al.) | Communication | 30% of KV layers $\approx$ full performance. Training-free. |
 | Oct 2025 | [[cache-to-cache-semantic-communication\|C2C]] (Fu et al.) | Communication | Learned cross-architecture KV fusion with gating |
 | Oct 2025 | [[inference-time-scaling-continuous-reasoning\|Inference-time Scaling for Continuous Reasoning]] (Wang et al.) | Reasoning / Meta | First implementation of PRM/ORM reranking for COCONUT; +2.28pp out of +13.35pp Pass@N headroom; diagnoses geometric homogeneity (IsoScore$\star \approx 0.013$) |
-| Oct 2025 | [[kvcomm-online-cross-context\|KVCOMM-online]] (Ye et al.) | Communication | 7.8× prefill speedup via offset reuse |
+| Oct 2025 | [[kvcomm-duke-online-reuse\|KVCOMM-online]] (Ye et al.) | Communication | 7.8× prefill speedup via offset reuse |
 | Oct 2025 | [[thought-communication-multiagent\|ThoughtComm]] (Zheng et al.) | Communication | Disentangled thoughts with identifiability guarantees |
 | Nov 2025 | [[interlat-latent-space-agents\|Interlat]] (Du et al.) | Communication | Full hidden-state sequences, 2600× bandwidth, cross-family |
 | Nov 2025 | [[latentmas-collaboration\|LatentMAS]] (Zou et al.) | Unified | **First unified framework**: latent reasoning + KV-cache transfer, training-free |

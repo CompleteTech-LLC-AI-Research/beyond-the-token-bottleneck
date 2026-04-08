@@ -171,7 +171,7 @@ A fundamentally different approach is to avoid fine-tuning altogether. **Inter-a
 | Method | Communication mechanism | Parameter modification | Forgetting risk |
 |--------|------------------------|----------------------|-----------------|
 | [[cipher-multiagent-debate-embeddings|CIPHER]] | Weighted-average output embeddings | None | Zero |
-| [[kvcomm-selective-kv-sharing|KVComm]] | KV-cache injection | None | Zero |
+| [[kvcomm-kth-selective|KVComm]] | KV-cache injection | None | Zero |
 | [[activation-communication-harvard|AC]] | Hidden-state sharing | None | Zero |
 | [[thought-communication-multiagent|ThoughtComm]] | Disentangled latent thoughts via prefix adaptation | Autoencoder + adapter trained, but LLM frozen | Zero for LLM |
 

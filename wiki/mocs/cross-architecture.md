@@ -14,7 +14,7 @@ The central tension in latent communication: **deeper channels carry more inform
 
 ### 1. The Problem Statement
 
-Start with the depth-compatibility trade-off laid out in [[embedding-space-communication]]. The spectrum table shows the cost clearly: [[cipher-multiagent-debate-embeddings|CIPHER]] requires a **shared tokenizer**, [[kvcomm-selective-kv-sharing|KVComm]] requires **identical architecture**, and [[state-delta-trajectory|SDE]] requires **identical weights**. Each step deeper in the transformer stack narrows the set of compatible partners. The [[open-questions|open questions]] frame cross-architecture compatibility as the field's major unsolved problem.
+Start with the depth-compatibility trade-off laid out in [[embedding-space-communication]]. The spectrum table shows the cost clearly: [[cipher-multiagent-debate-embeddings|CIPHER]] requires a **shared tokenizer**, [[kvcomm-kth-selective|KVComm]] requires **identical architecture**, and [[state-delta-trajectory|SDE]] requires **identical weights**. Each step deeper in the transformer stack narrows the set of compatible partners. The [[open-questions|open questions]] frame cross-architecture compatibility as the field's major unsolved problem.
 
 ### 2. Why Cross-Model Communication Works at All
 
@@ -55,7 +55,7 @@ Methods ranked by cross-architecture support, from most restrictive to most gene
 | Method | Cross-Arch Support | Alignment Cost | Scaling | Key Limitation |
 |--------|-------------------|----------------|---------|----------------|
 | [[state-delta-trajectory\|SDE]] | Same weights only | None | N/A | Deltas only meaningful in shared weight space |
-| [[kvcomm-selective-kv-sharing\|KVComm]] | Same architecture | None (training-free) | N/A | Requires identical layer structure |
+| [[kvcomm-kth-selective\|KVComm]] | Same architecture | None (training-free) | N/A | Requires identical layer structure |
 | [[cipher-multiagent-debate-embeddings\|CIPHER]] | Shared tokenizer | None | N/A | Different tokenizers produce incompatible embeddings |
 | [[activation-communication-harvard\|AC (no W)]] | Cross-family | None | N/A | Assumes roughly aligned activation spaces |
 | [[activation-communication-harvard\|AC (with W)]] | Cross-family | 1 linear map per pair | $O(N^2)$ | 3,072 calibration sentences per pair |

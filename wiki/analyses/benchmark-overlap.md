@@ -20,7 +20,7 @@ Each of the 27 source pages was examined for empirical benchmarks used, models t
 
 The following table shows which papers evaluate on which benchmarks. A dot indicates the paper reports results on that benchmark.
 
-| Benchmark | [[coconut-reasoning-latent-space\|Coconut]] | [[icot-internalize-cot\|iCoT]] | [[pause-tokens\|Pause]] | [[softcot-efficient-reasoning\|SoftCoT]] | [[thinking-states-latent-reasoning\|ThinkSt]] | [[cipher-multiagent-debate-embeddings\|CIPHER]] | [[state-delta-trajectory\|SDE]] | [[activation-communication-harvard\|AC]] | [[interlat-latent-space-agents\|Interlat]] | [[thought-communication-multiagent\|ThoughtC]] | [[kvcomm-selective-kv-sharing\|KVComm]] | [[cache-to-cache-semantic-communication\|C2C]] | [[kvcomm-online-cross-context\|KVC-On]] | [[latentmas-collaboration\|LatMAS]] | [[agent-primitives-building-blocks\|AgPrim]] | [[vision-wormhole-heterogeneous\|VW]] | [[multiagent-debate-du-et-al\|Du]] | [[scaling-agent-systems\|Scale]] |
+| Benchmark | [[coconut-reasoning-latent-space\|Coconut]] | [[icot-internalize-cot\|iCoT]] | [[pause-tokens\|Pause]] | [[softcot-efficient-reasoning\|SoftCoT]] | [[thinking-states-latent-reasoning\|ThinkSt]] | [[cipher-multiagent-debate-embeddings\|CIPHER]] | [[state-delta-trajectory\|SDE]] | [[activation-communication-harvard\|AC]] | [[interlat-latent-space-agents\|Interlat]] | [[thought-communication-multiagent\|ThoughtC]] | [[kvcomm-kth-selective\|KVComm]] | [[cache-to-cache-semantic-communication\|C2C]] | [[kvcomm-duke-online-reuse\|KVC-On]] | [[latentmas-collaboration\|LatMAS]] | [[agent-primitives-building-blocks\|AgPrim]] | [[vision-wormhole-heterogeneous\|VW]] | [[multiagent-debate-du-et-al\|Du]] | [[scaling-agent-systems\|Scale]] |
 |---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|
 | **GSM8K** | * | * | * | * | * | * | * | * | | * | | | * | * | * | * | * | |
 | **MATH** | | | | | | | | | * | * | | | | | * | | | |
@@ -67,7 +67,7 @@ The most widely used benchmark in this collection. Results are difficult to comp
 | [[state-delta-trajectory\|SDE]] | Qwen2.5-7B | Delta injection (debate) | 91.8% | 87.9% (single) | Best SDE debate result |
 | [[state-delta-trajectory\|SDE]] | Qwen2.5-14B | Delta injection (debate) | 93.4% | 91.1% (single) | Largest model tested |
 | [[activation-communication-harvard\|AC]] | LLaMA-3.2-3B->8B | Activation graft | 64.0% | 60.0% (8B alone) | NLD wins at 75% |
-| [[kvcomm-online-cross-context\|KVCOMM-online]] | LLaMA-3.1-8B | Cache reuse (efficiency) | 66.6% | 68.0% (original) | <2.5% quality drop |
+| [[kvcomm-duke-online-reuse\|KVCOMM-online]] | LLaMA-3.1-8B | Cache reuse (efficiency) | 66.6% | 68.0% (original) | <2.5% quality drop |
 | [[thought-communication-multiagent\|ThoughtComm]] | Qwen-3-1.7B | Latent thought exchange | 85.0% | 67.4% (single) | +17.6pp over single |
 | [[latentmas-collaboration\|LatentMAS]] | Qwen3-14B | KV-cache + latent thoughts | 95.2% | 83.7% (single) | Sequential MAS |
 | [[agent-primitives-building-blocks\|Agent Primitives]] | Qwen3-8B | Composed primitives | 94.2% | 81.1% (single) | Best MAS result |
@@ -103,7 +103,7 @@ Papers use different MMLU subsets, making direct comparison difficult.
 | [[state-delta-trajectory\|SDE]] | Abstract Algebra, College Math, Formal Logic | Qwen2.5-14B | 75.3% (Abstract Algebra) |
 | [[activation-communication-harvard\|AC]] | 57 datasets (full) | LLaMA-3.2-3B->8B | 62.7% average |
 | [[cache-to-cache-semantic-communication\|C2C]] | Full MMLU | Various cross-model | Consistent gains |
-| [[kvcomm-online-cross-context\|KVCOMM-online]] | Full MMLU | LLaMA-3.1-8B (5 agents) | 69.9% |
+| [[kvcomm-duke-online-reuse\|KVCOMM-online]] | Full MMLU | LLaMA-3.1-8B (5 agents) | 69.9% |
 | [[multiagent-debate-du-et-al\|Du et al.]] | Full MMLU | ChatGPT | 71.1% |
 
 ### HumanEval/MBPP (Code Generation) -- 4 papers
@@ -113,7 +113,7 @@ Papers use different MMLU subsets, making direct comparison difficult.
 | [[latentmas-collaboration\|LatentMAS]] | Qwen3-14B (Seq) | 86.5% | 75.7% |
 | [[agent-primitives-building-blocks\|Agent Primitives]] | Qwen3-8B | 82.3% | 75.9% |
 | [[vision-wormhole-heterogeneous\|Vision Wormhole]] | SmolVLM2+Gemma-4B | 59.1% | -- |
-| [[kvcomm-online-cross-context\|KVCOMM-online]] | LLaMA-3.1-8B | Pass@1 maintained | -- |
+| [[kvcomm-duke-online-reuse\|KVCOMM-online]] | LLaMA-3.1-8B | Pass@1 maintained | -- |
 
 ### AIME 2024/2025 (Competition Math) -- 3 papers
 
@@ -137,7 +137,7 @@ Papers use different MMLU subsets, making direct comparison difficult.
 
 ### Entirely Missing Benchmark Categories
 
-1. **Long-context reasoning**: Only [[kvcomm-selective-kv-sharing|KVComm]] tests on long-context QA datasets (HotpotQA, QASPER, MuSiQue, MultiFieldQA). Most [[latent-space-reasoning|latent reasoning]] and communication papers ignore contexts beyond a few thousand tokens. [[vision-wormhole-heterogeneous|Vision Wormhole]] notes bandwidth bottlenecks at scale but does not test on dedicated long-context benchmarks.
+1. **Long-context reasoning**: Only [[kvcomm-kth-selective|KVComm]] tests on long-context QA datasets (HotpotQA, QASPER, MuSiQue, MultiFieldQA). Most [[latent-space-reasoning|latent reasoning]] and communication papers ignore contexts beyond a few thousand tokens. [[vision-wormhole-heterogeneous|Vision Wormhole]] notes bandwidth bottlenecks at scale but does not test on dedicated long-context benchmarks.
 
 2. **Open-ended generation / instruction following**: No paper evaluates on AlpacaEval, MT-Bench, WildBench, or similar instruction-following benchmarks. All results are on closed-form tasks (QA, math, code). Whether latent methods preserve generation quality and instruction adherence is unknown.
 

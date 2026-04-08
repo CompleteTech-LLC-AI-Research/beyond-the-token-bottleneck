@@ -55,7 +55,7 @@ Synthesized from all 27 papers in this collection. Each direction below represen
 **The signal**: Three independent papers find that passing representations through an intermediate space **improves** the original model:
 - [[kv-cache-alignment-shared-space|KV Cache Alignment]]: Cyclic translation (A → Ω → A) improves model A's language modeling
 - [[cache-to-cache-semantic-communication|C2C]]: Fused cache has higher effective rank than either individual model's cache
-- [[kvcomm-selective-kv-sharing|KVComm]]: Selective sharing sometimes exceeds the Skyline (full context)
+- [[kvcomm-kth-selective|KVComm]]: Selective sharing sometimes exceeds the Skyline (full context)
 
 **The gap**: Nobody has explained *why* this happens or explored it as a deliberate training/inference strategy. The pattern suggests that latent-space mediation acts as a **beneficial regularizer** — distilling the most transferable features while filtering noise. But this is observed, not understood, and not exploited.
 
@@ -130,7 +130,7 @@ Synthesized from all 27 papers in this collection. Each direction below represen
 **Why this could be paradigm-shifting**: If someone built a latent-MAS scaling framework, it could predict which tasks benefit from latent communication vs. text, what the optimal latent communication depth is (embeddings vs. KV-cache vs. activations), and where the crossover points are. This would transform latent MAS from ad-hoc experimentation into principled system design.
 
 **Concrete next steps**:
-- Replicate the Scaling paper's 180-configuration experiment with [[kvcomm-selective-kv-sharing|KVComm]]/[[latentmas-collaboration|LatentMAS]]/[[activation-communication-harvard|AC]] as communication channels instead of text
+- Replicate the Scaling paper's 180-configuration experiment with [[kvcomm-kth-selective|KVComm]]/[[latentmas-collaboration|LatentMAS]]/[[activation-communication-harvard|AC]] as communication channels instead of text
 - Measure how the key scaling parameters (error amplification, coordination overhead, message density saturation) change under latent communication
 - Build a predictive model that includes communication medium as a variable
 

@@ -3,7 +3,6 @@ type: source
 title: "KVCOMM: Online Cross-context KV-cache Communication for Efficient LLM-based Multi-agent Systems"
 source_file: "[[raw/pdf/arxiv-2510.12872.pdf]]"
 latex_source: "[[raw/latex/arxiv-2510.12872.tar.gz]]"
-venue_pdfs: ["[[raw/pdf/openreview-yGOytgjurF.pdf|OpenReview]]"]
 author: "Hancheng Ye, Zhengqi Gao, Mingyuan Ma, Qinsi Wang, Yuzhe Fu, Ming-Yu Chung, Yueqian Lin, Zhijian Liu, Jianyi Zhang, Danyang Zhuo, Yiran Chen"
 date_published: "2025-10-16"
 date_ingested: "2026-04-06"
@@ -18,7 +17,7 @@ tags: [kv-cache, efficiency, cache-reuse, training-free, systems]
 
 ## Summary
 
-While [[kvcomm-selective-kv-sharing|KVComm]] and [[cache-to-cache-semantic-communication|C2C]] focus on **what** and **how** to communicate via KV-cache, this paper from Duke University, [[mit|MIT]], and NVIDIA tackles a different problem: **computational efficiency** of KV-cache operations in multi-agent systems. When multiple agents share overlapping context (e.g., the same user query, same retrieved documents), each agent redundantly recomputes KV-caches for the shared text under its own prefix context. KVCOMM eliminates this redundancy by **reusing KV-caches** across agents with different prefixes, estimating and correcting the context-dependent offsets introduced by different system prompts and conversation histories.
+While [[kvcomm-kth-selective|KVComm]] and [[cache-to-cache-semantic-communication|C2C]] focus on **what** and **how** to communicate via KV-cache, this paper from Duke University, [[mit|MIT]], and NVIDIA tackles a different problem: **computational efficiency** of KV-cache operations in multi-agent systems. When multiple agents share overlapping context (e.g., the same user query, same retrieved documents), each agent redundantly recomputes KV-caches for the shared text under its own prefix context. KVCOMM eliminates this redundancy by **reusing KV-caches** across agents with different prefixes, estimating and correcting the context-dependent offsets introduced by different system prompts and conversation histories.
 
 This is a **systems-level optimization** paper rather than a communication paradigm paper — it doesn't change what information is communicated, but makes the existing prefilling pipeline dramatically faster.
 
@@ -144,14 +143,14 @@ The offset estimation relies on three key design choices, each of which affects 
 ## Limitations
 
 - **Same model only**: All agents must run the same model checkpoint (same architecture, same weights). No cross-model communication.
-- **Efficiency focus, not quality**: KVCOMM doesn't improve communication quality (unlike [[kvcomm-selective-kv-sharing|KVComm]] or [[cache-to-cache-semantic-communication|C2C]]). It makes existing multi-agent pipelines faster without changing what's communicated.
+- **Efficiency focus, not quality**: KVCOMM doesn't improve communication quality (unlike [[kvcomm-kth-selective|KVComm]] or [[cache-to-cache-semantic-communication|C2C]]). It makes existing multi-agent pipelines faster without changing what's communicated.
 - **Anchor pool memory**: Storing base KV-caches and offsets for multiple anchors consumes GPU memory. The pruning strategy mitigates this but adds complexity.
 - **Approximation errors accumulate**: In deep agent graphs with many hops, offset approximation errors could potentially compound.
 
 ## Position in the KV-Cache Communication Cluster
 
 KVCOMM-online addresses **how to make KV operations efficient** — the systems optimization dimension. It's orthogonal to and composable with:
-- [[kvcomm-selective-kv-sharing|KVComm]]: Could select layers first, then apply offset-based reuse for selected layers
+- [[kvcomm-kth-selective|KVComm]]: Could select layers first, then apply offset-based reuse for selected layers
 - [[cache-to-cache-semantic-communication|C2C]]: Could apply offset estimation to reduce the fuser's input computation
 
 See [[kv-cache-communication]] for the unified concept page.

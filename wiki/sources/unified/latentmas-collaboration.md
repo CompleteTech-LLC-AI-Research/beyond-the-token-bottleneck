@@ -94,7 +94,7 @@ This solves: $\min_M \{ \|W_\text{out} M - W_\text{in}\|_F^2 + \lambda\|M\|_F^2 
 After agent $A_i$ completes $K$ latent steps, its working memory is extracted and passed to $A_{i+1}$:
 
 1. **Extract**: Collect KV caches from **all $N$ transformer layers** of $A_i$. For layer $l$, this gives $K_\text{cache}^{(l)}$ and $V_\text{cache}^{(l)}$, each containing $T+K$ column vectors ($T$ from original input, $K$ from latent thoughts).
-2. **Define working memory**: $\M_i = \{(K_\text{cache}^{(l)}, V_\text{cache}^{(l)}) \mid l = 1, 2, \ldots, N\}$. This captures both the original input context AND the generated latent thoughts — unlike [[cache-to-cache-semantic-communication|C2C]] and [[kvcomm-selective-kv-sharing|KVComm]] which share only input-derived KV caches.
+2. **Define working memory**: $\M_i = \{(K_\text{cache}^{(l)}, V_\text{cache}^{(l)}) \mid l = 1, 2, \ldots, N\}$. This captures both the original input context AND the generated latent thoughts — unlike [[cache-to-cache-semantic-communication|C2C]] and [[kvcomm-kth-selective|KVComm]] which share only input-derived KV caches.
 3. **Prepend**: For each layer $l$ of agent $A_{i+1}$, prepend $A_i$'s $K_\text{cache}^{(l)}$ and $V_\text{cache}^{(l)}$ to $A_{i+1}$'s own caches. This is done via the `past_key_values` interface in HuggingFace Transformers.
 4. **Conditioning**: When $A_{i+1}$ now generates (either latent thoughts or final text), its attention at every layer attends over both the predecessor's full working memory and its own representations.
 

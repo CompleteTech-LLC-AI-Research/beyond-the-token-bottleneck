@@ -83,7 +83,7 @@ There is a fundamental trade-off: **deeper communication carries more informatio
 | State deltas | Inter-token hidden-state differences | Medium-High | Same model weights | [[state-delta-trajectory\|SDE]] |
 | Disentangled thoughts | Structured latent factors | Medium-High | Trained autoencoder | [[thought-communication-multiagent\|ThoughtComm]] |
 | Vision-pathway injection | Encoded latent rollouts | Medium-High | VLMs + trained codec | [[vision-wormhole-heterogeneous\|Vision Wormhole]] |
-| KV-cache (selected layers) | Attention key-value pairs | High | Same architecture | [[kvcomm-selective-kv-sharing\|KVComm]] |
+| KV-cache (selected layers) | Attention key-value pairs | High | Same architecture | [[kvcomm-kth-selective\|KVComm]] |
 | KV-cache (cross-arch.) | Projected + fused KV pairs | High | Learned fuser/shared space | [[cache-to-cache-semantic-communication\|C2C]], [[kv-cache-alignment-shared-space\|KV Alignment]] |
 | Single activation | Last-token residual stream | High | Roughly aligned embeddings | [[activation-communication-harvard\|AC]] |
 | Full hidden-state sequence | All-position last-layer states | Highest (~40K bits/pos) | Trained adapter | [[interlat-latent-space-agents\|Interlat]] |

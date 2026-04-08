@@ -42,7 +42,7 @@ Three papers in our collection find that mediating through a shared space improv
 
 ### 4. The Layer Selection Literature
 
-[[kvcomm-selective-kv-sharing|KVComm]] and [[activation-communication-harvard|AC]] establish that intermediate layers (~layer 26/32) carry the richest information. Their compressor presumably operates on last-layer hidden states. Testing extraction from mid-late layers might improve compression efficiency — the information may already be more compact at the optimal layer.
+[[kvcomm-kth-selective|KVComm]] and [[activation-communication-harvard|AC]] establish that intermediate layers (~layer 26/32) carry the richest information. Their compressor presumably operates on last-layer hidden states. Testing extraction from mid-late layers might improve compression efficiency — the information may already be more compact at the optimal layer.
 
 ### 5. Cross-Architecture Communication
 
@@ -73,7 +73,7 @@ If you want to collaborate with them, our analysis provides **differentiation** 
 
 **Contribution 2 — Delta compression**: Propose compressing state deltas instead of raw hidden states. Based on [[state-delta-trajectory|SDE]]'s results, this should require less bandwidth for the same information content (deltas are already context-agnostic). Simple swap in their pipeline, potentially large improvement.
 
-**Contribution 3 — The comprehensive literature map**: They reference 3 papers. We have 16. Our wiki provides the context they're missing — especially the [[kvcomm-selective-kv-sharing|KVComm]] layer selection work, [[activation-communication-harvard|AC]]'s enriched entity representation finding, [[thought-communication-multiagent|ThoughtComm]]'s identifiability framework, and the [[catastrophic-forgetting|catastrophic forgetting]] barrier.
+**Contribution 3 — The comprehensive literature map**: They reference 3 papers. We have 16. Our wiki provides the context they're missing — especially the [[kvcomm-kth-selective|KVComm]] layer selection work, [[activation-communication-harvard|AC]]'s enriched entity representation finding, [[thought-communication-multiagent|ThoughtComm]]'s identifiability framework, and the [[catastrophic-forgetting|catastrophic forgetting]] barrier.
 
 **Interest area for their application**: Direction 1 (compressor training) + Direction 2 (native pretraining), with a focus on whether compression naturally disentangles superposed reasoning.
 

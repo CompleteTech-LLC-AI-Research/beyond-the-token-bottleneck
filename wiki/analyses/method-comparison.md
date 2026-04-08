@@ -39,10 +39,10 @@ A unified comparison of all methods in this wiki across key dimensions. For theo
 | [[thought-communication-multiagent\|ThoughtComm]] | Disentangled latents | Yes (autoencoder + prefix) | Same embedding dim | Independent of model size | 0.6B–8B (5 models) | MATH 93.0% (vs 43.6% single) |
 | [[activation-communication-harvard\|AC]] | Single-layer activation | Optional (3K samples) | Yes (cross-family) | <¼ compute | 1.5B–9B (3 families) | 48/57 MMLU > NLD |
 | [[interlat-latent-space-agents\|Interlat]] | Full hidden-state seq. | Yes (curriculum + 3-loss) | Yes (with adapter) | $2600\times$ bandwidth, $46\times$ speedup | Qwen2.5-7B | ALFWorld 70.48%/65.42% |
-| [[kvcomm-selective-kv-sharing\|KVComm]] | KV-cache (selected) | No (calibration only) | Same architecture | 30% layers $\approx$ full | 3B–8B (9 pairs) | HotpotQA F1 0.57 vs NLD 0.43 |
+| [[kvcomm-kth-selective\|KVComm]] | KV-cache (selected) | No (calibration only) | Same architecture | 30% layers $\approx$ full | 3B–8B (9 pairs) | HotpotQA F1 0.57 vs NLD 0.43 |
 | [[cache-to-cache-semantic-communication\|C2C]] | KV-cache (fused) | Yes (per-pair fuser) | Yes (cross-family) | 2.5× speedup | 0.6B–14B (3 families) | +6.4–14.2% vs receiver alone |
 | [[kv-cache-alignment-shared-space\|KV Alignment]] | KV-cache (shared space) | Yes (per-model adapter) | Yes (via shared space) | ~¼ model size adapter | Gemma-2 100M–400M | Self-improvement effect; zero-shot extensibility |
-| [[kvcomm-online-cross-context\|KVCOMM-online]] | KV-cache (offset reuse) | No | Same model | 6.7× prefill speedup | Multi-agent systems | 7.8× speedup, <2.5% quality drop |
+| [[kvcomm-duke-online-reuse\|KVCOMM-online]] | KV-cache (offset reuse) | No | Same model | 6.7× prefill speedup | Multi-agent systems | 7.8× speedup, <2.5% quality drop |
 
 ### Unified Methods (Reasoning + Communication)
 
@@ -146,7 +146,7 @@ When choosing a latent communication method, the primary decision factors are: (
 - *No, same model family*: Continue below.
 
 **Can you train adapters or modify the pipeline?**
-- *No training allowed*: **[[agent-primitives-building-blocks|Agent Primitives]]** (composable, task-adaptive, tested up to 70B), **[[kvcomm-selective-kv-sharing|KVComm]]** (selective layer sharing, calibration only), or **[[state-delta-trajectory|SDE]]** (delta-based, no calibration needed).
+- *No training allowed*: **[[agent-primitives-building-blocks|Agent Primitives]]** (composable, task-adaptive, tested up to 70B), **[[kvcomm-kth-selective|KVComm]]** (selective layer sharing, calibration only), or **[[state-delta-trajectory|SDE]]** (delta-based, no calibration needed).
 - *Minimal training OK*: **[[latentmas-collaboration|LatentMAS]]** (ridge regression, training-free but architecture-sensitive — avoid LLaMA backbones).
 - *Training budget available*: **[[thought-communication-multiagent|ThoughtComm]]** (structured, disentangled) or **[[interlat-latent-space-agents|Interlat]]** (maximum bandwidth, $2600\times$).
 
@@ -163,7 +163,7 @@ When choosing a latent communication method, the primary decision factors are: (
 ## Key Takeaways
 
 1. **No single method dominates** — the optimal choice depends on whether you need cross-architecture support, training-free deployment, or maximum throughput.
-2. **Training-free methods are competitive** — [[latentmas-collaboration|LatentMAS]], [[agent-primitives-building-blocks|Agent Primitives]], [[kvcomm-selective-kv-sharing|KVComm]], and [[state-delta-trajectory|SDE]] achieve strong results without model modification. Agent Primitives' composed approach is particularly strong: +16.5pp at 8B scale with fewer tokens than a single agent, and stable across both Qwen and LLaMA families.
+2. **Training-free methods are competitive** — [[latentmas-collaboration|LatentMAS]], [[agent-primitives-building-blocks|Agent Primitives]], [[kvcomm-kth-selective|KVComm]], and [[state-delta-trajectory|SDE]] achieve strong results without model modification. Agent Primitives' composed approach is particularly strong: +16.5pp at 8B scale with fewer tokens than a single agent, and stable across both Qwen and LLaMA families.
 3. **The compatibility-density frontier is advancing** — [[vision-wormhole-heterogeneous|Vision Wormhole]] and [[kv-cache-alignment-shared-space|KV Alignment]] show paths to high density with cross-architecture support. Vision Wormhole's $O(N)$ hub-and-spoke alignment via ridge regression is especially promising for heterogeneous deployments.
 4. **Compute savings are substantial** — most latent methods offer 2-7x speedup over NLD while improving accuracy. At the extreme, KVCOMM-online achieves 7.8x prefill speedup and Agent Primitives uses fewer tokens than a single agent while running 4 agents.
 5. **Scale remains the biggest unknown** — most results are at 1-14B; frontier-scale validation (70B+) is sparse. Agent Primitives is the only method tested at 70B, where gains shrink to +6.3pp (from +16.5pp at 8B), suggesting diminishing returns at scale.

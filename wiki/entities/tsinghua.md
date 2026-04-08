@@ -33,7 +33,7 @@ Tsinghua's collaboration pattern is primarily industry-oriented, with no direct 
 ### Indirect Connections to Other Entities
 
 While Tsinghua has no direct co-authorship with other wiki entities, strong methodological connections exist:
-- **[[kth|KTH]]**: [[kvcomm-selective-kv-sharing|KVComm]] and C2C both address KV-cache communication but from opposite design points (training-free layer selection vs learned cross-architecture fusion). The papers cite each other and form the complementary "what to share" vs "how to fuse" axes of [[kv-cache-communication]].
+- **[[kth|KTH]]**: [[kvcomm-kth-selective|KVComm]] and C2C both address KV-cache communication but from opposite design points (training-free layer selection vs learned cross-architecture fusion). The papers cite each other and form the complementary "what to share" vs "how to fuse" axes of [[kv-cache-communication]].
 - **[[google-deepmind|Google DeepMind]]**: KV Cache Alignment directly addresses C2C's $O(N^2)$ scaling limitation with an $O(N)$ interlingua approach. C2C's richer per-pair fusion vs DeepMind's scalable shared space represents a quality-scalability trade-off.
 - **[[harvard|Harvard]]**: SDE refines Harvard's AC approach for same-model settings by using deltas instead of raw states.
 

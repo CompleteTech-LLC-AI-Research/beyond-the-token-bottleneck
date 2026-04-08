@@ -24,7 +24,7 @@ Google DeepMind's contribution addresses **scalability and emergent benefits** o
 
 - **Architectural scalability**: Where [[cache-to-cache-semantic-communication|C2C]] requires O(N²) pairwise fusers, [[kv-cache-alignment-shared-space|KV Cache Alignment]] introduces a global shared representation space (interlingua) with per-model adapters, reducing scaling to O(N). Each new model needs only one adapter, not N-1 pairwise fusers.
 
-- **Self-improvement effect**: The most surprising finding — cyclic translation (Model A → shared space → back to A) **improves** A's language modeling performance. The shared space appears to act as a regularizer, filtering noise and preserving the most transferable features. This connects to [[kvcomm-selective-kv-sharing|KVComm]]'s finding that selective sharing sometimes exceeds full-context performance.
+- **Self-improvement effect**: The most surprising finding — cyclic translation (Model A → shared space → back to A) **improves** A's language modeling performance. The shared space appears to act as a regularizer, filtering noise and preserving the most transferable features. This connects to [[kvcomm-kth-selective|KVComm]]'s finding that selective sharing sometimes exceeds full-context performance.
 
 - **Module portability**: Soft prompts learned on one model transfer to another via the shared space with zero additional training — the interlingua acts as a universal adapter.
 

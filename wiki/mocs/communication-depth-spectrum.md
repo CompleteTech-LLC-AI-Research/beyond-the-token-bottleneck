@@ -102,7 +102,7 @@ An architectural insight rather than an alignment technique. VLMs already have p
 **What's shared**: Key-value pairs from top-k attention layers
 **Information density**: High
 **Compatibility**: Same architecture required
-**Key paper**: [[kvcomm-selective-kv-sharing|KVComm (ICLR 2026)]]
+**Key paper**: [[kvcomm-kth-selective|KVComm (ICLR 2026)]]
 
 Share the sender's cached attention keys and values, but only from the most informative layers. KVComm finds that **30% of layers** achieves performance comparable to sharing all layers — a significant bandwidth reduction. Layer selection uses attention importance scores with a Gaussian prior favoring upper layers. The receiver attends to the sender's cached context as if it had processed that context itself. See [[kv-cache-communication]].
 

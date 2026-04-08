@@ -3,7 +3,6 @@ type: source
 title: "KVComm: Enabling Efficient LLM Communication through Selective KV Sharing"
 source_file: "[[raw/pdf/arxiv-2510.03346.pdf]]"
 latex_source: "[[raw/latex/arxiv-2510.03346.tar.gz]]"
-venue_pdfs: ["[[raw/pdf/openreview-F7rUng23nw.pdf|OpenReview]]"]
 author: "Xiangyu Shi, Marco Chiesa, Gerald Q. Maguire Jr., Dejan Kostić"
 date_published: "2025-10-04"
 date_ingested: "2026-04-06"
@@ -176,7 +175,7 @@ On some datasets, KVComm at 70% of layers **outperforms** the Skyline (full cont
 
 KVComm addresses **what to share** — the layer selection problem. It pairs naturally with:
 - [[cache-to-cache-semantic-communication|C2C]]: which addresses **how to fuse across architectures** (learned projection for cross-family/cross-size communication)
-- [[kvcomm-online-cross-context|KVCOMM-online]]: which addresses **how to make sharing efficient** (cache reuse via offset estimation)
+- [[kvcomm-duke-online-reuse|KVCOMM-online]]: which addresses **how to make sharing efficient** (cache reuse via offset estimation)
 
 See [[kv-cache-communication]] for the unified concept page.
 

@@ -78,7 +78,7 @@ All base models are **frozen** throughout — only adapters are trained.
 
 A remarkable finding: passing a model's own KV-cache through the shared space and back (cyclic: A → Ω → A) **improves** that model's language modeling performance. The shared space acts as a **regularizer or feature sharpener** — it distills the most transferable features of the KV-cache, filtering noise.
 
-This parallels [[kvcomm-selective-kv-sharing|KVComm]]'s finding that selective KV sharing sometimes exceeds the Skyline (full context) — less can be more when the selection/transformation acts as beneficial regularization.
+This parallels [[kvcomm-kth-selective|KVComm]]'s finding that selective KV sharing sometimes exceeds the Skyline (full context) — less can be more when the selection/transformation acts as beneficial regularization.
 
 ### Zero-Shot Extensibility
 
@@ -114,7 +114,7 @@ Not all pairwise paths need to be seen during training. Even training on 1 of 9 
 
 ## Comparison to Other KV-Cache Approaches
 
-| Property | [[kvcomm-selective-kv-sharing\|KVComm]] | [[cache-to-cache-semantic-communication\|C2C]] | **This paper** |
+| Property | [[kvcomm-kth-selective\|KVComm]] | [[cache-to-cache-semantic-communication\|C2C]] | **This paper** |
 |----------|---------|-----|------------|
 | Training required | No | Per-pair fuser | Per-model adapters |
 | Cross-architecture | No (same family only) | Yes (learned fuser) | Yes (shared space) |
@@ -126,7 +126,7 @@ Not all pairwise paths need to be seen during training. Even training on 1 of 9 
 
 ### Comparison with KVComm's Selective Approach
 
-[[kvcomm-selective-kv-sharing|KVComm]] and this paper represent fundamentally different philosophies for KV-cache communication. KVComm asks "**which** layers to share?" and uses a Gaussian-prior selection score to identify the most informative KV subset from a sender. This paper asks "**how** to translate?" and learns a universal representation that any model can read/write. The approaches are potentially complementary: one could apply KVComm's layer selection *before* translating into the shared space, transmitting only the most informative layers and reducing adapter input dimensionality.
+[[kvcomm-kth-selective|KVComm]] and this paper represent fundamentally different philosophies for KV-cache communication. KVComm asks "**which** layers to share?" and uses a Gaussian-prior selection score to identify the most informative KV subset from a sender. This paper asks "**how** to translate?" and learns a universal representation that any model can read/write. The approaches are potentially complementary: one could apply KVComm's layer selection *before* translating into the shared space, transmitting only the most informative layers and reducing adapter input dimensionality.
 
 A key architectural difference: KVComm operates **training-free** within the same model family (same architecture, same vocabulary), while this paper requires per-model adapter training but works **cross-architecture**. KVComm's layer selection assumes sender and receiver share the same layer semantics — layer 15 of Model A means roughly the same thing as layer 15 of Model B. The shared space approach makes no such assumption, which is why it handles the 4-layer ↔ 16-layer setting that KVComm cannot address.
 
@@ -149,7 +149,7 @@ This paper completes the [[kv-cache-communication]] picture by introducing the *
 
 The module portability finding opens a new direction not explored by other papers in this collection: **skill transfer** between models via latent space, going beyond just communication to knowledge sharing.
 
-The self-improvement effect (cyclic translation improves the original model) connects to [[cache-to-cache-semantic-communication|C2C]]'s effective rank increase and [[kvcomm-selective-kv-sharing|KVComm]]'s finding that selective sharing can exceed the skyline — all suggesting that latent-space mediation acts as a form of beneficial regularization.
+The self-improvement effect (cyclic translation improves the original model) connects to [[cache-to-cache-semantic-communication|C2C]]'s effective rank increase and [[kvcomm-kth-selective|KVComm]]'s finding that selective sharing can exceed the skyline — all suggesting that latent-space mediation acts as a form of beneficial regularization.
 
 ## Source Materials
 

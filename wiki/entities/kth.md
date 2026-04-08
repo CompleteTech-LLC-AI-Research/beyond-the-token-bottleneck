@@ -15,12 +15,12 @@ Swedish research university contributing foundational work on efficient multi-ag
 
 | Date | Paper | Role | Key Result |
 |------|-------|------|------------|
-| Oct 2025 | [[kvcomm-selective-kv-sharing\|KVComm]] | Lead | 30% of KV layers $\approx$ full performance; training-free |
+| Oct 2025 | [[kvcomm-kth-selective\|KVComm]] | Lead | 30% of KV layers $\approx$ full performance; training-free |
 
 ## Research Themes
 
 KTH's contribution focuses on **efficiency in latent communication**:
-- **[[kvcomm-selective-kv-sharing|KVComm]]** established two key findings: (1) KV-cache sharing outperforms both NL debate and embedding communication ([[cipher-multiagent-debate-embeddings|CIPHER]]) on multi-hop reasoning tasks, and (2) only ~30% of layers need to be shared, with attention importance-based selection identifying the most informative layers. This was the first systematic comparison showing KV > embeddings > text for inter-LLM communication.
+- **[[kvcomm-kth-selective|KVComm]]** established two key findings: (1) KV-cache sharing outperforms both NL debate and embedding communication ([[cipher-multiagent-debate-embeddings|CIPHER]]) on multi-hop reasoning tasks, and (2) only ~30% of layers need to be shared, with attention importance-based selection identifying the most informative layers. This was the first systematic comparison showing KV > embeddings > text for inter-LLM communication.
 - The **Gaussian prior** favoring upper layers in KVComm's selection mechanism aligns with [[linearity-relation-decoding|Hernandez et al.'s]] finding of enriched entity representations at mid-to-upper layers.
 
 ## Collaboration Network
