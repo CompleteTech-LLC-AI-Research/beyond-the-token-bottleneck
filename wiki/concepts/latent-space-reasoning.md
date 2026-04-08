@@ -145,21 +145,13 @@ Three foundational papers establish **why** latent reasoning works, forming a th
 
 ## The Superposition Property
 
-The most profound discovery from [[coconut-reasoning-latent-space|Coconut]], now **rigorously formalized** by [[superposition-coconut-theory|Zhu et al. (2025)]]: continuous thoughts can encode **multiple alternative reasoning paths simultaneously** — a property called **superposition**.
+![[superposition]]
 
-### Why This Is Possible
-
-A discrete token can represent exactly one choice. A continuous vector in $\R^d$ can represent a **weighted combination** of many choices simultaneously. Zhu et al. prove this precisely: the $c$-th continuous thought is the **normalized uniform mixture** of all vertex embeddings reachable within $c$ steps:
-
-> $$[t_c] = \frac{1}{|V_c|} \sum_{v \in V_c} u_v$$
-
-This is not a metaphor — it's a mathematical identity. The quantum mechanics analogy is exact: continuous thoughts are superposition states, token sampling is measurement/collapse, and the final answer token acts as a "measurement" projecting the superposition onto the correct candidate.
-
-This is directly analogous to the advantage of [[embedding-space-communication]] over discrete tokens: the weighted average embedding in [[cipher-multiagent-debate-embeddings|CIPHER]] encodes uncertainty across multiple tokens. Coconut extends this principle from communication to reasoning.
+In the latent-reasoning setting specifically, [[superposition-coconut-theory|Zhu et al. (2025)]] gave this capacity a sharp formal expression: for directed graph reachability, the $c$-th continuous thought in a 2-layer transformer is provably the normalized uniform mixture of all vertex embeddings reachable within $c$ steps, $[t_c] = \frac{1}{|V_c|} \sum_{v \in V_c} u_v$. The quantum-mechanics analogy is thus exact — continuous thoughts are superposition states, token sampling is measurement/collapse, and the final answer token projects the superposition onto a single candidate. This is also directly analogous to how [[embedding-space-communication]] improves over discrete tokens: the weighted average embedding in [[cipher-multiagent-debate-embeddings|CIPHER]] encodes uncertainty across multiple tokens, and Coconut extends the same principle from communication to reasoning.
 
 ### Emergent BFS — and Why It Doesn't Quite Work
 
-The superposition property gives rise to what Coconut described as **emergent breadth-first search** (BFS):
+On the strength of Zhu et al.'s theorem, the superposition property was initially read as giving rise to what Coconut described as **emergent breadth-first search** (BFS):
 
 1. **Step 1**: The continuous thought maintains probability mass on all immediate next steps (broad exploration).
 2. **Step 2**: Paths are evaluated and weaker candidates are pruned (narrowing).

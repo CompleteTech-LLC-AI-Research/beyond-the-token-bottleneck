@@ -138,25 +138,13 @@ A spectrum of compatibility requirements:
 | [[state-delta-trajectory|SDE]] | Same model weights (deltas only meaningful in shared space) |
 | [[agent-primitives-building-blocks|Agent Primitives]] | Same model weights (KV-cache concatenation assumes shared layers) |
 
-Three foundational papers explain **why** cross-model activation communication works at all:
+Why does cross-model activation communication work at all? The answer is the shared framing used across every deep-stage method:
 
-### [[platonic-representation-hypothesis|The Platonic Representation Hypothesis (Huh et al., ICML 2024)]]
-Models across architectures, training objectives, and even modalities are **converging toward a shared statistical model of reality**. Higher-performing models are more aligned with each other. Cross-modal alignment (language ↔ vision) correlates linearly with model quality. If true, this means independently trained models arrive at approximately the same internal representations — and cross-model communication should get **easier** with scale, not harder.
+![[representation-alignment]]
 
-### [[relative-representations-zero-shot|Relative Representations (Moschella et al., ICLR 2023)]]
-Well-trained models produce latent spaces related by approximately **angle-preserving (isometric) transformations**. By representing data as vectors of cosine similarities to shared anchor samples, representations become invariant to rotations/reflections — enabling **zero-shot model stitching** with no learned mapping. This is the practical mechanism: cross-model activation sharing works because the geometry is preserved, and linear projections are the exact correct tool for the approximately orthogonal transforms between latent spaces. Two orders of magnitude improvement in stitching quality vs. absolute representations.
+Two activation-specific corollaries follow directly from this foundation. First, [[relative-representations-zero-shot|Moschella et al.]] report roughly **two orders of magnitude** improvement in stitching quality over absolute representations — a concrete quantitative floor for how much alignment buys you in practice. Second, [[linearity-relation-decoding|Hernandez et al.]] show that the faithfulness of linear relational decoding **peaks at mid-layers (~20-26) then drops in later layers**: the model enriches representations with relational knowledge before compressing them for next-token prediction. This is the mechanistic explanation for why [[activation-communication-harvard|AC]]'s layer-26 is optimal and why [[kvcomm-kth-selective|KVComm]] finds intermediate layers most transferable — it's where the richest information lives, before the output layers discard it.
 
-### [[linearity-relation-decoding|Enriched Entity Representations (Hernandez et al., ICLR 2024)]]
-Transformers implement **[[linearity-relation-decoding|linear relational]] embeddings** at intermediate layers: the mapping from subject to object is a simple affine transform for ~48% of relations. Faithfulness **peaks at mid-layers then drops in later layers** — the model enriches representations with relational knowledge at layers ~20-26, then compresses for next-token prediction. This is the mechanistic explanation for why [[activation-communication-harvard|AC]]'s layer-26 is optimal and why [[kvcomm-kth-selective|KVComm]] finds intermediate layers most transferable: that's where the richest information lives, before the output layers discard it.
-
-### Combined: Why Cross-Model Communication Works
-
-```mermaid
-graph LR
-    A["Platonic Rep.: Models converge to similar representations (structural)"] --> D["Result: A simple linear projection between mid-layer activations of different models preserves the most information and transfers the most knowledge"]
-    B["Relative Rep.: The transform between them is approximately orthogonal (geometric)"] --> D
-    C["Hernandez: The richest information is at mid-layers, before output compression (mechanistic)"] --> D
-```
+Together these pin down not just *whether* cross-model activation sharing should work, but *where* in the stack it works best. The five approaches above navigate this alignment problem differently: some assume it ([[latentmas-collaboration|LatentMAS]], [[state-delta-trajectory|SDE]], [[agent-primitives-building-blocks|Agent Primitives]] stay in-model), some exploit it directly without any learned map ([[activation-communication-harvard|AC]] cross-family), and some learn an explicit bridge on top of it ([[interlat-latent-space-agents|Interlat]]'s communication adapter, [[activation-communication-harvard|AC]]'s optional linear W).
 
 ## Structured vs. Unstructured Activation Sharing
 

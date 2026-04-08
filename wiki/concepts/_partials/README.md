@@ -27,6 +27,9 @@ A **concept-partial** is appropriate when the same conceptual framing would othe
 ## Current partials
 
 - [`framings/depth-spectrum.md`](framings/depth-spectrum.md) — the canonical 5-stage spine of latent communication (tokens → output embeddings → KV → activations → weights) plus the depth–compatibility trade-off. Embedded by [`activation-communication.md`](../activation-communication.md), [`embedding-space-communication.md`](../embedding-space-communication.md), and [`kv-cache-communication.md`](../kv-cache-communication.md).
+- [`framings/superposition.md`](framings/superposition.md) — superposition as a structural property of continuous vector spaces (basis projection vs full vector space, KL cost-of-collapse, capacity vs exploitation). Embedded by [`continuous-vs-discrete-representation.md`](../continuous-vs-discrete-representation.md) and [`latent-space-reasoning.md`](../latent-space-reasoning.md).
+- [`framings/representation-alignment.md`](framings/representation-alignment.md) — Platonic Representation Hypothesis + Relative Representations + linear relational embeddings as the enabling condition for the deep end of the depth spectrum. Embedded by [`activation-communication.md`](../activation-communication.md). Eligible to be embedded by `embedding-space-communication.md` and `kv-cache-communication.md` once those concepts are next refactored.
+- [`framings/temperature-scaling-behavior.md`](framings/temperature-scaling-behavior.md) — diversity as a precondition for ensemble methods, the too-low / too-high / productive-middle pattern, temperature as a proxy for distributional coverage. Embedded by [`multiagent-debate.md`](../multiagent-debate.md) and [`temperature-diversity.md`](../temperature-diversity.md).
 
 <!-- subagents: add entries here as fragments are created -->
 
