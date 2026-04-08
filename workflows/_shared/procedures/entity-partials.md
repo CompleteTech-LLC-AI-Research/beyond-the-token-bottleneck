@@ -97,6 +97,10 @@ Future ingests that add a paper to an existing entity edit only `wiki/entities/<
 - Never extract narrative prose into a partial. Partials are structured data (tables, lists); narrative stays in the shell where it can be edited in context.
 - The partial subdirectory name must exactly equal the shell file's basename (minus `.md`). `wiki/entities/amazon.md` ↔ `wiki/entities/amazon/`.
 
+## After completion
+
+Return to the calling workflow and proceed with its next numbered step. This fragment is a subroutine — it has no terminal action of its own, and the calling workflow's remaining steps (index update, MOC update, raw asset sync, log entry, commit, report) are not optional just because the entity partial has been created or updated.
+
 ## Used by
 
 - `workflows/ingest.md` — when an ingest introduces a new entity or adds a paper to an existing entity's timeline.
