@@ -2,28 +2,27 @@
 type: concept
 title: "Temperature Diversity"
 created: "2026-04-06"
-updated: "2026-04-06"
+updated: "2026-04-08"
 tags: [technique, multi-agent]
 ---
 
 # Temperature Diversity
 
+Temperature diversity is the standard knob for inducing the response variation that [[multiagent-debate]] depends on; this concept covers the mechanism in depth.
+
 **Temperature diversity** is the practice of running agents at **different temperatures** in a [[multiagent-debate]] to encourage complementary information contributions. Rather than an implementation detail, temperature diversity is a first-class design parameter that accounts for a substantial portion of performance gains in [[embedding-space-communication|embedding-based communication]] systems like [[cipher-multiagent-debate-embeddings|CIPHER]].
 
 ## Background: What Temperature Does
 
-Temperature $T$ controls the **sharpness** of the softmax distribution over the vocabulary:
+![[temperature-scaling-behavior]]
+
+Mechanistically, temperature $T$ controls the **sharpness** of the softmax distribution over the vocabulary:
 
 $$p(v_i | T) = \frac{\exp(z_i / T)}{\sum_j \exp(z_j / T)}$$
 
 where $z_i$ are the logits (pre-softmax scores).
 
-- **$T \to 0$ (greedy)**: All probability mass concentrates on the single most likely token. Output is deterministic and confident, but ignores all alternative possibilities.
-- **$T = 1.0$ (standard)**: The raw learned distribution. Balanced between confidence and exploration.
-- **$T > 1.0$ (high)**: Distribution flattens. More probability mass on less-likely tokens. In natural language, this produces increasingly incoherent text. In embedding space, this produces vectors that blend in more alternative tokens.
-- **$T \to \infty$**: Uniform distribution. Every token equally weighted. Carries no information about the model's preference — essentially noise.
-
-The critical insight is that temperature has **opposite effects** depending on the communication medium:
+The critical insight for this concept is that temperature has **opposite effects** depending on the communication medium:
 
 | Temperature | Natural Language (sampling) | Embedding Communication (averaging) |
 |-------------|---------------------------|-------------------------------------|

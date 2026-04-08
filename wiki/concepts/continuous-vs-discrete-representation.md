@@ -2,7 +2,7 @@
 type: concept
 title: "Continuous vs. Discrete Representation"
 created: "2026-04-06"
-updated: "2026-04-06"
+updated: "2026-04-08"
 tags: [core-concept, theoretical]
 ---
 
@@ -55,7 +55,7 @@ graph LR
 
 The information lost at the discrete bottleneck includes:
 - **Uncertainty**: The model's confidence distribution over alternatives (critical for [[temperature-diversity]] in debate)
-- **Superposition**: Multiple simultaneous hypotheses (critical for BFS in [[latent-space-reasoning]]; exploited by [[thought-structure|ThoughtComm's disentangled thoughts]])
+- **Superposition**: Multiple simultaneous hypotheses (see [[#Superposition and Quantum Analogy|the superposition section below]]; critical for BFS in [[latent-space-reasoning]]; exploited by [[thought-structure|ThoughtComm's disentangled thoughts]])
 - **Nuance**: Fine-grained distinctions between similar options (critical for reasoning at high-uncertainty positions)
 
 ## Theoretical Connections
@@ -80,13 +80,11 @@ where $\hat{v}$ is the sampled token and $H(p)$ is the entropy of the original d
 - **Sampled token** (vanilla SARSA): High variance, information-lossy
 - **Expected embedding** (Expected SARSA): Low variance, information-preserving
 
-### Superposition and Quantum Analogy (Now Formalized)
+### Superposition and Quantum Analogy
 
-[[superposition-coconut-theory|Zhu et al. (NeurIPS 2025)]] provide the **rigorous formalization** ([[raw/pdf/arxiv-2505.12514.pdf|Zhu et al. Theorem 1]]): each continuous thought is provably the normalized uniform mixture of all vertices reachable within $c$ BFS steps. A 2-layer transformer with $D$ continuous thoughts solves graph reachability, vs. $O(n^2)$ for discrete CoT — a potentially **quadratic-to-linear speedup**.
+![[superposition]]
 
-The quantum mechanics analogy is made mathematically precise: continuous thoughts are superposition states (weighted sums over multiple vertex embeddings), token sampling is measurement/collapse (forcing selection of one vertex), and the answer token is a measurement that projects the superposition onto the correct candidate.
-
-This is impossible in discrete space — a token is exactly one symbol. There is no way to encode "0.45 probability of path A + 0.35 probability of path B + 0.20 probability of path C" in a single discrete token. In continuous space, this is trivial. The formalization proves this isn't just an analogy — it's the actual computational mechanism.
+[[superposition-coconut-theory|Zhu et al. (NeurIPS 2025)]] provide a **rigorous formalization** of this mechanism ([[raw/pdf/arxiv-2505.12514.pdf|Zhu et al. Theorem 1]]): each continuous thought is provably the normalized uniform mixture of all vertices reachable within $c$ BFS steps, so a 2-layer transformer with $D$ continuous thoughts solves graph reachability in $D$ steps vs. $O(n^2)$ for discrete CoT — a potentially **quadratic-to-linear speedup**. The quantum mechanics analogy is made mathematically precise: continuous thoughts are superposition states (weighted sums over multiple vertex embeddings), token sampling is measurement/collapse, and the answer token is a measurement that projects the superposition onto the correct candidate. The formalization proves this isn't just an analogy — it's the actual computational mechanism, and it ties superposition directly to the bandwidth-gap argument above: the rejected-alternative information the KL divergence quantifies is precisely the mixture weights that parallel BFS depends on.
 
 ### The Depth Bottleneck (Feng et al., NeurIPS 2023)
 

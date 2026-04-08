@@ -2,7 +2,7 @@
 type: concept
 title: "Multiagent Debate"
 created: "2026-04-06"
-updated: "2026-04-06"
+updated: "2026-04-08"
 tags: [core-concept, multi-agent]
 ---
 
@@ -56,6 +56,12 @@ The root cause: weaker models struggle to **parse and incorporate natural langua
 - **Lower bound** (nonsense partner): Performance degrades below single-answer baseline — bad partners actively hurt. This means debate is not a free lunch; the quality of the communication partner matters.
 
 ## Scaling Behavior
+
+The framing this section depends on — diversity as a precondition, and temperature as the standard knob for inducing it — lives in the shared fragment:
+
+![[temperature-scaling-behavior]]
+
+The rest of this section covers debate-protocol-specific scaling (rounds, debater count, and cross-method comparisons) that sits on top of that framing.
 
 ### Rounds
 More rounds generally help, but with **rapidly diminishing returns**:
