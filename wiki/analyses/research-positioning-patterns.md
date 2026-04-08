@@ -52,4 +52,15 @@ Three implications follow from the pattern:
 2. **The sharpest diagnoses can come from small academic groups**. Monash's Wang et al. produces a measurement framework — IsoScore$\star$ + trajectory dynamics + perturbation tests — that is reusable by any future paper proposing a latent-space reasoning method, and it does so without the infrastructure footprint of an industry lab. The posture is complementary to industry breadth-first work, not redundant with it.
 3. **Unified systems live at the consortium scale**. The latent-reasoning-plus-communication stack in LatentMAS, or the cross-architecture visual-pathway work in Vision Wormhole, exist where multi-institution collaboration absorbs the complexity that neither a single academic group nor a single industrial lab is incentivized to carry.
 
-These observations are specific to the latent reasoning / inter-agent communication subfield as represented in this wiki and should not be over-generalized. See [[amazon|Amazon]], [[monash|Monash]], [[fair-meta|FAIR at Meta]], [[google-deepmind|Google DeepMind]], [[google-research|Google Research]], [[mit|MIT]], [[harvard|Harvard]], [[princeton-uiuc-stanford|Princeton / UIUC / Stanford]], and [[purdue|Purdue]] for the source entity profiles behind the examples above.
+These observations are specific to the latent reasoning / inter-agent communication subfield as represented in this wiki and should not be over-generalized.
+
+## Related Entities
+
+This analysis was extracted from meta-essays originally embedded in two entity files. Both source entities — and the other entities used as examples — are linked explicitly below to complete the bidirectional mapping between the analysis and its sources.
+
+- Source entities (original location of the Pattern essays):
+  - [[amazon]] — industry lab; contributed the "Industry-Lab Pattern" essay
+  - [[monash]] — single-institution academic group; contributed the "Single-Institution Pattern" essay
+- Other industry labs referenced as examples: [[fair-meta]], [[google-deepmind]], [[google-research]], [[mit]]
+- Other single-institution academic groups referenced as examples: [[harvard]]
+- Multi-institutional consortia referenced as examples: [[princeton-uiuc-stanford]], [[purdue]]
