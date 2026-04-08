@@ -15,6 +15,10 @@ tags: [latent-communication, multiagent-debate, embeddings, foundational]
 
 # Let Models Speak Ciphers: Multiagent Debate through Embeddings
 
+## One-liner
+
+![[cipher-multiagent-debate-embeddings/one-liner]]
+
 ## Summary
 
 This paper introduces **CIPHER** (Communicative Inter-Model Protocol Through Embedding Representation), a protocol that replaces natural language with [[embedding-space-communication|embedding-space communication]] in [[multiagent-debate]] settings. The core insight is that the token sampling step in standard LLM generation discards valuable information — the full probability distribution over the vocabulary is compressed into a single token. CIPHER bypasses sampling entirely, instead passing **weighted averages of all token embeddings** (weighted by softmax probabilities) between agents.

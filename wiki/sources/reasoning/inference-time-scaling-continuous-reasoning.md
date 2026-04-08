@@ -16,6 +16,10 @@ tags: [latent-reasoning, inference-time-scaling, reward-modeling, prm, orm, geom
 
 # Towards Inference-time Scaling for Continuous Space Reasoning
 
+## One-liner
+
+![[inference-time-scaling-continuous-reasoning/one-liner]]
+
 ## Summary
 
 The first paper to ask whether the **inference-time scaling toolkit** of discrete reasoning — best-of-N sampling, self-consistency, Process Reward Models (PRM), Outcome Reward Models (ORM) — can be transplanted into [[latent-space-reasoning|continuous-space reasoning]]. Wang et al. operate on [[coconut-reasoning-latent-space|COCONUT]] (GPT-2 / GSM8K) and answer in three movements:

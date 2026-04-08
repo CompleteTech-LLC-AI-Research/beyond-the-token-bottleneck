@@ -15,6 +15,10 @@ tags: [kv-cache, cross-model, learned-fusion, multi-llm]
 
 # Cache-to-Cache: Direct Semantic Communication Between Large Language Models
 
+## One-liner
+
+![[cache-to-cache-semantic-communication/one-liner]]
+
 ## Summary
 
 **Cache-to-Cache (C2C)**, from [[tsinghua|Tsinghua University]] and collaborators, proposes a learned neural cache fuser that projects and merges the KV-cache from a source ("Sharer") model into the representation space of a target ("Receiver") model. Unlike [[kvcomm-kth-selective|KVComm]]'s training-free concatenation (which requires same-architecture models), C2C's learned fuser enables communication across **different model families and sizes** — Qwen to LLaMA, 0.6B to 14B, general to specialized. This is the first approach to enable cross-architecture [[kv-cache-communication]].

@@ -15,6 +15,10 @@ tags: [latent-reasoning, cot-internalization, curriculum, foundational]
 
 # From Explicit CoT to Implicit CoT: Learning to Internalize CoT Step by Step (iCoT)
 
+## One-liner
+
+![[icot-internalize-cot/one-liner]]
+
 ## Summary
 
 **iCoT-SI** (Stepwise Internalization) progressively removes explicit chain-of-thought tokens from a trained model, one token at a time from the left, forcing the model to compress reasoning into its hidden states. This paper directly inspired [[coconut-reasoning-latent-space|Coconut]]'s multi-stage curriculum — Coconut's key innovation was replacing the removed tokens with continuous latent thoughts rather than simply deleting them.

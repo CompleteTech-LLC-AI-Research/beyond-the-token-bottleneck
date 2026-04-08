@@ -15,6 +15,10 @@ tags: [multi-agent, kv-cache, primitives, composable, training-free]
 
 # Agent Primitives: Reusable Latent Building Blocks for Multi-Agent Systems
 
+## One-liner
+
+![[agent-primitives-building-blocks/one-liner]]
+
 ## Summary
 
 **Agent Primitives** decomposes multi-agent system architectures into three reusable computation patterns — **Review** (iterative critique), **Voting and Selection** (consensus), and **Planning and Execution** (decomposition) — all operating in latent space via [[kv-cache-communication|KV-cache concatenation]]. An **Organizer** agent (GPT-5.2) automatically selects and composes primitives per query, guided by a **Knowledge Pool** of 45 previously observed MAS configurations. The analogy: primitives are to MAS what residual blocks and attention heads are to neural networks — composable, reusable functional units.

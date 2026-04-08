@@ -15,6 +15,10 @@ tags: [scaling, multi-agent, coordination, theoretical-framework]
 
 # Towards a Science of Scaling Agent Systems
 
+## One-liner
+
+![[scaling-agent-systems/one-liner]]
+
 ## Summary
 
 This paper provides the first **quantitative scaling framework** for multi-agent LLM systems, modeling performance as an interplay of agent quantity, coordination topology, model capability, and task properties. Through controlled experiments across **180 configurations** (5 architectures x 9 LLM models x 4 benchmarks), it challenges the "more agents is better" claim and establishes that multi-agent coordination is **task-contingent** — it can improve performance by +80.9% or degrade it by -70%.

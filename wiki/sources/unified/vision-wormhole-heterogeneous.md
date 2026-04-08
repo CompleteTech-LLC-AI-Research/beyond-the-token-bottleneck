@@ -16,6 +16,10 @@ tags: [latent-communication, heterogeneous, vision-language, cross-architecture]
 
 # The Vision Wormhole: Latent-Space Communication in Heterogeneous Multi-Agent Systems
 
+## One-liner
+
+![[vision-wormhole-heterogeneous/one-liner]]
+
 ## Summary
 
 The **Vision Wormhole** repurposes the **visual input pathway** of Vision-Language Models (VLMs) as a universal continuous communication channel between heterogeneous agents. The key insight: VLMs are explicitly trained to accept dense, continuous vectors through their visual encoders — unlike text-only LLMs whose embedding layers expect discrete token embeddings. By injecting sender reasoning traces into the receiver's vision-token span, the framework achieves cross-architecture latent communication without the "off-manifold" problem that plagues direct hidden-state injection into text-only models.

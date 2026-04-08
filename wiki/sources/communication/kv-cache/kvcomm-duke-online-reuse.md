@@ -15,6 +15,10 @@ tags: [kv-cache, efficiency, cache-reuse, training-free, systems]
 
 # KVCOMM: Online Cross-context KV-cache Communication for Efficient LLM-based Multi-agent Systems
 
+## One-liner
+
+![[kvcomm-duke-online-reuse/one-liner]]
+
 ## Summary
 
 While [[kvcomm-kth-selective|KVComm]] and [[cache-to-cache-semantic-communication|C2C]] focus on **what** and **how** to communicate via KV-cache, this paper from Duke University, [[mit|MIT]], and NVIDIA tackles a different problem: **computational efficiency** of KV-cache operations in multi-agent systems. When multiple agents share overlapping context (e.g., the same user query, same retrieved documents), each agent redundantly recomputes KV-caches for the shared text under its own prefix context. KVCOMM eliminates this redundancy by **reusing KV-caches** across agents with different prefixes, estimating and correcting the context-dependent offsets introduced by different system prompts and conversation histories.

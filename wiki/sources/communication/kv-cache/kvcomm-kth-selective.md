@@ -15,6 +15,10 @@ tags: [kv-cache, layer-selection, multi-agent, training-free]
 
 # KVComm: Enabling Efficient LLM Communication through Selective KV Sharing
 
+## One-liner
+
+![[kvcomm-kth-selective/one-liner]]
+
 ## Summary
 
 This paper, from [[kth|KTH Royal Institute of Technology]], proposes **KVComm**, a training-free communication protocol where a sender model shares **selected layers' KV pairs** with a receiver model. The receiver concatenates the sender's KV pairs with its own at each selected layer, integrating the information through its native attention mechanism. The core contribution is a principled **layer selection strategy** that identifies which layers carry the most transferable semantic information, achieving near-upper-bound performance while transmitting as few as 30% of layers' KV pairs.

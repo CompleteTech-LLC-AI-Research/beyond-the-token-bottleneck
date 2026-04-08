@@ -16,6 +16,10 @@ tags: [latent-communication, hidden-states, cross-family, compression]
 
 # Enabling Agents to Communicate Entirely in Latent Space (Interlat)
 
+## One-liner
+
+![[interlat-latent-space-agents/one-liner]]
+
 ## Summary
 
 **Interlat** replaces all inter-agent communication with **last-layer hidden state sequences** — the sender's autoregressive hidden states are transmitted directly to the receiver via a lightweight communication adapter. Unlike single-vector approaches ([[activation-communication-harvard|AC]]), Interlat transmits the **full temporally-aligned sequence** of hidden states from all generation steps. Unlike [[thought-communication-multiagent|ThoughtComm]], it requires no autoencoder — raw hidden states are transmitted with only a small adapter for rescaling.

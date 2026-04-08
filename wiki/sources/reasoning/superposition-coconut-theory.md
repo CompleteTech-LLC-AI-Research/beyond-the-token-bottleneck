@@ -16,6 +16,10 @@ tags: [latent-reasoning, superposition, theoretical, bfs, foundational]
 
 # Reasoning by Superposition: A Theoretical Perspective on Chain of Continuous Thought
 
+## One-liner
+
+![[superposition-coconut-theory/one-liner]]
+
 ## Summary
 
 The first rigorous theoretical formalization of **why continuous chain-of-thought ([[coconut-reasoning-latent-space|Coconut]]) outperforms discrete CoT**. Proves that continuous thoughts implement **parallel BFS via superposition** -- each latent vector encodes a normalized uniform mixture of all graph vertices reachable within $c$ steps. A 2-layer transformer with continuous CoT solves directed graph reachability in **$D$ steps** ($D$ = graph diameter), vs. **$O(n^2)$** for discrete CoT -- a quadratic-to-linear improvement.
