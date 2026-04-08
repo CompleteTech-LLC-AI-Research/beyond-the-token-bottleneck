@@ -15,7 +15,7 @@ Lead institution on the [[vision-wormhole-heterogeneous|Vision Wormhole]] — th
 
 | Date | Paper | Role | Key Result |
 |------|-------|------|------------|
-| Feb 2026 | [[vision-wormhole-heterogeneous\|Vision Wormhole]] | Lead (with CMU, Contextual AI, Georgia Tech) | VLM visual pathway as universal heterogeneous channel; +6.3pp vs TextMAS |
+| Feb 2026 | [[vision-wormhole-heterogeneous\|Vision Wormhole]] | Lead (multi-institution) (with CMU, Contextual AI, Georgia Tech) | VLM visual pathway as universal heterogeneous channel; +6.3pp vs TextMAS |
 
 ## Research Themes
 

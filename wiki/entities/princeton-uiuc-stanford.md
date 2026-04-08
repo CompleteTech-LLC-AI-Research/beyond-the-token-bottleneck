@@ -16,7 +16,7 @@ A multi-institutional collaboration behind two of the most significant unified f
 | Date | Paper | Role | Key Result |
 |------|-------|------|------------|
 | Nov 2025 | [[latentmas-collaboration\|LatentMAS]] | Lead (multi-institution) | First unified latent reasoning + communication; training-free; GSM8K 95.2% |
-| Feb 2026 | [[agent-primitives-building-blocks\|Agent Primitives]] | UIUC lead | Composable latent operators; beats 10 MAS baselines |
+| Feb 2026 | [[agent-primitives-building-blocks\|Agent Primitives]] | Lead (multi-institution) | Composable latent operators; beats 10 MAS baselines |
 
 ## Research Themes
 
