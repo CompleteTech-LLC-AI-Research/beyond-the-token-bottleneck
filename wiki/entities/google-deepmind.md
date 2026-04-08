@@ -25,17 +25,11 @@ Google DeepMind's contribution addresses **scalability and emergent benefits** o
 
 - **Module portability**: Soft prompts learned on one model transfer to another via the shared space with zero additional training — the interlingua acts as a universal adapter.
 
-## Key Technical Details
+### Key Technical Details
 
 - Adapter architecture: Multi-layer transformer with cross-attention, ~¼ size of base model
 - Tested on Gemma-2 (100M–400M scale) — smaller scale validation with promising zero-shot extensibility results
 - The self-improvement effect is observed across multiple models, suggesting it's a property of the shared space architecture rather than a specific model interaction
-
-## Strategic Position
-
-KV Alignment opens [[frontier-research-directions|frontier direction #3]] (self-improvement as training signal). If the cyclic translation benefit compounds over iterations, it could become a new form of **inference-time compute scaling** — orthogonal to both CoT and debate. DeepMind is best positioned to pursue this given their authorship and compute resources.
-
-The shared interlingua concept also has implications for [[latentcompress-open-call|LatentCompress]]'s compression research — the interlingua could serve as a natural compression target, defining what information is "essential" for cross-model transfer.
 
 ## Collaboration Network
 
@@ -54,6 +48,12 @@ Google DeepMind's KV Cache Alignment paper is internally authored, but the Scali
 - **[[kth|KTH]]**: Both observe the "selective > full" paradox — KVComm's Skyline exceedance and KV Alignment's self-improvement effect are likely manifestations of the same beneficial regularization phenomenon.
 
 Note: Google Brain (merged into DeepMind) co-authored the foundational [[multiagent-debate-du-et-al|multiagent debate paper]] with [[mit|MIT]] in 2023, providing an institutional lineage for DeepMind's multi-agent work.
+
+## Strategic Position
+
+KV Alignment opens [[frontier-research-directions|frontier direction #3]] (self-improvement as training signal). If the cyclic translation benefit compounds over iterations, it could become a new form of **inference-time compute scaling** — orthogonal to both CoT and debate. DeepMind is best positioned to pursue this given their authorship and compute resources.
+
+The shared interlingua concept also has implications for [[latentcompress-open-call|LatentCompress]]'s compression research — the interlingua could serve as a natural compression target, defining what information is "essential" for cross-model transfer.
 
 ## Research Trajectory
 
