@@ -96,13 +96,7 @@ Use this workflow when you need to audit the wiki for quality issues, especially
    - `AGENTS.md` Current MOCs list matches the actual `wiki/mocs/*.md` files.
    - No stale path references remain in `AGENTS.md`, `README.md`, or index files after reorganizations.
    - Mermaid node labels use `<br>` for line breaks, not `\n` (which renders literally in Obsidian).
-3. **Paper-count drift sweep** (catches the regression class where prose counts drift after ingests):
-   - Determine the *authoritative* current count by `ls wiki/sources/**/*.md | wc -l` (or equivalent Glob).
-   - Grep `wiki/` and `README.md` for any number followed by `papers`, `source pages`, or `source papers` (e.g., `\b\d+\s+(papers|source pages|source papers)\b`).
-   - Also grep for the patterns `synthesized from all \d+`, `wiki covers \d+`, and `(across|all) \d+ papers` to catch variant phrasings.
-   - Flag every match where the number does not equal the authoritative count, **except** matches in `wiki/log.md` (log entries are point-in-time records and must not be backdated).
-   - Common offenders to check by name: `wiki/analyses/frontier-research-directions.md`, `wiki/analyses/benchmark-overlap.md` (4 places), `wiki/analyses/paper-timeline.md`, `wiki/analyses/latentcompress-collaboration-strategy.md` (2 places), `wiki/mocs/practical-systems.md`, `wiki/overview-state-of-field.md`, `README.md` (badges + paragraph + per-thread `(N papers)` headers), `wiki/index.md` (directory tree).
-   - Also sweep entity counts, MOC counts, analysis counts, and concept counts using the same pattern (`\b\d+\s+(entit|MOC|analyses|concepts)`).
+3. Run the [stale count sweep](_shared/procedures/stale-count-sweep.md) — catches the regression class where prose counts drift after ingests. Follow every sub-rule in the fragment (authoritative count method, grep patterns, common-offender re-verification, log.md exclusion, non-paper count sweep). When complete, return here and continue with step 4.
 4. **Checklist sync check** (catches drift between `raw/index.md` and `raw/checklist.md`, the URL audit trail). The checklist tracks arXiv papers only; non-arXiv sources (e.g., the latentcompress GitHub project) are intentionally excluded, so the row count must be compared against the *Canonical PDFs* count in `raw/index.md`'s summary table, **not** the total unique source pages count.
    - Count the canonical PDF rows in `raw/index.md` (the "Canonical PDFs" table, excluding the venue-duplicate section and any non-arXiv rows).
    - Count the data rows in `raw/checklist.md` (the markdown table, excluding the header and separator rows).
