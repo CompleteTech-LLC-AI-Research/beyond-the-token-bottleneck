@@ -46,13 +46,26 @@ graph TD
         E2 -->|Yes| E4
     end
 
-    P1 --> P2 --> P3 --> P4 --> P5
+    subgraph P6["Phase 6: Commit & Push"]
+        F1["Stage research files only<br/>(explicit paths, not git add -A)"]
+        F2["Commit on master with<br/>descriptive ingest message"]
+        F3["Push master to origin"]
+        F4{"Workflow files<br/>also touched?"}
+        F5["Branch + commit + push;<br/>open PR for workflow changes"]
+        F1 --> F2 --> F3 --> F4
+        F4 -->|Yes| F5
+        F4 -->|No| Done([Done])
+        F5 --> Done
+    end
+
+    P1 --> P2 --> P3 --> P4 --> P5 --> P6
 
     style P1 fill:#dae8fc,stroke:#6c8ebf
     style P2 fill:#fff2cc,stroke:#d6b656
     style P3 fill:#d5e8d4,stroke:#82b366
     style P4 fill:#ffe6cc,stroke:#d79b00
     style P5 fill:#e1d5e7,stroke:#9673a6
+    style P6 fill:#f8cecc,stroke:#b85450
 ```
 
 ## Purpose
@@ -177,12 +190,40 @@ For single-paper ingests, triggers 2-4 always fire; trigger 1 fires conditionall
    - Source page depth — does it meet the depth standard?
    - Entity creation — if a new entity was needed, was it created at full depth?
    - Concept/source/MOC propagation — were all relevant pages updated with substantive content (not just link additions)?
-   - Analysis updates — were all 5+ living analyses checked and updated where relevant?
+   - Analysis updates — were all 6+ living analyses checked, *and was each numbered direction in `frontier-research-directions.md` and each numbered tension in `contradictions.md` reviewed individually*?
    - Overview / README / log — were the global pages updated?
+   - **Count-drift discipline** — was the stale paper-count sweep performed (`workflows/ingest.md` step 11)? Were all hardcoded counts in body prose (intros, methodology paragraphs, MOC blurbs, blind-spot bullets, README badges, README per-thread headers, `wiki/index.md` directory tree) updated to the new value? Score 0/10 if any count outside `wiki/log.md` still shows the old value.
    - Lint compliance — do all new links resolve, do all new anchors exist?
    - Workflow trigger discipline — were all downstream workflow triggers explicitly checked and acted on?
 2. **If < 10/10**: Identify the missing pieces, fix them, and re-grade. Iterate until 10/10. Do not skip this loop — it is the difference between a 7/10 ingest and a 10/10 ingest.
 3. **Append a final summary** to `wiki/log.md` with the gap statement, the chosen paper, the propagation summary, and the final grade.
+
+### Phase 6: Commit and Push (Research) + PR (Workflow Changes)
+
+This phase exists because uncommitted ingest work is fragile (it can be lost to a tab crash, an accidental `git restore`, or a context-window reset on the next session) and because workflow changes deserve explicit review even when research changes are routine. The split is based on **blast radius**: research files are content-only and reviewed continuously by the user, so they ship straight to `master`; workflow files change *how future ingests are run* and benefit from a PR review surface.
+
+1. **Identify which files belong to which bucket** before staging anything. Walk the output of `git status` and classify each modified file:
+   - **Research bucket** (commit on `master`): `wiki/**`, `raw/**`, `README.md`, anything created or updated by the ingest itself.
+   - **Workflow bucket** (PR): `workflows/**`, `AGENTS.md` (if the workflow index changed), and any new schema/process documentation.
+   - **Do not touch**: any modified file you did *not* write to during this session. Pre-existing in-progress work in the working tree must not be staged. The session-start `git status` (captured in the system context) is the source of truth for what was already dirty before you began.
+
+2. **Stage the research files explicitly by path**, not with `git add -A` or `git add .`. Explicit paths prevent accidentally staging the user's pre-existing in-progress work, the `.codex/` or `.mcp.json` shells, or `.obsidian/graph.json` auto-saves. Verify with `git status` that the staged set matches your research bucket exactly and that the workflow files remain unstaged.
+
+3. **Commit on `master`** with a descriptive message that names the paper, summarizes the contribution, lists created/updated pages, and notes any cleanup work bundled in (e.g., paper-count sweeps, checklist resync). Follow the existing repo style (`git log --oneline -5` to compare). Always include the `Co-Authored-By` trailer.
+
+4. **Push `master`** to `origin`. The research commit is now durable.
+
+5. **If workflow files were also touched**, create a PR for them — do not commit workflow changes directly to `master`:
+   a. `git checkout -b workflow-<short-descriptor>` (e.g. `workflow-improvements-gap-analysis-discipline`). The branch starts from current `master` so the unstaged workflow changes carry over automatically.
+   b. Stage the workflow files explicitly (`workflows/*.md` and any related schema files).
+   c. Commit on the branch with a message that explains the *regression class* the workflow change prevents, not just the line-level diff. (E.g. "Add per-direction analysis review + count-drift sweep + checklist sync to ingest workflow" with a body explaining what was missed in the most recent run.)
+   d. `git push -u origin <branch>`.
+   e. `gh pr create --title "..." --body "..."` with a body that includes a Summary section (regression classes addressed) and a Test plan section (how to verify the new instructions work on the next ingest).
+   f. Return to `master` (`git checkout master`) so subsequent work does not accidentally land on the PR branch.
+
+6. **If only research files were touched**, skip step 5 — no PR needed.
+
+The rationale for splitting: research changes are continuous and trusted (the user reviews them directly via the wiki). Workflow changes are meta-level — they shape every future ingest — so they deserve a PR review surface even if the author is the same. This is the same defense-in-depth principle as the count-drift sweep: catch regressions at the boundary where they are cheapest to fix.
 
 ## Completion Checklist
 
@@ -191,11 +232,16 @@ For single-paper ingests, triggers 2-4 always fire; trigger 1 fires conditionall
 - The chosen paper was checked for appropriateness with explicit reasoning before ingest.
 - The downloader script (`raw/download_arxiv_papers.py`) was updated and run.
 - `raw/index.md` was updated with the new PDF and LaTeX entries and summary counts.
+- `raw/checklist.md` was updated with a new row for the chosen paper (URL audit trail, parallel to `raw/index.md`'s asset map).
 - `workflows/ingest.md` was followed end-to-end (source page + entities + concepts + MOCs + analyses + index + log).
+- **Stale paper-count sweep performed** (per `workflows/ingest.md` step 11). Grepped `wiki/` for the old count and updated every match outside `wiki/log.md`. Re-verified the seven common-offender files by name: `wiki/analyses/frontier-research-directions.md`, `wiki/analyses/benchmark-overlap.md`, `wiki/analyses/paper-timeline.md`, `wiki/analyses/latentcompress-collaboration-strategy.md`, `wiki/mocs/practical-systems.md`, `wiki/overview-state-of-field.md`, `README.md`. Confirmed `wiki/log.md` historical entries were left untouched.
+- Every numbered direction in `frontier-research-directions.md` and every numbered tension in `contradictions.md` was reviewed *individually* (not just the analysis page as a whole) — a single new paper often updates multiple directions/tensions and the page-level "is this relevant?" question hides individual matches.
 - All Phase 4 downstream workflow triggers were explicitly checked and acted on (or explicitly noted as not firing).
 - Lint sweep verified no broken wiki-links or anchors were introduced.
 - The run was self-graded against the rubric and any < 10/10 items were fixed.
 - A comprehensive entry was appended to `wiki/log.md` documenting the full propagation.
+- **Phase 6 executed**: research files staged by explicit path (not `git add -A`), committed on `master` with a descriptive message including the `Co-Authored-By` trailer, and pushed to `origin`. Pre-existing in-progress work in the working tree was *not* staged.
+- **If workflow files were touched**: a feature branch was created, workflow files were committed on the branch, the branch was pushed, and a PR was opened with a Summary + Test plan body. The branch name follows `workflow-<descriptor>` and the local checkout was returned to `master` after the PR was created.
 
 ## Related Workflows
 
