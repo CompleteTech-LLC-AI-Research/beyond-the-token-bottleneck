@@ -2,7 +2,7 @@
 
 ### What happens when LLMs stop talking and start *thinking* in vectors?
 
-[![Papers Tracked](https://img.shields.io/badge/papers_tracked-27+-blue?style=for-the-badge)](wiki/analyses/paper-timeline.md) [![Wiki Pages](https://img.shields.io/badge/wiki_pages-69-green?style=for-the-badge)](wiki/) [![Cross References](https://img.shields.io/badge/cross_references-1300+-purple?style=for-the-badge)](wiki/) [![Built With](https://img.shields.io/badge/built_with-Obsidian-7C3AED?style=for-the-badge&logo=obsidian&logoColor=white)](https://obsidian.md)
+[![Papers Tracked](https://img.shields.io/badge/papers_tracked-27+-blue?style=for-the-badge)](wiki/analyses/paper-timeline.md) [![Wiki Pages](https://img.shields.io/badge/wiki_pages-130+-green?style=for-the-badge)](wiki/) [![Cross References](https://img.shields.io/badge/cross_references-1400+-purple?style=for-the-badge)](wiki/) [![Built With](https://img.shields.io/badge/built_with-Obsidian-7C3AED?style=for-the-badge&logo=obsidian&logoColor=white)](https://obsidian.md)
 
 An open research wiki mapping the frontier of **latent-space reasoning**, **continuous thought**, and **inter-agent latent communication** in large language models.
 
@@ -20,7 +20,7 @@ Large language models are internally continuous systems — dense vectors in **R
 
 > **What happens when you remove it — both within a single model and between collaborating models?**
 
-This wiki systematically tracks **27+ papers** (Dec 2022 – Apr 2026) exploring that question, organized into a deeply cross-referenced knowledge graph with 1300+ internal links.
+This wiki systematically tracks **27+ papers** (Dec 2022 – Apr 2026) exploring that question, organized into a deeply cross-referenced knowledge graph with 1400+ internal links.
 
 ---
 
@@ -90,11 +90,11 @@ See [`communication-depth-spectrum`](wiki/mocs/communication-depth-spectrum.md) 
 ```
 beyond-the-token-bottleneck/
 ├── raw/                              # Immutable source documents
-│   ├── pdf/                          # ~36 source PDFs (arXiv, ACL, ICML, NeurIPS)
+│   ├── pdf/                          # 26 source PDFs (arXiv, ACL, ICML, NeurIPS)
 │   ├── latex/                        # LaTeX source archives
 │   └── assets/                       # Static assets
 ├── workflows/                        # Maintainer workflow playbooks used by AGENTS.md
-├── wiki/                             # Research wiki (69 pages)
+├── wiki/                             # Research wiki (130+ pages)
 │   ├── sources/                      # Paper summaries by theme
 │   │   ├── reasoning/               #   Coconut, SoftCoT, Pause Tokens, ...
 │   │   ├── communication/           #   CIPHER, AC, KVComm, C2C, ...
@@ -104,9 +104,11 @@ beyond-the-token-bottleneck/
 │   │   │   └── structured/          #     Disentangled methods
 │   │   ├── unified/                 #   LatentMAS, Vision Wormhole, ...
 │   │   └── meta/                    #   Scaling, expressivity theory, latent reasoning analyses
-│   ├── concepts/                    # 10 cross-cutting concept pages
+│   ├── concepts/                    # 11 cross-cutting concept pages, organized into
+│   │   │                            #   thematic subdirs: challenges/, communication/,
+│   │   │                            #   multi-agent/, reasoning/, theory/
 │   ├── entities/                    # 13 research group profiles (+ 26 reusable partials)
-│   ├── analyses/                    # 7 synthesis & comparison pages
+│   ├── analyses/                    # 9 synthesis & comparison pages
 │   ├── mocs/*.md                    # 9 Maps of Content
 │   ├── index.md                     # Wiki index
 │   ├── log.md                       # Change log
@@ -121,7 +123,7 @@ beyond-the-token-bottleneck/
 
 | Deep Analysis | Cross-Referenced | LaTeX Math | Visual Diagrams | Guided Paths |
 |:---:|:---:|:---:|:---:|:---:|
-| Not summaries — detailed mechanisms, math, experimental numbers, ablation insights. 800–2000+ words per concept page. | 1300+ internal wiki-links. Every mention of a concept, entity, or paper links to its page. | All equations rendered with proper notation. Custom MathJax preamble with shared macros. | 33 Mermaid flowcharts for architectures, pipelines, and paper lineage trees. | Maps of Content with narrative reading order — not just link lists. |
+| Not summaries — detailed mechanisms, math, experimental numbers, ablation insights. 800–2000+ words per concept page. | 1400+ internal wiki-links. Every mention of a concept, entity, or paper links to its page. | All equations rendered with proper notation. Custom MathJax preamble with shared macros. | 21 Mermaid flowcharts for architectures, pipelines, and paper lineage trees. | Maps of Content with narrative reading order — not just link lists. |
 
 ---
 
@@ -197,7 +199,7 @@ This wiki's [`latent-communication`](wiki/mocs/latent-communication.md) and [`me
 
 The methodology behind this vault. Karpathy's gist describes a three-layer architecture — **raw sources** (immutable), **the wiki** (LLM-generated), and **the schema** (configuration) — where the LLM acts as an active maintainer rather than a passive retriever.
 
-This repo is a production implementation of that pattern applied to a focused research domain. Our schema ([`AGENTS.md`](AGENTS.md)) defines page types, linking conventions, depth standards, and workflows. The LLM ingests papers, updates 10-15 pages per source, and maintains cross-references across 1300+ links — exactly the "bookkeeping" that makes knowledge bases collapse when maintained by hand.
+This repo is a production implementation of that pattern applied to a focused research domain. Our schema ([`AGENTS.md`](AGENTS.md)) defines page types, linking conventions, depth standards, and workflows. The LLM ingests papers, updates 10-15 pages per source, and maintains cross-references across 1400+ links — exactly the "bookkeeping" that makes knowledge bases collapse when maintained by hand.
 
 ---
 
