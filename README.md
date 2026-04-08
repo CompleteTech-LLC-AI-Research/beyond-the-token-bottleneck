@@ -90,30 +90,46 @@ See [`communication-depth-spectrum`](wiki/mocs/communication-depth-spectrum.md) 
 ```
 beyond-the-token-bottleneck/
 ├── raw/                              # Immutable source documents
-│   ├── pdf/                          # 26 source PDFs (arXiv, ACL, ICML, NeurIPS)
-│   ├── latex/                        # LaTeX source archives
-│   └── assets/                       # Static assets
+│   ├── pdf/                          #   26 source PDFs (arXiv, ACL, ICML, NeurIPS)
+│   ├── latex/                        #   LaTeX source archives
+│   ├── index.md                      #   Per-paper provenance index
+│   ├── checklist.md                  #   Ingest tracking checklist
+│   └── download_arxiv_papers.py      #   Bulk arXiv downloader
 ├── workflows/                        # Maintainer workflow playbooks used by AGENTS.md
+│   ├── create/                       #   ingest, batch-ingest, synthesize
+│   ├── enrich/                       #   enrich, expand
+│   ├── audit/                        #   gap-analysis, verification, review, lint,
+│   │                                 #     enrichment-audit, moc-gap-analysis,
+│   │                                 #     plugin-audit, schema-self-audit
+│   ├── query/                        #   query
+│   ├── meta/                         #   readme-github-maintenance
+│   ├── _shared/                      #   Reusable fragments: procedures/, checklists/,
+│   │                                 #     rules/, glossary.md
+│   ├── CONVENTIONS.md                #   Workflow authoring conventions
+│   └── README.md                     #   Workflow decision tree
 ├── wiki/                             # Research wiki (130+ pages)
-│   ├── sources/                      # Paper summaries by theme
-│   │   ├── reasoning/               #   Coconut, SoftCoT, Pause Tokens, ...
-│   │   ├── communication/           #   CIPHER, AC, KVComm, C2C, ...
-│   │   │   ├── embeddings/          #     Output-layer methods
-│   │   │   ├── activations/         #     Hidden-state methods
-│   │   │   ├── kv-cache/            #     KV-cache methods
-│   │   │   └── structured/          #     Disentangled methods
-│   │   ├── unified/                 #   LatentMAS, Vision Wormhole, ...
-│   │   └── meta/                    #   Scaling, expressivity theory, latent reasoning analyses
-│   ├── concepts/                    # 11 cross-cutting concept pages, organized into
-│   │   │                            #   thematic subdirs: challenges/, communication/,
-│   │   │                            #   multi-agent/, reasoning/, theory/
-│   ├── entities/                    # 13 research group profiles (+ 26 reusable partials)
-│   ├── analyses/                    # 9 synthesis & comparison pages
-│   ├── mocs/*.md                    # 9 Maps of Content
-│   ├── index.md                     # Wiki index
-│   ├── log.md                       # Change log
-│   └── overview-state-of-field.md   # Top-level narrative
+│   ├── sources/                      #   Paper summaries by theme
+│   │   ├── reasoning/                #     Coconut, SoftCoT, Pause Tokens, ...
+│   │   ├── communication/            #     CIPHER, AC, KVComm, C2C, ...
+│   │   │   ├── embeddings/           #       Output-layer methods
+│   │   │   ├── activations/          #       Hidden-state methods
+│   │   │   ├── kv-cache/             #       KV-cache methods
+│   │   │   └── structured/           #       Disentangled methods
+│   │   ├── unified/                  #     LatentMAS, Vision Wormhole, ...
+│   │   └── meta/                     #     Scaling, expressivity theory, latent reasoning analyses
+│   ├── concepts/                     #   11 cross-cutting concept pages, organized into
+│   │   │                             #     thematic subdirs: challenges/, communication/,
+│   │   │                             #     multi-agent/, reasoning/, theory/ (+ _partials/)
+│   ├── entities/                     #   13 research group profiles (+ 26 reusable partials)
+│   ├── analyses/                     #   9 synthesis & comparison pages
+│   ├── mocs/*.md                     #   9 Maps of Content
+│   ├── index.md                      #   Wiki index
+│   ├── log.md                        #   Change log
+│   └── overview-state-of-field.md    #   Top-level narrative
+├── assets/                           # Repo-level images (e.g. Obsidian graph view)
 ├── AGENTS.md                         # Wiki schema & LLM instructions
+├── CLAUDE.md                         # Pointer to AGENTS.md
+├── LICENSE-APACHE / LICENSE-CC-BY    # Split licensing (code / content)
 └── README.md
 ```
 
