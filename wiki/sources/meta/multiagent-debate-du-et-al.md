@@ -167,7 +167,7 @@ As debates grow longer, agents tend to focus on the most recent generations and 
 
 ## Why Every Other Paper References This
 
-This paper defined the problem, the protocol, and the evaluation framework. When [[cipher-multiagent-debate-embeddings|CIPHER]] proposes embedding-based debate, when [[kvcomm-selective-kv-sharing|KVComm]] benchmarks against NLD, when [[activation-communication-harvard|AC]] compares compute efficiency to debate, when [[scaling-agent-systems|Scaling Agent Systems]] formalizes "Decentralized MAS" -- they are all benchmarking against Du et al.'s protocol.
+This paper defined the problem, the protocol, and the evaluation framework. When [[cipher-multiagent-debate-embeddings|CIPHER]] proposes embedding-based debate, when [[kvcomm-kth-selective|KVComm]] benchmarks against NLD, when [[activation-communication-harvard|AC]] compares compute efficiency to debate, when [[scaling-agent-systems|Scaling Agent Systems]] formalizes "Decentralized MAS" -- they are all benchmarking against Du et al.'s protocol.
 
 The limitations of this paper are exactly what motivated the latent communication research line: the **information loss** in natural language exchange (motivating [[cipher-multiagent-debate-embeddings|CIPHER]]), the **compute cost** of sequential token generation (motivating [[activation-communication-harvard|AC]]), the **agreeableness bias** in text debate (motivating ThoughtComm's structured routing), and the **context degradation** over rounds (motivating KV-cache approaches).
 

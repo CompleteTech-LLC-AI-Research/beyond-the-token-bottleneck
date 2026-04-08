@@ -77,7 +77,7 @@ Systematic tracking of claims that conflict or exist in tension across papers in
 — Implicit assumption across the field
 
 **Claim B**: Selective KV sharing (30% of layers) **matches or exceeds** sharing all layers. Sometimes exceeds the Skyline (full context, no communication needed).
-— [[kvcomm-selective-kv-sharing|KVComm (Shi et al., 2025)]]
+— [[kvcomm-kth-selective|KVComm (Shi et al., 2025)]]
 
 **Claim C**: Cyclic translation (A → shared space → A) **improves** model A beyond its original performance.
 — [[kv-cache-alignment-shared-space|KV Alignment (Dery et al., 2026)]]
@@ -90,7 +90,7 @@ Systematic tracking of claims that conflict or exist in tension across papers in
 
 ## 6. Training-Free vs. Trained: Which Is Better?
 
-**Claim A**: Training-free methods ([[latentmas-collaboration|LatentMAS]], [[kvcomm-selective-kv-sharing|KVComm]], [[agent-primitives-building-blocks|Agent Primitives]], [[state-delta-trajectory|SDE]]) achieve competitive or superior results without model modification.
+**Claim A**: Training-free methods ([[latentmas-collaboration|LatentMAS]], [[kvcomm-kth-selective|KVComm]], [[agent-primitives-building-blocks|Agent Primitives]], [[state-delta-trajectory|SDE]]) achieve competitive or superior results without model modification.
 — Multiple papers
 
 **Claim B**: Trained methods (C2C, Interlat, ThoughtComm) achieve richer cross-architecture communication and structured representations that training-free methods cannot.
@@ -165,7 +165,7 @@ Systematic tracking of claims that conflict or exist in tension across papers in
 | 2 | Raw states help / raw states hurt | [[activation-communication-harvard\|AC]] vs [[state-delta-trajectory\|SDE]] | Same regime, unresolved | **High** — fundamental design question |
 | 3 | More agents help / more agents hurt | Debate papers vs Scaling | Different task distributions | Medium — understood but not tested with latent methods |
 | 4 | Cross-arch easy (activations) / hard (KV) | AC vs C2C/KV Align | Different representation depths | Medium — regime-dependent |
-| 5 | Selective > full (paradox) | [[kvcomm-selective-kv-sharing\|KVComm]], [[kv-cache-alignment-shared-space\|KV Alignment]] | Suggests deeper principle | **High** — potential paradigm insight |
+| 5 | Selective > full (paradox) | [[kvcomm-kth-selective\|KVComm]], [[kv-cache-alignment-shared-space\|KV Alignment]] | Suggests deeper principle | **High** — potential paradigm insight |
 | 6 | Training-free competitive / trained richer | Multiple | Design trade-off | Low — understood trade-off |
 | 7 | BFS excels at search / fails at math | [[coconut-reasoning-latent-space\|Coconut]] (internal) | Task-dependent, acknowledged | Low — well understood |
 | 8 | Interpretability needed / prevents superposition | [[thinking-states-latent-reasoning\|Thinking States]] vs [[coconut-reasoning-latent-space\|Coconut]] | Fundamental tension | Medium — needs creative resolution |

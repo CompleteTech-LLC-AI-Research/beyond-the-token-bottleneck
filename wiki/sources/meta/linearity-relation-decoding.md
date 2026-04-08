@@ -17,7 +17,7 @@ tags: [interpretability, linear-relations, enriched-representations, foundationa
 
 ## Summary
 
-Establishes that transformers implement **linear relational embeddings (LREs)** for ~48% of their relational knowledge: the mapping from a subject's hidden representation to the predicted object can be approximated by a single affine transformation. The key finding for this wiki: **mid-layer representations are richer than final-layer representations** — the model enriches entities with relational knowledge at intermediate layers (~layer 7-17 of 28 in GPT-J), then **compresses** for next-token prediction in later layers. This is the mechanistic explanation for why [[activation-communication-harvard|AC]]'s layer-26 communication works and why [[kvcomm-selective-kv-sharing|KVComm]] finds intermediate layers most transferable.
+Establishes that transformers implement **linear relational embeddings (LREs)** for ~48% of their relational knowledge: the mapping from a subject's hidden representation to the predicted object can be approximated by a single affine transformation. The key finding for this wiki: **mid-layer representations are richer than final-layer representations** — the model enriches entities with relational knowledge at intermediate layers (~layer 7-17 of 28 in GPT-J), then **compresses** for next-token prediction in later layers. This is the mechanistic explanation for why [[activation-communication-harvard|AC]]'s layer-26 communication works and why [[kvcomm-kth-selective|KVComm]] finds intermediate layers most transferable.
 
 ## The LRE Formula
 
@@ -119,7 +119,7 @@ To change prediction from object o to target o'. Uses low-rank pseudoinverse W_r
 ## Why This Matters for Latent Communication
 
 ### 1. Justifies mid-layer communication
-The enriched representation finding explains why [[activation-communication-harvard|AC]] (layer 26/32), [[kvcomm-selective-kv-sharing|KVComm]] (intermediate layer selection with Gaussian prior), and [[state-delta-trajectory|SDE]] (middle-to-late layers) all find intermediate layers carry the most useful information. That's where the richest relational knowledge lives, before output compression discards it.
+The enriched representation finding explains why [[activation-communication-harvard|AC]] (layer 26/32), [[kvcomm-kth-selective|KVComm]] (intermediate layer selection with Gaussian prior), and [[state-delta-trajectory|SDE]] (middle-to-late layers) all find intermediate layers carry the most useful information. That's where the richest relational knowledge lives, before output compression discards it.
 
 ### 2. Internal knowledge > expressed knowledge
 The attribute lens shows models encode facts they don't output. Latent communication (sharing activations/KV-cache) can transmit knowledge that would **never appear in natural language output** — a fundamental advantage over text-based communication that no amount of prompt engineering can close.

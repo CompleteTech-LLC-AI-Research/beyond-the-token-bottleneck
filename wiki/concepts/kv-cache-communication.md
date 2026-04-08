@@ -14,10 +14,10 @@ Four papers in this collection address complementary dimensions of KV-cache comm
 
 | Paper | Dimension | Approach |
 |-------|-----------|----------|
-| [[kvcomm-selective-kv-sharing\|KVComm]] | **What to share** | Layer selection via attention importance + Gaussian prior |
+| [[kvcomm-kth-selective\|KVComm]] | **What to share** | Layer selection via attention importance + Gaussian prior |
 | [[cache-to-cache-semantic-communication\|C2C]] | **How to fuse across architectures** | Learned pairwise neural fuser with gating |
 | [[kv-cache-alignment-shared-space\|KV Cache Alignment]] | **How to scale to many models** | Global shared KV-cache space with per-model adapters |
-| [[kvcomm-online-cross-context\|KVCOMM-online]] | **How to make it efficient** | Anchor-based offset estimation for cache reuse |
+| [[kvcomm-duke-online-reuse\|KVCOMM-online]] | **How to make it efficient** | Anchor-based offset estimation for cache reuse |
 
 ## Background: What the KV-Cache Is
 
@@ -33,7 +33,7 @@ For a 70B-parameter model (L=80, H=64, d=128), each token's full KV-cache is $2 
 
 ## Why KV Pairs Over Other Representations
 
-[[kvcomm-selective-kv-sharing|KVComm]] provides the strongest empirical case for KV pairs as the optimal communication medium, by systematically comparing alternatives:
+[[kvcomm-kth-selective|KVComm]] provides the strongest empirical case for KV pairs as the optimal communication medium, by systematically comparing alternatives:
 
 ### vs. Natural Language (Tokens)
 
@@ -45,7 +45,7 @@ The standard [[multiagent-debate]] approach. Natural language requires the sende
 
 ### vs. Hidden States (Activations)
 
-[[kvcomm-selective-kv-sharing|KVComm]]'s key finding: hidden states suffer from **information concentration bias** — the last token's hidden state dominates in later layers, making it the most critical for output but also the hardest to share without corrupting the receiver's own processing:
+[[kvcomm-kth-selective|KVComm]]'s key finding: hidden states suffer from **information concentration bias** — the last token's hidden state dominates in later layers, making it the most critical for output but also the hardest to share without corrupting the receiver's own processing:
 - **Replace** the receiver's last-token hidden state → destroys receiver's own context
 - **Average** sender and receiver hidden states → dilutes both
 - **Prepend** all tokens' hidden states → only works from early layers (minimal compute savings)
@@ -54,13 +54,13 @@ KV pairs avoid this dilemma because they integrate through **attention**, not by
 
 ### vs. Disentangled Thoughts ([[thought-communication-multiagent|ThoughtComm]])
 
-[[thought-communication-multiagent|ThoughtComm]] adds **structure** (shared/private decomposition) but requires a trained autoencoder. KV-cache methods ([[kvcomm-selective-kv-sharing|KVComm]], KVCOMM-online) are training-free. [[cache-to-cache-semantic-communication|C2C]] requires training but provides cross-architecture compatibility that ThoughtComm doesn't address.
+[[thought-communication-multiagent|ThoughtComm]] adds **structure** (shared/private decomposition) but requires a trained autoencoder. KV-cache methods ([[kvcomm-kth-selective|KVComm]], KVCOMM-online) are training-free. [[cache-to-cache-semantic-communication|C2C]] requires training but provides cross-architecture compatibility that ThoughtComm doesn't address.
 
 ## The Three Design Dimensions
 
 ### Dimension 1: What to Share (Layer Selection)
 
-Not all layers are equally informative. [[kvcomm-selective-kv-sharing|KVComm]]'s analysis reveals a **layer hierarchy** for communication:
+Not all layers are equally informative. [[kvcomm-kth-selective|KVComm]]'s analysis reveals a **layer hierarchy** for communication:
 
 | Layer depth | Content | Communication value |
 |-------------|---------|-------------------|
@@ -78,7 +78,7 @@ A remarkable finding: **non-contiguous layer selection** outperforms contiguous 
 
 ### Dimension 2: Cross-Architecture Fusion
 
-[[kvcomm-selective-kv-sharing|KVComm]] requires sender and receiver to be the same model or fine-tuned variants (identical architecture). [[cache-to-cache-semantic-communication|C2C]] breaks this constraint with a **learned neural cache fuser** ([[raw/pdf/arxiv-2510.03215.pdf|C2C §3]]):
+[[kvcomm-kth-selective|KVComm]] requires sender and receiver to be the same model or fine-tuned variants (identical architecture). [[cache-to-cache-semantic-communication|C2C]] breaks this constraint with a **learned neural cache fuser** ([[raw/pdf/arxiv-2510.03215.pdf|C2C §3]]):
 
 **The fuser pipeline**:
 1. **Projection**: Maps sender KV-cache into receiver's representation space (handles different dimensions, different learned representations)
@@ -109,7 +109,7 @@ A remarkable finding: **non-contiguous layer selection** outperforms contiguous 
 
 ### Dimension 3: Efficiency (Cache Reuse)
 
-[[kvcomm-online-cross-context|KVCOMM-online]] tackles the **$O(M^2)$ redundant prefilling** problem in multi-agent systems. When agents share overlapping text under different system prompts, the same text produces different KV-caches due to context dependence. KVCOMM estimates these **context-dependent offsets** rather than recomputing from scratch.
+[[kvcomm-duke-online-reuse|KVCOMM-online]] tackles the **$O(M^2)$ redundant prefilling** problem in multi-agent systems. When agents share overlapping text under different system prompts, the same text produces different KV-caches due to context dependence. KVCOMM estimates these **context-dependent offsets** rather than recomputing from scratch.
 
 **Theoretical foundation**: Two propositions show that KV-cache offsets between embedding-similar tokens under different prefixes are **bounded and predictable**. If you know how token X shifts from prefix A to prefix B, you can estimate how similar token Y shifts.
 
@@ -154,11 +154,11 @@ graph LR
     D --> E["Hidden States<br>---<br>Full state<br>Same arch"]
 ```
 
-[[cache-to-cache-semantic-communication|C2C]] pushes KV-cache communication leftward on the compatibility axis (cross-architecture), while [[kvcomm-selective-kv-sharing|KVComm]]'s layer selection pushes it rightward on the efficiency axis (less data transmitted).
+[[cache-to-cache-semantic-communication|C2C]] pushes KV-cache communication leftward on the compatibility axis (cross-architecture), while [[kvcomm-kth-selective|KVComm]]'s layer selection pushes it rightward on the efficiency axis (less data transmitted).
 
 ## Open Questions
 
-- **Layer selection + C2C fusion**: Can [[kvcomm-selective-kv-sharing|KVComm]]'s attention-based selection strategy improve [[cache-to-cache-semantic-communication|C2C]]'s gating mechanism, or vice versa?
+- **Layer selection + C2C fusion**: Can [[kvcomm-kth-selective|KVComm]]'s attention-based selection strategy improve [[cache-to-cache-semantic-communication|C2C]]'s gating mechanism, or vice versa?
 - **Token-level selection**: KVComm selects layers; could token-level selection (which positions' KVs to share) further improve efficiency?
 - **Multi-round KV communication**: All three papers evaluate single-round communication. How does KV-cache communication work in iterative debate settings?
 - **Combination with [[thought-communication-multiagent|ThoughtComm]]**: Could disentangled thought extraction be applied to KV-caches specifically, combining ThoughtComm's structure with KV's attention-native integration?
@@ -169,6 +169,6 @@ graph LR
 A striking finding across multiple papers: passing KV-caches through an intermediate representation **improves** performance beyond the original model:
 - [[kv-cache-alignment-shared-space|KV Cache Alignment]]: Cyclic translation (A → Ω → A) improves model A's language modeling
 - [[cache-to-cache-semantic-communication|C2C]]: Fused cache has higher effective rank than either individual model's cache
-- [[kvcomm-selective-kv-sharing|KVComm]]: Selective sharing sometimes exceeds the Skyline (full context concatenation)
+- [[kvcomm-kth-selective|KVComm]]: Selective sharing sometimes exceeds the Skyline (full context concatenation)
 
 This suggests that latent-space mediation — whether through a learned shared space, a neural fuser, or even simple layer selection — acts as a form of **beneficial regularization**, distilling the most transferable and task-relevant features while filtering noise. The parallels to how [[coconut-reasoning-latent-space|Coconut]]'s continuous thoughts learn more efficient representations than language CoT are notable.

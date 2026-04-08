@@ -8,7 +8,7 @@ tags: [moc, compression, information-theory]
 
 # Compression & Information-Theoretic Bounds
 
-How much bandwidth is *enough* for latent reasoning and communication? Every system in this wiki transmits continuous representations between models or across reasoning steps, but no two systems agree on how much information is needed. Interlat sends 2,600x more bits per position than text and then compresses 46x with only 4% loss. SoftCoT matches 24 discrete tokens with 6 continuous ones. [[kvcomm-selective-kv-sharing|KVComm]] discovers that 30% of layers carry nearly all the useful signal. LatentCompress squeezes an entire multi-agent message into 512 bytes.
+How much bandwidth is *enough* for latent reasoning and communication? Every system in this wiki transmits continuous representations between models or across reasoning steps, but no two systems agree on how much information is needed. Interlat sends 2,600x more bits per position than text and then compresses 46x with only 4% loss. SoftCoT matches 24 discrete tokens with 6 continuous ones. [[kvcomm-kth-selective|KVComm]] discovers that 30% of layers carry nearly all the useful signal. LatentCompress squeezes an entire multi-agent message into 512 bytes.
 
 These results converge on a striking claim: **the vast majority of what models transmit is redundant for the task at hand.** The question is whether there exists a principled lower bound --- a minimum bandwidth below which communication quality degrades --- and how that bound varies with task complexity, model scale, and communication depth.
 
@@ -58,7 +58,7 @@ KVComm introduces a result that reframes the compression question entirely. Rath
 
 The layer selection strategy reveals a principled structure: intermediate layers (semantic abstractions) are most transferable, while early layers (surface patterns) and late layers (task-specific predictions) add noise. A single calibration sample is sufficient to identify the optimal layer set, and the selection generalizes across all inputs.
 
-**[[kvcomm-selective-kv-sharing]]** --- KVComm: attention-based layer selection, the selective-beats-full finding, non-contiguous layer selection, and the systematic evidence that hidden states are a poor communication medium (information concentration bias in late layers).
+**[[kvcomm-kth-selective]]** --- KVComm: attention-based layer selection, the selective-beats-full finding, non-contiguous layer selection, and the systematic evidence that hidden states are a poor communication medium (information concentration bias in late layers).
 
 ---
 

@@ -313,7 +313,7 @@ The frontier-scale latent reasoning agenda that the [[frontier-research-directio
 - **[[frontier-research-directions]]** #1 (Superposition reasoning at frontier scale): Wang et al.'s geometric homogeneity finding is a third blocker on the agenda alongside Cui et al.'s implicit pruning and SoftCoT's catastrophic forgetting. Update the "Blockers" subsection.
 - **[[open-questions]]**: The "Closing the Pass@100 / Maj@100 gap" entry should be updated with Wang et al.'s null result and the new question: *can training-time inductive biases (isotropy regularization, contrastive losses, trajectory-diversity objectives) restore geometric separability?*
 - **[[benchmark-overlap]]**: Add Wang et al. to the GSM8K table (deterministic 31.08%, Pass@32 44.43%, Best Reranker 33.36%). Note that its scale (GPT-2) places it firmly in the "<2B latent reasoning" cluster.
-- **[[paper-timeline]]**: Insert at October 2025, between [[kvcomm-selective-kv-sharing|KVComm]] (October 2025) and [[kvcomm-online-cross-context|KVCOMM-online]] (October 2025).
+- **[[paper-timeline]]**: Insert at October 2025, between [[kvcomm-kth-selective|KVComm]] (October 2025) and [[kvcomm-duke-online-reuse|KVCOMM-online]] (October 2025).
 - **[[method-comparison]]**: Wang et al. is diagnostic, not a new method, but the dropout-sampling protocol could be added as an inference-time augmentation row.
 
 ### MOC updates

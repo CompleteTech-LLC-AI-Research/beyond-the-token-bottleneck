@@ -121,12 +121,12 @@ Each delta acts as a **steering vector** injected additively at 1-3 selected lay
 
 ## The Information Concentration Problem
 
-[[kvcomm-selective-kv-sharing|KVComm]] showed that the **last token's hidden state** concentrates most output-relevant information in later layers. This creates a dilemma for hidden-state communication:
+[[kvcomm-kth-selective|KVComm]] showed that the **last token's hidden state** concentrates most output-relevant information in later layers. This creates a dilemma for hidden-state communication:
 - **Replacing** the last token's state ([[activation-communication-harvard|AC]] approach): Works because B retains context at other positions
 - **Averaging/summing** states: Dilutes or distorts both signals
 - **Full sequence transfer** ([[interlat-latent-space-agents|Interlat]]): Avoids the dilemma entirely — transmits all positions
 - **Delta transfer** ([[state-delta-trajectory|SDE]]): Also avoids it — deltas don't replace any state, they add to all relevant positions
-- **KV-cache approach** ([[kvcomm-selective-kv-sharing|KVComm]], [[latentmas-collaboration|LatentMAS]]): KV pairs integrate through attention (non-destructive)
+- **KV-cache approach** ([[kvcomm-kth-selective|KVComm]], [[latentmas-collaboration|LatentMAS]]): KV pairs integrate through attention (non-destructive)
 
 The field has converged on the understanding that **the last-token hidden state is problematic as a sole communication vector**, but multiple approaches exist to work around this.
 
@@ -152,7 +152,7 @@ Models across architectures, training objectives, and even modalities are **conv
 Well-trained models produce latent spaces related by approximately **angle-preserving (isometric) transformations**. By representing data as vectors of cosine similarities to shared anchor samples, representations become invariant to rotations/reflections — enabling **zero-shot model stitching** with no learned mapping. This is the practical mechanism: cross-model activation sharing works because the geometry is preserved, and linear projections are the exact correct tool for the approximately orthogonal transforms between latent spaces. Two orders of magnitude improvement in stitching quality vs. absolute representations.
 
 ### [[linearity-relation-decoding|Enriched Entity Representations (Hernandez et al., ICLR 2024)]]
-Transformers implement **[[linearity-relation-decoding|linear relational]] embeddings** at intermediate layers: the mapping from subject to object is a simple affine transform for ~48% of relations. Faithfulness **peaks at mid-layers then drops in later layers** — the model enriches representations with relational knowledge at layers ~20-26, then compresses for next-token prediction. This is the mechanistic explanation for why [[activation-communication-harvard|AC]]'s layer-26 is optimal and why [[kvcomm-selective-kv-sharing|KVComm]] finds intermediate layers most transferable: that's where the richest information lives, before the output layers discard it.
+Transformers implement **[[linearity-relation-decoding|linear relational]] embeddings** at intermediate layers: the mapping from subject to object is a simple affine transform for ~48% of relations. Faithfulness **peaks at mid-layers then drops in later layers** — the model enriches representations with relational knowledge at layers ~20-26, then compresses for next-token prediction. This is the mechanistic explanation for why [[activation-communication-harvard|AC]]'s layer-26 is optimal and why [[kvcomm-kth-selective|KVComm]] finds intermediate layers most transferable: that's where the richest information lives, before the output layers discard it.
 
 ### Combined: Why Cross-Model Communication Works
 

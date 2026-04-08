@@ -43,7 +43,7 @@ FAIR's most impactful work involves cross-institutional partnerships:
 
 ## Ecosystem Impact
 
-FAIR's influence extends well beyond their direct papers. The **LLaMA model family** (open-weight) provides the shared-tokenizer ecosystem that makes [[embedding-space-communication]] practical. [[cipher-multiagent-debate-embeddings|CIPHER]], [[activation-communication-harvard|AC]], [[state-delta-trajectory|SDE]], [[kvcomm-selective-kv-sharing|KVComm]], and [[latentmas-collaboration|LatentMAS]] all use LLaMA variants as primary test models. Without open weights, activation and KV-cache sharing would be restricted to API providers.
+FAIR's influence extends well beyond their direct papers. The **LLaMA model family** (open-weight) provides the shared-tokenizer ecosystem that makes [[embedding-space-communication]] practical. [[cipher-multiagent-debate-embeddings|CIPHER]], [[activation-communication-harvard|AC]], [[state-delta-trajectory|SDE]], [[kvcomm-kth-selective|KVComm]], and [[latentmas-collaboration|LatentMAS]] all use LLaMA variants as primary test models. Without open weights, activation and KV-cache sharing would be restricted to API providers.
 
 ## Strategic Position
 

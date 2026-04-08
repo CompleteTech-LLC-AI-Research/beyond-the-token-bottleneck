@@ -44,7 +44,7 @@ Harvard's collaborations span different research communities:
 
 - **[[fair-meta|FAIR/Meta AI]]**: iCoT's progressive CoT removal directly inspired Coconut. Harvard's curriculum approach is the conceptual ancestor of FAIR's latent reasoning program.
 - **[[tsinghua|Tsinghua]]**: [[state-delta-trajectory|SDE]] refines AC's approach for same-model settings by using deltas instead of raw states. The two methods represent complementary design points (cross-model raw states vs same-model deltas).
-- **[[kth|KTH]]**: AC and [[kvcomm-selective-kv-sharing|KVComm]] independently find intermediate layers (~20-26) most informative, validating each other's layer selection findings from different angles.
+- **[[kth|KTH]]**: AC and [[kvcomm-kth-selective|KVComm]] independently find intermediate layers (~20-26) most informative, validating each other's layer selection findings from different angles.
 
 ## Strategic Position
 

@@ -28,7 +28,7 @@ Du et al.'s 2023 paper is **the origin point** for the entire multi-agent debate
 - Showed debate outperforms self-reflection, establishing multi-agent over single-agent
 - Documented the 9× compute cost, setting the efficiency benchmark all latent methods aim to beat
 
-Every subsequent paper in the communication thread — [[cipher-multiagent-debate-embeddings|CIPHER]], [[state-delta-trajectory|SDE]], [[kvcomm-selective-kv-sharing|KVComm]], [[thought-communication-multiagent|ThoughtComm]], [[latentmas-collaboration|LatentMAS]] — uses Du et al.'s protocol as the baseline to improve upon.
+Every subsequent paper in the communication thread — [[cipher-multiagent-debate-embeddings|CIPHER]], [[state-delta-trajectory|SDE]], [[kvcomm-kth-selective|KVComm]], [[thought-communication-multiagent|ThoughtComm]], [[latentmas-collaboration|LatentMAS]] — uses Du et al.'s protocol as the baseline to improve upon.
 
 ## Collaboration Network
 

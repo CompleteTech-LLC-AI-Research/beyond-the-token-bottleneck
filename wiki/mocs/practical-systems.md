@@ -30,7 +30,7 @@ Start with **[[scaling-agent-systems|Scaling Agent Systems]]** — the quantitat
 
 ### 5. Systems-Level Efficiency
 
-**[[kvcomm-online-cross-context|KVCOMM-online]]** tackles the compute bottleneck that appears when agents share overlapping context. Its anchor-based KV-cache reuse achieves up to **7.8x prefill speedup** (6.7x average) with <2.5% quality drop — a systems optimization orthogonal to the communication method itself. Composable with any KV-cache approach.
+**[[kvcomm-duke-online-reuse|KVCOMM-online]]** tackles the compute bottleneck that appears when agents share overlapping context. Its anchor-based KV-cache reuse achieves up to **7.8x prefill speedup** (6.7x average) with <2.5% quality drop — a systems optimization orthogonal to the communication method itself. Composable with any KV-cache approach.
 
 ### 6. Compression Targets and Bandwidth Planning
 
@@ -46,9 +46,9 @@ Use this table to narrow your method choice based on deployment constraints:
 
 | Constraint | Recommended Methods | Avoid |
 |---|---|---|
-| **Zero training budget** | [[latentmas-collaboration\|LatentMAS]], [[agent-primitives-building-blocks\|Agent Primitives]], [[kvcomm-selective-kv-sharing\|KVComm]], [[state-delta-trajectory\|SDE]] | Coconut, Interlat, ThoughtComm |
+| **Zero training budget** | [[latentmas-collaboration\|LatentMAS]], [[agent-primitives-building-blocks\|Agent Primitives]], [[kvcomm-kth-selective\|KVComm]], [[state-delta-trajectory\|SDE]] | Coconut, Interlat, ThoughtComm |
 | **Cross-architecture required** | [[activation-communication-harvard\|AC]], [[cache-to-cache-semantic-communication\|C2C]], [[vision-wormhole-heterogeneous\|Vision Wormhole]] | LatentMAS, KVComm, SDE |
-| **Latency-critical (<2x single)** | Agent Primitives (1.3-1.6x latency), [[kvcomm-online-cross-context\|KVCOMM-online]] for prefill | Hybrid MAS (6.2x turns overhead), TextMAS (3.5-5.3x latency) |
+| **Latency-critical (<2x single)** | Agent Primitives (1.3-1.6x latency), [[kvcomm-duke-online-reuse\|KVCOMM-online]] for prefill | Hybrid MAS (6.2x turns overhead), TextMAS (3.5-5.3x latency) |
 | **LLaMA-family backbone** | Agent Primitives (with RoPE re-encoding) | LatentMAS (catastrophic on LLaMA) |
 | **Maximum accuracy** | Agent Primitives composed (75.3% avg on Qwen3-8B) | Independent MAS (-70% on sequential tasks) |
 | **Minimal bandwidth** | [[latentcompress-open-call\|LatentCompress]] slots (512B), [[cipher-multiagent-debate-embeddings\|CIPHER]] | Full KV-cache transfer (~MB) |
