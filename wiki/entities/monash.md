@@ -35,10 +35,7 @@ Wang et al. is a **single-institution paper** — all four authors are at Monash
 - **[[fair-meta|FAIR at Meta]]**: Wang et al. uses [[coconut-reasoning-latent-space|COCONUT]] as its sole experimental backbone, faithfully reproducing the original training recipe (6 epochs initial stage, 3 epochs subsequent, $c=2$, $T=3 \times c$). The paper's null result on PRM/ORM reranking constrains the credibility of any claim that COCONUT's latent reasoning advantage can be exploited at inference time without further training innovation.
 - **[[amazon|Amazon (via Cui et al.)]]**: Wang et al. and Cui et al. are direct conceptual companions, published four months apart and apparently without mutual awareness (Wang et al. October 2025; Cui et al. February 2026 — neither cites the other). Together they form the most complete decomposition to date of the Pass@N / Maj@N gap in latent reasoning. The wiki is the first place the two are explicitly synthesized.
 - **CMU / UC Berkeley / UC San Diego (via Zhu et al.)**: Wang et al.'s extreme-anisotropy finding (IsoScore$\star \approx 0.013$) sits in tension with the theoretical prediction in [[superposition-coconut-theory|Zhu et al.]] that continuous thoughts encode uniform mixtures over reachable vertices (a near-isotropic state within a small subspace). Resolving the tension requires either (a) acknowledging that gradient training does not find the theoretical optimum, or (b) measuring isotropy *within* the active subspace rather than across the full hidden space.
-
-### The Single-Institution Pattern
-
-Most diagnostic / analytical work in this collection comes from large industrial labs ([[amazon|Amazon]], [[google-deepmind|Google DeepMind]], [[google-research|Google Research]]). Wang et al. is unusual in being a small academic group producing a methodologically dense critical paper without industrial affiliation. The closest analogue in the collection is [[harvard|Harvard]]'s work on AC and iCoT (also academic, also methodologically dense), but Harvard's contributions are primarily constructive whereas Monash's is purely diagnostic.
+- See [[research-positioning-patterns|Research positioning patterns]] for analysis of Monash's single-institution academic role in the collection.
 
 ## Strategic Position
 
