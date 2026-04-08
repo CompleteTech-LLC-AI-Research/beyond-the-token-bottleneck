@@ -2,7 +2,7 @@
 type: concept
 title: "Activation Communication"
 created: "2026-04-06"
-updated: "2026-04-06"
+updated: "2026-04-08"
 tags: [core-concept, latent-communication]
 ---
 
@@ -50,16 +50,11 @@ This creates a layer-depth hierarchy for communication value:
 
 [[activation-communication-harvard|AC]] validates this empirically: $k = j = 26$ is optimal across all benchmarks (scanned via 2D contour over all $(k,j) \in \{1,\ldots,30\}^2$).
 
-### Information Hierarchy
+### The Depth Spectrum
 
-Activations are a **strict superset** of what other communication methods transmit:
+![[depth-spectrum]]
 
-| Method | What's communicated | Information |
-|--------|-------------------|-------------|
-| Natural language | Sampled tokens | Model's top-1 prediction only |
-| [[cipher-multiagent-debate-embeddings\|CIPHER]] | Probability-weighted embeddings | Prediction + belief distribution |
-| [[kv-cache-communication\|KV-cache]] | Key-value pairs | Attention-relevant representations per layer |
-| **Activations** | **Hidden state vectors** | **Full computational state: predictions + beliefs + enriched entities + contextual knowledge** |
+Activations sit at the deep end of this spectrum: a **strict superset** of what tokens, output embeddings, or KV-cache entries transmit, carrying the full computational state — predictions, beliefs, enriched entities, and contextual knowledge — at the cost of requiring a receiver that understands the sender's internal geometry.
 
 ## Five Approaches to Activation Communication
 
