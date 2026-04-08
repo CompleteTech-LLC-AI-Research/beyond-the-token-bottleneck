@@ -117,9 +117,13 @@ beyond-the-token-bottleneck/
 │   │   │   └── structured/           #       Disentangled methods
 │   │   ├── unified/                  #     LatentMAS, Vision Wormhole, ...
 │   │   └── meta/                     #     Scaling, expressivity theory, latent reasoning analyses
-│   ├── concepts/                     #   11 cross-cutting concept pages, organized into
-│   │   │                             #     thematic subdirs: challenges/, communication/,
-│   │   │                             #     multi-agent/, reasoning/, theory/ (+ _partials/)
+│   ├── concepts/                     #   10 cross-cutting concept pages (+ _partials/)
+│   │   ├── challenges/               #     catastrophic-forgetting
+│   │   ├── communication/            #     activation / embedding-space / kv-cache communication
+│   │   ├── multi-agent/              #     multi-agent-debate, temperature-diversity
+│   │   ├── reasoning/                #     latent-space-reasoning, continuous-vs-discrete,
+│   │   │                             #       thought-structure
+│   │   └── theory/                   #     latent-variable-model
 │   ├── entities/                     #   13 research group profiles (+ 26 reusable partials)
 │   ├── analyses/                     #   9 synthesis & comparison pages
 │   ├── mocs/*.md                     #   9 Maps of Content
