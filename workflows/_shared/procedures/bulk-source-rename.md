@@ -6,7 +6,7 @@ When a source page slug changes (e.g., to disambiguate after a slug-collision au
 
 ## When to run
 
-- After a slug-collision audit triggers a rename (`workflows/lint.md` Redundancy & Dead-Reference Audit, section C).
+- After a slug-collision audit triggers a rename (`workflows/audit/lint.md` Redundancy & Dead-Reference Audit, section C).
 - Any time a source page's filename slug needs to change for any reason.
 - Never as a one-off shortcut for a content change — this is rename-only; if the page itself needs revision, do that as a separate edit.
 
@@ -38,5 +38,5 @@ Return to the calling workflow and proceed with its next numbered step. This fra
 
 ## Used by
 
-- `workflows/lint.md` (Redundancy & Dead-Reference Audit, section C, replacing the inlined "Bulk source-page rename" section)
-- `workflows/enrich.md` (when a slug change is part of the pass)
+- `workflows/audit/lint.md` (Redundancy & Dead-Reference Audit, section C, replacing the inlined "Bulk source-page rename" section)
+- `workflows/enrich/enrich.md` (when a slug change is part of the pass)

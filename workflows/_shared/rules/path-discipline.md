@@ -42,13 +42,13 @@ The `reference/` prefix predates a directory reorganization that moved everythin
 ## How violations are caught
 
 - `workflows/_shared/procedures/raw-checklist-row.md` — invariants forbid `reference/pdf/...` and `reference/latex/...`.
-- `workflows/lint.md` Redundancy & Dead-Reference Audit, section A — phantom raw asset detection (greps frontmatter and body links against the actual `raw/pdf/` and `raw/latex/` listings).
-- `workflows/lint.md` checklist sync check — greps `raw/checklist.md` for `reference/pdf/` and `reference/latex/`, requires zero matches.
+- `workflows/audit/lint.md` Redundancy & Dead-Reference Audit, section A — phantom raw asset detection (greps frontmatter and body links against the actual `raw/pdf/` and `raw/latex/` listings).
+- `workflows/audit/lint.md` checklist sync check — greps `raw/checklist.md` for `reference/pdf/` and `reference/latex/`, requires zero matches.
 
 ## Used by
 
 - `workflows/_shared/procedures/raw-checklist-row.md` (canonical row format that enforces the prefixes)
 - `workflows/_shared/procedures/verify-frontmatter-completeness.md` (per-page check that validates path resolution)
 - `workflows/_shared/rules/frontmatter-schema.md` (the conditional `venue_pdfs:` clause references this rule)
-- `workflows/ingest.md`, `workflows/batch-ingest.md` (applies to every page-creation step)
-- `workflows/lint.md` (applies to phantom detection sub-pass)
+- `workflows/create/ingest.md`, `workflows/create/batch-ingest.md` (applies to every page-creation step)
+- `workflows/audit/lint.md` (applies to phantom detection sub-pass)

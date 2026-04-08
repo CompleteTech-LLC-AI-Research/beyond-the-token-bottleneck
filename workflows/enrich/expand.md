@@ -89,10 +89,10 @@ Do not use this workflow for new-source onboarding, direct question answering, s
 
 ## Related Workflows
 
-- `workflows/ingest.md`
-- `workflows/query.md`
-- `workflows/lint.md`
-- `workflows/enrich.md`
-- `workflows/synthesize.md`
-- `workflows/review.md`
+- `workflows/create/ingest.md`
+- `workflows/query/query.md`
+- `workflows/audit/lint.md`
+- `workflows/enrich/enrich.md`
+- `workflows/create/synthesize.md`
+- `workflows/audit/review.md`
 

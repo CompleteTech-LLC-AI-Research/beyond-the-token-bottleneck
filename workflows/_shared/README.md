@@ -11,6 +11,6 @@ This directory holds reusable fragments referenced by the workflows in the paren
 ## Conventions
 
 - Any file whose name starts with `_` is not itself a runnable workflow; it is a fragment or index.
-- Every fragment file must end with a `## Used by` footer listing the workflows that reference it, one per line, as a relative path. This lets `workflows/lint.md` grep-verify that references are bidirectional and that no fragment is orphaned.
+- Every fragment file must end with a `## Used by` footer listing the workflows that reference it, one per line, as a relative path. This lets `workflows/audit/lint.md` grep-verify that references are bidirectional and that no fragment is orphaned.
 - Fragments should be self-contained: a reader should be able to understand what the fragment does without opening the calling workflow.
 - When a fragment changes, update every workflow listed in its `## Used by` footer in the same commit.

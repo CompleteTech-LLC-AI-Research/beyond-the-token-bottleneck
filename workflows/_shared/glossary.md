@@ -50,7 +50,7 @@ This glossary is the single source of truth for canonical terminology — `workf
 
 **Drift variants:** "shallow pages", "stub pages", "pages needing expansion"
 
-**Definition:** Pages whose content falls below the depth standard for their type. The depth standard is documented per-type in `AGENTS.md` (and the upcoming `_shared/checklists/base.md` in PR 2b).
+**Definition:** Pages whose content falls below the depth standard for their type. The depth standard is documented per-type in `AGENTS.md` and reinforced in [`checklists/base.md`](checklists/base.md).
 
 **Notes:** Both "thin pages" and "below depth standard" are acceptable — they differ in register, not meaning. Prefer "thin pages" in procedure step language for brevity, and "below depth standard" in checklist and audit contexts where precision matters.
 
@@ -95,6 +95,6 @@ This glossary is the single source of truth for canonical terminology — `workf
 ## Used by
 
 - `workflows/CONVENTIONS.md` (one-line pointer; CONVENTIONS.md no longer carries a seed glossary)
-- `workflows/lint.md` (terminology drift scan, Procedure step 6)
-- `workflows/review.md` (terminology drift scan, Procedure step 9)
+- `workflows/audit/lint.md` (terminology drift scan, Procedure step 6)
+- `workflows/audit/review.md` (terminology drift scan, Procedure step 9)
 - All workflow files (every workflow that uses any term in this glossary should use the canonical form)

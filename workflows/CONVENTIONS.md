@@ -21,7 +21,7 @@ Every workflow file MUST use the following heading order. Sections marked option
 3. `## Purpose` — one to three sentences stating what the workflow does and what outcome it produces. No procedure details here.
 4. `## When To Use` — one or two paragraphs (or a short bullet list) describing the scope where this workflow is the right tool. Answers "given a task, should I pick this workflow?"
 5. `## Trigger Phrases` — bullet list of literal user phrases that should invoke the workflow (e.g. `` `lint` ``, `` `ingest a paper` ``). Use inline-code ticks for each phrase.
-6. `## Do Not Use When` — bullet list of scenarios that belong to a *different* workflow. Every bullet MUST cross-reference the correct workflow by relative path (e.g. `` Use `workflows/query.md`. ``).
+6. `## Do Not Use When` — bullet list of scenarios that belong to a *different* workflow. Every bullet MUST cross-reference the correct workflow by relative path (e.g. `` Use `workflows/query/query.md`. ``).
 7. `## Required Context` — bullet list of files, MCPs, or pieces of information the workflow depends on before the procedure can start.
 8. `## Procedure` — the executable body. Use a single numbered list when there are six or fewer steps; use `### Phase N: <Name>` subheadings with numbered steps inside each phase when the workflow has more than six steps or more than one distinct stage.
 9. `## Completion Checklist` — bullet list of post-conditions a reviewer (human or agent) can tick off to confirm the workflow finished cleanly. Each bullet should be independently verifiable.
@@ -39,7 +39,7 @@ Canonical terms and drift variants are tracked in [`_shared/glossary.md`](_share
 - Log entries in `wiki/log.md` are point-in-time records — never backdate, never rewrite, never sweep counts inside them.
 - Workflow file changes go via feature branch + PR, never directly to `master` (see [`_shared/procedures/commit-and-push.md`](_shared/procedures/commit-and-push.md) for the canonical procedure).
 - Mermaid node labels use `<br>` for line breaks, not `\n` (which renders literally in Obsidian).
-- Fragment links use relative paths from the workflow file's location (e.g. `_shared/procedures/stale-count-sweep.md`, not `/workflows/_shared/...`).
+- Fragment links use relative paths from the workflow file's location. Workflows live in phase subdirectories (`workflows/{create,enrich,audit,query,meta}/`), so they reference fragments as `../_shared/procedures/<file>.md` (one level up). Do not use absolute `/workflows/_shared/...` paths.
 
 ## Fragment reference style
 
@@ -48,7 +48,7 @@ Workflows reference shared procedure fragments under `_shared/` with a standard 
 Example, as it should appear inside a numbered procedure step:
 
 ```
-11. **Mandatory:** Run the [stale-count sweep](_shared/procedures/stale-count-sweep.md).
+11. **Mandatory:** Run the [stale-count sweep](../_shared/procedures/stale-count-sweep.md).
 ```
 
 Do not use `![[...]]` transclude syntax for fragments. Do not inline the fragment body into the workflow; the whole point of `_shared/` is to keep one copy.
@@ -60,7 +60,7 @@ Fragments under `_shared/procedures/` are subroutines, not standalone workflows.
 **Caller side — every fragment reference inside a numbered step MUST tell the agent to come back.** Use the explicit return-step phrasing:
 
 ```
-11. **<Action label>:** Run the [<fragment name>](_shared/procedures/<file>.md) in full, then return here and continue with step 12. <Optional load-bearing invariant kept inline.>
+11. **<Action label>:** Run the [<fragment name>](../_shared/procedures/<file>.md) in full, then return here and continue with step 12. <Optional load-bearing invariant kept inline.>
 ```
 
 The "then return here and continue with step N+1" tail is mandatory, not stylistic. When two fragment calls are adjacent (e.g., ingest.md steps 11→12), each call still gets its own explicit return cue — back-to-back fragments are the spot most likely to skip the next step (log append, commit) if an agent loses its stack.

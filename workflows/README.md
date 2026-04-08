@@ -12,56 +12,56 @@ Workflows are grouped by phase. Use the phase that matches the user's intent, th
 
 | Workflow | Use when... |
 | --- | --- |
-| [ingest](ingest.md) | Onboarding 1-2 new source papers into the wiki and propagating them through indexes, MOCs, and logs. |
-| [batch-ingest](batch-ingest.md) | Onboarding 3+ sources in one session via parallel subagents, then consolidating shared files. |
-| [synthesize](synthesize.md) | Building a cross-cutting analysis page (comparison, timeline, contradictions, frontier) from existing sources. |
+| [ingest](create/ingest.md) | Onboarding 1-2 new source papers into the wiki and propagating them through indexes, MOCs, and logs. |
+| [batch-ingest](create/batch-ingest.md) | Onboarding 3+ sources in one session via parallel subagents, then consolidating shared files. |
+| [synthesize](create/synthesize.md) | Building a cross-cutting analysis page (comparison, timeline, contradictions, frontier) from existing sources. |
 
 ### Enrich — deepen existing content
 
 | Workflow | Use when... |
 | --- | --- |
-| [enrich](enrich.md) | Structural improvement pass: MOC coverage, backlinks, raw-asset wiring, index sync — no new substantive content. |
-| [expand](expand.md) | Deepening specific thin pages with more mechanism detail, evidence, comparisons, or entity timelines. |
+| [enrich](enrich/enrich.md) | Structural improvement pass: MOC coverage, backlinks, raw-asset wiring, index sync — no new substantive content. |
+| [expand](enrich/expand.md) | Deepening specific thin pages with more mechanism detail, evidence, comparisons, or entity timelines. |
 
 ### Audit — check integrity
 
 | Workflow | Use when... |
 | --- | --- |
-| [lint](lint.md) | Targeted health check for contradictions, orphans, red links, stale claims, and file-placement drift. |
-| [review](review.md) | Comprehensive once-over combining lint + enrich + expand checks, usually after large ingests. |
-| [verification](verification.md) | QA pass on output from parallel subagents before their changes merge into shared files. |
-| [gap-analysis](gap-analysis.md) | Finding a research coverage gap, then procuring an arXiv paper to fill it and ingesting it. |
-| [moc-gap-analysis](moc-gap-analysis.md) | Deciding whether the wiki needs new MOCs because themes have grown beyond the 5-page threshold. |
-| [enrichment-audit](enrichment-audit.md) | Vault-wide page-depth, link-density, and missing-analysis audit with prioritized parallel fixes. |
-| [schema-self-audit](schema-self-audit.md) | Verifying `AGENTS.md` still matches the real vault layout, MOC inventory, workflow paths, and frontmatter fields. |
-| [plugin-audit](plugin-audit.md) | Checking Obsidian plugin configuration and plugin-compatibility of pages (LaTeX, Pandoc, diagrams). |
+| [lint](audit/lint.md) | Targeted health check for contradictions, orphans, red links, stale claims, and file-placement drift. |
+| [review](audit/review.md) | Comprehensive once-over combining lint + enrich + expand checks, usually after large ingests. |
+| [verification](audit/verification.md) | QA pass on output from parallel subagents before their changes merge into shared files. |
+| [gap-analysis](audit/gap-analysis.md) | Finding a research coverage gap, then procuring an arXiv paper to fill it and ingesting it. |
+| [moc-gap-analysis](audit/moc-gap-analysis.md) | Deciding whether the wiki needs new MOCs because themes have grown beyond the 5-page threshold. |
+| [enrichment-audit](audit/enrichment-audit.md) | Vault-wide page-depth, link-density, and missing-analysis audit with prioritized parallel fixes. |
+| [schema-self-audit](audit/schema-self-audit.md) | Verifying `AGENTS.md` still matches the real vault layout, MOC inventory, workflow paths, and frontmatter fields. |
+| [plugin-audit](audit/plugin-audit.md) | Checking Obsidian plugin configuration and plugin-compatibility of pages (LaTeX, Pandoc, diagrams). |
 
 ### Query — answer questions
 
 | Workflow | Use when... |
 | --- | --- |
-| [query](query.md) | Answering a user question by reading the minimum necessary pages and citing them with wiki-links. |
+| [query](query/query.md) | Answering a user question by reading the minimum necessary pages and citing them with wiki-links. |
 
 ### Meta — maintain the repo itself
 
 | Workflow | Use when... |
 | --- | --- |
-| [readme-github-maintenance](readme-github-maintenance.md) | Syncing the public `README.md`, badges, paper counts, and entry-points table with vault changes. |
+| [readme-github-maintenance](meta/readme-github-maintenance.md) | Syncing the public `README.md`, badges, paper counts, and entry-points table with vault changes. |
 
 ## Disambiguation tips
 
 A few pairs of workflows overlap in scope. Use these rules to pick the right one.
 
-**[ingest](ingest.md) vs [batch-ingest](batch-ingest.md)**
+**[ingest](create/ingest.md) vs [batch-ingest](create/batch-ingest.md)**
 - 1-2 papers, sequential work, single-threaded propagation → `ingest`.
 - 3+ papers, parallelizable by paper or theme, consolidate shared files at the end → `batch-ingest`.
 - `batch-ingest` internally delegates per-paper work to the `ingest` workflow.
 
-**[lint](lint.md) vs [review](review.md)**
+**[lint](audit/lint.md) vs [review](audit/review.md)**
 - `lint` is a targeted integrity sweep: contradictions, orphans, red links, stale claims, placement.
 - `review` is the broader periodic pass that bundles lint plus enrich and expand checks, frontmatter and source-material verification, and MOC coverage. Use after big batch ingests or for scheduled maintenance.
 
-**[gap-analysis](gap-analysis.md) vs [moc-gap-analysis](moc-gap-analysis.md) vs [enrichment-audit](enrichment-audit.md)**
+**[gap-analysis](audit/gap-analysis.md) vs [moc-gap-analysis](audit/moc-gap-analysis.md) vs [enrichment-audit](audit/enrichment-audit.md)**
 These three all look for "what's missing", but at different layers:
 - `gap-analysis` — missing **research coverage**. Finds holes in the literature the wiki covers, then procures a new paper from arXiv to fill the hole and ingests it. Proactive counterpart to `ingest`.
 - `moc-gap-analysis` — missing **navigation**. Checks whether existing pages cluster into themes that deserve a new MOC (5+ pages per theme). Does not add new content.

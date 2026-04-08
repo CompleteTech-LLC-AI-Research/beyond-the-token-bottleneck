@@ -22,7 +22,7 @@ When a new source page is added to the wiki (via ingest or batch-ingest), the re
 - A new source page must appear in at least one MOC's reading path before its ingest is considered complete. Pages that exist only in `wiki/index.md` are not navigable through the wiki's curated paths.
 - The reading path's existing ordering principle is load-bearing — do not insert the new page at the end by default. Position it where the ordering principle says it belongs.
 - Prose page counts inside MOC files must be updated to the new value at MOC-update time. Stale counts in MOC blurbs are also caught by the [stale count sweep](stale-count-sweep.md), but updating them here prevents the sweep from finding extra work and reduces the risk of two ingests racing on the same MOC count.
-- This fragment does not create new MOCs. If a theme has 5+ pages and no MOC, that is the job of `workflows/moc-gap-analysis.md`, not this procedure.
+- This fragment does not create new MOCs. If a theme has 5+ pages and no MOC, that is the job of `workflows/audit/moc-gap-analysis.md`, not this procedure.
 - "MOC" and "reading path" are not synonyms. The MOC is the file; the reading path is the ordered traversal baked into the file's body. This procedure updates the reading path (and any prose around it) without creating a new file.
 
 ## After completion
@@ -31,5 +31,5 @@ Return to the calling workflow and proceed with its next numbered step. This fra
 
 ## Used by
 
-- `workflows/ingest.md` (Procedure step 8)
-- `workflows/batch-ingest.md` (once per ingested paper, before consolidation)
+- `workflows/create/ingest.md` (Procedure step 8)
+- `workflows/create/batch-ingest.md` (once per ingested paper, before consolidation)

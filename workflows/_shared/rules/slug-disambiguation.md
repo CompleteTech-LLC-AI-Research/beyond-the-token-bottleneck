@@ -31,12 +31,12 @@ The "in the same `wiki/sources/**/` directory" qualifier matters because cross-d
 
 ## How violations are caught
 
-- `workflows/lint.md` Redundancy & Dead-Reference Audit, section C — slug-collision detection. Groups basenames by their first hyphenated token within each `wiki/sources/**/` directory and flags clusters of size ≥ 2 from different papers.
+- `workflows/audit/lint.md` Redundancy & Dead-Reference Audit, section C — slug-collision detection. Groups basenames by their first hyphenated token within each `wiki/sources/**/` directory and flags clusters of size ≥ 2 from different papers.
 - The fix is `workflows/_shared/procedures/bulk-source-rename.md` for retroactive disambiguation.
 
 ## Used by
 
-- `workflows/ingest.md` (Procedure step 3, "Pick a slug")
-- `workflows/batch-ingest.md` (applies to every paper in the batch)
-- `workflows/lint.md` (Redundancy & Dead-Reference Audit, section C)
+- `workflows/create/ingest.md` (Procedure step 3, "Pick a slug")
+- `workflows/create/batch-ingest.md` (applies to every paper in the batch)
+- `workflows/audit/lint.md` (Redundancy & Dead-Reference Audit, section C)
 - `workflows/_shared/procedures/bulk-source-rename.md` — the retroactive fix when this rule was violated

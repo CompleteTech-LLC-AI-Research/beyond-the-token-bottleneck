@@ -25,6 +25,6 @@ The completion items specific to workflows that add new source pages to the wiki
 
 ## Used by
 
-- `workflows/ingest.md`
-- `workflows/batch-ingest.md`
-- `workflows/gap-analysis.md`
+- `workflows/create/ingest.md`
+- `workflows/create/batch-ingest.md`
+- `workflows/audit/gap-analysis.md`

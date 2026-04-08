@@ -42,9 +42,9 @@ Return to the calling workflow and proceed with its next numbered step. This fra
 
 ## Used by
 
-- `workflows/ingest.md` (Procedure step 11)
-- `workflows/batch-ingest.md` (expected, PR 2)
-- `workflows/enrich.md` (expected, PR 2)
-- `workflows/verification.md` (expected, PR 2)
-- `workflows/gap-analysis.md` (expected, PR 2)
-- `workflows/enrichment-audit.md` (expected, PR 2)
+- `workflows/create/ingest.md` (Procedure step 11)
+- `workflows/create/batch-ingest.md` (expected, PR 2)
+- `workflows/enrich/enrich.md` (expected, PR 2)
+- `workflows/audit/verification.md` (expected, PR 2)
+- `workflows/audit/gap-analysis.md` (expected, PR 2)
+- `workflows/audit/enrichment-audit.md` (expected, PR 2)

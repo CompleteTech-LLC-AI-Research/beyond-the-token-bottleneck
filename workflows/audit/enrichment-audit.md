@@ -111,25 +111,25 @@ Data-driven gap-finding pass that inventories enrichment opportunities across th
 
 ### Phase 3: Execute in Parallel
 1. Create one task per independent workstream, such as expanding thin source pages, deepening concept pages, or creating a benchmark analysis.
-2. **Dispatch the parallel agents under the protocol.** Run [parallel subagent protocol](_shared/procedures/parallel-subagent-protocol.md) in full, then return here and continue with Phase 4. The fragment owns: per-agent scope boundaries, the canonical coordinator-only file enumeration (replacing the drifted 4-item list this phase used to inline), the report-not-edit instruction, and the dispatch contract. Track completion as tasks finish and report results incrementally to the user — the protocol fragment makes this explicit.
+2. **Dispatch the parallel agents under the protocol.** Run [parallel subagent protocol](../_shared/procedures/parallel-subagent-protocol.md) in full, then return here and continue with Phase 4. The fragment owns: per-agent scope boundaries, the canonical coordinator-only file enumeration (replacing the drifted 4-item list this phase used to inline), the report-not-edit instruction, and the dispatch contract. Track completion as tasks finish and report results incrementally to the user — the protocol fragment makes this explicit.
 
 ### Phase 4: Consolidate
-1. **Sync indexes and assets.** Run [update index and assets](_shared/procedures/update-index-and-assets.md), then return here and continue with step 2. The fragment owns the `wiki/index.md` count and entry-list updates.
-2. **Update affected MOCs.** For each MOC whose reading path gained an entry during Phase 3, run [moc update](_shared/procedures/moc-update.md). Skip if no MOC was affected.
-3. **Spot-check the agent output.** Run [spot check agent output](_shared/procedures/spot-check-agent-output.md), then return here and continue with step 4. If the spot check escalates (2+ issues across the sample), pause and run `workflows/verification.md` in full before logging.
+1. **Sync indexes and assets.** Run [update index and assets](../_shared/procedures/update-index-and-assets.md), then return here and continue with step 2. The fragment owns the `wiki/index.md` count and entry-list updates.
+2. **Update affected MOCs.** For each MOC whose reading path gained an entry during Phase 3, run [moc update](../_shared/procedures/moc-update.md). Skip if no MOC was affected.
+3. **Spot-check the agent output.** Run [spot check agent output](../_shared/procedures/spot-check-agent-output.md), then return here and continue with step 4. If the spot check escalates (2+ issues across the sample), pause and run `workflows/audit/verification.md` in full before logging.
 4. Append all activity to `wiki/log.md` as a single audit entry per workstream.
-5. **Commit and push.** Run [commit and push](_shared/procedures/commit-and-push.md) in full.
+5. **Commit and push.** Run [commit and push](../_shared/procedures/commit-and-push.md) in full.
 
 ## Completion Checklist
-- All items in [`_shared/checklists/base.md`](_shared/checklists/base.md) hold.
-- All items in [`_shared/checklists/audit-additions.md`](_shared/checklists/audit-additions.md) hold.
+- All items in [`../_shared/checklists/base.md`](../_shared/checklists/base.md) hold.
+- All items in [`../_shared/checklists/audit-additions.md`](../_shared/checklists/audit-additions.md) hold.
 - All gaps are prioritized by impact.
 - User approval has been obtained before execution.
 - Parallel tasks had disjoint file ownership.
 
 ## Related Workflows
-- `workflows/lint.md`
-- `workflows/expand.md`
-- `workflows/synthesize.md`
-- `workflows/moc-gap-analysis.md`
-- `workflows/verification.md`
+- `workflows/audit/lint.md`
+- `workflows/enrich/expand.md`
+- `workflows/create/synthesize.md`
+- `workflows/audit/moc-gap-analysis.md`
+- `workflows/audit/verification.md`

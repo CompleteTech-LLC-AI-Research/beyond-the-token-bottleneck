@@ -68,6 +68,6 @@ Verify that `AGENTS.md` still matches the real vault layout, current MOC invento
 
 ## Related Workflows
 
-- `workflows/moc-gap-analysis.md` for coverage gaps in navigation.
-- `workflows/review.md` for broader wiki-wide validation.
-- `workflows/enrich.md` for structural cleanup after drift is found.
+- `workflows/audit/moc-gap-analysis.md` for coverage gaps in navigation.
+- `workflows/audit/review.md` for broader wiki-wide validation.
+- `workflows/enrich/enrich.md` for structural cleanup after drift is found.
