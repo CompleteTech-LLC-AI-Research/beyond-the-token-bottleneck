@@ -21,17 +21,13 @@ Lead institution on the [[vision-wormhole-heterogeneous|Vision Wormhole]] — th
 
 Purdue's contribution is a conceptual breakthrough: rather than trying to align different models' internal representations (the approach taken by [[cache-to-cache-semantic-communication|C2C]], [[kv-cache-alignment-shared-space|KV Alignment]]), **repurpose an existing cross-architecture interface** — the visual input pathway that all VLMs share.
 
-Key technical innovations:
-- **NormMatch operator**: Aligns heterogeneous activation distributions using mean/std/RMS normalization
-- **Perceiver-style resampler**: Compresses latent rollouts to fixed-size representations
-- **Affine alignment**: Requires only ~90 anchor texts for weakly supervised cross-model alignment
-- **Self-distillation training**: MSE + KL + RMS loss combination
+- **Repurposing the cross-architecture interface**: Rather than aligning different models' internal representations, Vision Wormhole uses the visual input pathway that all VLMs share as a universal communication channel. The insight is architectural rather than algorithmic — as VLMs become the default frontier architecture, every model already has the "communication port" built in.
 
-The insight is architectural rather than algorithmic — as VLMs become the default frontier architecture, every model already has the "communication port" built in.
-
-## Strategic Position
-
-Purdue is positioned to pursue [[frontier-research-directions|frontier direction #5]] (vision pathway as universal continuous interface). The natural extensions: using the visual pathway for intra-model [[latent-space-reasoning|latent reasoning]] (avoiding the off-manifold problem), multi-modal latent reasoning, and expanding the 256 visual token bandwidth budget.
+- **Key technical innovations**:
+  - **NormMatch operator**: Aligns heterogeneous activation distributions using mean/std/RMS normalization
+  - **Perceiver-style resampler**: Compresses latent rollouts to fixed-size representations
+  - **Affine alignment**: Requires only ~90 anchor texts for weakly supervised cross-model alignment
+  - **Self-distillation training**: MSE + KL + RMS loss combination
 
 ## Collaboration Network
 
@@ -47,6 +43,10 @@ Vision Wormhole is a multi-institution effort with strong connections to other w
 
 - **[[tsinghua|Tsinghua]]** and **[[google-deepmind|Google DeepMind]]**: All three tackle cross-architecture communication but via fundamentally different mechanisms. C2C uses learned fusers, KV Alignment uses a shared interlingua, Vision Wormhole repurposes the visual pathway. These represent three competing solutions to the same problem.
 - **[[fair-meta|FAIR/Meta AI]]**: Vision Wormhole tests on LLaMA-based VLMs, making FAIR an indirect contributor through its open-weight model ecosystem.
+
+## Strategic Position
+
+Purdue is positioned to pursue [[frontier-research-directions|frontier direction #5]] (vision pathway as universal continuous interface). The natural extensions: using the visual pathway for intra-model [[latent-space-reasoning|latent reasoning]] (avoiding the off-manifold problem), multi-modal latent reasoning, and expanding the 256 visual token bandwidth budget.
 
 ## Research Trajectory
 
