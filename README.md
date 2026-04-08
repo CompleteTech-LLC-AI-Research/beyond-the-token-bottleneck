@@ -171,7 +171,7 @@ The workflow:
 4. **Cross-reference** — Every mention of a known entity or concept is linked. Contradictions and connections between papers are surfaced.
 5. **Synthesize** — Maps of Content provide guided reading paths. Analysis pages compare methods and identify frontier directions.
 
-Detailed maintainer playbooks for these operational workflows live in `workflows/*.md`.
+Detailed maintainer playbooks for these operational workflows live under `workflows/{create,enrich,audit,query,meta}/`. Start at `workflows/README.md` for the decision tree.
 
 The result is a deeply interlinked knowledge graph that's more useful than any individual paper summary — a **second brain** for latent-space reasoning research.
 
