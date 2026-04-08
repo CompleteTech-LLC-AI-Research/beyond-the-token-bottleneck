@@ -148,6 +148,18 @@ Two MOCs are redundant when one defers to the other for its primary content. Two
 2. For any MOC whose body section is duplicated in another MOC, propose collapsing it to the unique scaffolding (cross-cutting concepts, key entities, theoretical foundations) and adding a one-line pointer to the canonical source.
 3. For concept-page overlap, prefer keeping the synthesis page and folding the duplicate into a section anchor.
 
+### E. Source-partial integrity
+
+Every source page under `wiki/sources/` must follow the partial structure defined in `workflows/_shared/procedures/source-partials.md`: a `## One-liner` heading + `![[<slug>/one-liner]]` embed in the shell, plus a matching `<slug>/one-liner.md` partial file with `type: source-partial` frontmatter. Drift here means MOCs that transclude the partial silently render an empty embed.
+
+1. `Glob wiki/sources/**/*.md` excluding `*/one-liner.md` → list of source shells.
+2. For each shell, confirm:
+   - The shell contains the line `![[<slug>/one-liner]]` (where `<slug>` is the shell's basename minus `.md`).
+   - The file `wiki/sources/<category>/<slug>/one-liner.md` exists.
+   - The partial's frontmatter has `type: source-partial`, `parent: <slug>` matching the shell's basename, and `partial: one-liner`.
+3. `Glob wiki/sources/**/one-liner.md` → list of partial files. Reverse-check: every partial has a parent shell at `wiki/sources/<category>/<parent>.md`, and the parent shell embeds it. Orphan partials and partials whose parent has been deleted are both bugs.
+4. `Grep -n '\!\[\[.*#One-liner\]\]' wiki/` → must return zero matches. The `![[<slug>#One-liner]]` section-anchor form is the legacy syntax superseded by `![[<slug>/one-liner]]`; any remaining instances should be migrated to the file-partial form. (Plain wiki-links of the form `[[<slug>#One-liner]]` *without* the leading `!` are still acceptable — they navigate to the heading anchor rather than embedding content.)
+
 ## Completion Checklist
 - All items in [`../_shared/checklists/base.md`](../_shared/checklists/base.md) hold.
 - All items in [`../_shared/checklists/audit-additions.md`](../_shared/checklists/audit-additions.md) hold.

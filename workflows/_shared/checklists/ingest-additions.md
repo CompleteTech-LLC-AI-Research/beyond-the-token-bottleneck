@@ -12,7 +12,7 @@ The completion items specific to workflows that add new source pages to the wiki
 
 ## The ingest additions
 
-- [ ] **The source page exists in the correct `wiki/sources/` subdirectory** at full depth standard. Frontmatter passes [`../procedures/verify-frontmatter-completeness.md`](../procedures/verify-frontmatter-completeness.md). The page has a `## Source Materials` footer pointing to existing files.
+- [ ] **The source page exists in the correct `wiki/sources/` subdirectory** at full depth standard, with a `## One-liner` heading + `![[<slug>/one-liner]]` embed below the H1, and a matching `wiki/sources/<category>/<slug>/one-liner.md` partial file with `type: source-partial`, `parent: <slug>`, `partial: one-liner` frontmatter per [`../procedures/source-partials.md`](../procedures/source-partials.md). Frontmatter passes [`../procedures/verify-frontmatter-completeness.md`](../procedures/verify-frontmatter-completeness.md). The page has a `## Source Materials` footer pointing to existing files.
 - [ ] **All relevant entity and concept pages were updated or created.** Entity updates use the partial structure defined in [`../procedures/entity-partials.md`](../procedures/entity-partials.md): edits to `wiki/entities/<slug>/timeline.md` and (if applicable) `wiki/entities/<slug>/researchers.md`, never to MOC or analysis transclusion sites.
 - [ ] **Relevant MOCs include the new reading-path entry**, inserted in the position the MOC's ordering principle dictates (not appended at the end). Per [`../procedures/moc-update.md`](../procedures/moc-update.md).
 - [ ] **`wiki/index.md` and `raw/index.md` and `raw/download_arxiv_papers.py` are in sync** with the new source. Per [`../procedures/update-index-and-assets.md`](../procedures/update-index-and-assets.md).

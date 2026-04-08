@@ -82,9 +82,10 @@ Do not use this workflow when the task is only to answer a question, run a lint 
 1. Read the source file in `raw/`.
 2. Discuss key takeaways with the user. Ask what to emphasize if unclear.
 3. **Pick a slug that disambiguates by default.** Before creating the file, `Glob wiki/sources/**/*.md` and check whether the leading hyphen-token of your candidate slug already exists (e.g., another `kvcomm-*` or `coconut-*`). If it does, use the hybrid form `<technique>-<institution>-<distinguisher>.md` so collisions never accumulate.
-4. Create a source page in the appropriate `wiki/sources/` subdirectory.
+4. Create a source page in the appropriate `wiki/sources/` subdirectory. Source pages use the **partial structure** defined in [`../_shared/procedures/source-partials.md`](../_shared/procedures/source-partials.md): a narrative shell at `wiki/sources/<category>/<slug>.md` plus a one-liner partial at `wiki/sources/<category>/<slug>/one-liner.md`, embedded into the shell via `![[<slug>/one-liner]]`.
    - Author the frontmatter, then run [verify frontmatter completeness](../_shared/procedures/verify-frontmatter-completeness.md) in full and return here before continuing. The fragment is the canonical schema; per-type field lists live there, not here.
    - **Conditional `venue_pdfs:`**: only list a venue PDF when the file is actually present in `raw/pdf/` — verify each path with `Glob` before writing the frontmatter. Phantom `venue_pdfs:` entries propagate into `raw/index.md` and break lint passes weeks later. (This invariant is repeated inline because losing it in delegation has bitten previous ingests; the fragment also enforces it.)
+   - Add a `## One-liner` heading immediately below the H1, with `![[<slug>/one-liner]]` underneath. Create the partial file at `wiki/sources/<category>/<slug>/one-liner.md` with `type: source-partial`, `parent: <slug>`, `partial: one-liner` frontmatter and a 1–3 sentence body following the shape **bold name + mechanism + key constraint or headline result**. See [`../_shared/procedures/source-partials.md`](../_shared/procedures/source-partials.md) for the full convention and examples.
    - Add a `## Source Materials` footer linking to the PDF and LaTeX source. Both paths must already exist on disk.
    - Fill in section-specific detail per the depth standard.
 5. For each significant entity or concept mentioned:
