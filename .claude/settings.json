@@ -1,0 +1,9 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(git commit -m ':*)",
+      "Bash(git push:*)",
+      "Bash(wc -l c:/Users/timot/Documents/projects/_research/beyond-the-token-bottleneck/wiki/*.md)"
+    ]
+  }
+}
