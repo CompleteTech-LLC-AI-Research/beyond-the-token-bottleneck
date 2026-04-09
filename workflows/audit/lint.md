@@ -173,3 +173,5 @@ Every source page under `wiki/sources/` must follow the partial structure define
 - `workflows/enrich/expand.md`
 - `workflows/audit/review.md`
 - `workflows/create/batch-ingest.md`
+- `workflows/audit/schema-self-audit.md`
+- `workflows/audit/plugin-audit.md`

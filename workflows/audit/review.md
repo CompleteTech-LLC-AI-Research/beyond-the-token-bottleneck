@@ -80,9 +80,7 @@ Common triggers include:
 - Use the current MOC list and path conventions as validation targets.
 
 ## Procedure
-1. Run the full lint checklist:
-   - contradictions, orphans, red links, stale claims, and missing cross-references
-   - file placement, path references, and count accuracy
+1. Run [`workflows/audit/lint.md`](lint.md) end-to-end, then return here and continue with step 2.
 2. **Spot-check frontmatter completeness on a sample of pages.** Run [verify frontmatter completeness](../_shared/procedures/verify-frontmatter-completeness.md) on the sample, then return here. The fragment is the canonical schema; the per-type field lists live there, not here.
 3. Verify all source pages have the `## Source Materials` footer.
 4. Identify pages below the depth standard and flag them for expansion.
@@ -114,3 +112,5 @@ Common triggers include:
 - `Expand` for depth work on existing pages.
 - `Ingest` and `Batch Ingest` for source-driven updates.
 - `MOC Gap Analysis` for focused navigation coverage work.
+- `workflows/audit/schema-self-audit.md` for schema-vs-vault consistency checks.
+- `workflows/audit/plugin-audit.md` for plugin-specific audits.

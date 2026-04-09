@@ -94,7 +94,9 @@ Quality-assurance pass for work done by parallel subagents. Use it to catch stru
    - Return findings only, with suggested fixes written as exact `old -> new` text where possible.
 5. Collect review findings only; do not let review agents make edits.
 6. Apply fixes in priority order: factual errors, overstatements, missing coverage, then style.
-7. Log the verification pass in `wiki/log.md`.
+7. Consider running [lint](lint.md) on affected pages to catch regressions introduced by fixes.
+8. If any pages were added or removed during fixes, run [stale count sweep](../_shared/procedures/stale-count-sweep.md) in full, then return here.
+9. Log the verification pass in `wiki/log.md`.
 
 ## Completion Checklist
 - All items in [`../_shared/checklists/base.md`](../_shared/checklists/base.md) hold.
