@@ -87,3 +87,4 @@ Return to the calling workflow and proceed with its next numbered step. This fra
 ## Used by
 
 - `workflows/audit/lint.md` (Procedure — concept-partial bidirectionality check).
+- `workflows/enrich/enrich.md`.

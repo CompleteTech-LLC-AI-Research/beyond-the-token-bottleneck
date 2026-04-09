@@ -1,14 +1,19 @@
 # Procedure fragments
 
-Multi-step imperative sequences reused verbatim across workflows. Each file here describes an action sequence a workflow runs end-to-end.
+Multi-step imperative sequences reused verbatim across workflows. Each file describes an action sequence a workflow runs end-to-end.
 
-Planned fragments:
+## Procedures
 
-- `stale-count-sweep.md` — recompute and refresh any cached counts that appear in MOCs or READMEs.
-- `living-analyses-review.md` — walk the living-analyses set and flag entries needing refresh.
-- `raw-checklist-row.md` — append a new row to the raw-ingest checklist in the canonical format.
-- `bulk-source-rename.md` — rename a source across notes, MOCs, and backlinks in one pass.
-- `moc-update.md` — regenerate a MOC's entry list from its underlying folder.
-- `commit-and-push.md` — stage, commit with a conventional message, and push the branch.
-
-Fragment bodies land in PR 2; this PR only establishes the directory.
+- `bulk-source-rename.md` — Rename a source slug across the entire wiki with reference updates.
+- `commit-and-push.md` — Standardized git commit and push sequence.
+- `concept-partial-bidirectionality.md` — Maintain bidirectional links between concept pages and their partials.
+- `entity-partials.md` — Create or update entity timeline and researcher table partials.
+- `living-analyses-review.md` — Review and update living analyses (contradictions, open questions, frontier directions) after content changes.
+- `moc-update.md` — Add or reorder entries in a MOC's reading path after source additions.
+- `parallel-subagent-protocol.md` — Coordinate parallel subagent work with merge strategy and shared-file rules.
+- `raw-checklist-row.md` — Add a new row to raw/checklist.md for an incoming paper.
+- `source-partials.md` — Create or update source one-liner partials for MOC transclusion.
+- `spot-check-agent-output.md` — QA sampling of subagent output before consolidation.
+- `stale-count-sweep.md` — Recompute and refresh any hardcoded counts that drift after ingests.
+- `update-index-and-assets.md` — Sync raw/index.md and wiki/index.md with PDF/LaTeX directories and page additions.
+- `verify-frontmatter-completeness.md` — Verify required YAML frontmatter fields on all touched pages.

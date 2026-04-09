@@ -120,6 +120,10 @@ Future revisions of a one-liner edit only the partial; the shell and every MOC c
 - `workflows/create/ingest.md` — when an ingest creates a new source page, the one-liner partial is created in the same step.
 - `workflows/audit/lint.md` — should check that every `wiki/sources/**/*.md` source shell has a matching `<slug>/one-liner.md` partial and a `## One-liner` heading with the embed underneath.
 
+## After completion
+
+Return to the calling workflow and continue with the next step. The source shell and one-liner partial are now in place and ready for MOC transclusion.
+
 ## Relationship to other partial types
 
 This procedure defines `source-partial`. The vault has two other partial types with parallel conventions:

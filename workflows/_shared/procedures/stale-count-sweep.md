@@ -55,5 +55,6 @@ Return to the calling workflow and proceed with its next numbered step. This fra
 
 - `workflows/create/ingest.md` (Procedure step 12 — "Stale paper-count sweep").
 - `workflows/audit/lint.md` (Procedure step 3 — "Paper-count drift sweep").
-- `workflows/create/batch-ingest.md` (expected, PR 2).
-- `workflows/audit/gap-analysis.md` (expected, PR 2).
+- `workflows/create/batch-ingest.md`.
+- `workflows/audit/gap-analysis.md`.
+- `workflows/enrich/enrich.md`.
