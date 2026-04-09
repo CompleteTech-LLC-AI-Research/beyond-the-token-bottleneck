@@ -65,7 +65,7 @@ Each PDF below is the primary copy used for ingestion. The wiki source page was 
 
 Each LaTeX source corresponds 1:1 to the PDF with the same arXiv ID. Some papers are stored as extracted directories; newer ones remain as `.tar.gz` archives.
 
-### Extracted Directories (9)
+### Extracted Directories (8)
 
 | Directory | Corresponding PDF | Wiki Source Page |
 |-----------|-------------------|-----------------|
@@ -77,9 +77,8 @@ Each LaTeX source corresponds 1:1 to the PDF with the same arXiv ID. Some papers
 | `raw/latex/arxiv-2405.07987/` | `arxiv-2405.07987.pdf` | [[wiki/sources/meta/platonic-representation-hypothesis]] |
 | `raw/latex/arxiv-2405.14838/` | `arxiv-2405.14838.pdf` | [[wiki/sources/reasoning/icot-internalize-cot]] |
 | `raw/latex/arxiv-2505.12514/` | `arxiv-2505.12514.pdf` | [[wiki/sources/reasoning/superposition-coconut-theory]] |
-| `raw/latex/arxiv-2602.08332/` | `arxiv-2602.08332.pdf` | [[wiki/sources/reasoning/thinking-states-latent-reasoning]] |
 
-### Compressed Archives (16)
+### Compressed Archives (18)
 
 | Archive | Corresponding PDF | Wiki Source Page |
 |---------|-------------------|-----------------|
@@ -111,7 +110,7 @@ Each LaTeX source corresponds 1:1 to the PDF with the same arXiv ID. Some papers
 | Canonical PDFs | 26 |
 | Non-PDF sources | 1 (GitHub) |
 | **Total PDFs** | **26** |
-| LaTeX directories | 9 |
+| LaTeX directories | 8 |
 | LaTeX archives | 18 |
-| **Total LaTeX** | **27** |
+| **Total LaTeX** | **26** |
 | **Unique wiki source pages** | **27** |

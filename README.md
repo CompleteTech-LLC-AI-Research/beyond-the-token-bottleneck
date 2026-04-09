@@ -2,7 +2,7 @@
 
 ### What happens when LLMs stop talking and start *thinking* in vectors?
 
-[![Papers Tracked](https://img.shields.io/badge/papers_tracked-27+-blue?style=for-the-badge)](wiki/analyses/paper-timeline.md) [![Wiki Pages](https://img.shields.io/badge/wiki_pages-130+-green?style=for-the-badge)](wiki/) [![Cross References](https://img.shields.io/badge/cross_references-1400+-purple?style=for-the-badge)](wiki/) [![Built With](https://img.shields.io/badge/built_with-Obsidian-7C3AED?style=for-the-badge&logo=obsidian&logoColor=white)](https://obsidian.md)
+[![Sources Tracked](https://img.shields.io/badge/sources_tracked-27-blue?style=for-the-badge)](wiki/analyses/paper-timeline.md) [![Wiki Pages](https://img.shields.io/badge/wiki_pages-120+-green?style=for-the-badge)](wiki/) [![Cross References](https://img.shields.io/badge/cross_references-1400+-purple?style=for-the-badge)](wiki/) [![Built With](https://img.shields.io/badge/built_with-Obsidian-7C3AED?style=for-the-badge&logo=obsidian&logoColor=white)](https://obsidian.md)
 
 An open research wiki mapping the frontier of **latent-space reasoning**, **continuous thought**, and **inter-agent latent communication** in large language models.
 
@@ -20,7 +20,7 @@ Large language models are internally continuous systems — dense vectors in **R
 
 > **What happens when you remove it — both within a single model and between collaborating models?**
 
-This wiki systematically tracks **27+ papers** (Dec 2022 – Apr 2026) exploring that question, organized into a deeply cross-referenced knowledge graph with 1400+ internal links.
+This wiki systematically tracks **27 sources** (26 papers + 1 open-source project, Dec 2022 – Apr 2026) exploring that question, organized into a deeply cross-referenced knowledge graph with 1400+ internal links.
 
 ---
 
@@ -87,6 +87,8 @@ See [`communication-depth-spectrum`](wiki/mocs/communication-depth-spectrum.md) 
 
 ## Vault Structure
 
+> **Note**: See [AGENTS.md](AGENTS.md) for the authoritative vault schema.
+
 ```
 beyond-the-token-bottleneck/
 ├── raw/                              # Immutable source documents
@@ -107,7 +109,7 @@ beyond-the-token-bottleneck/
 │   │                                 #     rules/, glossary.md
 │   ├── CONVENTIONS.md                #   Workflow authoring conventions
 │   └── README.md                     #   Workflow decision tree
-├── wiki/                             # Research wiki (130+ pages)
+├── wiki/                             # Research wiki (120+ pages)
 │   ├── sources/                      #   Paper summaries by theme
 │   │   ├── reasoning/                #     Coconut, SoftCoT, Pause Tokens, ...
 │   │   ├── communication/            #     CIPHER, AC, KVComm, C2C, ...
