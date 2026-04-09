@@ -43,7 +43,21 @@ M3[Verify AGENTS.md MOC list matches files]
         I1 --> I2 --> I3 --> I4
     end
 
-    IX --> LOG
+    IX --> LAR
+
+    subgraph LAR["Living Analyses Review"]
+        style LAR fill:#f8cecc,stroke:#b85450
+        A1[Run living-analyses-review procedure]
+    end
+
+    LAR --> SCS
+
+    subgraph SCS["Stale Count Sweep"]
+        style SCS fill:#f5f5f5,stroke:#666666
+        S1[Run stale-count-sweep procedure]
+    end
+
+    SCS --> LOG
 
     subgraph LOG["Log & Complete"]
         style LOG fill:#e1d5e7,stroke:#9673a6
@@ -93,15 +107,16 @@ Use this workflow when the wiki already has content and you need to clean up str
    - Scan for entity and concept names mentioned in prose but not wiki-linked.
    - Add missing links.
    - Check that cross-concept references are bidirectional where the connection is discussed on both sides.
+   - For concept partials specifically, run [concept-partial bidirectionality check](../_shared/procedures/concept-partial-bidirectionality.md).
 3. Verify raw asset linking:
-   - Run [verify frontmatter completeness](../_shared/procedures/verify-frontmatter-completeness.md) on each source page touched by the pass, then return here.
-   - Ensure all source pages include a `## Source Materials` footer.
+   a. Run [verify frontmatter completeness](../_shared/procedures/verify-frontmatter-completeness.md) on each source page touched by the pass, then return here.
+   b. Separately verify that all source pages include a `## Source Materials` footer.
    - Add section-specific PDF citations like `[[raw/pdf/file.pdf|Paper §X]]` to concept pages for key claims.
 4. **Sync indexes and assets.** Run [update index and assets](../_shared/procedures/update-index-and-assets.md) in full, then return here and continue with step 5. The fragment owns: `wiki/index.md` directory-tree counts and entry-list updates, `raw/index.md` PDF/LaTeX/venue-PDF tables, and `raw/download_arxiv_papers.py` reproducibility.
-5. Update `wiki/log.md` with what changed.
-6. **Commit and push.** Run [commit and push](../_shared/procedures/commit-and-push.md) in full.
-
-If the pass turns up a slug-collision rename, follow [bulk source rename](../_shared/procedures/bulk-source-rename.md) — it is the only context where `sed` is the blessed tool, and the verification step is non-negotiable.
+5. **Living analyses review.** Run [living analyses review](../_shared/procedures/living-analyses-review.md) in full, then return here and continue with step 6.
+6. **Stale count sweep.** Run [stale count sweep](../_shared/procedures/stale-count-sweep.md) in full, then return here and continue with step 7.
+7. Update `wiki/log.md` with what changed.
+8. **Commit and push.** Run [commit and push](../_shared/procedures/commit-and-push.md) in full.
 
 ## Completion Checklist
 - All items in [`../_shared/checklists/base.md`](../_shared/checklists/base.md) hold.
