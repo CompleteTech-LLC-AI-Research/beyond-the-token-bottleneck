@@ -1,5 +1,5 @@
 ---
-type: overview
+type: moc
 category: lens
 title: "Compression & Information-Theoretic Bounds"
 created: "2026-04-06"

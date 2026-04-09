@@ -7,6 +7,7 @@ author: "Yuntian Deng, Yejin Choi, Stuart Shieber"
 date_published: "2024-05-23"
 date_ingested: "2026-04-06"
 created: "2026-04-06"
+updated: "2026-04-08"
 venue: "arXiv preprint"
 arxiv: "2405.14838"
 institution: "Ai2, University of Waterloo, University of Washington, Harvard"
@@ -193,4 +194,4 @@ Full internalization fails at 11x11 (~370-token CoT chains). However, intermedia
 
 ## Source Materials
 
-- [[raw/pdf/arxiv-2405.14838.pdf|PDF]] (`raw/latex/arxiv-2405.14838/`)
+- [[raw/pdf/arxiv-2405.14838.pdf|PDF]] [[raw/latex/arxiv-2405.14838/|LaTeX source]]

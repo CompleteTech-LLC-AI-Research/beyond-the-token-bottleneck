@@ -6,20 +6,34 @@ You are a wiki maintainer for this Obsidian vault. Every interaction follows the
 
 ```
 raw/                                    # Immutable source documents. Never modify these.
-raw/assets/                             # Downloaded images referenced by sources.
 raw/pdf/                                # Source PDFs (referenced by source_file frontmatter).
 raw/latex/                              # LaTeX sources (arxiv-*.tar.gz archives or arxiv-* dirs).
 raw/download_arxiv_papers.py            # Downloader for arXiv-managed raw assets; keep it in sync.
 raw/checklist.md                        # Ingest preparation checklist
 raw/index.md                            # Asset index mapping files to wiki pages.
 workflows/                              # Task-oriented workflow playbooks. Choose one primary workflow before acting.
-workflows/*.md                          # One file per workflow; authoritative workflow instructions live here.
+  README.md
+  CONVENTIONS.md
+  _shared/
+    checklists/                         # base.md, audit-additions.md, ingest-additions.md
+    procedures/                         # 15+ reusable subroutines
+    rules/                              # frontmatter-schema.md, log-immutability.md, path-discipline.md, shared-file-off-limits.md, slug-disambiguation.md
+    glossary.md
+  create/                               # ingest.md, batch-ingest.md, synthesize.md
+  enrich/                               # enrich.md, expand.md
+  audit/                                # lint.md, review.md, verification.md, gap-analysis.md, moc-gap-analysis.md, enrichment-audit.md, schema-self-audit.md, plugin-audit.md
+  query/                                # query.md
+  meta/                                 # readme-github-maintenance.md
 wiki/                                   # LLM-generated and LLM-maintained pages. You own this entirely.
 wiki/index.md                           # Top-level catalog — links to MOCs + flat concept/entity/analysis lists.
 wiki/log.md                             # Chronological activity log — append-only. Create if missing.
 wiki/overview-state-of-field.md         # Narrative synthesis of the research landscape.
 wiki/mocs/*.md                           # Maps of Content — thematic navigation with reading paths.
+wiki/mocs/_partials/                    # MOC-partial pages (compatibility-spectrum.md, compression-ratios.md)
 wiki/sources/                           # Source summary pages, organized by research theme:
+  <theme>/short-title.md                # Shell page with ![[short-title/one-liner]] embed
+  <theme>/short-title/
+    one-liner.md                        # Source-partial: one-line summary for MOC transclusion
   wiki/sources/reasoning/               #   Intra-agent latent reasoning
   wiki/sources/communication/embeddings/#   Output-layer communication (CIPHER, SDE, etc.)
   wiki/sources/communication/activations/#  Hidden-state communication (AC, Interlat, etc.)
@@ -28,7 +42,13 @@ wiki/sources/                           # Source summary pages, organized by res
   wiki/sources/unified/                 #   Combined reasoning + communication frameworks
   wiki/sources/meta/                    #   Scaling frameworks, external projects
 wiki/concepts/                          # Concept pages (ideas, theories, patterns)
+wiki/concepts/_partials/                # Concept-partial pages
+  framings/                             # Concept framing partials
 wiki/entities/                          # Entity pages (people, orgs, products)
+  institution-name.md                   # Shell page
+  institution-name/
+    timeline.md                         # Entity-partial: contribution timeline
+    researchers.md                      # Entity-partial: researcher profiles
 wiki/analyses/                          # Analysis pages (syntheses, comparisons)
 ```
 
@@ -138,12 +158,63 @@ Comparisons, syntheses, arguments, or explorations generated from queries. Filed
 ---
 type: overview
 title: "MOC Title"
+category: thread | reference | synthesis | lens  # optional
 created: "YYYY-MM-DD"
 updated: "YYYY-MM-DD"
 tags: [moc]
 ---
 ```
 Curated navigation pages that organize related wiki pages around a theme. MOCs provide **guided reading paths** with narrative context — not just link lists, but ordered sequences explaining why to read each page and how they connect. A page can appear in multiple MOCs. Create a new MOC when a cluster of pages (typically 5+) forms a coherent theme that benefits from guided navigation. MOCs live at `wiki/mocs/*.md`.
+
+### Source-Partial
+
+```yaml
+---
+type: source-partial
+parent: "<parent-source-slug>"
+partial: one-liner
+created: "YYYY-MM-DD"
+updated: "YYYY-MM-DD"
+---
+```
+A transcludable fragment of a source page. Currently used for one-liner summaries embedded into MOCs via `![[short-title/one-liner]]`.
+
+### Entity-Partial
+
+```yaml
+---
+type: entity-partial
+parent: "<parent-entity-slug>"
+partial: timeline | researchers
+created: "YYYY-MM-DD"
+updated: "YYYY-MM-DD"
+---
+```
+A transcludable fragment of an entity page. Used for contribution timelines and researcher profile tables embedded into the parent entity shell page.
+
+### Concept-Partial
+
+```yaml
+---
+type: concept-partial
+partial: "<partial-name>"
+created: "YYYY-MM-DD"
+updated: "YYYY-MM-DD"
+---
+```
+A transcludable fragment of a concept page. Lives under `wiki/concepts/_partials/`.
+
+### MOC-Partial
+
+```yaml
+---
+type: moc-partial
+partial: "<partial-name>"
+created: "YYYY-MM-DD"
+updated: "YYYY-MM-DD"
+---
+```
+A transcludable fragment shared across MOC pages. Lives under `wiki/mocs/_partials/`.
 
 Current MOCs:
 - `latent-reasoning` — Intra-agent reasoning in continuous space

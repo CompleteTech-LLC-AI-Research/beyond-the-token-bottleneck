@@ -2,7 +2,7 @@
 type: source
 title: "The Platonic Representation Hypothesis"
 source_file: "[[raw/pdf/arxiv-2405.07987.pdf]]"
-latex_source: "raw/latex/arxiv-2405.07987/"
+latex_source: "[[raw/latex/arxiv-2405.07987/]]"
 author: "Minyoung Huh, Brian Cheung, Tongzhou Wang, Phillip Isola"
 date_published: "2024-05-13"
 date_ingested: "2026-04-06"

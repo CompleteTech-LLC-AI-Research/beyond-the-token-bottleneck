@@ -1,5 +1,5 @@
 ---
-type: overview
+type: moc
 category: thread
 title: "Latent Reasoning"
 created: "2026-04-06"
