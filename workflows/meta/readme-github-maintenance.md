@@ -56,15 +56,17 @@ Choose this workflow when the user says things like:
 
 The vault is published at `CompleteTech-LLC-AI-Research/beyond-the-token-bottleneck`. When significant changes are made, update `README.md`:
 
-1. **Paper count**: Update badges and the Papers Tracked collapsible section. Add new papers with arXiv links, authors, and venue.
-2. **Wiki page count**: Update the badge number.
-3. **Entry points table**: Add new MOCs or remove obsolete ones.
-4. **Vault structure tree**: Update if new directories are created.
-5. **Related Research section**: Add links to external projects, open calls, or foundational references that relate to the wiki's domain. Include contextual description of how they connect to wiki content.
+1. **Paper and wiki-page counts.** Run the [stale count sweep](../_shared/procedures/stale-count-sweep.md) scoped to `README.md` to identify and fix all stale paper counts and wiki-page counts, then return here and continue with the next step. Use the authoritative count from `Glob wiki/sources/**/*.md` (excluding one-liner partials) to verify badge numbers.
+2. **Papers Tracked section.** Add new papers with arXiv links, authors, and venue.
+3. **Entry points table.** The entry points table lists all current MOCs. Verify it matches `Glob wiki/mocs/*.md`. Add new MOCs or remove obsolete ones.
+4. **Vault structure tree.** Update the vault structure tree to match `wiki/index.md`'s directory enumeration. Add new directories only if they appear in the index.
+5. **Related Research section.** Verify all external links resolve. Check descriptions match linked content. Add links to external projects, open calls, or foundational references that relate to the wiki's domain.
 6. **SEO keywords**: Update the topics tag cloud at the bottom if new research areas are covered.
+7. **Commit and push.** Run [commit and push](../_shared/procedures/commit-and-push.md) in full.
 
 ## Completion Checklist
 
+- All items in [`../_shared/checklists/base.md`](../_shared/checklists/base.md) hold.
 - Badge counts match the current vault state.
 - The Papers Tracked section reflects the current paper set.
 - The entry points table matches the current MOC inventory.
