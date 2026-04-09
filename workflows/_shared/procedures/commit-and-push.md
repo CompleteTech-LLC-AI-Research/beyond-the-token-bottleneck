@@ -57,3 +57,4 @@ Return to the calling workflow and proceed with its next numbered step. This fra
 - `workflows/audit/enrichment-audit.md` (Phase 4 step 5)
 - `workflows/audit/moc-gap-analysis.md` (Procedure step 12)
 - `workflows/audit/plugin-audit.md` (Procedure step 8)
+- `workflows/audit/schema-self-audit.md` (Procedure step 9)
