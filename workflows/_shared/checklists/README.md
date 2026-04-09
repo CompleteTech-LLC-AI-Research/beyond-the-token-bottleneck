@@ -20,3 +20,5 @@ Each workflow builds its completion checklist by starting from `base.md` and the
 ```
 
 This keeps universal invariants (path existence, log entry, frontmatter) in one place while letting each domain add its own requirements without duplicating the base set.
+
+Workflows that do not ingest or audit (e.g., query, enrich, expand) use only `base.md` in their checklist and add workflow-specific items without layering `ingest-additions.md` or `audit-additions.md`.

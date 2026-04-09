@@ -78,9 +78,10 @@ Common triggers include:
 5. **Check MOC coverage.** Run the quick-scan from [moc-gap-analysis.md](moc-gap-analysis.md) — themes without MOCs, stale MOCs, `AGENTS.md` MOC list out of sync. Flag gaps; do not create MOCs here.
 6. Check whether `overview-state-of-field.md` needs updating using the documented triggers.
 7. **Schema and path consistency.** Run [schema-self-audit.md](schema-self-audit.md) in full (directory structure, path conventions, vault layout drift), then return here and continue with step 8.
-8. Report all findings.
-9. Apply fixes only with user approval.
-10. Log the review in `wiki/log.md`.
+8. **Plugin compliance (optional).** If Obsidian plugins were recently installed or updated, or rendering looks wrong, run [`plugin-audit.md`](plugin-audit.md) in full, then return here and continue with step 9. Otherwise, skip to step 9.
+9. Report all findings.
+10. Apply fixes only with user approval.
+11. Log the review in `wiki/log.md`.
 
 ## Completion Checklist
 - All items in [`../_shared/checklists/base.md`](../_shared/checklists/base.md) hold.
@@ -94,6 +95,7 @@ Common triggers include:
 ## Related Workflows
 
 - `workflows/audit/lint.md` — narrower health check that review subsumes.
+- `workflows/audit/plugin-audit.md` — optional periodic plugin compliance check (call if Obsidian plugins were recently updated).
 - `workflows/enrich/enrich.md` — structural improvements without broad review.
 - `workflows/enrich/expand.md` — depth work on existing pages.
 - `workflows/create/ingest.md` — source-driven updates that review validates.

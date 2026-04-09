@@ -2,7 +2,7 @@
 
 ```mermaid
 graph TD
-    Start([Subagent output ready]) --> S1
+    Start([Verification triggered]) --> S1
 
     subgraph Structural ["Structural Check"]
         S1[Check file directories]

@@ -105,9 +105,9 @@ Use this workflow when the wiki already has content and you need to clean up str
    - Scan for entity and concept names mentioned in prose but not wiki-linked.
    - Add missing links.
    - Check that cross-concept references are bidirectional where the connection is discussed on both sides.
-   - For concept partials specifically, run [concept-partial bidirectionality check](../_shared/procedures/concept-partial-bidirectionality.md).
+   - For concept partials specifically, run [concept-partial bidirectionality check](../_shared/procedures/concept-partial-bidirectionality.md) in full, then continue with the remaining sub-items of step 2.
 3. Verify raw asset linking:
-   a. Run [verify frontmatter completeness](../_shared/procedures/verify-frontmatter-completeness.md) on each source page touched by the pass, then return here.
+   a. Run [verify frontmatter completeness](../_shared/procedures/verify-frontmatter-completeness.md) on each source page touched by the pass, then return here and continue with sub-step b.
    b. Separately verify that all source pages include a `## Source Materials` footer.
    c. Add section-specific PDF citations like `[[raw/pdf/file.pdf|Paper §X]]` to concept pages for key claims. Verify each PDF path exists with `Glob` before adding the wiki-link (per [path-discipline](../_shared/rules/path-discipline.md)).
 4. **Sync indexes and assets.** Run [update index and assets](../_shared/procedures/update-index-and-assets.md) in full, then return here and continue with step 5.

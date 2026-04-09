@@ -47,8 +47,9 @@ Return to the calling workflow and proceed with its next numbered step. This fra
 
 ## Used by
 
-- `workflows/create/ingest.md` (Procedure step 4, "Create a source page")
+- `workflows/create/ingest.md` (Procedure step 4a, "Verify frontmatter completeness")
 - `workflows/enrich/enrich.md` (Procedure step 3, raw asset linking pass)
+- `workflows/enrich/expand.md` (Procedure step 2, source page expansion)
 - `workflows/audit/review.md` (Procedure step 2, "Spot-check that all pages have required frontmatter fields")
 - `workflows/audit/plugin-audit.md` (Procedure step 2, Pandoc compliance check; the universal-minimum check covers the `title:` requirement)
 - `workflows/audit/verification.md` (Procedure step 2, "Confirm frontmatter is complete and consistent")

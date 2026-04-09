@@ -44,8 +44,11 @@ Return to the calling workflow and proceed with its next numbered step. This fra
 
 ## Used by
 
-- `workflows/create/ingest.md` (Procedure steps 7, 9, 10, replacing the inlined directory-tree update + raw/index.md + downloader update)
+- `workflows/create/ingest.md` (Procedure step 7)
 - `workflows/create/batch-ingest.md` (Procedure step 4, the consolidation pass)
-- `workflows/enrich/enrich.md` (Procedure steps 4, 5, 6, the index/raw/downloader sync sub-steps)
-- `workflows/create/synthesize.md` (Procedure step 5, "Update `wiki/index.md` and any relevant MOCs")
-- `workflows/audit/enrichment-audit.md` (Phase 4 step 1, "Update `wiki/index.md` with new or changed page counts and entries")
+- `workflows/enrich/enrich.md` (Procedure step 4, index sync)
+- `workflows/create/synthesize.md` (Procedure step 5)
+- `workflows/audit/enrichment-audit.md` (Phase 4 step 2)
+- `workflows/audit/moc-gap-analysis.md` (Procedure step 10, consolidation)
+- `workflows/audit/plugin-audit.md` (Procedure step 4, if files were added/moved)
+- `workflows/query/query.md` (Procedure step 5, if a new analysis page is filed)

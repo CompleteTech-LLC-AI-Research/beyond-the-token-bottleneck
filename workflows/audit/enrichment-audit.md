@@ -116,8 +116,8 @@ Data-driven gap-finding pass that inventories enrichment opportunities across th
 1. **Living analyses review.** Run [living analyses review](../_shared/procedures/living-analyses-review.md) in full, then return here and continue with step 2.
 2. **Sync indexes and assets.** Run [update index and assets](../_shared/procedures/update-index-and-assets.md) in full, then return here and continue with step 3.
 3. **Stale count sweep.** Run [stale count sweep](../_shared/procedures/stale-count-sweep.md) in full, then return here and continue with step 4.
-4. **Update affected MOCs.** For each MOC whose reading path gained an entry during Phase 3, run [moc update](../_shared/procedures/moc-update.md). Skip if no MOC was affected.
-5. **Spot-check the agent output.** Run [spot check agent output](../_shared/procedures/spot-check-agent-output.md) in full, then return here and continue with step 6.
+4. **Update affected MOCs.** For each MOC whose reading path gained an entry during Phase 3, run [moc update](../_shared/procedures/moc-update.md), then return here and continue with step 5. Skip if no MOC was affected.
+5. **Spot-check the agent output.** Run [spot check agent output](../_shared/procedures/spot-check-agent-output.md) in full, then return here and continue with step 6. If the spot check escalates (2+ issues across the sample), run [`workflows/audit/verification.md`](verification.md) on the affected pages before continuing with step 6.
 6. Append all activity to `wiki/log.md` as a single audit entry per workstream.
 7. **Commit and push.** Run [commit and push](../_shared/procedures/commit-and-push.md) in full.
 
@@ -127,6 +127,7 @@ Data-driven gap-finding pass that inventories enrichment opportunities across th
 - All gaps are prioritized by impact.
 - User approval has been obtained before execution.
 - Parallel tasks had disjoint file ownership.
+- If Phase 3 work touched MOC themes, relevant MOCs were updated per [`../_shared/procedures/moc-update.md`](../_shared/procedures/moc-update.md), or skipping was documented.
 
 ## Related Workflows
 

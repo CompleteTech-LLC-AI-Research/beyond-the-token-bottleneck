@@ -75,15 +75,15 @@ Use this workflow to ingest `3+` sources in parallel, keep per-paper work isolat
 
 1. Identify every paper to ingest and group them by theme when that reduces overlap.
 2. **Dispatch the parallel subagents under the protocol.** Run [parallel subagent protocol](../_shared/procedures/parallel-subagent-protocol.md) in full, then return here and continue with step 3. Each subagent's task is "run [ingest](ingest.md) end-to-end on paper X."
-3. **Spot-check the agent output.** Run [spot check agent output](../_shared/procedures/spot-check-agent-output.md), then return here and continue with step 4. If the spot check escalates, pause and run [Verification](../audit/verification.md) in full before consolidation.
+3. **Spot-check the agent output.** Run [spot check agent output](../_shared/procedures/spot-check-agent-output.md), then return here and continue with step 4. If the spot check escalates (2+ issues across the sample), pause and run [Verification](../audit/verification.md) in full before proceeding to step 4.
 4. **Consolidate the coordinator-only files** that subagents could not touch:
    - Run [update index and assets](../_shared/procedures/update-index-and-assets.md) once for the whole batch.
    - Run [moc update](../_shared/procedures/moc-update.md) once per affected MOC.
    - Run [living analyses review](../_shared/procedures/living-analyses-review.md).
    - Run [stale count sweep](../_shared/procedures/stale-count-sweep.md).
    - Append a single chronological-order entry per paper to `wiki/log.md`.
-5. Run the [Verification](../audit/verification.md) workflow on all subagent output.
-6. Update `wiki/overview-state-of-field.md` if the batch materially changes the field picture.
+5. Report the batch outcome to the user: papers ingested, pages created, pages updated, and any issues escalated to the verification workflow.
+6. Update `wiki/overview-state-of-field.md` only if the batch meets one of the documented triggers in `AGENTS.md` (3+ papers, new thread emerges, major contradiction resolved, new MOCs created, entity landscape changes).
 7. **Commit and push.** Run [commit and push](../_shared/procedures/commit-and-push.md) in full.
 
 ## Completion Checklist

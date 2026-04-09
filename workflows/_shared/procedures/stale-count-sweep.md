@@ -53,8 +53,10 @@ Return to the calling workflow and proceed with its next numbered step. This fra
 
 ## Used by
 
-- `workflows/create/ingest.md` (Procedure step 12 — "Stale paper-count sweep").
+- `workflows/create/ingest.md` (Procedure step 10 — "Stale paper-count sweep").
 - `workflows/audit/lint.md` (Procedure step 3 — "Paper-count drift sweep").
-- `workflows/create/batch-ingest.md`.
+- `workflows/create/batch-ingest.md` (Procedure step 4, consolidation).
 - `workflows/audit/gap-analysis.md`.
 - `workflows/enrich/enrich.md`.
+- `workflows/audit/enrichment-audit.md` (Phase 4 step 3).
+- `workflows/query/query.md` (Procedure step 6, conditional after filing an analysis page).

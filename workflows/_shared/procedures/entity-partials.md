@@ -104,3 +104,4 @@ Return to the calling workflow and proceed with its next numbered step. This fra
 ## Used by
 
 - `workflows/create/ingest.md` — when an ingest introduces a new entity or adds a paper to an existing entity's timeline.
+- `workflows/enrich/expand.md` (Procedure step 4, entity page expansion)

@@ -58,6 +58,7 @@ When a new file becomes coordinator-only — typically because a workflow change
 
 ## Used by
 
+- [`log-immutability.md`](log-immutability.md) — `wiki/log.md` is append-only precisely because it is coordinator-only
 - `workflows/_shared/procedures/parallel-subagent-protocol.md` (canonical enforcement point — every subagent dispatch consumes this enumeration)
 - `workflows/_shared/procedures/spot-check-agent-output.md` (post-phase verification reference)
 - `workflows/_shared/procedures/commit-and-push.md` (the "do not touch" bucket overlaps with this enumeration)

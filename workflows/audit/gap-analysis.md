@@ -115,6 +115,8 @@ This workflow is **proactive** — it generates new ingest work from the wiki's 
 
 ### Phase 2: Procure via arXiv MCP
 
+Execute the following steps directly using the arXiv MCP tools (do not dispatch to subagents; the MCP requires session context):
+
 1. **Search**: Call `mcp__arxiv__search_papers` with quoted technical phrases relevant to the gap, restricted to `cs.CL`/`cs.AI`/`cs.LG` (or whatever categories match), `date_from` set to a recent window (typically the last 12 months), `max_results: 15`, `sort_by: relevance`. Avoid generic terms — use the wiki's own vocabulary.
 2. **Deduplicate**: Cross-reference candidate arXiv IDs against `raw/index.md` and `raw/download_arxiv_papers.py`'s `PAPER_SPECS`. Drop any IDs already ingested.
 3. **Triage abstracts**: For each remaining candidate, call `mcp__arxiv__get_abstract` (cheap, no full download). Score each candidate against the gap statement from Phase 1. Ask:
@@ -136,7 +138,7 @@ This workflow is **proactive** — it generates new ingest work from the wiki's 
    a. Add a `PaperSpec("XXXX.XXXXX", "archive")` (or `"extract"`) entry to `raw/download_arxiv_papers.py` in arXiv-ID order.
    b. Run the downloader script: `cd raw && python download_arxiv_papers.py`. The script is idempotent — it skips files that already exist. The new paper's PDF and LaTeX archive will land in `raw/pdf/` and `raw/latex/`.
    c. Update `raw/index.md` (PDF entry, LaTeX archive entry, summary count) and append the corresponding row to `raw/checklist.md` via [raw checklist row](../_shared/procedures/raw-checklist-row.md). The bijection is non-negotiable: every arXiv paper in `raw/index.md`'s "Canonical PDFs" table must have exactly one row in `raw/checklist.md`.
-   d. Run `workflows/create/ingest.md` end-to-end. Do not paraphrase its steps from memory — read the file. Do not duplicate those steps here — the ingest workflow is the canonical procedure and changes to it must be picked up automatically.
+   d. Run `workflows/create/ingest.md` end-to-end. Do not paraphrase its steps from memory — read the file. Do not duplicate those steps here — the ingest workflow is the canonical procedure and changes to it must be picked up automatically. When the inner ingest completes, verify all items in [`../_shared/checklists/ingest-additions.md`](../_shared/checklists/ingest-additions.md) hold before proceeding to Phase 4.
 
 ### Phase 4: Trigger Downstream Workflows
 

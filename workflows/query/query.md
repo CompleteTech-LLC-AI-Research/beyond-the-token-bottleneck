@@ -52,11 +52,12 @@ Common triggers include:
 4. If the answer is substantial and reusable, offer to file it as an analysis page.
    - Place the page in `wiki/analyses/`.
    - Include analysis-type frontmatter: `type: analysis`, `created`, `title`, `updated`.
-   - The new page is a coordinator-only file (per the shared-file-off-limits rule).
+   - The new page is a coordinator-only file per the [shared-file-off-limits rule](../_shared/rules/shared-file-off-limits.md).
    - Run [verify frontmatter completeness](../_shared/procedures/verify-frontmatter-completeness.md) on the new page.
 5. **Sync indexes and assets (if a page was filed).** If step 4 resulted in a new analysis page, run [update index and assets](../_shared/procedures/update-index-and-assets.md) in full, then return here and continue with step 6.
-6. **Append to log.** Add a single entry to `wiki/log.md` summarizing the filed analysis page.
-7. **Commit and push.** Run [commit and push](../_shared/procedures/commit-and-push.md) in full.
+6. **Stale count sweep (if a page was filed).** If step 5 ran, run the [stale count sweep](../_shared/procedures/stale-count-sweep.md) in full to verify all prose counts in `wiki/` and `README.md` are current, then return here and continue with step 7.
+7. **Append to log.** Add a single entry to `wiki/log.md` summarizing the filed analysis page.
+8. **Commit and push.** Run [commit and push](../_shared/procedures/commit-and-push.md) in full, then return here — the workflow is complete after this step.
 
 ## Completion Checklist
 
@@ -65,6 +66,7 @@ Common triggers include:
 - Citations use `[[wiki-links]]`.
 - Reusable answers are offered as analysis pages.
 - Any filed page is reflected in `wiki/index.md` and `wiki/log.md`.
+- If a new analysis page was filed, all prose counts in `wiki/` and `README.md` are current.
 
 ## Related Workflows
 - [`workflows/create/ingest.md`](../create/ingest.md) for adding new source-backed content.

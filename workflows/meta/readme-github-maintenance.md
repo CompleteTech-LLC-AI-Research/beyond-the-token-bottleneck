@@ -58,7 +58,7 @@ Choose this workflow when the user says things like:
 
 The vault is published at `CompleteTech-LLC-AI-Research/beyond-the-token-bottleneck`. When significant changes are made, update `README.md`:
 
-1. **Paper and wiki-page counts.** Run the [stale count sweep](../_shared/procedures/stale-count-sweep.md) scoped to `README.md` to identify and fix all stale paper counts and wiki-page counts, then return here and continue with the next step. Use the authoritative count from `Glob wiki/sources/**/*.md` (excluding one-liner partials) to verify badge numbers.
+1. **Paper and wiki-page counts.** Run the [stale count sweep](../_shared/procedures/stale-count-sweep.md) in full to identify and fix all stale paper counts and wiki-page counts across `wiki/` and `README.md`, then return here and continue with step 2.
 2. **Papers Tracked section.** Add new papers with arXiv links, authors, and venue.
 3. **Entry points table.** The entry points table lists all current MOCs. Verify it matches `Glob wiki/mocs/*.md`. Add new MOCs or remove obsolete ones.
 4. **Vault structure tree.** Update the vault structure tree to match `wiki/index.md`'s directory enumeration. Add new directories only if they appear in the index.
