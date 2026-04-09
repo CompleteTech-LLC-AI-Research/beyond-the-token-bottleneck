@@ -136,7 +136,7 @@ This workflow is **proactive** — it generates new ingest work from the wiki's 
    a. Add a `PaperSpec("XXXX.XXXXX", "archive")` (or `"extract"`) entry to `raw/download_arxiv_papers.py` in arXiv-ID order.
    b. Run the downloader script: `cd raw && python download_arxiv_papers.py`. The script is idempotent — it skips files that already exist. The new paper's PDF and LaTeX archive will land in `raw/pdf/` and `raw/latex/`.
    c. Update `raw/index.md` (PDF entry, LaTeX archive entry, summary count) and append the corresponding row to `raw/checklist.md` via [raw checklist row](../_shared/procedures/raw-checklist-row.md). The bijection is non-negotiable: every arXiv paper in `raw/index.md`'s "Canonical PDFs" table must have exactly one row in `raw/checklist.md`.
-   d. Run `workflows/create/ingest.md` end-to-end. Do not paraphrase its steps from memory — read the file. The ingest workflow handles source page creation, entity/concept updates, MOC reading-path updates via [moc update](../_shared/procedures/moc-update.md), index/asset sync via [update index and assets](../_shared/procedures/update-index-and-assets.md), the per-item [living analyses review](../_shared/procedures/living-analyses-review.md), and the log entry. Do not duplicate those steps here — the ingest workflow is the canonical procedure and changes to it must be picked up automatically.
+   d. Run `workflows/create/ingest.md` end-to-end. Do not paraphrase its steps from memory — read the file. Do not duplicate those steps here — the ingest workflow is the canonical procedure and changes to it must be picked up automatically.
 
 ### Phase 4: Trigger Downstream Workflows
 
@@ -144,25 +144,20 @@ After the ingest completes, **explicitly check** each of the following trigger c
 
 1. **Overview update** (`wiki/overview-state-of-field.md`):
    - Trigger: 3+ papers ingested in batch, OR a new research thread emerges, OR a major contradiction is resolved (or partially resolved), OR new MOCs are created, OR the entity landscape changes (new institution).
-   - Action: Update the relevant sections of `overview-state-of-field.md` to reflect the new finding. Bump `updated:` frontmatter.
    - For a single-paper ingest, this workflow's job is to *check the trigger*, not to skip it by default.
 
-2. **README update** (`workflows/meta/readme-github-maintenance.md`):
+2. **README update** — run `workflows/meta/readme-github-maintenance.md`:
    - Trigger: Paper count changes, vault structure changes, or new institution joins.
-   - Action: Update badge counts, paper list, How-It-Was-Built paragraph, vault structure tree.
    - For a single-paper ingest, the paper count always increments — this trigger always fires.
 
-3. **Lint** (`workflows/audit/lint.md`):
+3. **Lint** — run `workflows/audit/lint.md`:
    - Trigger: Any ingest that introduces new wiki-links, new anchors, or new section references.
-   - Action: Verify all newly introduced wiki-links resolve to existing pages and that any anchor references (`[[page#section]]`) match real headers.
 
-4. **Enrich** (`workflows/enrich/enrich.md`):
+4. **Enrich** — run `workflows/enrich/enrich.md`:
    - Trigger: Any ingest that creates a new entity page or significantly updates an existing one.
-   - Action: Verify bidirectional linking — the new entity is discoverable from the index, the source page links to the entity, and the entity links back to the source.
 
-5. **Schema self-audit** (`workflows/audit/schema-self-audit.md`):
+5. **Schema self-audit** — run `workflows/audit/schema-self-audit.md`:
    - Trigger: New source subdirectory created, or AGENTS.md workflow index updated, or new entity-page convention established.
-   - Action: Verify AGENTS.md still matches the actual vault layout.
 
 For single-paper ingests, triggers 2-4 always fire; trigger 1 fires conditionally; trigger 5 rarely fires.
 
@@ -177,7 +172,7 @@ For single-paper ingests, triggers 2-4 always fire; trigger 1 fires conditionall
    - Concept/source/MOC propagation — were all relevant pages updated with substantive content (not just link additions)?
    - Analysis updates — were all 6+ living analyses checked, *and was each numbered direction in `frontier-research-directions.md` and each numbered tension in `contradictions.md` reviewed individually*?
    - Overview / README / log — were the global pages updated?
-   - **Count-drift discipline** — was the [stale count sweep](../_shared/procedures/stale-count-sweep.md) performed? Were all hardcoded counts in body prose (intros, methodology paragraphs, MOC blurbs, blind-spot bullets, README badges, README per-thread headers, `wiki/index.md` directory tree) updated to the new value? Score 0/10 if any count outside `wiki/log.md` still shows the old value.
+   - **Count-drift discipline** — was the [stale count sweep](../_shared/procedures/stale-count-sweep.md) performed and all its sub-rules followed? Score 0/10 if any count outside `wiki/log.md` still shows the old value.
    - Lint compliance — do all new links resolve, do all new anchors exist?
    - Workflow trigger discipline — were all downstream workflow triggers explicitly checked and acted on?
 2. **If < 10/10**: Identify the missing pieces, fix them, and re-grade. Iterate until 10/10. Do not skip this loop — it is the difference between a 7/10 ingest and a 10/10 ingest.
