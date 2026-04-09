@@ -91,10 +91,10 @@ Use this workflow when the task sounds like:
    - reading path outline
    - connections to existing MOCs
 7. Get user approval, then create.
-8. **If creating 2+ MOCs, dispatch them under the parallel subagent protocol.** Run [parallel subagent protocol](../_shared/procedures/parallel-subagent-protocol.md) in full, then return here and continue with step 9. The fragment owns scope boundaries (each subagent creates only its own MOC file), the canonical coordinator-only file enumeration, and the report-not-edit instruction. For a single MOC, create the file directly (skip step 8) and proceed to step 9 for the spot-check, or step 10 if no parallel dispatch was used.
-9. **Spot-check the agent output.** Run [spot check agent output](../_shared/procedures/spot-check-agent-output.md), then return here and continue with step 10. Skipped if step 8 was skipped (single-MOC case).
-10. **Consolidate the coordinator-only files.** Run [update index and assets](../_shared/procedures/update-index-and-assets.md) — the fragment's directory-tree update covers the new MOC count, and the entry-list update covers the new MOC's row. The `AGENTS.md` Current MOCs list sync is part of the fragment's verification step.
-11. Run `workflows/audit/verification.md` on each new MOC.
+8. **If creating 2+ MOCs, dispatch them under the parallel subagent protocol.** Run [parallel subagent protocol](../_shared/procedures/parallel-subagent-protocol.md) in full, then return here and continue with step 9. For a single MOC, create the file directly (skip step 8) and proceed to step 10.
+9. **Spot-check the agent output.** Run [spot check agent output](../_shared/procedures/spot-check-agent-output.md) in full, then return here and continue with step 10. Skipped if step 8 was skipped (single-MOC case).
+10. **Consolidate the coordinator-only files.** Run [update index and assets](../_shared/procedures/update-index-and-assets.md) in full, then return here and continue with step 11.
+11. **Verify each new MOC.** Run [verification](verification.md) on each new MOC.
 12. **Commit and push.** Run [commit and push](../_shared/procedures/commit-and-push.md) in full.
 
 ## Completion Checklist
