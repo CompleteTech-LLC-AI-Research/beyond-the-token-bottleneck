@@ -4,6 +4,8 @@
 
 Living analyses in `wiki/analyses/` are synthesis pages whose internal structure (numbered tensions, numbered directions, clustered questions, benchmark rows, timeline entries, method-comparison rows) must be reviewed per item, not per page. A single new paper often updates multiple directions/tensions/questions within one analysis file, so the high-level "is this page relevant?" question hides individual matches and causes drift. This fragment is the canonical enumeration — all consuming workflows should reference it rather than re-listing analyses inline.
 
+Often called alongside [stale count sweep](stale-count-sweep.md), which addresses count drift rather than content drift.
+
 ## When to run
 
 - After every ingest (single or batch).
@@ -12,7 +14,7 @@ Living analyses in `wiki/analyses/` are synthesis pages whose internal structure
 
 ## The full set of living analyses
 
-Check **every** living analysis page in `wiki/analyses/` and update any that the new source touches. Do not skip any. Every direction in `frontier-research-directions.md` and every tension in `contradictions.md` must be reviewed individually, not just the analysis page as a whole, because a single new paper often updates multiple directions or tensions and the high-level "is this page relevant?" question hides individual matches.
+Check **every** living analysis page in `wiki/analyses/` and update any that the new source touches. Do not skip any. Every direction in `frontier-research-directions.md` and every tension in `contradictions.md` must be reviewed individually, not just the analysis page as a whole.
 
 - `contradictions.md` — for each numbered tension, ask whether the new source adds a new claim, resolves an existing one, or shifts the status. Update the per-tension sub-claims table and the summary table at the end.
 - `frontier-research-directions.md` — for each numbered direction (1-8), ask whether the new source provides additional empirical support, a new blocker, or a new "concrete next step" that is now closed. **A new paper often blocks or advances multiple directions** — review every direction individually before moving on.

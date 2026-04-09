@@ -18,7 +18,7 @@ This fragment **does not** include log appends (`wiki/log.md` is its own concern
 
 1. **Update `wiki/index.md`'s directory tree.** Get the authoritative current counts from the filesystem (`Glob wiki/sources/**/*.md`, `Glob wiki/entities/*.md`, `Glob wiki/mocs/*.md`, `Glob wiki/analyses/*.md`, `Glob wiki/concepts/*.md`) and update each count in the tree to match. Do not rely on memory or arithmetic.
 
-2. **Update `wiki/index.md`'s entry lists.** Each section (Sources, Entities, MOCs, Analyses, Concepts) has a curated list of pages with one-line descriptions. Add the new pages in the position the section's ordering principle dictates (alphabetical, chronological, theme-grouped). Remove any deleted pages from the list. Do not append at the end by default.
+2. **Update `wiki/index.md`'s entry lists.** Each section (Sources, Entities, MOCs, Analyses, Concepts) has a curated list of pages with one-line descriptions. Add the new pages in the position the section's ordering principle dictates and remove any deleted pages from the list (see Invariants below for details on ordering).
 
 3. **Update `raw/index.md`** if the workflow added or removed raw assets. The "Canonical PDFs" table must reflect every PDF in `raw/pdf/arxiv-*.pdf`, the "LaTeX Sources" table must reflect every directory or tarball in `raw/latex/`, and the "Duplicate PDFs (Venue Copies)" section must reflect every venue-duplicate PDF actually present on disk. Verify each path with `Glob` before listing.
 

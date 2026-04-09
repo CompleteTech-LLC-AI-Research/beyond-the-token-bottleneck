@@ -4,6 +4,8 @@
 
 Hardcoded counts in body prose (paper counts, entity counts, MOC counts, analysis counts, concept counts) drift every time the vault grows, because "update index/README counts" instructions typically only catch badge counts and the directory tree — not the prose counts buried in MOC blurbs, analysis intros, and collaboration pitches. This is a first-class regression class that has bitten previous ingests and lints, so it gets its own mandatory sweep.
 
+Often called alongside [living analyses review](living-analyses-review.md), which addresses content drift rather than count drift.
+
 ## When to run
 
 - After any ingest that changes the source page count (ingest, batch-ingest).

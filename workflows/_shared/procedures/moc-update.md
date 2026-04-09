@@ -13,7 +13,7 @@ When a new source page is added to the wiki (via ingest or batch-ingest), the re
 ## Procedure
 
 1. **Identify the relevant MOC(s).** A new source page typically belongs to one or two MOCs based on its theme. Open `wiki/mocs/` and pick the MOC whose reading path covers the new page's primary contribution. If the page contributes to multiple themes, update each MOC.
-2. **Add the new page to the MOC's reading path** in the position that respects the path's existing ordering principle (chronological, conceptual progression, mechanism-first, etc. — see the MOC's own header to determine which principle applies). Do not append to the end by default.
+2. **Add the new page to the MOC's reading path** in the position that respects the path's existing ordering principle (see Invariants below).
 3. **Update any prose descriptions in the MOC** that reference page counts, key papers, or thematic clusters that the new page changes. Watch for "5+ papers cover X" style sentences whose count would now drift.
 4. **Verify the `AGENTS.md` Current MOCs list still matches the actual `wiki/mocs/*.md` files** — this is a fast check (`Glob wiki/mocs/*.md` vs the AGENTS.md list) that catches the rare case where a MOC was accidentally created or deleted in the same session.
 
