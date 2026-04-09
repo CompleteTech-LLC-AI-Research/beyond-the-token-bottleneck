@@ -82,8 +82,8 @@ Quality-assurance pass for work done by parallel subagents. Use it to catch stru
 2. Run the **structural check** directly as the coordinator:
    - Confirm files are in the correct directories, such as `wiki/` rather than the vault root, and the correct `sources/` subdirectory when relevant.
    - Confirm `AGENTS.md`'s Current MOCs list matches the actual `wiki/mocs/*.md` files.
-3. **Spot-check the agent output as a lightweight first pass.** Run [spot check agent output](../_shared/procedures/spot-check-agent-output.md), then return here and continue with step 4. If the spot check finds 0–1 issues, proceed to step 4 for a deeper review. If the spot check finds 2+ issues, step 4 is mandatory and must complete in full before any consolidation in step 5 — do not skip or abbreviate it.
-4. **Run the content accuracy check in parallel**, one read-only review subagent per created page. Dispatch the review agents under [parallel subagent protocol](../_shared/procedures/parallel-subagent-protocol.md), then return here and continue with step 5. Verification's review agents are a special case — they read pages and return findings, never edit; the protocol fragment documents this special case in its invariants. Each review agent's task:
+3. **Spot-check the agent output as a lightweight first pass.** Run [spot check agent output](../_shared/procedures/spot-check-agent-output.md), then return here and continue with step 4. The fragment owns the escalation thresholds; if it escalates, step 4 must complete in full before any consolidation in step 5.
+4. **Run the content accuracy check in parallel**, one read-only review subagent per created page. Dispatch the review agents under [parallel subagent protocol](../_shared/procedures/parallel-subagent-protocol.md), then return here and continue with step 5. Each review agent's task:
    - Read the created page and every source page it references.
    - Cross-check author names, venues, years, specific numbers, and method descriptions.
    - Verify `[[wiki-links]]` targets exist and match the described content.
