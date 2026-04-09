@@ -48,9 +48,16 @@ Common triggers include:
 2. Read those pages directly.
 3. Synthesize the answer with `[[wiki-links]]` citations.
 4. If the answer is substantial and reusable, offer to file it as an analysis page.
-5. If the answer is filed as a page, update `wiki/index.md` and append to `wiki/log.md`.
+   - Place the page in `wiki/analyses/`.
+   - Include analysis-type frontmatter: `type: analysis`, `created`, `title`, `updated`.
+   - The new page is a coordinator-only file (per the shared-file-off-limits rule).
+   - Run [verify frontmatter completeness](../_shared/procedures/verify-frontmatter-completeness.md) on the new page.
+   - Update the Analyses section in `wiki/index.md` and append to `wiki/log.md`.
+5. **Commit and push (if a page was filed).** If step 4 resulted in a new analysis page, run [commit and push](../_shared/procedures/commit-and-push.md) in full.
 
 ## Completion Checklist
+
+- All items in [`../_shared/checklists/base.md`](../_shared/checklists/base.md) hold.
 - The answer is grounded in the relevant wiki pages.
 - Citations use `[[wiki-links]]`.
 - Reusable answers are offered as analysis pages.
