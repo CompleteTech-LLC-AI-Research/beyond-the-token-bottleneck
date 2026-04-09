@@ -140,7 +140,7 @@ Three foundational papers establish **why** latent reasoning works, forming a th
 > [!notation|right]
 > | Claim | Notation |
 > |---|---|
-> | Depth gain | $\mathsf{TC}^0 \to \mathsf{NC}^1$ |
+> | Depth gain | TC0 → NC1 |
 > | Superposition gain | $D$ steps vs $O(n^2)$ |
 
 ## The Superposition Property
@@ -282,6 +282,12 @@ Latent-space reasoning is not anti-CoT — it's a **generalization** of CoT. CoT
 ### Connection to [[activation-communication]]
 
 Coconut's continuous thoughts are exactly the kind of representation shared in activation communication. [[latentmas-collaboration|LatentMAS]] realizes this connection fully: agents generate latent thoughts via hidden-state feedback (Coconut-style), then transfer their complete KV caches (including the latent thoughts) to the next agent. This is the first framework that unifies latent reasoning and latent communication — agents that reason internally in latent space AND communicate in latent space. [[interlat-latent-space-agents|Interlat]] takes a similar approach with raw hidden-state sequences and learned compression.
+
+## Maps of Content
+
+This concept appears in the following guided reading paths:
+- [[latent-reasoning|Latent Reasoning]] — how individual models reason in continuous hidden-state space rather than discrete tokens
+- [[theoretical-foundations|Theoretical Foundations]] — the theoretical pillars explaining why continuous representations outperform discrete tokens
 
 ## Open Questions
 

@@ -25,7 +25,7 @@ wiki/
 │   └── meta/                # Frameworks, scaling, foundations (8)
 ├── concepts/                # 10 concept pages
 ├── entities/                # 13 entity pages + 26 partials (timeline.md, researchers.md per entity)
-└── analyses/                # 7 analysis pages
+└── analyses/                # 9 analysis pages
 ```
 
 ---
@@ -92,6 +92,8 @@ Navigate by research theme. Each MOC provides a guided reading path with narrati
 - [[contradictions]] — 9 tensions and contradictions between papers, with resolution status
 - [[latentcompress-collaboration-strategy]] — LatentCompress collaboration mapping and strategy
 - [[benchmark-overlap]] — Benchmark overlap across papers: coverage matrix, focused comparisons, blind spots
+- [[training-barriers-latent-reasoning]] — Two orthogonal training barriers bounding the latent reasoning design space
+- [[research-positioning-patterns]] — How institutional structure shapes latent reasoning research agendas
 
 ---
 

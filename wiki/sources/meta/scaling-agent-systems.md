@@ -126,7 +126,7 @@ Overall mean MAS improvement: -3.5% (95% CI: [-18.6%, +25.7%]), sigma = 45.2%.
 
 Twenty parameters, all predictors standardized (mu = 0, sigma = 1). Log transformations applied to right-skewed variables (Delta%: 0-515%; t_tools: 4-16; n: 1-4; alpha: 1.0-17.2).
 
-**S = beta_0 + beta_1(I - I_bar) + beta_2(I - I_bar)^2 + beta_3 log(1+t) + beta_4 log(1+n) + beta_5 log(1+Delta%) + beta_6 eta + beta_7 mu + beta_8 rho + beta_9 log(1+alpha) + beta_10 S_SA + beta_11(S_SA * log(1+n)) + beta_12(eta * t) + beta_13(Delta% * t) + beta_14(alpha * t) + beta_15(rho * n) + beta_16(alpha * S_SA) + beta_17(mu * I) + beta_18(I * log(1+t)) + beta_19(eta * alpha) + epsilon**
+$$S = \beta_0 + \beta_1(I - \bar{I}) + \beta_2(I - \bar{I})^2 + \beta_3 \log(1+t) + \beta_4 \log(1+n) + \beta_5 \log(1+\Delta\%) + \beta_6 \eta + \beta_7 \mu + \beta_8 \rho + \beta_9 \log(1+\alpha) + \beta_{10} S_{\text{SA}} + \beta_{11}(S_{\text{SA}} \cdot \log(1+n)) + \beta_{12}(\eta \cdot t) + \beta_{13}(\Delta\% \cdot t) + \beta_{14}(\alpha \cdot t) + \beta_{15}(\rho \cdot n) + \beta_{16}(\alpha \cdot S_{\text{SA}}) + \beta_{17}(\mu \cdot I) + \beta_{18}(I \cdot \log(1+t)) + \beta_{19}(\eta \cdot \alpha) + \epsilon$$
 
 ### Independent Variables (4 categories)
 1. **Base model capability**: Intelligence Index (I), centered at I_bar = 56.9

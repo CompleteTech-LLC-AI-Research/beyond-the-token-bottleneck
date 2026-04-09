@@ -4,7 +4,7 @@ title: "Reasoning by Superposition: A Theoretical Perspective on Chain of Contin
 source_file: "[[raw/pdf/arxiv-2505.12514.pdf]]"
 latex_source: "[[raw/latex/arxiv-2505.12514]]"
 author: "Hanlin Zhu, Shibo Hao, Jiantao Jiao, Stuart Russell, Zhiting Hu, Yuandong Tian"
-date_published: "2025-05-19"
+date_published: "2025-05-18"
 date_ingested: "2026-04-06"
 created: "2026-04-06"
 updated: "2026-04-08"

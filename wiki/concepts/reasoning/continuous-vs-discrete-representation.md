@@ -141,6 +141,12 @@ The optimal point on the trade-off depends on the system:
 
 The [[latent-variable-model]] framework provides the theoretical justification for working in continuous space: the identifiability theorems (Theorems 1-3 of [[thought-communication-multiagent|ThoughtComm]]) prove that continuous representations can be **meaningfully decomposed** into interpretable latent factors under sparsity assumptions. This addresses a fundamental concern about continuous representations — that they are opaque and uninterpretable. With identifiability, continuous representations become not just information-rich but also semantically transparent.
 
+## Maps of Content
+
+This concept appears in the following guided reading paths:
+- [[theoretical-foundations|Theoretical Foundations]] — the theoretical pillars explaining why continuous representations outperform discrete tokens
+- [[compression-information-theory|Compression & Information-Theoretic Bounds]] — how much bandwidth is enough for latent reasoning and communication
+
 ## Open Questions
 
 - **Is there an optimal compression point?** Between full continuous (maximum information, minimum compatibility) and full discrete (minimum information, maximum compatibility), is there an intermediate representation that captures most of the information advantage with broad compatibility?

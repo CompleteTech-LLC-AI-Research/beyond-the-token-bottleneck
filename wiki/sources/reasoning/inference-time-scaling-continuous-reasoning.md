@@ -63,7 +63,7 @@ The paper therefore turns an open research direction into a *partially-resolved*
 > | Symbol | Meaning |
 > |---|---|
 > | $X$ | Input question prompt |
-> | $\mathbf{s}_i \in \mathbb{R}^D$ | $i$-th continuous thought vector |
+> | $\mathbf{s}_i \in \R^D$ | $i$-th continuous thought vector |
 > | $T = c \cdot k$ | Total latent steps ($c=2$, $k=3$) |
 > | $N$ | Number of stochastic samples per question |
 > | $y^{HE}_{s_i}$ | Hard MC label for step $s_i$ |
@@ -212,7 +212,7 @@ A t-SNE visualization (Figure 3 in the paper) confirms the same picture: correct
 
 ### Trajectory Dynamics Are Equally Indistinguishable (Table 5)
 
-Treating the 6-step continuous-thought sequence as a trajectory in $\mathbb{R}^{768}$, Wang et al. compute four trajectory metrics:
+Treating the 6-step continuous-thought sequence as a trajectory in $\R^{768}$, Wang et al. compute four trajectory metrics:
 
 - **Compactness** (radius of gyration): $\sqrt{\frac{1}{T}\sum_i \|\mathbf{s}_i - \bar{\mathbf{s}}\|_2^2}$
 - **Curvature** (total angular bending): $\sum_{i=2}^{T-1} \arccos\left(\frac{\Delta_{i-1} \cdot \Delta_i}{\|\Delta_{i-1}\| \|\Delta_i\|}\right)$

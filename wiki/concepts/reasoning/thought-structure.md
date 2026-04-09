@@ -137,6 +137,12 @@ The paper makes an important observation: some thoughts are rare (low agreement,
 
 Thought structure operates entirely in [[continuous-vs-discrete-representation|continuous space]], but it adds a layer of **discrete annotation** (the binary incidence matrix $B(J_f)$ and integer agreement scores $\sigma_j$) on top of continuous representations. This is a hybrid approach: the thoughts themselves are continuous vectors preserving the full information density of the latent space, while the routing decisions are discrete (share/don't share, weight by integer agreement level). This hybrid design avoids the [[continuous-vs-discrete-representation|discrete bottleneck]] for content while using discreteness for structure — arguably the best of both worlds.
 
+## Maps of Content
+
+This concept appears in the following guided reading paths:
+- [[latent-communication|Latent Communication]] — how multiple LLM agents exchange information through continuous representations rather than text
+- [[theoretical-foundations|Theoretical Foundations]] — the theoretical pillars explaining why continuous representations outperform discrete tokens
+
 ## Open Questions
 
 - **Automatic dimensionality**: How many latent thought dimensions ($n_z$) are needed? Can this be determined automatically, perhaps through a variational approach or information-theoretic criterion?

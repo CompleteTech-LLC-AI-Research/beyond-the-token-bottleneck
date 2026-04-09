@@ -234,6 +234,11 @@ Temperature diversity provides a concrete decision criterion for choosing betwee
 | Robustness | Degrades gracefully | Sensitive to exact temperature values (narrow optimal region on some tasks) |
 | Interpretability | Both agents' outputs are human-readable | Only anchor agent's output is interpretable |
 
+## Maps of Content
+
+This concept appears in the following guided reading paths:
+- [[practical-systems|Practical Systems]] — when to use which method, scaling constraints, and deployment trade-offs
+
 ## Open Questions
 
 - **Optimal temperature schedules**: Should temperatures change across debate rounds? Starting diverse and converging toward low temperatures as consensus forms could combine exploration (early rounds) with exploitation (late rounds). No published work has explored this.

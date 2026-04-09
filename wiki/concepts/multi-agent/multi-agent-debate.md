@@ -144,6 +144,12 @@ Key distinctions:
 - **Critic-generator** (Centralized): Orchestrator coordinates. Lower error amplification but higher overhead.
 - **Plan-Execute**: [[agent-primitives-building-blocks|Agent Primitives]]' Planning primitive. Decomposes tasks into latent subgoals.
 
+## Maps of Content
+
+This concept appears in the following guided reading paths:
+- [[latent-communication|Latent Communication]] — how multiple LLM agents exchange information through continuous representations rather than text
+- [[practical-systems|Practical Systems]] — when to use which method, scaling constraints, and deployment trade-offs
+
 ## Open Questions
 
 - **Optimal debate topology**: All-to-all communication is the standard, but is it optimal? Could sparse communication graphs (e.g., ring, star, or learned topologies) reduce overhead while preserving the error-correction benefits? The [[scaling-agent-systems|Scaling Agent Systems]] finding that centralized MAS has lower error amplification (4.4x vs. 7.8x) suggests topology matters significantly.

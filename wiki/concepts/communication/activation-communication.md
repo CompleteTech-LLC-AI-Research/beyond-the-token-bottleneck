@@ -156,6 +156,13 @@ Activation communication is closely related to [[latent-space-reasoning]]. [[coc
 
 Both are instances of the [[continuous-vs-discrete-representation|continuous vs. discrete trade-off]] applied in complementary contexts (intra-agent vs. inter-agent).
 
+## Maps of Content
+
+This concept appears in the following guided reading paths:
+- [[latent-communication|Latent Communication]] — how multiple LLM agents exchange information through continuous representations rather than text
+- [[communication-depth-spectrum|Communication Depth Spectrum]] — guided reference for the 10 levels of inter-agent communication ordered by depth
+- [[cross-architecture|Cross-Architecture Compatibility]] — achieving deep, information-rich communication across heterogeneous model families
+
 ## Open Questions
 
 - **Optimal extraction layer**: [[activation-communication-harvard|AC]] finds layer 26/32 optimal for LLaMA. Is this consistent across architectures? Does it scale with model depth?

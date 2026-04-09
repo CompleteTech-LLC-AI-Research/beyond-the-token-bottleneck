@@ -97,6 +97,12 @@ Embedding-space communication and [[latent-space-reasoning]] are two application
 
 Embedding-space communication connects to a deeper idea in neural network research: **distributed representations** encode more information than symbolic representations. This was a core insight of connectionism (Hinton, 1986) — that meaning is better captured by patterns of activation across many dimensions than by discrete symbols. LLMs operating in natural language are, in a sense, reverting to symbolic communication despite having rich distributed representations internally. Embedding-space communication re-enables distributed communication between models.
 
+## Maps of Content
+
+This concept appears in the following guided reading paths:
+- [[latent-communication|Latent Communication]] — how multiple LLM agents exchange information through continuous representations rather than text
+- [[communication-depth-spectrum|Communication Depth Spectrum]] — guided reference for the 10 levels of inter-agent communication ordered by depth
+
 ## Open Questions
 
 - **Cross-tokenizer communication**: How to communicate between models with **different tokenizers** or embedding spaces? This is the major unsolved problem. Possible approaches include learned projection layers, shared latent spaces, or universal embedding alignment.

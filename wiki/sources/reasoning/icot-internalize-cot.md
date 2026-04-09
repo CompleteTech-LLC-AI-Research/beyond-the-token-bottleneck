@@ -2,7 +2,7 @@
 type: source
 title: "From Explicit CoT to Implicit CoT: Learning to Internalize CoT Step by Step"
 source_file: "[[raw/pdf/arxiv-2405.14838.pdf]]"
-latex_source: "raw/latex/arxiv-2405.14838/"
+latex_source: "[[raw/latex/arxiv-2405.14838]]"
 author: "Yuntian Deng, Yejin Choi, Stuart Shieber"
 date_published: "2024-05-23"
 date_ingested: "2026-04-06"

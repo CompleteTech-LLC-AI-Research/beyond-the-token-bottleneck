@@ -46,7 +46,7 @@ graph LR
         EMB --> D1A["Debater A<br>generates CIPHER<br>response"]
         EMB --> D1B["Debater B<br>generates CIPHER<br>response"]
     end
-    subgraph RN["Rounds 2…N"]
+    subgraph RN["Rounds 2...N"]
         style RN fill:#ffe6cc,stroke:#d79b00
         D1A --> CAT["Concatenate prompt +<br>all CIPHER responses"]
         D1B --> CAT
