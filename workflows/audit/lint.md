@@ -96,7 +96,7 @@ Use this workflow when you need to audit the wiki for quality issues, especially
    - `AGENTS.md` Current MOCs list matches the actual `wiki/mocs/*.md` files.
    - No stale path references remain in `AGENTS.md`, `README.md`, or index files after reorganizations.
    - Mermaid node labels use `<br>` for line breaks, not `\n` (which renders literally in Obsidian).
-3. Run the [stale count sweep](../_shared/procedures/stale-count-sweep.md) — catches the regression class where prose counts drift after ingests. Follow every sub-rule in the fragment (authoritative count method, grep patterns, common-offender re-verification, log.md exclusion, non-paper count sweep). When complete, return here and continue with step 4.
+3. Run the [stale count sweep](../_shared/procedures/stale-count-sweep.md) in full, then return here and continue with step 4.
 4. **Checklist sync check** (catches drift between `raw/index.md` and `raw/checklist.md`, the URL audit trail). The checklist tracks arXiv papers only; non-arXiv sources (e.g., the latentcompress GitHub project) are intentionally excluded, so the row count must be compared against the *Canonical PDFs* count in `raw/index.md`'s summary table, **not** the total unique source pages count.
    - Count the canonical PDF rows in `raw/index.md` (the "Canonical PDFs" table, excluding the venue-duplicate section and any non-arXiv rows).
    - Count the data rows in `raw/checklist.md` (the markdown table, excluding the header and separator rows).
@@ -105,7 +105,7 @@ Use this workflow when you need to audit the wiki for quality issues, especially
    - For each canonical PDF arxiv ID in `raw/index.md`, confirm a matching row exists in `raw/checklist.md` (match by arxiv ID in either the "Original refs from list" column or the "Local PDF" path). Flag any arxiv IDs present in `raw/index.md` but missing from `raw/checklist.md`, and any rows in `raw/checklist.md` whose arxiv ID is not in `raw/index.md`.
 5. Run the **Redundancy & Dead-Reference Audit** (see section below). This is a four-class sub-pass that catches phantom raw assets, source-page ↔ raw asset bijection breaks, slug collisions, and MOC/concept overlap.
 6. **Terminology drift scan.** Grep for the drift variants enumerated in [glossary](../_shared/glossary.md) and add them to the findings list. Do not silently rewrite — drift variants surface as findings so the user sees the pattern.
-7. **Concept-partial bidirectionality:** Run the [concept-partial bidirectionality check](../_shared/procedures/concept-partial-bidirectionality.md) in full, then return here and continue with step 8. This grep-verifies that every fragment under `wiki/concepts/_partials/framings/` (and `definitions/`) has a `## Used by` footer whose claimed consumers actually contain a matching `![[basename]]` embed, and that no fragment is orphaned.
+7. **Concept-partial bidirectionality:** Run the [concept-partial bidirectionality check](../_shared/procedures/concept-partial-bidirectionality.md) in full, then return here and continue with step 8.
 8. Report findings and suggest fixes.
 9. Apply fixes only after user approval.
 10. Log the lint pass in `wiki/log.md`.
