@@ -8,8 +8,7 @@ graph TD
         style MOC fill:#dae8fc,stroke:#6c8ebf
         M1[Check themes with 5+ uncovered pages]
         M2[Update existing MOCs for new pages]
-M3[Verify AGENTS.md MOC list matches files]
-        M1 --> M2 --> M3
+        M1 --> M2
     end
 
     MOC --> BL
@@ -101,9 +100,7 @@ Use this workflow when the wiki already has content and you need to clean up str
 ## Procedure
 1. Run a lightweight MOC Gap Analysis:
    - Check whether any theme has 5+ uncovered pages (a full check belongs to `workflows/audit/moc-gap-analysis.md`; this is a quick scan).
-   - For each existing MOC whose reading path needs an update, run [moc update](../_shared/procedures/moc-update.md), then return here and continue.
-   - Verify the `AGENTS.md` Current MOCs list matches actual MOC files.
-   - After completing all sub-steps, continue to step 2.
+   - For each existing MOC whose reading path needs an update, run [moc update](../_shared/procedures/moc-update.md) in full (its step 4 verifies the `AGENTS.md` MOC list), then return here and continue to step 2.
 2. Audit backlinks:
    - Scan for entity and concept names mentioned in prose but not wiki-linked.
    - Add missing links.
@@ -113,7 +110,7 @@ Use this workflow when the wiki already has content and you need to clean up str
    a. Run [verify frontmatter completeness](../_shared/procedures/verify-frontmatter-completeness.md) on each source page touched by the pass, then return here.
    b. Separately verify that all source pages include a `## Source Materials` footer.
    c. Add section-specific PDF citations like `[[raw/pdf/file.pdf|Paper §X]]` to concept pages for key claims. Verify each PDF path exists with `Glob` before adding the wiki-link (per [path-discipline](../_shared/rules/path-discipline.md)).
-4. **Sync indexes and assets.** Run [update index and assets](../_shared/procedures/update-index-and-assets.md) in full, then return here and continue with step 5. The fragment owns: `wiki/index.md` directory-tree counts and entry-list updates, `raw/index.md` PDF/LaTeX/venue-PDF tables, and `raw/download_arxiv_papers.py` reproducibility.
+4. **Sync indexes and assets.** Run [update index and assets](../_shared/procedures/update-index-and-assets.md) in full, then return here and continue with step 5.
 5. **Living analyses review.** Run [living analyses review](../_shared/procedures/living-analyses-review.md) in full, then return here and continue with step 6.
 6. **Stale count sweep.** Run [stale count sweep](../_shared/procedures/stale-count-sweep.md) in full, then return here and continue with step 7.
 7. Update `wiki/log.md` with what changed.
