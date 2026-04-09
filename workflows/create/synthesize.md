@@ -100,8 +100,10 @@ Create cross-cutting analysis pages that connect multiple sources and concepts i
 4. Create the analysis page with citations to all relevant sources.
 5. **Sync indexes and assets.** Run [update index and assets](../_shared/procedures/update-index-and-assets.md) in full, then return here and continue with step 6. The fragment owns the `wiki/index.md` directory-tree count and entry-list update for the new analysis page.
 6. **Update affected MOC reading paths.** For each MOC whose theme the new analysis touches, run [moc update](../_shared/procedures/moc-update.md). Skip if no MOC is affected (a synthesis page that creates a new theme may need no immediate MOC update).
-7. Append the work to `wiki/log.md`.
-8. **Commit and push.** Run [commit and push](../_shared/procedures/commit-and-push.md) in full.
+7. If the page count changed, run the [stale count sweep](../_shared/procedures/stale-count-sweep.md), then return here and continue with step 8.
+8. If the new analysis complements, contradicts, or reorganizes existing living analyses, run [living analyses review](../_shared/procedures/living-analyses-review.md) in full, then return here and continue with step 9.
+9. Append the work to `wiki/log.md`.
+10. **Commit and push.** Run [commit and push](../_shared/procedures/commit-and-push.md) in full.
 
 ## Completion Checklist
 
