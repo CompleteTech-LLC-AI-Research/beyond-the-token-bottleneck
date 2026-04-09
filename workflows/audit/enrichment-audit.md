@@ -114,11 +114,13 @@ Data-driven gap-finding pass that inventories enrichment opportunities across th
 2. **Dispatch the parallel agents under the protocol.** Run [parallel subagent protocol](../_shared/procedures/parallel-subagent-protocol.md) in full, then return here and continue with Phase 4. The fragment owns: per-agent scope boundaries, the canonical coordinator-only file enumeration (replacing the drifted 4-item list this phase used to inline), the report-not-edit instruction, and the dispatch contract. Track completion as tasks finish and report results incrementally to the user — the protocol fragment makes this explicit.
 
 ### Phase 4: Consolidate
-1. **Sync indexes and assets.** Run [update index and assets](../_shared/procedures/update-index-and-assets.md), then return here and continue with step 2. The fragment owns the `wiki/index.md` count and entry-list updates.
-2. **Update affected MOCs.** For each MOC whose reading path gained an entry during Phase 3, run [moc update](../_shared/procedures/moc-update.md). Skip if no MOC was affected.
-3. **Spot-check the agent output.** Run [spot check agent output](../_shared/procedures/spot-check-agent-output.md), then return here and continue with step 4. If the spot check escalates (2+ issues across the sample), pause and run `workflows/audit/verification.md` in full before logging.
-4. Append all activity to `wiki/log.md` as a single audit entry per workstream.
-5. **Commit and push.** Run [commit and push](../_shared/procedures/commit-and-push.md) in full.
+1. **Living analyses review.** Run [living analyses review](../_shared/procedures/living-analyses-review.md) in full, then return here.
+2. **Sync indexes and assets.** Run [update index and assets](../_shared/procedures/update-index-and-assets.md), then return here and continue with step 3. The fragment owns the `wiki/index.md` count and entry-list updates.
+3. **Stale count sweep.** Run [stale count sweep](../_shared/procedures/stale-count-sweep.md) in full, then return here.
+4. **Update affected MOCs.** For each MOC whose reading path gained an entry during Phase 3, run [moc update](../_shared/procedures/moc-update.md). Skip if no MOC was affected.
+5. **Spot-check the agent output.** Run [spot check agent output](../_shared/procedures/spot-check-agent-output.md), then return here and continue with step 6. If the spot check escalates (2+ issues across the sample), pause and run `workflows/audit/verification.md` in full before logging.
+6. Append all activity to `wiki/log.md` as a single audit entry per workstream.
+7. **Commit and push.** Run [commit and push](../_shared/procedures/commit-and-push.md) in full.
 
 ## Completion Checklist
 - All items in [`../_shared/checklists/base.md`](../_shared/checklists/base.md) hold.

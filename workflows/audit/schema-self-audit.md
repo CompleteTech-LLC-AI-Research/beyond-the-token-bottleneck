@@ -60,6 +60,8 @@ Verify that `AGENTS.md` still matches the real vault layout, current MOC invento
 
 ## Completion Checklist
 
+- All items in [`../_shared/checklists/base.md`](../_shared/checklists/base.md) hold.
+- All items in [`../_shared/checklists/audit-additions.md`](../_shared/checklists/audit-additions.md) hold.
 - `AGENTS.md` matches the actual vault directory structure.
 - `AGENTS.md` lists the actual MOC files.
 - Workflow references point to real files.
