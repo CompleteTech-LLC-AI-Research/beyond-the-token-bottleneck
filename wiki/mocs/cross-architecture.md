@@ -1,5 +1,5 @@
 ---
-type: overview
+type: moc
 category: lens
 title: "Cross-Architecture Compatibility"
 created: "2026-04-06"

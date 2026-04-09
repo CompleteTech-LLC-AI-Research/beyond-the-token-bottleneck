@@ -1,5 +1,5 @@
 ---
-type: overview
+type: moc
 category: reference
 title: "Communication Depth Spectrum"
 created: "2026-04-06"

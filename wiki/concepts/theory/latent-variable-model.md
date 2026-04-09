@@ -2,7 +2,7 @@
 type: concept
 title: "Latent Variable Model"
 created: "2026-04-06"
-updated: "2026-04-06"
+updated: "2026-04-08"
 tags: [theoretical, mathematical-framework]
 ---
 

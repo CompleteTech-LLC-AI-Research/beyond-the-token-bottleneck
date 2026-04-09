@@ -6,6 +6,7 @@ author: "billion-token-one-task"
 date_published: "2026"
 date_ingested: "2026-04-06"
 created: "2026-04-06"
+updated: "2026-04-08"
 venue: "GitHub (open research project)"
 tags: [latent-communication, compression, slot-attention, experimental, collaboration]
 ---

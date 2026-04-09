@@ -1,5 +1,5 @@
 ---
-type: overview
+type: moc
 category: lens
 title: "Safety, Interpretability & Auditability of Latent Systems"
 created: "2026-04-06"

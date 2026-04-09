@@ -2,7 +2,7 @@
 type: analysis
 title: "Collaboration Strategy: LatentCompress × Our Analysis"
 created: "2026-04-06"
-updated: "2026-04-06"
+updated: "2026-04-09"
 tags: [synthesis, strategy, collaboration, latentcompress]
 ---
 
@@ -54,14 +54,14 @@ They train only the compression head (frozen backbone) — good. But they should
 
 ## Mapping Their Directions to Ours
 
-| Their Direction           | Our Corresponding Direction    | Overlap | Gap                                                                                                    |
-| ------------------------- | ------------------------------ | ------- | ------------------------------------------------------------------------------------------------------ |
-| 1. Large-scale compressor | 8. Learned compression bounds  | High    | They focus on engineering; we focus on theoretical bounds                                              |
-| 2. Native pretraining     | 1. Superposition at scale      | Medium  | They want communication-native pretraining; we want BFS-native reasoning. Could be the same objective. |
-| 3. Hybrid latent+tool use | (Not in our analysis)          | None    | They identified a practical gap we missed                                                              |
-| (Not in their analysis)   | 2. Disentangling superposition | None    | Their slots might accidentally do this                                                                 |
-| (Not in their analysis)   | 3. Self-improvement effect     | None    | Testable with their existing infrastructure                                                            |
-| (Not in their analysis)   | 4. State deltas                | None    | Could improve their compression                                                                        |
+| Their Direction           | Our Corresponding Direction    | Overlap | Gap                                                                                                                                        |
+| ------------------------- | ------------------------------ | ------- | ------------------------------------------------------------------------------------------------------------------------------------------ |
+| 1. Large-scale compressor | 8. Learned compression bounds  | High    | They focus on engineering; we focus on theoretical bounds                                                                                  |
+| 2. Native pretraining     | 1. Superposition at scale      | Medium  | They want communication-native pretraining; we want BFS-native reasoning. Could be the same objective.                                     |
+| 3. Hybrid latent+tool use | (Not in our analysis)          | None    | They identified a practical gap we missed                                                                                                  |
+| (Not in their analysis)   | 2. Disentangling superposition | None    | Their slots might accidentally do this (but see [[inference-time-scaling-continuous-reasoning\|Wang et al.]] geometric homogeneity caveat) |
+| (Not in their analysis)   | 3. Self-improvement effect     | None    | Testable with their existing infrastructure                                                                                                |
+| (Not in their analysis)   | 4. State deltas                | None    | Could improve their compression                                                                                                            |
 
 ## How I'd Propose Proceeding
 
@@ -70,6 +70,9 @@ They train only the compression head (frozen backbone) — good. But they should
 If you want to collaborate with them, our analysis provides **differentiation** they can't get elsewhere. Specifically:
 
 **Contribution 1 — The superposition-disentanglement hypothesis**: Propose testing whether their 4 slots correspond to distinct reasoning paths (using [[coconut-reasoning-latent-space|Coconut]]'s probing methodology). This is a one-experiment test that could produce a landmark finding. If slot-attention naturally disentangles superposed paths, it connects compression research to the deepest theoretical finding in the field.
+
+> [!warning] Caveat: Geometric Homogeneity Barrier
+> [[inference-time-scaling-continuous-reasoning|Wang et al. (2025)]] found that COCONUT's continuous thought space exhibits extreme geometric homogeneity — IsoScore $\approx$ 0.013 (near-zero isotropy), and correct vs. incorrect reasoning trajectories are **geometrically indistinguishable** by every metric tested (compactness, curvature, local smoothness, straightness). PRM/ORM rerankers trained on these representations achieve F1 scores barely above chance. This is a potential blocker for Contribution 1: if the latent representations lack geometric structure to begin with, slot-attention may not find meaningful subspaces to disentangle. The hypothesis survives — compression *could* impose structure that the raw space lacks — but it should be framed as "does compression *create* separability?" rather than "does compression *reveal* separability?" Any experimental test must measure whether slots produce geometrically distinguishable representations (e.g., per-slot IsoScore, inter-slot cosine distance) rather than assuming the input space already supports disentanglement.
 
 **Contribution 2 — Delta compression**: Propose compressing state deltas instead of raw hidden states. Based on [[state-delta-trajectory|SDE]]'s results, this should require less bandwidth for the same information content (deltas are already context-agnostic). Simple swap in their pipeline, potentially large improvement.
 

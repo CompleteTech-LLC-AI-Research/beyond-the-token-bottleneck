@@ -2,7 +2,7 @@
 type: source
 title: "Improving Factuality and Reasoning in Language Models through Multiagent Debate"
 source_file: "[[raw/pdf/arxiv-2305.14325.pdf]]"
-latex_source: "raw/latex/arxiv-2305.14325/"
+latex_source: "[[raw/latex/arxiv-2305.14325/]]"
 author: "Yilun Du, Shuang Li, Antonio Torralba, Joshua B. Tenenbaum, Igor Mordatch"
 date_published: "2023-05-23"
 date_ingested: "2026-04-06"

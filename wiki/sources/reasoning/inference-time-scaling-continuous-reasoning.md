@@ -7,7 +7,7 @@ author: "Minghan Wang, Thuy-Trang Vu, Ehsan Shareghi, Gholamreza Haffari"
 date_published: "2025-10-14"
 date_ingested: "2026-04-08"
 created: "2026-04-08"
-updated: "2026-04-08"
+updated: "2026-04-09"
 venue: "arXiv preprint"
 arxiv: "2510.12167"
 institution: "Monash University"
@@ -304,27 +304,6 @@ The frontier-scale latent reasoning agenda that the [[frontier-research-directio
 - **[[coconut-reasoning-latent-space|COCONUT (Hao et al., 2024)]]**: Wang et al. reproduce the original paper's training recipe exactly (6 epochs initial stage, 3 epochs subsequent, $c=2$, $T=3 \times c$) and report that deterministic COCONUT achieves 31.08% on GSM8K — consistent with the 34.1% in the original paper (small difference attributable to random seeds and minor reproduction details). The dropout-sampling protocol is a clean addition to COCONUT's inference-time toolkit; it should generalize to any subsequent method that uses dropout in training.
 - **[[latent-reasoning-supervision-analysis|Cui et al. (2026)]]**: Direct conceptual companion. Both papers run the same model on the same dataset and converge on the same gap (large Pass@N pool, weak Maj@N concentration). Wang et al. operationalize the decoding-side question Cui et al. raise; Cui et al. operationalize the training-side question Wang et al. invoke. **Neither paper cites the other** — they are concurrent (Wang et al. October 2025, Cui et al. February 2026), so the wiki is the first place the two are explicitly synthesized.
 - **[[superposition-coconut-theory|Zhu et al. (2025)]]**: Wang et al.'s geometric finding (extreme anisotropy, IsoScore$\star \approx 0.013$) is in tension with Zhu et al.'s theoretical construction, where continuous thoughts are *uniform mixtures* of reachable vertex embeddings (a maximally isotropic state in a small subspace). The discrepancy may be that (i) Zhu et al.'s construction is a theoretical optimum that gradient training does not actually find, or (ii) the IsoScore$\star$ metric measures global anisotropy across the full hidden space, while Zhu et al.'s claim is about isotropy *within the subspace of reachable vertices* — a much smaller submanifold. Either way, the gap between theoretical superposition and empirical geometric homogeneity is a target for follow-up work.
-
-### Concept page updates
-
-- **[[latent-space-reasoning]]**: The "Capacity vs. Use Distinction" subsection should add Wang et al. as the empirical confirmation that the gap is *not* closeable by standard reranking. The "Open Questions" section's "Closing the Pass@100 / Maj@100 gap" entry needs a status update: *partially answered — direct PRM/ORM reranking does not work; the bottleneck is geometric homogeneity, not reranker design.*
-- **[[catastrophic-forgetting]]**: The "Second Barrier" section (supervision–exploration trade-off) gains a third entry: even at inference time, the absence of training-time inductive biases prevents discrimination. The trade-off bounds the design space *and* the inference-time mitigation space.
-- **[[continuous-vs-discrete-representation]]**: The discrete-token bottleneck section should note that continuous representations carry *more* information but, without explicit structural constraints, may not carry information that downstream consumers can *extract*.
-
-### Analysis page updates
-
-- **[[contradictions]]** #9 ("BFS as faithful structured search vs. implicit pruning"): Wang et al. is a third pillar alongside Coconut/Zhu et al. and Cui et al. The "Resolution needed" section's call for a controlled comparison of best-of-N CoT, self-consistency CoT, and latent-aware best-of-N decoding is now *partially answered* — Wang et al. ran exactly this comparison on COCONUT/GSM8K and the latent-aware variants did not close the gap. Status update: *capacity confirmed (Cui, Wang); iterative dynamics prune diversity (Cui); remaining diversity lacks geometric structure for discrimination (Wang); standard reranking cannot recover the gap (Wang).*
-- **[[frontier-research-directions]]** #1 (Superposition reasoning at frontier scale): Wang et al.'s geometric homogeneity finding is a third blocker on the agenda alongside Cui et al.'s implicit pruning and SoftCoT's catastrophic forgetting. Update the "Blockers" subsection.
-- **[[open-questions]]**: The "Closing the Pass@100 / Maj@100 gap" entry should be updated with Wang et al.'s null result and the new question: *can training-time inductive biases (isotropy regularization, contrastive losses, trajectory-diversity objectives) restore geometric separability?*
-- **[[benchmark-overlap]]**: Add Wang et al. to the GSM8K table (deterministic 31.08%, Pass@32 44.43%, Best Reranker 33.36%). Note that its scale (GPT-2) places it firmly in the "<2B latent reasoning" cluster.
-- **[[paper-timeline]]**: Insert at October 2025, between [[kvcomm-kth-selective|KVComm]] (October 2025) and [[kvcomm-duke-online-reuse|KVCOMM-online]] (October 2025).
-- **[[method-comparison]]**: Wang et al. is diagnostic, not a new method, but the dropout-sampling protocol could be added as an inference-time augmentation row.
-
-### MOC updates
-
-- **[[latent-reasoning]]**: Add as a "diagnostic / inference-time scaling" entry following Cui et al. The two papers should be read together as the empirical reckoning with COCONUT's promised capabilities.
-- **[[theoretical-foundations]]**: The geometric-properties analysis (IsoScore$\star$, Hoyer sparsity, trajectory dynamics) is a methodological contribution that complements [[platonic-representation-hypothesis|Platonic Rep]] and [[linearity-relation-decoding|Hernandez et al.]] — all three measure properties of internal representations, but Wang et al. is the first to ask whether these properties carry *task-relevant* information.
-- **[[safety-interpretability]]**: The geometric-homogeneity finding has direct safety implications. If correct and incorrect latent reasoning paths are indistinguishable to a verifier, then *no audit mechanism applied at the latent level can detect bad reasoning*. The shortcut behavior (12.59% Pass@5 under full noise) compounds this: COCONUT can produce correct answers without using its latent thoughts, so even the existence of well-formed latent thoughts is not evidence that they were used.
 
 ## Open Questions Raised
 

@@ -7,6 +7,7 @@ author: "Sachin Goyal, Ziwei Ji, Ankit Singh Rawat, Aditya Krishna Menon, Sanjiv
 date_published: "2023-10-03"
 date_ingested: "2026-04-06"
 created: "2026-04-06"
+updated: "2026-04-08"
 venue: "ICLR 2024"
 arxiv: "2310.02226"
 institution: "Carnegie Mellon University, Google Research"
@@ -163,4 +164,4 @@ This fragility contrasts with Coconut, where reducing the number of latent thoug
 
 ## Source Materials
 
-- [[raw/pdf/arxiv-2310.02226.pdf|PDF]] (`raw/latex/arxiv-2310.02226/`)
+- [[raw/pdf/arxiv-2310.02226.pdf|PDF]] [[raw/latex/arxiv-2310.02226/|LaTeX source]]

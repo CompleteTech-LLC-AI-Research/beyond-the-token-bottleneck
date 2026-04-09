@@ -1,5 +1,5 @@
 ---
-type: overview
+type: moc
 category: synthesis
 title: "Theoretical Foundations"
 created: "2026-04-06"

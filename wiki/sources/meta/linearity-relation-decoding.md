@@ -2,11 +2,12 @@
 type: source
 title: "Linearity of Relation Decoding in Transformer Language Models"
 source_file: "[[raw/pdf/arxiv-2308.09124.pdf]]"
-latex_source: "raw/latex/arxiv-2308.09124/"
+latex_source: "[[raw/latex/arxiv-2308.09124/]]"
 author: "Evan Hernandez, Arnab Sen Sharma, Tal Haklay, Kevin Meng, Martin Wattenberg, Jacob Andreas, Yonatan Belinkov, David Bau"
 date_published: "2023-08-17"
 date_ingested: "2026-04-06"
 created: "2026-04-06"
+updated: "2026-04-08"
 venue: "ICLR 2024"
 arxiv: "2308.09124"
 institution: "MIT, Northeastern, Technion IIT, Harvard"

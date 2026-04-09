@@ -96,7 +96,7 @@ AC matches or outperforms NLD on **48 of 57 MMLU datasets**. Average: AC 62.7% v
 | Qwen-2.5-1.5B → LLaMA-3.2-3B | 75.4/75.0 | **79.5/75.0** |
 | LLaMA-3.2-3B → Gemma-2-2B | 62.5/55.0 | **84.0/60.0** |
 
-AC works across LLaMA, Qwen-2.5, and Gemma-2 families **without** learned projections.  This is remarkable — these models have different tokenizers, vocabularies, training data, and architectures. The authors cite this as possible evidence for the **Platonic Representation Hypothesis** (Huh et al., 2024): independently trained models may converge to similar internal representations of the same concepts.
+AC works across LLaMA, Qwen-2.5, and Gemma-2 families **without** learned projections.  This is remarkable — these models have different tokenizers, vocabularies, training data, and architectures. The authors cite this as possible evidence for the **[[platonic-representation-hypothesis|Platonic Representation Hypothesis]]** (Huh et al., 2024): independently trained models may converge to similar internal representations of the same concepts.
 
 ### Compute Efficiency
 
@@ -144,7 +144,7 @@ AC introduces a critical distinction: **what matters is not just the depth of re
 | CIPHER | Output layer | After softmax | Next-token belief distribution |
 | KVComm | Attention layer | Per-layer KV pairs | Layer-specific attention context |
 | **AC** | **Residual stream** | **Mid-late layer (~26/32)** | **Enriched entity representations** |
-| ThoughtComm | Latent factors | Autoencoder output | Disentangled thoughts |
+| [[thought-communication-multiagent\|ThoughtComm]] | Latent factors | Autoencoder output | Disentangled thoughts |
 
 ## Limitations
 
@@ -162,7 +162,7 @@ AC introduces a critical distinction: **what matters is not just the depth of re
 - **[[state-delta-trajectory|SDE]]**: SDE refines AC's approach for same-model settings by using **deltas** (inter-token differences) instead of raw states, avoiding context contamination. AC works cross-model; SDE works same-model only.
 - **[[interlat-latent-space-agents|Interlat]]**: Extends AC from single-vector replacement to full-sequence hidden-state transmission with a learned communication adapter.
 - **[[continuous-vs-discrete-representation]]**: AC provides the clearest empirical case that continuous activations beat discrete text at a fraction of the compute.
-- **Platonic Representation Hypothesis**: Cross-family AC results without learned mappings suggest independently trained models develop similar internal representations — a profound implication for the universality of latent communication.
+- **[[platonic-representation-hypothesis|Platonic Representation Hypothesis]]**: Cross-family AC results without learned mappings suggest independently trained models develop similar internal representations — a profound implication for the universality of latent communication.
 
 ## Source Materials
 
