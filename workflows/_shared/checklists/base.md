@@ -34,4 +34,20 @@ Before this fragment, every workflow's `## Completion Checklist` re-listed the s
 
 ## Used by
 
-- Every workflow's `## Completion Checklist` section, by reference.
+Every workflow's `## Completion Checklist` section, by reference:
+
+- `workflows/create/ingest.md`
+- `workflows/create/batch-ingest.md`
+- `workflows/create/synthesize.md`
+- `workflows/enrich/enrich.md`
+- `workflows/enrich/expand.md`
+- `workflows/audit/lint.md`
+- `workflows/audit/review.md`
+- `workflows/audit/verification.md`
+- `workflows/audit/gap-analysis.md`
+- `workflows/audit/moc-gap-analysis.md`
+- `workflows/audit/enrichment-audit.md`
+- `workflows/audit/schema-self-audit.md`
+- `workflows/audit/plugin-audit.md`
+- `workflows/query/query.md`
+- `workflows/meta/readme-github-maintenance.md`

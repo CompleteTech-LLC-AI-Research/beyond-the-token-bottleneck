@@ -89,7 +89,9 @@ When creating one: add it to the directory tree above, update `wiki/index.md`'s 
 
 ## Page Types
 
-Wiki pages use YAML frontmatter. Every page MUST have `type` and `created` fields.
+Wiki pages use YAML frontmatter. The canonical frontmatter schema and field requirements live in [`workflows/_shared/rules/frontmatter-schema.md`](workflows/_shared/rules/frontmatter-schema.md). This section shows example templates; for the complete specification, required fields, and rationale, consult the rule.
+
+Every page MUST have `type` and `created` fields.
 
 The `updated` field records the date of the last **substantive content change** — new claims, revised analysis, added sources. Bump it when information changes, not for typo fixes, link additions, or formatting.
 
@@ -272,23 +274,13 @@ Detailed workflow instructions live in `workflows/*.md`. Do not improvise workfl
 
 ### Workflow Selection
 
-Before acting:
+Read [`workflows/README.md`](workflows/README.md) for the full decision tree and disambiguation tips. Quick rules:
 
 1. Identify exactly one **primary workflow** that best matches the user's request.
-2. Choose the **narrowest** workflow that fully covers the task. Do not default to `review` or `query` when a more specific workflow fits.
+2. Choose the **narrowest** workflow that fully covers the task.
 3. Read the primary workflow file first. Read secondary workflow files only when the primary workflow explicitly calls for them.
-4. Prefer explicit trigger matches over vague similarity:
-   - 3+ new sources or explicit parallel ingest -> `workflows/create/batch-ingest.md`
-   - Any parallel subagent output that needs QA -> `workflows/audit/verification.md`
-   - Whole-vault once-over -> `workflows/audit/review.md`
-   - Enrichment gap-finding plus prioritization -> `workflows/audit/enrichment-audit.md`
-   - Find a wiki gap and procure a new paper to fill it -> `workflows/audit/gap-analysis.md`
-   - New source onboarding -> `workflows/create/ingest.md`
-   - Question answering without wiki maintenance -> `workflows/query/query.md`
-5. Respect workflow boundaries:
-- Shared files (`wiki/index.md`, `wiki/log.md`, MOCs, `wiki/overview-state-of-field.md`, `AGENTS.md`) stay coordinator-owned unless the workflow explicitly says otherwise.
-   - If a workflow says to get user approval before applying fixes, stop and ask before editing.
-6. When no single workflow fits exactly, combine the minimum number needed and state which workflow is primary.
+4. Respect workflow boundaries: shared files stay coordinator-owned unless the workflow explicitly says otherwise; if a workflow says to get user approval before applying fixes, stop and ask.
+5. When no single workflow fits exactly, combine the minimum number needed and state which workflow is primary.
 
 ### Overview Update Triggers
 
@@ -303,6 +295,8 @@ Before acting:
 Do NOT update for minor ingests (1-2 papers that fit cleanly into existing themes) or structural changes (MOC reorganization, backlink fixes) that don't alter the narrative.
 
 ### Entity Page Scope
+
+For the canonical Role vocabulary used in Contribution Timeline tables, see the "Entity Contribution Timeline: Role vocabulary" section in [`workflows/CONVENTIONS.md`](workflows/CONVENTIONS.md).
 
 - **One institution, one page**: Default. Create a separate page for each institution (e.g., `harvard.md`, `kth.md`).
 - **Multi-institution page**: Use when institutions are tightly coupled on the **same papers** with deeply shared author lists and no independent contributions in the wiki. Example: `princeton-uiuc-stanford.md` — all three appear together on LatentMAS and Agent Primitives with overlapping authors.

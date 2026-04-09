@@ -47,7 +47,7 @@ The Pandoc plugin requires `title:` on every page; pages without it fail to rend
 
 Source pages without `source_file:` or `latex_source:` lose their connection to the underlying paper, breaking the wiki's source-of-truth invariant. Future ingests cannot cite back to the canonical asset, and `raw/index.md` ↔ source-page bijection breaks.
 
-Phantom file path entries in `source_file:`, `latex_source:`, or `venue_pdfs:` propagate into `raw/index.md` through the ingest workflow and break lint passes weeks after the original ingest. The "verify with Glob before writing" rule has been enforced multiple times after past breakage.
+Phantom file path entries in `source_file:`, `latex_source:`, or `venue_pdfs:` propagate into `raw/index.md` through the ingest workflow and break lint passes weeks after the original ingest. The "verify with Glob before writing" rule has been enforced multiple times after past breakage. See [path-discipline.md](path-discipline.md) for the complete rule on file path verification.
 
 ## How violations are caught
 

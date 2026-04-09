@@ -32,4 +32,7 @@ Return to the calling workflow and proceed with its next numbered step. This fra
 ## Used by
 
 - `workflows/create/ingest.md` (Procedure step 8)
-- `workflows/create/batch-ingest.md` (once per ingested paper, before consolidation)
+- `workflows/create/batch-ingest.md` (Procedure step 4, once per affected MOC)
+- `workflows/create/synthesize.md` (Procedure step 6)
+- `workflows/enrich/enrich.md` (Procedure step 1, per-MOC updates)
+- `workflows/audit/enrichment-audit.md` (Phase 4 step 4)

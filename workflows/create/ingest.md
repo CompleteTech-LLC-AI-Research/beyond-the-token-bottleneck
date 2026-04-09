@@ -81,17 +81,18 @@ Do not use this workflow when the task is only to answer a question, run a lint 
 
 1. Read the source file in `raw/`.
 2. Discuss key takeaways with the user. Ask what to emphasize if unclear.
-3. **Pick a slug that disambiguates by default.** Before creating the file, `Glob wiki/sources/**/*.md` and check whether the leading hyphen-token of your candidate slug already exists (e.g., another `kvcomm-*` or `coconut-*`). If it does, use the hybrid form `<technique>-<institution>-<distinguisher>.md` so collisions never accumulate.
-4. Create a source page in the appropriate `wiki/sources/` subdirectory. Follow the "Adding a new source under this convention" section in [`../_shared/procedures/source-partials.md`](../_shared/procedures/source-partials.md), then return here and continue with step 5.
+3. **Apply the [slug-disambiguation rule](../_shared/rules/slug-disambiguation.md).** Before creating the file, check whether the leading hyphen-token of your candidate slug already exists in the target directory. If it does, use the hybrid form per the rule.
+4. Create a source page in the appropriate `wiki/sources/` subdirectory. Follow the "Adding a new source under this convention" section in [`../_shared/procedures/source-partials.md`](../_shared/procedures/source-partials.md), then return here and continue with step 4a.
    - **Conditional `venue_pdfs:`**: only list a venue PDF when the file is actually present in `raw/pdf/` — verify each path with `Glob` before writing the frontmatter. Phantom `venue_pdfs:` entries propagate into `raw/index.md` and break lint passes weeks later. (This invariant is repeated inline because losing it in delegation has bitten previous ingests; the fragment also enforces it.)
+   - 4a. **Verify frontmatter completeness.** Run [verify frontmatter completeness](../_shared/procedures/verify-frontmatter-completeness.md) on the new source page, then return here and continue with step 5.
 5. For each significant entity or concept mentioned:
    - If a page exists, update it with new information and cite the new source.
-   - If no page exists, create one with `title:` in frontmatter.
+   - If no page exists, create one with the appropriate frontmatter per [`../_shared/rules/frontmatter-schema.md`](../_shared/rules/frontmatter-schema.md) (concept pages need the universal minimum: `type: concept`, `title:`, `created:`).
 6. For each institution involved, update or create the entity page following the [entity-partials](../_shared/procedures/entity-partials.md) procedure. For existing entities, add rows to the timeline and researchers partials. For new entities, follow the "Adding a new entity under this convention" checklist in the same procedure. Then return here and continue with step 7.
-7. **Sync indexes and assets.** Run [update index and assets](../_shared/procedures/update-index-and-assets.md) in full, then return here and continue with step 8. The fragment owns: `wiki/index.md` directory-tree counts and entry-list updates, `raw/index.md` PDF/LaTeX/venue-PDF tables, `raw/download_arxiv_papers.py` reproducibility, and the appended row in `raw/checklist.md` via [raw checklist row](../_shared/procedures/raw-checklist-row.md).
-8. **Update relevant MOC reading paths.** For each MOC whose theme the new source touches, run [moc update](../_shared/procedures/moc-update.md), then return here and continue with step 9. Insert each new entry in the position the MOC's ordering principle dictates — not appended at the end.
-9. **Review living analyses per-item.** Run the [living analyses review](../_shared/procedures/living-analyses-review.md) in full, then return here and continue with step 10. Every numbered direction in `frontier-research-directions.md` and every numbered tension in `contradictions.md` must be reviewed individually — the high-level "is this page relevant?" question hides individual matches.
-10. **Mandatory:** Run the [stale count sweep](../_shared/procedures/stale-count-sweep.md). This is a first-class regression class — do not skip. The common-offender list and grep patterns live in the fragment; apply them against the pre-ingest count (N) and the post-ingest count (N+1 or N+k). When complete, return here and continue with step 11.
+7. **Sync indexes and assets.** Run [update index and assets](../_shared/procedures/update-index-and-assets.md) in full, then return here and continue with step 8.
+8. **Update relevant MOC reading paths.** For each MOC whose theme the new source touches, run [moc update](../_shared/procedures/moc-update.md), then return here and continue with step 9.
+9. **Review living analyses per-item.** Run the [living analyses review](../_shared/procedures/living-analyses-review.md) in full, then return here and continue with step 10.
+10. **Mandatory:** Run the [stale count sweep](../_shared/procedures/stale-count-sweep.md) in full, then return here and continue with step 11.
 11. Append an entry to `wiki/log.md`.
 12. Report the outcome to the user: pages created, pages updated, and any contradictions found.
 13. **Commit and push.** Run [commit and push](../_shared/procedures/commit-and-push.md) in full.
@@ -107,4 +108,3 @@ Do not use this workflow when the task is only to answer a question, run a lint 
 - `workflows/audit/lint.md` — validates links introduced by ingest.
 - `workflows/enrich/enrich.md` — structural cleanup triggered after ingest.
 - `workflows/audit/gap-analysis.md` — proactive counterpart that finds papers to ingest.
-

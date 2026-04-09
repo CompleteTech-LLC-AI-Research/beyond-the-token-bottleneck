@@ -2,7 +2,9 @@
 
 ## Purpose
 
-Subagents working in parallel on a wiki workflow commonly make small but consequential mistakes — wrong file paths, imprecise claims, numbers off by small amounts, conflated findings from different papers, or stale frontmatter. This fragment defines the **lightweight spot-check** the coordinator runs after a parallel-subagent phase completes, before the work is treated as final. It is not a full verification pass (`workflows/audit/verification.md` is the heavyweight workflow for that); it is the minimum trust-but-verify check every parallel workflow owes its own outputs.
+Subagents working in parallel on a wiki workflow commonly make small but consequential mistakes — wrong file paths, imprecise claims, numbers off by small amounts, conflated findings from different papers, or stale frontmatter. This fragment defines the **lightweight spot-check** the coordinator runs after a parallel-subagent phase completes, before the work is treated as final.
+
+This fragment is used in two contexts: (1) as a lightweight first-pass after parallel subagents complete — findings of 2+ issues trigger escalation to `workflows/audit/verification.md` for the full per-page pass; and (2) inside `verification.md` itself as the entry-point check before dispatching heavyweight read-only review agents. It is not a full verification pass on its own.
 
 ## When to run
 

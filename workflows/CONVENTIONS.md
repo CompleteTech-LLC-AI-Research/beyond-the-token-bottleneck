@@ -44,6 +44,10 @@ Canonical terms and drift variants are tracked in [`_shared/glossary.md`](_share
   - Shared components in `workflows/_shared/{checklists,rules}/` use `../procedures/<file>.md` (one level up within `_shared/`).
   Both are correct relative paths from their respective locations. Do not use absolute `/workflows/_shared/...` paths.
 
+## Available fragments
+
+The authoritative list of reusable procedures lives in [`_shared/procedures/README.md`](_shared/procedures/README.md). When adding a new workflow, scan that list to see if an existing fragment covers your step; if not, consider creating one.
+
 ## Fragment reference style
 
 Workflows reference shared procedure fragments under `_shared/` with a standard markdown link, not an Obsidian transclude. Links render in every reader; transcludes only render in Obsidian, and these workflows are also read directly on GitHub and by non-Obsidian agents.

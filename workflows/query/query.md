@@ -5,16 +5,18 @@ graph TD
     A["Read wiki/index.md"] --> B["Read relevant pages"]
     B --> C["Synthesize answer<br>with wiki-links"]
     C --> D{"File as<br>analysis page?"}
-    D -- Yes --> E["Update index.md<br>& log.md"]
-    D -- No --> F["Done"]
-    E --> F
+    D -- Yes --> E["Update index<br>& assets"]
+    D -- No --> G["Done"]
+    E --> F["Append to log<br>& commit"]
+    F --> G
 
     style A fill:#dae8fc,stroke:#6c8ebf,color:#333
     style B fill:#fff2cc,stroke:#d6b656,color:#333
     style C fill:#d5e8d4,stroke:#82b366,color:#333
     style D fill:#ffe6cc,stroke:#d79b00,color:#333
     style E fill:#e1d5e7,stroke:#9673a6,color:#333
-    style F fill:#d5e8d4,stroke:#82b366,color:#333
+    style F fill:#e1d5e7,stroke:#9673a6,color:#333
+    style G fill:#d5e8d4,stroke:#82b366,color:#333
 ```
 
 ## Purpose
@@ -50,10 +52,12 @@ Common triggers include:
 4. If the answer is substantial and reusable, offer to file it as an analysis page.
    - Place the page in `wiki/analyses/`.
    - Include analysis-type frontmatter: `type: analysis`, `created`, `title`, `updated`.
-   - The new page is a coordinator-only file (per the shared-file-off-limits rule).
+   - The new page is a coordinator-only file per the [shared-file-off-limits rule](../_shared/rules/shared-file-off-limits.md).
    - Run [verify frontmatter completeness](../_shared/procedures/verify-frontmatter-completeness.md) on the new page.
-   - Update the Analyses section in `wiki/index.md` and append to `wiki/log.md`.
-5. **Commit and push (if a page was filed).** If step 4 resulted in a new analysis page, run [commit and push](../_shared/procedures/commit-and-push.md) in full.
+5. **Sync indexes and assets (if a page was filed).** If step 4 resulted in a new analysis page, run [update index and assets](../_shared/procedures/update-index-and-assets.md) in full, then return here and continue with step 6.
+6. **Stale count sweep (if a page was filed).** If step 5 ran, run the [stale count sweep](../_shared/procedures/stale-count-sweep.md) in full to verify all prose counts in `wiki/` and `README.md` are current, then return here and continue with step 7.
+7. **Append to log.** Add a single entry to `wiki/log.md` summarizing the filed analysis page.
+8. **Commit and push.** Run [commit and push](../_shared/procedures/commit-and-push.md) in full, then return here — the workflow is complete after this step.
 
 ## Completion Checklist
 
@@ -62,6 +66,7 @@ Common triggers include:
 - Citations use `[[wiki-links]]`.
 - Reusable answers are offered as analysis pages.
 - Any filed page is reflected in `wiki/index.md` and `wiki/log.md`.
+- If a new analysis page was filed, all prose counts in `wiki/` and `README.md` are current.
 
 ## Related Workflows
 - [`workflows/create/ingest.md`](../create/ingest.md) for adding new source-backed content.

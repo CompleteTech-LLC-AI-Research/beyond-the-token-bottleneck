@@ -28,3 +28,4 @@ The completion items specific to workflows that audit the wiki without (necessar
 - `workflows/audit/verification.md`
 - `workflows/audit/schema-self-audit.md`
 - `workflows/audit/plugin-audit.md`
+- `workflows/audit/moc-gap-analysis.md`
