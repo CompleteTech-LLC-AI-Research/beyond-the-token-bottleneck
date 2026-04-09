@@ -4,39 +4,30 @@
 graph TD
     Start([Start Review]) --> Lint
 
-    subgraph Lint["Full Lint Checklist"]
+    subgraph Lint["Lint Pass"]
         style Lint fill:#dae8fc,stroke:#6c8ebf
-        L1[Contradictions] --> L2[Orphan Pages]
-        L2 --> L3[Red Links]
-        L3 --> L4[Stale Claims]
-        L4 --> L5[Missing Cross-References]
-        L5 --> L6[File Placement & Path Refs]
-        L6 --> L7[Count Accuracy]
+        L1["Run lint.md end-to-end"]
     end
 
     Lint --> FM
 
     subgraph FM["Frontmatter & Source Materials"]
         style FM fill:#fff2cc,stroke:#d6b656
-        FM1["Check type / title / created"] --> FM2["Check source_file & latex_source"]
-        FM2 --> FM3["Verify ## Source Materials footer"]
+        FM1["Spot-check frontmatter"] --> FM2["Verify Source Materials footers"]
     end
 
     FM --> Depth
 
     subgraph Depth["Depth & MOC Coverage"]
         style Depth fill:#d5e8d4,stroke:#82b366
-        D1[Flag pages below depth standard] --> D2[All themes have MOCs?]
-        D2 --> D3[MOCs current?]
-D3 --> D4["AGENTS.md MOC list in sync?"]
+        D1["Flag thin pages<br>per enrichment-audit.md"] --> D2["Check MOC coverage<br>per moc-gap-analysis.md"]
     end
 
     Depth --> Schema
 
     subgraph Schema["Schema & Overview Freshness"]
         style Schema fill:#ffe6cc,stroke:#d79b00
-S1["Check overview-state-of-field.md triggers"] --> S2["Verify AGENTS.md vs actual vault layout"]
-        S2 --> S3["Update path refs if reorganized"]
+        S1["Check overview-state-of-field.md triggers"] --> S2["Run schema-self-audit.md"]
     end
 
     Schema --> Report
@@ -68,11 +59,11 @@ Common triggers include:
 - `audit the schema`
 
 ## Do Not Use When
-- The task is only answering a question. Use `Query`.
-- The task is only adding new source content. Use `Ingest` or `Batch Ingest`.
-- The task is only improving structure or navigation. Use `Enrich`.
-- The task is only deepening existing pages. Use `Expand`.
-- The task is specifically a health check without the broader pass. Use `Lint`.
+- The task is only answering a question. Use `workflows/query/query.md`.
+- The task is only adding new source content. Use `workflows/create/ingest.md` or `workflows/create/batch-ingest.md`.
+- The task is only improving structure or navigation. Use `workflows/enrich/enrich.md`.
+- The task is only deepening existing pages. Use `workflows/enrich/expand.md`.
+- The task is specifically a health check without the broader pass. Use `workflows/audit/lint.md`.
 
 ## Required Context
 - Compare the current vault state against `AGENTS.md`, `README.md`, `wiki/index.md`, and `raw/index.md`.
@@ -83,27 +74,22 @@ Common triggers include:
 1. Run [`workflows/audit/lint.md`](lint.md) end-to-end (this includes the terminology drift scan), then return here and continue with step 2.
 2. **Spot-check frontmatter completeness on a sample of pages.** Run [verify frontmatter completeness](../_shared/procedures/verify-frontmatter-completeness.md) on the sample, then return here. The fragment is the canonical schema; the per-type field lists live there, not here.
 3. Verify all source pages have the `## Source Materials` footer.
-4. Identify pages below the depth standard (source pages: under 130 lines; concept pages: under 120 lines; entity pages: under 50 lines; analysis pages: under 100 lines — per [enrichment-audit.md](enrichment-audit.md) Phase 1) and flag them for expansion.
-5. Check MOC coverage:
-   - all major themes have MOCs
-   - MOCs are current
-   - the `AGENTS.md` MOC list is in sync
+4. **Flag thin pages.** Apply the per-type depth thresholds from [enrichment-audit.md](enrichment-audit.md) Phase 1 and flag pages below standard for expansion.
+5. **Check MOC coverage.** Run the quick-scan from [moc-gap-analysis.md](moc-gap-analysis.md) — themes without MOCs, stale MOCs, `AGENTS.md` MOC list out of sync. Flag gaps; do not create MOCs here.
 6. Check whether `overview-state-of-field.md` needs updating using the documented triggers.
-7. Verify `AGENTS.md` directory structure, path conventions, and workflow steps still match the actual vault layout.
-8. If the vault was reorganized, ensure all path references across `AGENTS.md`, `README.md`, index files, and `raw/index.md` are updated.
-9. Report all findings.
-10. Apply fixes only with user approval.
-11. Log the review in `wiki/log.md`.
+7. **Schema and path consistency.** Run [schema-self-audit.md](schema-self-audit.md) in full (directory structure, path conventions, vault layout drift), then return here and continue with step 8.
+8. Report all findings.
+9. Apply fixes only with user approval.
+10. Log the review in `wiki/log.md`.
 
 ## Completion Checklist
 - All items in [`../_shared/checklists/base.md`](../_shared/checklists/base.md) hold.
 - All items in [`../_shared/checklists/audit-additions.md`](../_shared/checklists/audit-additions.md) hold.
-- Lint findings are reported.
+- Lint pass completed (includes terminology drift scan).
 - Frontmatter and source-material coverage are checked.
 - Depth gaps are identified.
 - MOC coverage and overview freshness are checked.
-- Schema and path consistency are verified.
-- Terminology drift findings (if any) are in the report.
+- Schema-self-audit passed.
 
 ## Related Workflows
 
