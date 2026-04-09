@@ -1,0 +1,7 @@
+- **Backbone**: GPT-2 (117M) trained as in [[coconut-reasoning-latent-space|the original Coconut paper]] — 6 epochs in the initial stage, 3 epochs in each of 3 subsequent stages.
+- **Latent budget**: $T = 3 \times c$ with $c = 2$, i.e. 6 continuous-thought vectors per trajectory.
+- **Sampling sizes**: $N \in \{1, 2, 4, 8, 16, 32\}$.
+- **Dataset**: GSM8K — training set used for RM data construction; test set used for BoN evaluation.
+- **Reward model training**: 10 epochs, learning rate 1e-4 with 500 warmup steps, batch size 128, single A100 GPU.
+- **Evaluation dataset for analysis**: A 3,014-sample subset of GSM8K test, with $M = 10$ trajectories per problem (2.29 unique on average) and $N = 20$ MC completions for label reliability. Natural distribution preserved (18.48% correct answers, 28.21% correct reasoning steps).
+- **Baselines**: text CoT, deterministic COCONUT, confidence-based reranking (answer-probability scoring), self-consistency (majority voting).

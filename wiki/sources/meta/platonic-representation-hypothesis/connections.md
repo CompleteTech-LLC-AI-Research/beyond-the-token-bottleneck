@@ -1,0 +1,4 @@
+- **[[activation-communication-harvard|AC]]**: Cross-family AC results (LLaMA $\leftrightarrow$ Qwen $\leftrightarrow$ Gemma without learned projections) are cited as possible evidence for the PRH
+- **[[relative-representations-zero-shot|Relative Representations]]**: Provides the complementary practical framework -- if models converge (PRH), relative representations make convergence exploitable via cosine-similarity anchors
+- **[[kv-cache-alignment-shared-space|KV Cache Alignment]]**: The shared KV-cache space is architecturally aligned with the PRH -- all models project into a shared space approximating the "platonic representation"
+- **[[linearity-relation-decoding|Hernandez et al.]]**: Linear relational embeddings at mid-layers are consistent with the PRH -- if the underlying representation is shared, linear projections should decode relations across models

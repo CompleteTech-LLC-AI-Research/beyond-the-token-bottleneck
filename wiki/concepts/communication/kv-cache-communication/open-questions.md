@@ -1,0 +1,5 @@
+- **Layer selection + C2C fusion**: Can [[kvcomm-kth-selective|KVComm]]'s attention-based selection strategy improve [[cache-to-cache-semantic-communication|C2C]]'s gating mechanism, or vice versa?
+- **Token-level selection**: KVComm selects layers; could token-level selection (which positions' KVs to share) further improve efficiency?
+- **Multi-round KV communication**: All three papers evaluate single-round communication. How does KV-cache communication work in iterative debate settings?
+- **Combination with [[thought-communication-multiagent|ThoughtComm]]**: Could disentangled thought extraction be applied to KV-caches specifically, combining ThoughtComm's structure with KV's attention-native integration?
+- **Scaling to frontier models**: Most experiments use 0.6B-14B models. Do the layer selection patterns and fusion benefits hold at 70B+ scale?

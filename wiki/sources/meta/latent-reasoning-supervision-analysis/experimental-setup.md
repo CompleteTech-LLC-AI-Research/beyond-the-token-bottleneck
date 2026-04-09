@@ -1,0 +1,5 @@
+- **Backbones**: GPT-2 (full fine-tuning) and LLaMA-3.2-1B-Instruct (LoRA fine-tuning)
+- **Datasets**:
+  - **GSM8K-Aug** ([[icot-internalize-cot|Deng et al., 2024]]): augmented grade-school math word problems with structured reasoning chains
+  - **ProsQA** ([[coconut-reasoning-latent-space|Hao et al., 2024]]): multi-step first-order logical reasoning over compositional rules; harder than ProntoQA
+- **Embedding norms** (used to calibrate noise interventions): GPT-2 latent embeddings have $\ell_2$ norm $\approx 24.42$ (768-dim); LLaMA-3.2-1B has $\approx 44.08$ (2048-dim)

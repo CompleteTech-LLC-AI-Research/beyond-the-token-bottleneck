@@ -1,0 +1,5 @@
+- **Requires aligned embedding spaces** (when not using W). Less restrictive than CIPHER's shared-tokenizer requirement, but still limits applicability. Relaxed by learned W.
+- **Requires access to model internals** — incompatible with black-box API models.
+- **Limited interpretability** — activations are not human-readable. The authors suggest a future direction: "translating" activations by observing the beliefs they induce in receiving agents.
+- **GSM8K underperformance** — multi-step math reasoning benefits from iterative refinement, not single-shot knowledge transfer.
+- **W training domain sensitivity** — the mapping matrix trained on C4 data has variable effectiveness depending on test domain similarity.

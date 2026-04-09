@@ -1,0 +1,5 @@
+- **Cross-tokenizer communication**: How to communicate between models with **different tokenizers** or embedding spaces? This is the major unsolved problem. Possible approaches include learned projection layers, shared latent spaces, or universal embedding alignment.
+- **Information capacity bounds**: What is the theoretical **information capacity** of embedding communication vs. natural language? Is there a formal characterization of how much information the softmax bottleneck discards?
+- **Open-ended generation**: Can these methods scale to **open-ended tasks** (summarization, creative writing, dialogue) beyond reasoning benchmarks with discrete answers?
+- **Adversarial robustness**: Can a malicious agent craft embedding vectors that exploit the receiver's processing in ways that discrete tokens cannot?
+- **Scaling behavior**: Does the advantage of embedding communication grow or shrink as models get larger and more capable? Larger models may be better at encoding information in discrete tokens, potentially narrowing the gap.

@@ -1,0 +1,3 @@
+The first rigorous theoretical formalization of **why continuous chain-of-thought ([[coconut-reasoning-latent-space|Coconut]]) outperforms discrete CoT**. Proves that continuous thoughts implement **parallel BFS via superposition** -- each latent vector encodes a normalized uniform mixture of all graph vertices reachable within $c$ steps. A 2-layer transformer with continuous CoT solves directed graph reachability in **$D$ steps** ($D$ = graph diameter), vs. **$O(n^2)$** for discrete CoT -- a quadratic-to-linear improvement.
+
+This paper formalizes the most important finding in our entire research collection and is the theoretical backbone for our [[frontier-research-directions|#1 paradigm-shift direction]].

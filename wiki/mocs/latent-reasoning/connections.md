@@ -1,0 +1,3 @@
+- Latent reasoning *within* agents combines with latent communication *between* agents in the [[unified-frameworks|unified frameworks]]
+- The same [[continuous-vs-discrete-representation]] bottleneck motivates both this line and [[latent-communication|latent communication]]
+- [[frontier-research-directions]] identifies superposition at frontier scale as the #1 open bet

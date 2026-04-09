@@ -1,0 +1,5 @@
+- [[training-barriers-latent-reasoning]] — extended synthesis of catastrophic forgetting + the supervision-exploration trade-off with full empirical evidence
+- [[latent-space-reasoning]] — the family of methods that catastrophic forgetting is a barrier for
+- [[latent-reasoning-supervision-analysis]] — Cui et al.'s second-barrier analysis
+- [[softcot-efficient-reasoning]] — the paper that first documented forgetting in latent reasoning on instruction-tuned models
+- [[coconut-reasoning-latent-space]] — the foundational latent reasoning method whose curriculum sensitivity illustrates the problem

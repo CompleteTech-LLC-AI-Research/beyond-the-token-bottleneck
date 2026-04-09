@@ -1,0 +1,4 @@
+- [[latent-communication]] — thematic hub for latent communication; this MOC provides the detailed paper walkthrough
+- [[practical-systems]] — deployment trade-offs for each depth level
+- [[theoretical-foundations]] — information-theoretic grounding for the depth axis
+- [[cross-architecture]] — compatibility requirements vary by depth level

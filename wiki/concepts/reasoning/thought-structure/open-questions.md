@@ -1,0 +1,6 @@
+- **Automatic dimensionality**: How many latent thought dimensions ($n_z$) are needed? Can this be determined automatically, perhaps through a variational approach or information-theoretic criterion?
+- **Dynamic structure**: Thought structure likely evolves across debate rounds as agents update their reasoning. Can the framework track and adapt to this evolution in real time?
+- **Cross-architecture application**: The theory requires access to hidden states. Can thought structure be inferred from observable outputs (generated text, logits) for closed-source models?
+- **Thought quality**: Not all identified thoughts are equally useful. Can the framework distinguish between informative thoughts and noise in the latent space?
+- **Scaling to many agents**: Pairwise identifiability composes to global structure, but does this composition remain robust with dozens or hundreds of agents?
+- **Connection to interpretability**: Disentangled latent thoughts could serve as an interpretability tool — revealing *why* agents disagree by identifying which private thoughts drive divergent answers.

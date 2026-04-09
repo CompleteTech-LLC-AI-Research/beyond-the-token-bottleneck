@@ -1,0 +1,3 @@
+- **[[multi-agent-debate]]**: Decentralized MAS implements debate. This paper quantifies when debate helps (+9.2% on web navigation) and when it hurts (-41.5% on sequential planning).
+- **[[embedding-space-communication]]**: All communication in this framework is natural language. The "lossy communication" problem it identifies is exactly what latent methods address.
+- **[[thought-structure]]**: The information gain metric (Bayesian posterior variance reduction) quantifies how much actionable information agents exchange — related to ThoughtComm's agreement-based routing.

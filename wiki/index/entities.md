@@ -1,0 +1,15 @@
+- [[fair-meta]] — FAIR at Meta: Coconut, ThoughtComm, LLaMA ecosystem enabler. Collaborates with CMU, MBZUAI, UC San Diego, UC Berkeley.
+- [[cmu]] — CMU: Pause Tokens, ThoughtComm, Vision Wormhole. Bridges FAIR, MBZUAI, Purdue, Google Research.
+- [[tsinghua]] — Tsinghua: C2C, SDE. Industry collaborations with Infinigence AI, Shanghai AI Lab.
+- [[kth]] — KTH: KVComm. Internal systems/networking collaboration.
+- [[google-deepmind]] — Google DeepMind: KV Cache Alignment, Scaling paper. Collaborates with Google Research, MIT.
+- [[google-research]] — Google Research: Pause Tokens, Scaling paper, Thinking States. Collaborates with CMU, DeepMind, MIT.
+- [[harvard]] — Harvard: AC, iCoT. Hosts Yilun Du (debate founder, ex-MIT). Intellectual lineage to FAIR (Coconut).
+- [[princeton-uiuc-stanford]] — Princeton/UIUC/Stanford: LatentMAS, Agent Primitives. Yejin Choi bridges to Harvard/iCoT.
+- [[purdue]] — Purdue: Vision Wormhole. Collaborates with CMU, Contextual AI, Georgia Tech.
+- [[mit]] — MIT: Multiagent Debate, Platonic Rep Hypothesis, Scaling paper. Origin point for debate paradigm; collaborates with Google.
+- [[mbzuai]] — MBZUAI: ThoughtComm (co-lead with CMU, FAIR). Gulf-Western research bridge.
+- [[amazon]] — Amazon: Latent Reasoning Supervision Analysis. First systematic empirical critique of latent reasoning's BFS hypothesis; identifies the supervision–exploration trade-off.
+- [[monash]] — Monash University: Inference-time Scaling for Continuous Reasoning. First implementation of PRM/ORM reranking for COCONUT; diagnoses geometric homogeneity as the root cause of the Pass@N / Maj@N gap.
+
+---

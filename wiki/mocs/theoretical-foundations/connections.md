@@ -1,0 +1,4 @@
+- **[[latent-reasoning]]** — The depth bottleneck and superposition theory directly motivate continuous reasoning architectures (Coconut, iCoT, Thinking States).
+- **[[latent-communication]]** — Representation geometry and convergence hypotheses explain why activation, KV-cache, and structured communication work across models.
+- **[[communication-depth-spectrum]]** — The compatibility cost at each depth level is governed by the geometric structure described here.
+- **[[unified-frameworks]]** — Unified systems combining reasoning + communication depend on both the expressivity results and the cross-model alignment theory.

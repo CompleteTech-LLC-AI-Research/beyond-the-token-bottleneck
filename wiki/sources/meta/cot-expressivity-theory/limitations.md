@@ -1,0 +1,4 @@
+- **Constructive, not learned**: The proofs show existence of weight configurations, not that gradient descent finds them. The experimental results suggest learning is possible but do not prove it theoretically.
+- **Finite field simplification**: Operating over $\mathbb{F}_p$ avoids floating-point precision issues present in real arithmetic.
+- **Constant-size is relative**: The hidden dimension $d = O(\text{poly}(p))$ can be large for large primes, though it is independent of input length $n$.
+- **CoT format dependency**: The specific CoT format (step-by-step reduction) is chosen to enable the construction; other formats might not yield the same guarantees.

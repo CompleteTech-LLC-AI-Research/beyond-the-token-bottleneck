@@ -1,0 +1,5 @@
+- **Scale**: All experiments on GPT-2. Whether the BFS behavior persists at frontier model scale is unknown.
+- **Task scope**: Strong results on logical reasoning and planning, weaker on math (GSM8k). Not tested on open-ended generation, NLU, or coding.
+- **Training cost**: The multi-stage curriculum adds complexity. Each stage requires separate training with optimizer resets. n latent thoughts require n+1 sequential forward passes per sample.
+- **Cannot learn from scratch**: The dependency on language CoT data for curriculum bootstrapping is a fundamental limitation — you need good language reasoning chains before you can train latent reasoning.
+- **Parallelism challenges**: Sequential forward passes for continuous thoughts cannot be parallelized, creating a training efficiency bottleneck.

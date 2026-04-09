@@ -1,0 +1,5 @@
+- **EWC for latent reasoning**: Could Elastic Weight Consolidation explicitly protect instruction-following parameters during latent reasoning training? No published work has tried this combination.
+- **Thinking States on instruction-tuned models**: [[thinking-states-latent-reasoning|Thinking States]] has only been tested on base models (Qwen2.5-Base). Would its frozen-backbone architecture preserve instruction-tuned capabilities?
+- **Does forgetting severity scale with model size?** Larger models have more parameters and potentially more redundancy — does this make them more or less susceptible?
+- **Escaping the supervision-exploration trade-off**: Cui et al. test only single-model methods at <2B scale. Does scale itself open new design points, or does the trade-off survive at frontier model sizes?
+- **Progressive unfreezing**: Could a hybrid approach work — freeze the backbone initially, train external modules, then gradually unfreeze with strong EWC regularization?

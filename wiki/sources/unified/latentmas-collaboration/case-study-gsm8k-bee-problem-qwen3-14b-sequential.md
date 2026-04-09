@@ -1,0 +1,5 @@
+**Problem**: Track bees leaving/returning a hive across four 6-hour periods. Correct answer: 75 bees return in the final period (15 remaining from Period 1 + 60 from Period 3).
+
+**TextMAS failure**: The Planner correctly identifies all four periods and computes intermediate values. The Critic provides feedback but introduces confusion by repeatedly questioning straightforward interpretations. The Refiner produces a correct plan. However, the **Solver re-derives everything from scratch** through text, gets confused about "bees that left before that," and outputs **15** (wrong — forgot the 60 bees from Period 3).
+
+**LatentMAS success**: Agents communicate via latent working memory rather than verbose text. The final Solver agent receives rich continuous representations of the refined reasoning and correctly computes **15 + 60 = 75**. The key difference: latent transfer avoids the **error compounding** problem where early misinterpretations propagate through brittle text and constrain later agents' search space.

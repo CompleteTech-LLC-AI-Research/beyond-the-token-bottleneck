@@ -1,0 +1,8 @@
+### Relation to KV-Cache Communication Cluster
+The slot-attention compressor addresses the same fundamental problem as [[kv-cache-communication]] — transferring internal model state between agents — but at a radically different compression point. Where [[kvcomm-kth-selective|KVComm]] transmits 30-70% of layers (~10-22 layers' KV pairs), and [[cache-to-cache-semantic-communication|C2C]] transmits full selected-layer caches with a learned fuser, LatentCompress compresses everything to 512 bytes. The bandwidth-accuracy trade-off is extreme: sufficient for GSM8K, insufficient for GPQA.
+
+### Relation to Latent Reasoning
+The QASPER finding (4.5% selected text > 100% full text) resonates with [[coconut-reasoning-latent-space|Coconut]]'s insight that language is not optimal for information transfer. Both suggest that intelligent compression/selection outperforms brute-force information quantity. The connection to [[cot-expressivity-theory|Feng et al.]]'s depth theory is unexplored: does slot-attention compression preserve the effective depth that [[latent-space-reasoning]] methods rely on?
+
+### Relation to Safety and Interpretability
+The safety framing is unique in the field. The "audit shadow" proposal (requiring latent messages to be decodable to readable text) directly addresses the governance gap identified by no other paper. This connects to [[thinking-states-latent-reasoning|Thinking States]]'s design choice to preserve natural language thoughts at chunk boundaries, enabling interpretability that pure latent methods ([[coconut-reasoning-latent-space|Coconut]], [[icot-internalize-cot|iCoT]]) sacrifice.

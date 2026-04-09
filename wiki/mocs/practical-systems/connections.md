@@ -1,0 +1,4 @@
+- **[[latent-reasoning]]** — Intra-agent reasoning methods that feed into unified systems. The [[catastrophic-forgetting]] barrier is the main obstacle to deploying Coconut-style reasoning in production.
+- **[[latent-communication]]** — The full depth spectrum of inter-agent communication options, organized by information density and compatibility.
+- **[[communication-depth-spectrum]]** — 10-level walkthrough from natural language to full KV-cache + latent thoughts, useful for understanding the bandwidth-compatibility trade-off space.
+- **[[unified-frameworks]]** — The three systems (LatentMAS, Vision Wormhole, Agent Primitives) that combine reasoning and communication.

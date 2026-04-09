@@ -1,0 +1,3 @@
+- **[[latent-communication]]** --- The full depth spectrum of inter-agent communication, organized by information density. This MOC asks "what should we communicate?"; the safety MOC asks "can we verify what was communicated?"
+- **[[latent-reasoning]]** --- Intra-agent reasoning methods. The [[catastrophic-forgetting]] barrier is a safety concern in its own right --- training that damages instruction-tuned models can silently degrade alignment properties.
+- **[[practical-systems]]** --- The deployment decision guide includes a "Safety/auditability required" row recommending LatentCompress and ThoughtComm. This MOC provides the deeper justification for that recommendation.

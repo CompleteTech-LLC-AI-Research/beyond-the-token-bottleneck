@@ -1,0 +1,4 @@
+- Requires models to **share a tokenizer**. Cross-tokenizer communication is flagged as an open problem. Different tokenizers use fundamentally different text segmentation strategies, making embedding alignment across tokenizer boundaries challenging.
+- For models sharing a tokenizer but with different embedding matrices (e.g., LLaMA-65B vs LLaMA2-70B), a mapping is maintained: the sender generates using the receiver's embeddings. This works because both models index the same vocabulary, just with different learned vectors.
+- Not yet tested on open-ended generation tasks (only reasoning benchmarks with discrete answers).
+- The authors note that LLMs are only trained to intake embeddings of natural language tokens, so vectors outside the convex hull of the embedding space may not be interpretable — CIPHER's weighted average stays within this hull by construction.

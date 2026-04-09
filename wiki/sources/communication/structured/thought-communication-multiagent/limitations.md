@@ -1,0 +1,5 @@
+- **Requires access to model hidden states**: Cannot be applied to closed-source / API-only models. The authors suggest using context-aware embeddings of observational data as a substitute, but this is not empirically validated.
+- **Autoencoder training requires data**: 500 examples for fine-tuning the autoencoder and adapter, though this is lightweight compared to full model finetuning.
+- **Identifiability is pairwise**: The theory guarantees disentanglement between agent pairs. Global structure is recovered by composition, which may introduce accumulated errors in large agent systems.
+- **Sparsity assumption**: The $\ell_0 / \ell_1$ sparsity assumption on the Jacobian must hold — thoughts must genuinely have sparse influence on agent states. If the true generating function is dense (every thought influences every dimension), the theory breaks down.
+- **Fixed thought dimensionality**: The number of latent thoughts $n_z$ must be chosen in advance. The paper does not address automatic determination of the appropriate latent dimensionality.

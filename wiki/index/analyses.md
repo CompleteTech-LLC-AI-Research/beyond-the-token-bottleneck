@@ -1,0 +1,11 @@
+- [[paper-timeline]] — Chronological publication order, citation chains, and field evolution
+- [[method-comparison]] — Unified comparison table across all methods and key dimensions
+- [[open-questions]] — All open questions across the wiki, grouped by theme
+- [[frontier-research-directions]] — 8 paradigm-shift directions synthesized from all papers
+- [[contradictions]] — 9 tensions and contradictions between papers, with resolution status
+- [[latentcompress-collaboration-strategy]] — LatentCompress collaboration mapping and strategy
+- [[benchmark-overlap]] — Benchmark overlap across papers: coverage matrix, focused comparisons, blind spots
+- [[training-barriers-latent-reasoning]] — Two orthogonal training barriers bounding the latent reasoning design space
+- [[research-positioning-patterns]] — How institutional structure shapes latent reasoning research agendas
+
+---

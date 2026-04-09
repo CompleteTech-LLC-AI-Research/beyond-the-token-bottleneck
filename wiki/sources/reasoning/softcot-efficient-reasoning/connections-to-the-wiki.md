@@ -1,0 +1,5 @@
+- **[[latent-space-reasoning]]**: SoftCoT is a new approach to latent reasoning that avoids modifying the reasoning model. The soft thought tokens serve as a continuous "preamble" conditioning the LLM before it generates standard discrete CoT.
+- **[[continuous-vs-discrete-representation]]**: The 4× compression ratio (soft vs. hard tokens) provides direct empirical evidence for the information density advantage of continuous representations.
+- **[[embedding-space-communication]]**: The projection module that maps between assistant and backbone embedding spaces is analogous to cross-model communication — effectively a form of latent communication from a small "reasoning specialist" to a large "generalist."
+- **[[kv-cache-alignment-shared-space|KV Cache Alignment]]**: Both use linear/learned projections to bridge representation spaces between models. KV Cache Alignment operates on KV-caches; SoftCoT operates on hidden-state embeddings.
+- **[[catastrophic-forgetting]]**: SoftCoT is the first paper in this collection to systematically document this problem for latent reasoning methods on instruction-tuned LLMs.

@@ -1,0 +1,1 @@
+Self-described as the 4th team globally. References only LatentMAS, Interlat, and Vision Wormhole as peers. Does not reference the larger body of work in this wiki (CIPHER, ThoughtComm, KVComm, C2C, KV Cache Alignment, AC, SDE, etc.).
