@@ -51,12 +51,12 @@ Verify that `AGENTS.md` still matches the real vault layout, current MOC invento
 
 ## Procedure
 
-1. Compare the directory structure listing in `AGENTS.md` against the actual `ls` output.
+1. Compare the directory structure listing in `AGENTS.md` (the 'Directory Layout' section) against the actual filesystem using `ls -R wiki/` and `ls -R workflows/`.
 2. Compare the `Current MOCs` list against the actual `wiki/mocs/*.md` files.
 3. Check whether any theme has accumulated `5+` pages without a MOC, which should trigger `MOC Gap Analysis`.
 4. Verify that frontmatter templates include every field actually used in existing pages.
-5. Verify that all workflow step references point to files that exist.
-6. Fix any drift found.
+5. Verify that all workflow file references in `AGENTS.md`'s 'Workflow Index' section point to files that exist on disk using `Glob`.
+6. Fix any drift found. If step 3 identifies a 5+ page cluster without a MOC, note this for a future [MOC Gap Analysis](moc-gap-analysis.md) run.
 
 ## Completion Checklist
 

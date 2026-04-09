@@ -89,23 +89,22 @@ Data-driven gap-finding pass that inventories enrichment opportunities across th
 
 ## Procedure
 ### Phase 1: Audit
-1. Measure all wiki pages by line count with `wc -l`.
-2. Flag pages below these thresholds:
+1. Run [`workflows/audit/lint.md`](lint.md) end-to-end for the structural baseline, then return here and continue with step 2.
+2. Measure all wiki pages by line count with `wc -l`.
+3. Flag pages below these thresholds:
    - Source pages: under 130 lines, target 150-300.
    - Concept pages: under 120 lines, target 120-250.
    - Entity pages: under 50 lines, target 50-80.
    - Analysis pages: under 100 lines, target 150-250.
-3. Scan all wiki pages for `[[wiki-links]]` and verify targets exist.
 4. Check for entity and concept names mentioned in prose but not wiki-linked, and verify bidirectional linking where relevant.
 5. Identify missing analyses, especially benchmarks covered by 3+ papers, themes spanning multiple pages without an analysis, and contradictions not yet tracked.
-6. Verify structural issues such as file placement, MOC paths, escaped characters, and index accuracy.
 
 ### Phase 2: Prioritize
 1. Categorize findings into a table by impact.
 2. Use this ranking:
-   - High: thin source or concept pages, missing high-value analyses.
-   - Medium: entity enrichment, cross-reference gaps, missing MOCs.
-   - Low: structural or cosmetic fixes, minor cross-linking.
+   - High: source pages under 130 lines, concept pages under 120 lines, missing high-value analyses (method comparison, contradictions).
+   - Medium: entity pages under 50 lines, cross-reference gaps affecting 3+ pages, themes with 5+ uncovered pages lacking a MOC.
+   - Low: analysis pages under 100 lines, cosmetic fixes, minor cross-linking gaps.
 3. Present the prioritized list to the user with line counts and specific gaps.
 4. Get approval before executing any fixes.
 
@@ -114,9 +113,9 @@ Data-driven gap-finding pass that inventories enrichment opportunities across th
 2. **Dispatch the parallel agents under the protocol.** Run [parallel subagent protocol](../_shared/procedures/parallel-subagent-protocol.md) in full, then return here and continue with Phase 4. The fragment owns: per-agent scope boundaries, the canonical coordinator-only file enumeration (replacing the drifted 4-item list this phase used to inline), the report-not-edit instruction, and the dispatch contract. Track completion as tasks finish and report results incrementally to the user — the protocol fragment makes this explicit.
 
 ### Phase 4: Consolidate
-1. **Living analyses review.** Run [living analyses review](../_shared/procedures/living-analyses-review.md) in full, then return here.
+1. **Living analyses review.** Run [living analyses review](../_shared/procedures/living-analyses-review.md) in full, then return here and continue with step 2.
 2. **Sync indexes and assets.** Run [update index and assets](../_shared/procedures/update-index-and-assets.md), then return here and continue with step 3. The fragment owns the `wiki/index.md` count and entry-list updates.
-3. **Stale count sweep.** Run [stale count sweep](../_shared/procedures/stale-count-sweep.md) in full, then return here.
+3. **Stale count sweep.** Run [stale count sweep](../_shared/procedures/stale-count-sweep.md) in full, then return here and continue with step 4.
 4. **Update affected MOCs.** For each MOC whose reading path gained an entry during Phase 3, run [moc update](../_shared/procedures/moc-update.md). Skip if no MOC was affected.
 5. **Spot-check the agent output.** Run [spot check agent output](../_shared/procedures/spot-check-agent-output.md), then return here and continue with step 6. If the spot check escalates (2+ issues across the sample), pause and run `workflows/audit/verification.md` in full before logging.
 6. Append all activity to `wiki/log.md` as a single audit entry per workstream.

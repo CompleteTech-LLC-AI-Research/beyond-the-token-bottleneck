@@ -53,7 +53,7 @@ S2[Validate paths in<br>raw/index.md & AGENTS.md]
 ```
 
 ## Purpose
-Run a health check across the wiki to find content drift, broken references, and structural inconsistencies before they spread.
+Run a health check across the wiki covering content integrity, structural integrity, and redundancy/dead-reference detection.
 
 ## When To Use
 Use this workflow when you need to audit the wiki for quality issues, especially after refactors, new ingests, bulk edits, or navigation changes.
@@ -70,7 +70,7 @@ Use this workflow when you need to audit the wiki for quality issues, especially
 - You only need to answer a question from the wiki. Use `workflows/query/query.md`.
 - You are adding new source material. Use `workflows/create/ingest.md`.
 - You are deepening existing pages rather than checking integrity. Use `workflows/enrich/expand.md`.
-- You are performing a broader full-wiki pass. Use `workflows/audit/review.md`.
+- You need frontmatter verification, depth measurement, or MOC coverage checks beyond what lint covers. Use `workflows/audit/review.md`.
 
 ## Required Context
 - Current `wiki/` structure and recent edits.
@@ -158,7 +158,7 @@ Every source page under `wiki/sources/` must follow the partial structure define
    - The file `wiki/sources/<category>/<slug>/one-liner.md` exists.
    - The partial's frontmatter has `type: source-partial`, `parent: <slug>` matching the shell's basename, and `partial: one-liner`.
 3. `Glob wiki/sources/**/one-liner.md` → list of partial files. Reverse-check: every partial has a parent shell at `wiki/sources/<category>/<parent>.md`, and the parent shell embeds it. Orphan partials and partials whose parent has been deleted are both bugs.
-4. `Grep -n '\!\[\[.*#One-liner\]\]' wiki/` → must return zero matches. The `![[<slug>#One-liner]]` section-anchor form is the legacy syntax superseded by `![[<slug>/one-liner]]`; any remaining instances should be migrated to the file-partial form. (Plain wiki-links of the form `[[<slug>#One-liner]]` *without* the leading `!` are still acceptable — they navigate to the heading anchor rather than embedding content.)
+4. `Grep -n '!\[\[.*#One-liner\]\]' wiki/` → must return zero matches. The `![[<slug>#One-liner]]` transclusion form (with leading `!`) is legacy and must be migrated to `![[<slug>/one-liner]]`. Plain wiki-links `[[<slug>#One-liner]]` (without `!`) are acceptable section anchors and should not be flagged.
 
 ## Completion Checklist
 - All items in [`../_shared/checklists/base.md`](../_shared/checklists/base.md) hold.

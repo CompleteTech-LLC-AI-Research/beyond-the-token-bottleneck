@@ -73,7 +73,10 @@ Use this workflow when the task sounds like:
    - Preamble: check that macros in `preamble.sty` are used consistently, with no raw `\mathbb{R}` when `\R` is available.
    - Diagrams: check for ASCII art in code blocks that should be Mermaid. Check for `.drawio` files, which should not exist. Check for `\n` inside Mermaid node labels — replace with `<br>`. Check for math notation (subscripts, superscripts, LaTeX-like expressions) in Mermaid node labels — these should use the side-by-side notation pattern (`[!diagram|left]` + `[!notation|right]` callouts) per AGENTS.md §Diagram Maintenance rule 6.
 3. **Bulk fix any issues found using parallel subagents.** Run [parallel subagent protocol](../_shared/procedures/parallel-subagent-protocol.md) in full, then return here and continue with step 4. The fragment owns scope boundaries (one agent per file group) and the canonical coordinator-only file enumeration.
-4. Log the audit in `wiki/log.md`.
+4. Run [update index and assets](../_shared/procedures/update-index-and-assets.md) if any files were added or moved, then return here and continue with step 5.
+5. Run the [stale count sweep](../_shared/procedures/stale-count-sweep.md) if page counts changed, then return here and continue with step 6.
+6. Run [spot check agent output](../_shared/procedures/spot-check-agent-output.md) on the parallel fixes, then return here and continue with step 7.
+7. Log the audit in `wiki/log.md`.
 
 ## Completion Checklist
 - All items in [`../_shared/checklists/base.md`](../_shared/checklists/base.md) hold.

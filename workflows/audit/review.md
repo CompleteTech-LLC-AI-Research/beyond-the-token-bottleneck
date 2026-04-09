@@ -80,10 +80,10 @@ Common triggers include:
 - Use the current MOC list and path conventions as validation targets.
 
 ## Procedure
-1. Run [`workflows/audit/lint.md`](lint.md) end-to-end, then return here and continue with step 2.
+1. Run [`workflows/audit/lint.md`](lint.md) end-to-end (this includes the terminology drift scan), then return here and continue with step 2.
 2. **Spot-check frontmatter completeness on a sample of pages.** Run [verify frontmatter completeness](../_shared/procedures/verify-frontmatter-completeness.md) on the sample, then return here. The fragment is the canonical schema; the per-type field lists live there, not here.
 3. Verify all source pages have the `## Source Materials` footer.
-4. Identify pages below the depth standard and flag them for expansion.
+4. Identify pages below the depth standard (source pages: under 130 lines; concept pages: under 120 lines; entity pages: under 50 lines; analysis pages: under 100 lines — per [enrichment-audit.md](enrichment-audit.md) Phase 1) and flag them for expansion.
 5. Check MOC coverage:
    - all major themes have MOCs
    - MOCs are current
@@ -91,10 +91,9 @@ Common triggers include:
 6. Check whether `overview-state-of-field.md` needs updating using the documented triggers.
 7. Verify `AGENTS.md` directory structure, path conventions, and workflow steps still match the actual vault layout.
 8. If the vault was reorganized, ensure all path references across `AGENTS.md`, `README.md`, index files, and `raw/index.md` are updated.
-9. **Terminology drift scan.** Grep for the drift variants enumerated in [glossary](../_shared/glossary.md) and add them to the findings list. Do not silently rewrite — drift variants surface as findings so the user sees the pattern.
-10. Report all findings.
-11. Apply fixes only with user approval.
-12. Log the review in `wiki/log.md`.
+9. Report all findings.
+10. Apply fixes only with user approval.
+11. Log the review in `wiki/log.md`.
 
 ## Completion Checklist
 - All items in [`../_shared/checklists/base.md`](../_shared/checklists/base.md) hold.

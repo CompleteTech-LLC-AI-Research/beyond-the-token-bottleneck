@@ -6,13 +6,12 @@ graph TD
 
     subgraph Structural ["Structural Check"]
         S1[Check file directories]
-        S2[Validate frontmatter]
-S3[Confirm MOC list in AGENTS.md]
-        S1 --> S2 --> S3
+S2[Confirm MOC list in AGENTS.md]
+        S1 --> S2
     end
     style Structural fill:#dae8fc,stroke:#6c8ebf
 
-    S3 --> P
+    S2 --> P
 
     subgraph Parallel ["Parallel Content Review"]
         P[Launch one review agent per page]
@@ -82,9 +81,8 @@ Quality-assurance pass for work done by parallel subagents. Use it to catch stru
 1. Treat subagent output as suspect until checked. Subagents work in isolation and commonly make mistakes such as wrong file paths, imprecise claims, numbers off by small amounts, or conflated findings from different papers.
 2. Run the **structural check** directly as the coordinator:
    - Confirm files are in the correct directories, such as `wiki/` rather than the vault root, and the correct `sources/` subdirectory when relevant.
-   - Run [verify frontmatter completeness](../_shared/procedures/verify-frontmatter-completeness.md) on each created page, then return here. The fragment is the canonical schema; per-type field lists live there.
    - Confirm `AGENTS.md`'s Current MOCs list matches the actual `wiki/mocs/*.md` files.
-3. **Spot-check the agent output as a lightweight first pass.** Run [spot check agent output](../_shared/procedures/spot-check-agent-output.md), then return here and continue with step 4. If the spot check finds 0–1 issues, the heavyweight per-page review in step 4 may still find more — run it. If the spot check finds 2+ issues, the parallel phase's output is suspect at scale and step 4 is mandatory before any consolidation downstream.
+3. **Spot-check the agent output as a lightweight first pass.** Run [spot check agent output](../_shared/procedures/spot-check-agent-output.md), then return here and continue with step 4. If the spot check finds 0–1 issues, proceed to step 4 for a deeper review. If the spot check finds 2+ issues, step 4 is mandatory and must complete in full before any consolidation in step 5 — do not skip or abbreviate it.
 4. **Run the content accuracy check in parallel**, one read-only review subagent per created page. Dispatch the review agents under [parallel subagent protocol](../_shared/procedures/parallel-subagent-protocol.md), then return here and continue with step 5. Verification's review agents are a special case — they read pages and return findings, never edit; the protocol fragment documents this special case in its invariants. Each review agent's task:
    - Read the created page and every source page it references.
    - Cross-check author names, venues, years, specific numbers, and method descriptions.
