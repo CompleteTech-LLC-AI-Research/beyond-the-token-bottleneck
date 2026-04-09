@@ -150,6 +150,13 @@ KV-cache communication occupies **stage 3** of this spine — one step deeper th
 
 Within this stage-3 slot, the four papers above move along orthogonal axes layered on top of the depth spine: [[cache-to-cache-semantic-communication|C2C]] and [[kv-cache-alignment-shared-space|KV Cache Alignment]] push cross-architecture compatibility (normally lost as you move deeper), [[kvcomm-kth-selective|KVComm]]'s layer selection trades bandwidth for efficiency, and [[kvcomm-duke-online-reuse|KVCOMM-online]] attacks the prefill cost that grows with cache size. The depth–compatibility trade-off described in the embed is what makes each of these axes load-bearing rather than incidental.
 
+## Maps of Content
+
+This concept appears in the following guided reading paths:
+- [[latent-communication|Latent Communication]] — how multiple LLM agents exchange information through continuous representations rather than text
+- [[communication-depth-spectrum|Communication Depth Spectrum]] — guided reference for the 10 levels of inter-agent communication ordered by depth
+- [[cross-architecture|Cross-Architecture Compatibility]] — achieving deep, information-rich communication across heterogeneous model families
+
 ## Open Questions
 
 - **Layer selection + C2C fusion**: Can [[kvcomm-kth-selective|KVComm]]'s attention-based selection strategy improve [[cache-to-cache-semantic-communication|C2C]]'s gating mechanism, or vice versa?

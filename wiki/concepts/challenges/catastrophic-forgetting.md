@@ -44,6 +44,11 @@ The broader ML literature has developed several families of solutions, each with
 
 How each of these strategies has been adapted to the latent reasoning setting — and which combinations have actually been tried on instruction-tuned models — is tracked in [[training-barriers-latent-reasoning]].
 
+## Maps of Content
+
+This concept appears in the following guided reading paths:
+- [[latent-reasoning|Latent Reasoning]] — how individual models reason in continuous hidden-state space rather than discrete tokens
+
 ## See also
 
 - [[training-barriers-latent-reasoning]] — wiki-specific synthesis of catastrophic forgetting + the supervision–exploration trade-off, with empirical evidence from SoftCoT, Coconut, Thinking States, and Cui et al.

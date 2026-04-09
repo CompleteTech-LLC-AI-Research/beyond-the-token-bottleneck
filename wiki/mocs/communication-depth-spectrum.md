@@ -203,3 +203,10 @@ The research frontier is about **bending this curve** — achieving high informa
 - [[kv-cache-communication]] — 4 design dimensions for KV-cache approaches
 - [[latent-communication]] — Parent MOC for all communication research
 - [[continuous-vs-discrete-representation]] — The theoretical foundation
+
+## Connections
+
+- [[latent-communication]] — thematic hub for latent communication; this MOC provides the detailed paper walkthrough
+- [[practical-systems]] — deployment trade-offs for each depth level
+- [[theoretical-foundations]] — information-theoretic grounding for the depth axis
+- [[cross-architecture]] — compatibility requirements vary by depth level

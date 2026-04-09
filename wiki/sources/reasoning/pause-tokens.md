@@ -2,7 +2,7 @@
 type: source
 title: "Think Before You Speak: Training Language Models with Pause Tokens"
 source_file: "[[raw/pdf/arxiv-2310.02226.pdf]]"
-latex_source: "raw/latex/arxiv-2310.02226/"
+latex_source: "[[raw/latex/arxiv-2310.02226]]"
 author: "Sachin Goyal, Ziwei Ji, Ankit Singh Rawat, Aditya Krishna Menon, Sanjiv Kumar, Vaishnavh Nagarajan"
 date_published: "2023-10-03"
 date_ingested: "2026-04-06"

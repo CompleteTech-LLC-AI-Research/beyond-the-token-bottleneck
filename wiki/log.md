@@ -8,6 +8,18 @@ created: "2026-04-06"
 
 Chronological record of all wiki activity.
 
+## [2026-04-09] review + enrich | Full vault audit and post-reorg quality pass
+
+Systematic audit of all 71 wiki pages across 9 modules using 29 subagents in 3 phases: review (9 agents), plugin-audit (6 agents), verification (7 agents), followed by targeted enrichment (4 agents) and 3 global workflow checks.
+
+**Phase 1 findings (read-only audit).** Review: 2 analyses missing from wiki/index.md (training-barriers-latent-reasoning, research-positioning-patterns), 0/10 concept pages had MOC navigation links, 1 thin analysis (research-positioning-patterns at 66 lines), communication-depth-spectrum MOC missing Connections section, 3 latex_source frontmatter format inconsistencies. Plugin-audit: 2× `\mathbb{R}` instead of `\R` in inference-time-scaling-continuous-reasoning.md, LaTeX in Mermaid labels (latent-space-reasoning.md), Unicode ellipsis in Mermaid (cipher-multiagent-debate-embeddings.md), bare regression formula in scaling-agent-systems.md. Verification: date_published off by 1 day in superposition-coconut-theory.md. Zero red links, zero stale slugs, zero overstatements across all 71 pages.
+
+**Phase 2 fixes (19 files edited).** Added `## Maps of Content` sections to all 10 concept pages with correct MOC links. Added 2 missing analyses to wiki/index.md (count 7→9). Added `## Connections` section to communication-depth-spectrum MOC. Normalized latex_source frontmatter in icot-internalize-cot.md and pause-tokens.md. Fixed date_published in superposition-coconut-theory.md (2025-05-19→2025-05-18). Replaced `\mathbb{R}` with `\R` in inference-time-scaling-continuous-reasoning.md. Fixed Mermaid labels in latent-space-reasoning.md and cipher-multiagent-debate-embeddings.md. Wrapped bare formula in scaling-agent-systems.md. Expanded research-positioning-patterns.md from 67→116 lines (added positioning table, collaboration topology, gap analysis).
+
+**Phase 3 (global checks).** Schema self-audit: AGENTS.md matches vault layout. README maintenance: all counts current. MOC gap analysis: identified potential "Research Institutions" MOC but deferred (entity pages are reference, not analytical reading-path material).
+
+Pages updated (19): wiki/index.md, wiki/mocs/communication-depth-spectrum.md, wiki/analyses/research-positioning-patterns.md, wiki/concepts/challenges/catastrophic-forgetting.md, wiki/concepts/communication/activation-communication.md, wiki/concepts/communication/embedding-space-communication.md, wiki/concepts/communication/kv-cache-communication.md, wiki/concepts/multi-agent/multi-agent-debate.md, wiki/concepts/multi-agent/temperature-diversity.md, wiki/concepts/reasoning/continuous-vs-discrete-representation.md, wiki/concepts/reasoning/latent-space-reasoning.md, wiki/concepts/reasoning/thought-structure.md, wiki/concepts/theory/latent-variable-model.md, wiki/sources/reasoning/icot-internalize-cot.md, wiki/sources/reasoning/pause-tokens.md, wiki/sources/reasoning/superposition-coconut-theory.md, wiki/sources/reasoning/inference-time-scaling-continuous-reasoning.md, wiki/sources/communication/embeddings/cipher-multiagent-debate-embeddings.md, wiki/sources/meta/scaling-agent-systems.md.
+
 ## [2026-04-08] refactor | Structural normalization — entity/concept/workflow subdirectory reorg
 
 Three-track refactoring across 20 commits (PRs #8–#28, issues #9 and #13), reorganizing the wiki's directory layout and workflow infrastructure without changing any analytical content.

@@ -54,6 +54,56 @@ Three implications follow from the pattern:
 
 These observations are specific to the latent reasoning / inter-agent communication subfield as represented in this wiki and should not be over-generalized.
 
+## Institutional Positioning Comparison
+
+The following table maps each major entity in the collection to its primary positioning axis, flagship contribution, and unique role in the field.
+
+| Entity | Positioning Axis | Flagship Paper | Unique Contribution |
+| --- | --- | --- | --- |
+| [[fair-meta\|FAIR at Meta]] | Constructive (foundational method) | [[coconut-reasoning-latent-space\|Coconut]] | Defined latent reasoning as a field; controls LLaMA ecosystem used by most other groups |
+| [[amazon\|Amazon]] | Diagnostic (breadth-first analysis) | [[latent-reasoning-supervision-analysis\|Cui et al.]] | First unified empirical critique of four latent reasoning methods; weak/strong supervision taxonomy |
+| [[google-deepmind\|Google DeepMind]] | Systems (scalable architecture) | [[kv-cache-alignment-shared-space\|KV Cache Alignment]] | O(N) interlingua for cross-model communication; self-improvement effect discovery |
+| [[google-research\|Google Research]] | Production (deployment-oriented) | [[thinking-states-latent-reasoning\|Thinking States]] | Most deployment-ready latent reasoning method; state ambiguity finding (15% causal loss) |
+| [[harvard\|Harvard]] | Constructive (method + empirical validation) | [[activation-communication-harvard\|AC]] | Strongest empirical evidence for cross-model representation convergence (zero-shot cross-family) |
+| [[monash\|Monash]] | Diagnostic (narrow instrumentation) | [[inference-time-scaling-continuous-reasoning\|Wang et al.]] | First geometric measurement framework for continuous thoughts; null result on latent reranking |
+| [[princeton-uiuc-stanford\|Princeton/UIUC/Stanford]] | Constructive (unified frameworks) | [[latentmas-collaboration\|LatentMAS]] | First system unifying latent reasoning + latent communication; training-free, 95.2% GSM8K |
+| [[cmu\|CMU]] | Theoretical (identifiability) | [[thought-communication-multiagent\|ThoughtComm]] | Only formal guarantees that recovered latent factors correspond to true generative factors |
+| [[tsinghua\|Tsinghua]] | Systems (cross-architecture fusion) | [[cache-to-cache-semantic-communication\|C2C]] | Solved cross-architecture KV-cache communication; effective rank analysis |
+| [[kth\|KTH]] | Systems (efficiency) | [[kvcomm-kth-selective\|KVComm]] | First systematic comparison showing KV > embeddings > text; selective sharing Skyline paradox |
+| [[purdue\|Purdue]] | Constructive (architectural insight) | [[vision-wormhole-heterogeneous\|Vision Wormhole]] | Repurposed VLM visual pathways as universal cross-architecture communication channel |
+| [[mbzuai\|MBZUAI]] | Theoretical (causal representation) | [[thought-communication-multiagent\|ThoughtComm]] (with CMU/FAIR) | Causal representation learning expertise applied to structured latent communication |
+| [[mit\|MIT]] | Foundational (paradigm creation) | [[multiagent-debate-du-et-al\|Multiagent Debate]] | Origin point for the entire multi-agent debate paradigm; Platonic Representation Hypothesis |
+
+The table reveals a clear division of labor. Industry labs ([[fair-meta|FAIR]], [[amazon|Amazon]], [[google-deepmind|Google DeepMind]], [[google-research|Google Research]]) span the full range from foundational method creation to deployment engineering, while academic groups specialize more narrowly — diagnostics ([[monash|Monash]]), theory ([[cmu|CMU]], [[mbzuai|MBZUAI]]), or unified constructive systems ([[princeton-uiuc-stanford|Princeton/UIUC/Stanford]]).
+
+## Collaboration Network Topology
+
+The co-authorship graph in this collection has a distinctive hub-and-spoke structure with two dominant hubs and several isolated nodes.
+
+**Hub 1 — FAIR at Meta (indirect).** FAIR's LLaMA ecosystem makes it a *de facto* hub even where no direct co-authorship exists. [[harvard|Harvard]]'s AC, [[tsinghua|Tsinghua]]'s SDE, [[kth|KTH]]'s KVComm, and [[princeton-uiuc-stanford|Princeton/UIUC/Stanford]]'s LatentMAS all run on LLaMA variants. FAIR also has direct co-authorship links to [[cmu|CMU]] and [[mbzuai|MBZUAI]] via ThoughtComm, and to UC Berkeley/UC San Diego via the Superposition Theory paper. This makes FAIR the single most connected node in the network — through infrastructure dependency if not always through authorship.
+
+**Hub 2 — CMU (bridging).** CMU is the only entity with direct co-authorship links to *both* an industry lab ([[fair-meta|FAIR]], [[google-research|Google Research]]) and another academic multi-institution project ([[purdue|Purdue]] via Vision Wormhole). CMU's Kun Zhang group bridges identifiability theory (ThoughtComm) and cross-architecture systems (Vision Wormhole), making it the primary academic broker in the network.
+
+**Isolated nodes.** [[amazon|Amazon]], [[monash|Monash]], [[kth|KTH]], and [[tsinghua|Tsinghua]] have **no direct co-authorship** with any other wiki entity. All four are methodologically connected — Amazon and Monash produce complementary diagnostics of the same problem; KTH and Tsinghua address the same KV-cache communication design space — but the work is done independently. The Amazon-Monash pair is especially striking: they published the two most complete dissections of the Pass@N / Maj@N gap in latent reasoning, four months apart, in opposite hemispheres, without citing each other.
+
+**Bridging figures.** Two individuals connect otherwise separate clusters: (1) **Yejin Choi** co-authors both [[icot-internalize-cot|iCoT]] (Harvard/UW lineage) and [[latentmas-collaboration|LatentMAS]] (Princeton/UIUC/Stanford consortium), linking the reasoning internalization thread to the unified-framework thread. (2) **Yilun Du** moved from MIT to Harvard, carrying the multiagent debate paradigm's institutional memory across institutions.
+
+**Implication for convergence.** The network's sparse direct ties and reliance on infrastructure dependency (LLaMA) rather than co-authorship suggest that the field has not yet reached the convergence phase where competing groups unify their approaches. The diagnostic groups (Amazon, Monash) and the constructive groups (FAIR, Princeton/UIUC/Stanford) are working in parallel, not in sequence. A consolidation paper that combines Amazon/Monash diagnostics with Princeton/UIUC/Stanford's system-building would require a collaboration that does not yet exist.
+
+## Gap Analysis: Unclaimed Positioning Slots
+
+Several positioning slots are visible in the design space but not yet occupied by any entity in the collection.
+
+1. **Training-time inductive biases for geometrically separable continuous thoughts.** [[monash|Wang et al.]]'s null result shows that COCONUT's continuous-thought representations are geometrically homogeneous — correct and incorrect thoughts are statistically indistinguishable by every metric tested. The paper proposes isotropy regularization, trajectory diversity objectives, and contrastive losses as mitigations but tests none. No group has claimed the slot of *constructing* training-time geometric inductive biases that make latent representations amenable to inference-time selection. This is the most clearly defined open problem in the collection.
+
+2. **Frontier-scale latent reasoning validation (7B+).** Every latent reasoning experiment in the wiki uses GPT-2 or LLaMA-1B/3B backbones. No entity has published latent reasoning results (Coconut-style hidden-state feedback) at 7B+ scale. [[google-research|Google Research]]'s Thinking States uses a supervised approach that sidesteps the curriculum problem, and [[softcot-efficient-reasoning|SoftCoT]] freezes the backbone, but neither is a direct validation of the core Coconut mechanism at scale. The slot of "Coconut at frontier scale" is unclaimed — likely because [[catastrophic-forgetting|catastrophic forgetting]] makes it expensive to attempt.
+
+3. **Bidirectional latent reasoning.** [[google-research|Google Research]]'s Thinking States identifies a 15% performance loss from causal (left-to-right) reasoning order — the model commits to intermediate quantities before seeing the full question. No entity has proposed a bidirectional latent reasoning architecture that resolves this. The slot is defined but unfilled.
+
+4. **Latent-aware decoding / reranking that actually works.** Both [[amazon|Amazon]] (Pass@100 vs Maj@100 gap) and [[monash|Monash]] (PRM/ORM recovering only 19.8% of Pass@N headroom) show that latent reasoning preserves correct candidates but fails to surface them. A latent-space verifier or reranker that closes this gap would be a high-impact contribution. No group has published a working solution.
+
+5. **Unified diagnostic framework across all latent methods.** [[amazon|Amazon]]'s Cui et al. compares four methods (Coconut, CODI, SIM-CoT, CoLaR) on training-time diagnostics; [[monash|Monash]]'s Wang et al. provides geometric diagnostics for Coconut only. No entity has combined both diagnostic toolkits — supervision-strength analysis *and* geometric measurement — across all methods. The unified diagnostic slot would require the Amazon-Monash collaboration that the network topology section identifies as absent.
+
 ## Related Entities
 
 This analysis was extracted from meta-essays originally embedded in two entity files. Both source entities — and the other entities used as examples — are linked explicitly below to complete the bidirectional mapping between the analysis and its sources.

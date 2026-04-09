@@ -177,6 +177,12 @@ Both the autoencoder and prefix adapter are task-agnostic — trained once and r
 - **[[activation-communication]]**: Activation sharing transmits unstructured hidden states — the observed $H$ in the latent variable formulation. ThoughtComm's autoencoder is precisely the tool that extracts structured $Z$ from unstructured $H$.
 - **[[latent-space-reasoning]]**: [[coconut-reasoning-latent-space|Coconut]]'s emergent BFS shows that hidden states can encode superpositions of reasoning paths. The latent variable model provides a framework for **disentangling** these superpositions into individually identifiable thought components — each latent dimension might correspond to a distinct reasoning path.
 
+## Maps of Content
+
+This concept appears in the following guided reading paths:
+- [[theoretical-foundations|Theoretical Foundations]] — the theoretical pillars explaining why continuous representations outperform discrete tokens
+- [[unified-frameworks|Unified Frameworks]] — systems that combine latent reasoning within agents and latent communication between agents
+
 ## Open Questions
 
 - **Automatic dimensionality determination**: Can $n_z$ be selected automatically, perhaps through a variational approach (as in automatic relevance determination) or information-theoretic criterion (minimum description length)?
