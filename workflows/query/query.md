@@ -5,16 +5,18 @@ graph TD
     A["Read wiki/index.md"] --> B["Read relevant pages"]
     B --> C["Synthesize answer<br>with wiki-links"]
     C --> D{"File as<br>analysis page?"}
-    D -- Yes --> E["Update index.md<br>& log.md"]
-    D -- No --> F["Done"]
-    E --> F
+    D -- Yes --> E["Update index<br>& assets"]
+    D -- No --> G["Done"]
+    E --> F["Append to log<br>& commit"]
+    F --> G
 
     style A fill:#dae8fc,stroke:#6c8ebf,color:#333
     style B fill:#fff2cc,stroke:#d6b656,color:#333
     style C fill:#d5e8d4,stroke:#82b366,color:#333
     style D fill:#ffe6cc,stroke:#d79b00,color:#333
     style E fill:#e1d5e7,stroke:#9673a6,color:#333
-    style F fill:#d5e8d4,stroke:#82b366,color:#333
+    style F fill:#e1d5e7,stroke:#9673a6,color:#333
+    style G fill:#d5e8d4,stroke:#82b366,color:#333
 ```
 
 ## Purpose
@@ -52,8 +54,9 @@ Common triggers include:
    - Include analysis-type frontmatter: `type: analysis`, `created`, `title`, `updated`.
    - The new page is a coordinator-only file (per the shared-file-off-limits rule).
    - Run [verify frontmatter completeness](../_shared/procedures/verify-frontmatter-completeness.md) on the new page.
-   - Update the Analyses section in `wiki/index.md` and append to `wiki/log.md`.
-5. **Commit and push (if a page was filed).** If step 4 resulted in a new analysis page, run [commit and push](../_shared/procedures/commit-and-push.md) in full.
+5. **Sync indexes and assets (if a page was filed).** If step 4 resulted in a new analysis page, run [update index and assets](../_shared/procedures/update-index-and-assets.md) in full, then return here and continue with step 6.
+6. **Append to log.** Add a single entry to `wiki/log.md` summarizing the filed analysis page.
+7. **Commit and push.** Run [commit and push](../_shared/procedures/commit-and-push.md) in full.
 
 ## Completion Checklist
 
