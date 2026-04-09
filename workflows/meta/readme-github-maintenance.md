@@ -41,7 +41,9 @@ Choose this workflow when the user says things like:
 
 ## Do Not Use When
 
-Do not use this workflow for routine page edits, source ingestion only, or internal wiki maintenance that does not affect the public README.
+- The task is routine page creation or source ingestion only. Use [`workflows/create/ingest.md`](../create/ingest.md) instead.
+- The task is internal wiki enrichment that does not affect the public README. Use [`workflows/enrich/enrich.md`](../enrich/enrich.md) instead.
+- The task is a structural health check or lint pass. Use [`workflows/audit/lint.md`](../audit/lint.md) instead.
 
 ## Required Context
 
@@ -72,10 +74,8 @@ The vault is published at `CompleteTech-LLC-AI-Research/beyond-the-token-bottlen
 
 ## Related Workflows
 
-- `workflows/create/ingest.md`
-- `workflows/query/query.md`
-- `workflows/audit/lint.md`
-- `workflows/create/batch-ingest.md`
-- `workflows/audit/moc-gap-analysis.md`
-- `workflows/audit/schema-self-audit.md`
+- [`workflows/create/ingest.md`](../create/ingest.md) for adding new source-backed content.
+- [`workflows/create/batch-ingest.md`](../create/batch-ingest.md) for bulk ingestion runs.
+- [`workflows/audit/lint.md`](../audit/lint.md) for structural health checks.
+- [`workflows/audit/schema-self-audit.md`](../audit/schema-self-audit.md) for schema compliance audits.
 

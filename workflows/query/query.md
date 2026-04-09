@@ -34,8 +34,8 @@ Common triggers include:
 - `what changed`
 
 ## Do Not Use When
-- The user wants to create or expand wiki content. Use `Ingest`, `Expand`, or `Synthesize` instead.
-- The user wants a repo-wide health check. Use `Lint`, `Review`, or `Enrichment Audit` instead.
+- The user wants to create or expand wiki content. Use [`workflows/create/ingest.md`](../create/ingest.md), [`workflows/enrich/expand.md`](../enrich/expand.md), or [`workflows/create/synthesize.md`](../create/synthesize.md) instead.
+- The user wants a repo-wide health check. Use [`workflows/audit/lint.md`](../audit/lint.md), [`workflows/audit/review.md`](../audit/review.md), or [`workflows/audit/enrichment-audit.md`](../audit/enrichment-audit.md) instead.
 - The user is asking for a structural wiki change. Use the workflow that matches the change, not `Query`.
 
 ## Required Context
@@ -57,8 +57,7 @@ Common triggers include:
 - Any filed page is reflected in `wiki/index.md` and `wiki/log.md`.
 
 ## Related Workflows
-- `Ingest` for adding new source-backed content.
-- `Expand` for deepening an existing page.
-- `Synthesize` for creating cross-cutting analysis pages.
-- `Lint` for health checks and structural review.
-- `Review` for a full wiki once-over.
+- [`workflows/create/ingest.md`](../create/ingest.md) for adding new source-backed content.
+- [`workflows/enrich/expand.md`](../enrich/expand.md) for deepening an existing page.
+- [`workflows/audit/lint.md`](../audit/lint.md) for health checks and structural review.
+- [`workflows/audit/review.md`](../audit/review.md) for a full wiki once-over.
