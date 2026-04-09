@@ -105,8 +105,7 @@ Quality-assurance pass for work done by parallel subagents. Use it to catch stru
 - The spot check passed (or escalated to the full per-page review, which then completed).
 
 ## Related Workflows
-- `workflows/create/batch-ingest.md`
-- `workflows/audit/moc-gap-analysis.md`
-- `workflows/enrich/enrich.md`
-- `workflows/enrich/expand.md`
-- `workflows/create/synthesize.md`
+
+- `workflows/create/batch-ingest.md` — primary caller that triggers verification after parallel ingest.
+- `workflows/audit/enrichment-audit.md` — escalates to verification when spot-check fails.
+- `workflows/audit/lint.md` — structural checks that complement content verification.

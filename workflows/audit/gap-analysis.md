@@ -200,16 +200,12 @@ Run [commit and push](../_shared/procedures/commit-and-push.md) in full. The fra
 ## Related Workflows
 
 - `workflows/create/ingest.md` — invoked in Phase 3 to do the actual ingest propagation.
-- `workflows/create/batch-ingest.md` — used instead of this workflow when 3+ pre-selected papers need parallel ingest.
-- `workflows/meta/readme-github-maintenance.md` — triggered in Phase 4 step 2.
-- `workflows/audit/lint.md` — triggered in Phase 4 step 3.
-- `workflows/enrich/enrich.md` — triggered in Phase 4 step 4.
+- `workflows/audit/moc-gap-analysis.md` — sister gap workflow focused on navigation coverage rather than research coverage.
 - `workflows/audit/enrichment-audit.md` — alternative entry point for systematic gap-finding when no new paper procurement is needed.
-- `workflows/audit/schema-self-audit.md` — triggered in Phase 4 step 5.
 
 ## Notes for Future Refinement
 
 - **Batch mode**: The current workflow is single-paper. A batch variant could find the top-3 gaps, run Phase 2 for each in parallel, and then use `workflows/create/batch-ingest.md` for the parallel propagation.
 - **Cross-MCP verification**: The arXiv MCP returns abstracts and full text but not citation counts or impact metrics. A future variant could cross-reference Semantic Scholar via `mcp__arxiv__citation_graph` to weight selection by citation impact.
-- **Auto-trigger**: This workflow is currently manual. A future variant could be triggered by a cron schedule (`workflows/schedule.md` + `RemoteTrigger`) to run monthly gap-and-fill cycles automatically.
+- **Auto-trigger**: This workflow is currently manual. A future variant could be triggered by a cron schedule (`RemoteTrigger`) to run monthly gap-and-fill cycles automatically.
 - **Negative results**: The workflow does not currently track papers that were considered but rejected. A `gap-analysis-rejected.md` log could prevent re-evaluation of the same candidates in future runs.

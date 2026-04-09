@@ -91,10 +91,8 @@ Do not use this workflow for new-source onboarding, direct question answering, s
 
 ## Related Workflows
 
-- `workflows/create/ingest.md`
-- `workflows/query/query.md`
-- `workflows/audit/lint.md`
-- `workflows/enrich/enrich.md`
-- `workflows/create/synthesize.md`
-- `workflows/audit/review.md`
+- `workflows/enrich/enrich.md` — structural cleanup companion to depth expansion.
+- `workflows/create/ingest.md` — produces the source pages that expand deepens.
+- `workflows/audit/lint.md` — validates links after expansion.
+- `workflows/audit/review.md` — broader audit that may trigger expansion work.
 

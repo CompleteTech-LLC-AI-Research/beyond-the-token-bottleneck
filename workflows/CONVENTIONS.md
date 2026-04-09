@@ -39,7 +39,10 @@ Canonical terms and drift variants are tracked in [`_shared/glossary.md`](_share
 - Log entries in `wiki/log.md` are point-in-time records — never backdate, never rewrite, never sweep counts inside them.
 - Workflow file changes go via feature branch + PR, never directly to `master` (see [`_shared/procedures/commit-and-push.md`](_shared/procedures/commit-and-push.md) for the canonical procedure).
 - Mermaid node labels use `<br>` for line breaks, not `\n` (which renders literally in Obsidian).
-- Fragment links use relative paths from the workflow file's location. Workflows live in phase subdirectories (`workflows/{create,enrich,audit,query,meta}/`), so they reference fragments as `../_shared/procedures/<file>.md` (one level up). Do not use absolute `/workflows/_shared/...` paths.
+- Fragment links use relative paths from the referencing file's location. Two valid patterns exist depending on the caller's depth:
+  - Workflows in `workflows/{create,enrich,audit,query,meta}/` use `../_shared/procedures/<file>.md` (one level up to `workflows/`, then into `_shared/`).
+  - Shared components in `workflows/_shared/{checklists,rules}/` use `../procedures/<file>.md` (one level up within `_shared/`).
+  Both are correct relative paths from their respective locations. Do not use absolute `/workflows/_shared/...` paths.
 
 ## Fragment reference style
 

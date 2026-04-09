@@ -126,8 +126,8 @@ Use this workflow when the wiki already has content and you need to clean up str
 - Source pages expose required asset metadata and source-material footers.
 
 ## Related Workflows
-- `workflows/audit/lint.md`
-- `workflows/enrich/expand.md`
-- `workflows/create/ingest.md`
-- `workflows/audit/review.md`
-- `workflows/audit/moc-gap-analysis.md`
+
+- `workflows/enrich/expand.md` — depth companion; enrich handles structure, expand handles content.
+- `workflows/audit/lint.md` — validates structural changes made by enrich.
+- `workflows/create/ingest.md` — primary upstream producer of pages enrich improves.
+- `workflows/audit/moc-gap-analysis.md` — focused MOC coverage audit that enrich's step 1 samples.

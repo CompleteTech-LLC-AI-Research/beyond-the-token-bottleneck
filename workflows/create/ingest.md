@@ -103,11 +103,8 @@ Do not use this workflow when the task is only to answer a question, run a lint 
 
 ## Related Workflows
 
-- `workflows/query/query.md`
-- `workflows/audit/lint.md`
-- `workflows/create/batch-ingest.md`
-- `workflows/enrich/enrich.md`
-- `workflows/enrich/expand.md`
-- `workflows/create/synthesize.md`
-- `workflows/audit/review.md`
+- `workflows/create/batch-ingest.md` — parallel variant for 3+ papers.
+- `workflows/audit/lint.md` — validates links introduced by ingest.
+- `workflows/enrich/enrich.md` — structural cleanup triggered after ingest.
+- `workflows/audit/gap-analysis.md` — proactive counterpart that finds papers to ingest.
 

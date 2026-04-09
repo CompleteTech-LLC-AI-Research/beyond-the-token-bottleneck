@@ -168,10 +168,8 @@ Every source page under `wiki/sources/` must follow the partial structure define
 - Terminology drift findings (if any) are in the report.
 
 ## Related Workflows
-- `workflows/query/query.md`
-- `workflows/create/ingest.md`
-- `workflows/enrich/expand.md`
-- `workflows/audit/review.md`
-- `workflows/create/batch-ingest.md`
-- `workflows/audit/schema-self-audit.md`
-- `workflows/audit/plugin-audit.md`
+
+- `workflows/audit/review.md` — broader audit that includes lint as a component.
+- `workflows/create/ingest.md` — primary producer of new links that lint validates.
+- `workflows/enrich/expand.md` — depth work that may introduce structural issues lint catches.
+- `workflows/audit/schema-self-audit.md` — complementary schema-vs-vault consistency check.

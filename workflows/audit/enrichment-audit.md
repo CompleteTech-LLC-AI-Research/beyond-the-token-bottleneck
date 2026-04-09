@@ -129,8 +129,8 @@ Data-driven gap-finding pass that inventories enrichment opportunities across th
 - Parallel tasks had disjoint file ownership.
 
 ## Related Workflows
-- `workflows/audit/lint.md`
-- `workflows/enrich/expand.md`
-- `workflows/create/synthesize.md`
-- `workflows/audit/moc-gap-analysis.md`
-- `workflows/audit/verification.md`
+
+- `workflows/enrich/expand.md` — executes the depth work that enrichment-audit identifies.
+- `workflows/audit/moc-gap-analysis.md` — sister audit focused on navigation coverage.
+- `workflows/audit/verification.md` — escalation target when spot-check finds issues.
+- `workflows/audit/lint.md` — structural health check complementing this audit.

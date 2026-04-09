@@ -106,10 +106,8 @@ Common triggers include:
 - Terminology drift findings (if any) are in the report.
 
 ## Related Workflows
-- `Lint` for a narrower health check.
-- `Enrich` for structural improvements without broad review.
-- `Expand` for depth work on existing pages.
-- `Ingest` and `Batch Ingest` for source-driven updates.
-- `MOC Gap Analysis` for focused navigation coverage work.
-- `workflows/audit/schema-self-audit.md` for schema-vs-vault consistency checks.
-- `workflows/audit/plugin-audit.md` for plugin-specific audits.
+
+- `workflows/audit/lint.md` — narrower health check that review subsumes.
+- `workflows/enrich/enrich.md` — structural improvements without broad review.
+- `workflows/enrich/expand.md` — depth work on existing pages.
+- `workflows/create/ingest.md` — source-driven updates that review validates.
