@@ -1,0 +1,5 @@
+- Should temperatures **change across debate rounds** (start diverse, converge)? — [[temperature-diversity]]
+- With 3+ agents, what's the **optimal distribution** of temperatures? — [[temperature-diversity]]
+- Could an agent **dynamically adjust** temperature based on position-level uncertainty? — [[temperature-diversity]]
+- In latent communication, diversity is controlled not just by temperature but by the **communication channel itself** — embedding averages smooth over uncertainty, while raw activations preserve it. Does the optimal temperature setting depend on the communication depth? — [[continuous-vs-discrete-representation]], [[temperature-diversity]]
+- [[agent-primitives-building-blocks|Agent Primitives]]' Voting primitive generates $N$ independent KV caches and selects in latent space. How does the diversity of these caches compare to temperature-based diversity in text-based voting, and is latent-space selection more robust to the "mode collapse" problem where diverse agents converge to the same wrong answer? — [[agent-primitives-building-blocks]], [[temperature-diversity]]

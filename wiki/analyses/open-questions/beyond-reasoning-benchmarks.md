@@ -1,0 +1,10 @@
+Generalization to broader tasks and settings. Nearly every method in this collection is evaluated on math reasoning (GSM8K, MATH, AIME) or multiple-choice QA. The narrow benchmark focus creates a selection bias — we do not know whether the advantages of latent communication generalize to the long-form, open-ended tasks that dominate real-world deployment.
+
+- Can these methods scale to **open-ended tasks** (summarization, creative writing, dialogue)? — [[embedding-space-communication]]
+- Can latent-space reasoning apply to **creative generation, dialogue**, or other non-reasoning tasks? — [[latent-space-reasoning]]
+- [[thinking-states-latent-reasoning|Thinking States]] identifies reasoning about the wrong quantity before seeing the question. Can **bidirectional architectures** solve state ambiguity generally? — [[latent-space-reasoning]]
+- No latent communication system supports **tool calling**. Can a learned router decide when to stay in latent space vs. decode to tokens for tool invocation? — [[latentcompress-open-call]]
+- [[agent-primitives-building-blocks|Agent Primitives]] test on math, code, and QA but not on **agentic tasks** (web navigation, software engineering). Do composable KV-cache primitives generalize to tasks requiring environment interaction? — [[agent-primitives-building-blocks]]
+- The scaling framework finds -70% degradation on sequential planning tasks with text-based MAS. Could latent communication's reduced error propagation make MAS viable for these currently-hostile task types? — [[scaling-agent-systems]]
+- [[interlat-latent-space-agents|Interlat]] is the only method evaluated on an **agentic benchmark** (ALFWorld, 70.48%). Can other latent methods (Agent Primitives, Vision Wormhole) match or exceed this on interactive tasks that require grounded environment feedback? — [[interlat-latent-space-agents]]
+- [[vision-wormhole-heterogeneous|Vision Wormhole]] shows +13.2pp on code generation, but code tasks involve structured outputs where partial errors can cascade. Does latent communication's richer signal help or hurt on tasks where **output structure** is critical? — [[vision-wormhole-heterogeneous]]

@@ -1,0 +1,4 @@
+- **Same model only**: All agents must run the same model checkpoint (same architecture, same weights). No cross-model communication.
+- **Efficiency focus, not quality**: KVCOMM doesn't improve communication quality (unlike [[kvcomm-kth-selective|KVComm]] or [[cache-to-cache-semantic-communication|C2C]]). It makes existing multi-agent pipelines faster without changing what's communicated.
+- **Anchor pool memory**: Storing base KV-caches and offsets for multiple anchors consumes GPU memory. The pruning strategy mitigates this but adds complexity.
+- **Approximation errors accumulate**: In deep agent graphs with many hops, offset approximation errors could potentially compound.

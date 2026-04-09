@@ -1,0 +1,4 @@
+- **[[continuous-vs-discrete-representation]]**: ThoughtComm operates entirely in continuous space but adds *structure* to the continuous representation through disentanglement and agreement scoring.
+- **[[multi-agent-debate]]**: ThoughtComm builds on the debate protocol but replaces surface-level message exchange with latent thought exchange. It directly addresses the [[multi-agent-debate|capability threshold problem]] — even weaker models benefit because communication bypasses language parsing.
+- **[[latent-space-reasoning]]**: Coconut shows that hidden states encode superpositions of reasoning paths. ThoughtComm's autoencoder could potentially disentangle these superposed paths into individually identifiable thought components.
+- **[[thought-structure]]**: The shared/private thought structure and agreement-based routing introduce a new concept not present in prior work.

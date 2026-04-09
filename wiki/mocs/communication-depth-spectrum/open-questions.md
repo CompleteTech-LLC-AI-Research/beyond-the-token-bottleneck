@@ -1,0 +1,4 @@
+- Where is the **optimal operating point** on this spectrum for practical multi-agent systems?
+- Can the self-improvement effect (Level 6) be exploited as a deliberate training signal?
+- Is there a universal continuous interface that achieves Level 8+ density with Level 0 compatibility?
+- How does the optimal depth shift as models scale to frontier size?

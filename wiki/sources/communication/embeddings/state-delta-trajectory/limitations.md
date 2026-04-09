@@ -1,0 +1,3 @@
+- **Same-model only**: Requires sender and receiver to share the same base LLM (same architecture, same weights). Cannot work with heterogeneous agent systems.
+- **White-box access required**: Must extract hidden states from the sender and inject into the receiver -- incompatible with black-box API models.
+- **Bandwidth overhead**: Even with only 1-3 layers, transmitting per-token state deltas increases communication cost, especially for long contexts or large models. Future work could explore selective transmission or compression of state deltas.

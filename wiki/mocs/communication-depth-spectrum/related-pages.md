@@ -1,0 +1,5 @@
+- [[embedding-space-communication]] — Detailed concept page with information bottleneck theory
+- [[activation-communication]] — 5-paper synthesis at the activation level
+- [[kv-cache-communication]] — 4 design dimensions for KV-cache approaches
+- [[latent-communication]] — Parent MOC for all communication research
+- [[continuous-vs-discrete-representation]] — The theoretical foundation

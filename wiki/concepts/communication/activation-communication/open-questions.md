@@ -1,0 +1,4 @@
+- **Optimal extraction layer**: [[activation-communication-harvard|AC]] finds layer 26/32 optimal for LLaMA. Is this consistent across architectures? Does it scale with model depth?
+- **Iterative activation communication**: [[activation-communication-harvard|AC]] is one-shot; could iterative activation grafting (multiple rounds) combine the benefits of AC's information density with debate's iterative refinement?
+- **Compression**: [[interlat-latent-space-agents|Interlat]] compresses to 8 latent steps with 4% drop. What's the theoretical minimum bandwidth for lossless activation communication?
+- **Heterogeneous architectures**: [[vision-wormhole-heterogeneous|Vision Wormhole]] uses VLM visual pathways to bypass the off-manifold problem. Are there other modality-specific pathways that could serve as universal communication ports?

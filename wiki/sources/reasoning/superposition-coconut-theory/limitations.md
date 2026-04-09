@@ -1,0 +1,5 @@
+- **No proven lower bound for discrete CoT**: The gap is between an upper bound ($D$ for continuous) and a best-known result ($O(n^2)$ for discrete), not a proven separation. It remains possible that discrete CoT could solve reachability in fewer steps with a clever construction.
+- **Only graph reachability**: General reasoning tasks are not addressed. The theory applies cleanly to problems with graph structure but extensions to natural language reasoning are speculative.
+- **Constructive proof, not a learning theory result**: No proof that gradient descent converges to these solutions. The experiments show it does empirically on small models, but scaling behavior is unknown.
+- **Linear embedding dimension** $O(|V|)$: Real models have $d \ll |V|$. In practice, the orthonormality assumption is only approximate, and superpositions would interfere. The paper acknowledges this but notes buffer spaces can share dimensions via approximate orthogonality.
+- **GPT-2 scale experiments only**: All experiments use a small 2-layer model trained from scratch on synthetic data. Whether frontier LLMs exhibit similar superposition behavior is untested.

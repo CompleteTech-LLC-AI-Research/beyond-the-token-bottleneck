@@ -1,0 +1,6 @@
+- Only first-token evaluation (coarse for multi-token entities)
+- Layer normalization requires ad-hoc $\beta$ correction per model
+- Single-state patching for causality — information leaks through earlier attention states
+- Hyperparameter sensitivity (per-relation grid search over layer and pseudoinverse rank)
+- Template-based prompts only; natural language diversity not captured
+- Tested on GPT-J (6B), GPT2-XL (1.5B), LLaMA-13B — no frontier models

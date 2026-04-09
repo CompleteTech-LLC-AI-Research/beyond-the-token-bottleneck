@@ -1,0 +1,3 @@
+This paper contextualizes all the latent communication work: the information bottleneck of natural language communication (which CIPHER, KV-cache methods, ThoughtComm, etc. address) is one of several failure modes in MAS. Others include task decomposability mismatch, error amplification, and coordination overhead. Latent communication addresses the **lossy communication** problem but cannot fix **task-architecture mismatch** or **coordination overhead**.
+
+The paper also suggests that latent communication methods could improve the coordination efficiency metrics — reducing overhead and error amplification by transmitting richer information per exchange.

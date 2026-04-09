@@ -1,0 +1,7 @@
+- Accuracy gap vs explicit CoT persists across all scales — iCoT's best (Mistral 7B, 51% GSM8K) falls 17pp short of explicit CoT (68%)
+- Training instability: aggressive schedules collapse; sensitive to random seeds requiring multiple runs
+- Loss of interpretability — no visible reasoning steps (unlike [[thinking-states-latent-reasoning|Thinking States]] which preserves NL thoughts at chunk boundaries)
+- Only tested on multiplication and GSM8K due to compute constraints. Tasks requiring search ([[coconut-reasoning-latent-space|Coconut]]'s ProsQA) are untested.
+- High training cost: each removal stage requires finetuning; cost scales linearly with CoT length (246 stages for 9x9 multiplication)
+- No recurrence — limited to model's fixed depth, which [[cot-expressivity-theory|Feng et al.]] prove is the fundamental bottleneck. This ceiling motivated Coconut's latent feedback loop.
+- The [[softcot-efficient-reasoning|SoftCoT]] [[catastrophic-forgetting]] finding raises concerns: iCoT modifies model weights, which may damage instruction-tuned capabilities at larger scale.

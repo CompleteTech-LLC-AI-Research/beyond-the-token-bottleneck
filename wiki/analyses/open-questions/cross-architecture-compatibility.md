@@ -1,0 +1,13 @@
+The fundamental trade-off: deeper communication = tighter coupling.
+
+- How to communicate between models with **different tokenizers** or embedding spaces? The major unsolved problem. — [[embedding-space-communication]]
+- Are there modality-specific pathways beyond vision (e.g., audio) that could serve as universal communication ports? — [[activation-communication]]
+- Can thought structure be inferred from **observable outputs** (text, logits) for closed-source models? — [[thought-structure]]
+- Is there an **optimal compression point** between full continuous and full discrete that captures most information with broad compatibility? — [[continuous-vs-discrete-representation]]
+- Can models learn to communicate in a compressed continuous space that preserves **task-relevant** information while being compatible across architectures? — [[continuous-vs-discrete-representation]]
+- [[vision-wormhole-heterogeneous|Vision Wormhole]] demonstrates that VLM visual pathways serve as a natural cross-architecture port with $O(N)$ alignment. Can **non-VLM modalities** (audio encoders, code embeddings) similarly be repurposed as universal communication interfaces? — [[vision-wormhole-heterogeneous]]
+- [[agent-primitives-building-blocks|Agent Primitives]] require same-model configurations to satisfy the input-output alignment assumption. Can this assumption be relaxed with lightweight adapters while preserving the composable-primitive design? — [[agent-primitives-building-blocks]]
+- The Platonic Representation Hypothesis predicts that model representations converge as scale increases. At what scale threshold does cross-architecture latent communication become reliable **without** learned adapters? — [[platonic-representation-hypothesis]], [[activation-communication-harvard]]
+- [[activation-communication-harvard|AC]] succeeds zero-shot across LLaMA/Qwen/Gemma families at the activation level, but [[cache-to-cache-semantic-communication|C2C]] and [[kv-cache-alignment-shared-space|KV Alignment]] require learned components at the KV-cache level. Is this because activations converge faster than KV representations, or is it an artifact of evaluation setup? — [[contradictions]]
+
+The cross-architecture picture is evolving rapidly. Six months ago, cross-family latent communication required heavy training (C2C). Now, AC demonstrates zero-shot cross-family transfer, and Vision Wormhole achieves heterogeneous VLM communication with weak supervision ($<100$ anchors). The trend suggests that cross-architecture compatibility may be a solved problem within 1-2 years for models above a certain scale — but the theoretical understanding of *why* it works (beyond the Platonic hypothesis) remains thin.

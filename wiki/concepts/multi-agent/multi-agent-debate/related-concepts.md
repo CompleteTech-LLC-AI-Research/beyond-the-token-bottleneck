@@ -1,0 +1,4 @@
+- **[[temperature-diversity]]**: Using agents at different temperatures to encourage diverse perspectives — especially important for [[embedding-space-communication]].
+- **[[embedding-space-communication]]**: The concept of communicating via continuous vectors rather than tokens.
+- **[[scaling-agent-systems|Scaling Agent Systems]]**: Quantitative framework for when MAS helps and which architecture to choose.
+- **[[agent-primitives-building-blocks|Agent Primitives]]**: Composable latent-space building blocks for MAS.

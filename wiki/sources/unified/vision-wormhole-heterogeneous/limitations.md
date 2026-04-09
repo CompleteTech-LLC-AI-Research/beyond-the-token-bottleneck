@@ -1,0 +1,5 @@
+- Requires VLMs specifically (text-only models cannot be receivers)
+- Fixed bandwidth bottleneck for large models (256 visual tokens insufficient for 8B+)
+- Only tested on sequential Planner-Critic-Refiner-Judger workflows
+- Could not reliably reproduce Cache-to-Cache or LatentMAS baselines on their heterogeneous configs (degenerate outputs), so comparison is only against TextMAS
+- Preprint / work in progress

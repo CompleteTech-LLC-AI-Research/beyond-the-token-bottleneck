@@ -1,0 +1,5 @@
+- **[[latent-space-reasoning]]**: LatentMAS is the first to combine Coconut-style latent reasoning with multi-agent KV-cache transfer in a training-free system.
+- **[[kv-cache-communication]]**: Extends prior KV-cache methods by sharing caches that include generated latent thoughts, not just processed input.
+- **[[agent-primitives-building-blocks|Agent Primitives]]**: Agent Primitives also use KV-cache concatenation but with structured primitives (Review, Voting, Planning) rather than free-form latent generation.
+- **[[superposition-coconut-theory|Superposition/Coconut theory]]**: The expressiveness theorem (Theorem 3.1) relies on the same Linear Representation Hypothesis foundation — ternary coefficients over a semantic basis.
+- **[[continuous-vs-discrete-representation]]**: The $d/\log|V|$ bound is the core quantification of why continuous beats discrete for reasoning expressiveness.

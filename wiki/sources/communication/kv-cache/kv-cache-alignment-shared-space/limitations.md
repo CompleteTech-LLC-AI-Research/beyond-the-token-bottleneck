@@ -1,0 +1,4 @@
+- **Small scale**: All experiments on Gemma-2 100M-400M. Whether the shared space approach scales to frontier-size models (7B+) is unvalidated.
+- **Same vocabulary assumed**: The suffix LM loss works across vocabularies, but experiments are conducted with shared vocabularies. Cross-vocabulary communication is theoretically possible but not demonstrated.
+- **Adapter overhead**: Each model needs ~¼ of its parameter count in adapter parameters. For frontier models, this could be substantial.
+- **Single-direction communication**: Experiments are prefix → shared space → target for suffix generation. Iterative multi-round debate via the shared space is not explored.

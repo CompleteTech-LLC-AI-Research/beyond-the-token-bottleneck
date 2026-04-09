@@ -1,0 +1,6 @@
+- **Backend**: PyTorch + HuggingFace Transformers, optional vLLM backend for prefix caching and tensor parallelism.
+- **Temperature**: 0.6, top-p: 0.95 for all agents and baselines.
+- **Max output lengths**: 2048 tokens (ARC-E, ARC-C, GSM8K), 4096 tokens (MedQA, MBPP+, HumanEval+), 8192 tokens (GPQA), 20000 tokens (AIME24/25).
+- **Hardware**: 8× NVIDIA A100-80G GPUs.
+- **Evaluation**: Mean over 3 independent runs with hyperparameter tuning.
+- **KV transfer**: Via HuggingFace `past_key_values` interface for direct concatenation.

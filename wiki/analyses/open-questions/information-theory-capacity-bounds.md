@@ -1,0 +1,11 @@
+Theoretical gaps in understanding the communication spectrum.
+
+- What is the theoretical **information capacity** of embedding communication vs. natural language? — [[embedding-space-communication]]
+- What's the theoretical **minimum bandwidth** for lossless activation communication? [[interlat-latent-space-agents|Interlat]] compresses to 8 latent steps with 4% drop. — [[activation-communication]]
+- When does discrete win? Are there tasks where discretization's structure is actually helpful — compositional generalization, symbolic reasoning, error correction? — [[continuous-vs-discrete-representation]]
+- [[latentcompress-open-call|LatentCompress]] achieves 512-byte communication matching GSM8K baseline but needs MB-scale bandwidth for GPQA. What is the **bandwidth-task complexity relationship** — can it be predicted from task properties (e.g., number of reasoning hops, answer entropy)? — [[latentcompress-open-call]]
+- [[latentmas-collaboration|LatentMAS]] proves a $d / \log|V|$ theoretical compression bound ($\sim$471x for Qwen3-14B). Is this bound tight, or can structured latent representations exceed it via superposition? — [[latentmas-collaboration]], [[superposition-coconut-theory]]
+- Cumulative degradation across agent chains follows $Q \propto e^{-T\varepsilon/C}$. Can error-correcting codes or redundant latent dimensions break this exponential decay? — [[latentcompress-open-call]]
+- What is the **rate-distortion optimal** compression for inter-agent communication at a given task complexity? Neural compression literature may provide frameworks but they assume i.i.d. sources, not structured reasoning trajectories. — [[frontier-research-directions]]
+
+The information-theoretic questions are especially important because they connect to practical engineering decisions. If the bandwidth-task complexity relationship can be characterized, system designers could adaptively select communication depth per query (e.g., use 512-byte compressed latents for simple arithmetic, full KV-cache for multi-hop reasoning). This is what [[agent-primitives-building-blocks|Agent Primitives]]' Organizer does at the topology level; an analogous mechanism at the bandwidth level does not yet exist.

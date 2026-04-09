@@ -1,0 +1,2 @@
+- **[[fair-meta]]** — Coconut, the founding result
+- **[[google-research]]** — Thinking States, pushing toward production viability

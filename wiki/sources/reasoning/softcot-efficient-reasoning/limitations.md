@@ -1,0 +1,5 @@
+- Soft thoughts **augment** standard CoT rather than replacing it — the LLM still generates a full discrete reasoning chain. No token savings at inference.
+- Single forward pass through the assistant — no iterative refinement (unlike Coconut's multi-step loop).
+- Tested only on 7-8B models. Scalability to 70B+ unverified.
+- Requires task-specific training data with annotated reasoning steps for the projection module.
+- The linear projection assumes approximately linear relationships between assistant and backbone representation spaces — may fail for very heterogeneous model families where the [[relative-representations-zero-shot|isometric assumption]] breaks down.

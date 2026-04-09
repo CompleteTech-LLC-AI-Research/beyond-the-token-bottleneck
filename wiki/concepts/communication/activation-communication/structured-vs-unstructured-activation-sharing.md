@@ -1,0 +1,1 @@
+[[thought-communication-multiagent|ThoughtComm]] introduces a crucial distinction: raw activation sharing transmits **everything** (maximum information but no organization), while **structured** approaches first disentangle activations into identifiable latent factors, then selectively route relevant factors to each agent. See [[thought-structure]] for the full treatment.

@@ -1,0 +1,4 @@
+- **[[platonic-representation-hypothesis|Platonic Representation Hypothesis]]**: PRH explains *why* representations converge (shared statistical model of reality). Relative representations provide *how* to exploit this convergence in practice.
+- **[[activation-communication-harvard|AC]]**: AC's cross-family results without W are consistent with the isometric assumption — cosine similarities in activation space should be approximately preserved.
+- **[[kv-cache-alignment-shared-space|KV Cache Alignment]]**: The ablation showing linear maps work but cross-attention scales better mirrors Moschella et al.'s finding that cosine alignment is good but nonlinear methods can do better.
+- **[[vision-wormhole-heterogeneous|Vision Wormhole]]**: Affine alignment with ridge regression on anchor texts is a direct application of the relative representation principle.

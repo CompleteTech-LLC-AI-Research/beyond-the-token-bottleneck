@@ -1,0 +1,5 @@
+- **[[latent-space-reasoning]]**: A new point on the spectrum between fully discrete CoT and fully continuous Coconut. Generates discrete thoughts but compresses them into continuous states.
+- **[[catastrophic-forgetting]]**: Uses Qwen2.5-Base (not instruction-tuned), avoiding the forgetting problem [[softcot-efficient-reasoning|SoftCoT]] identified. Whether it would work on instruction-tuned models is untested.
+- **[[continuous-vs-discrete-representation]]**: Bridges the divide -- thoughts are discrete (supervisable) but their influence on future processing is continuous (compact, rich).
+- **[[cot-expressivity-theory|Feng et al.]]**: The deep-to-shallow recurrence directly addresses the depth bottleneck identified theoretically. Each chunk-to-chunk iteration adds effective depth proportional to the number of layers in the loop.
+- **[[superposition-coconut-theory|Zhu et al.]]**: An open question is whether Thinking States' compressed states exhibit superposition-like properties. If the compression block preserves frontier information, the method might combine the benefits of supervised reasoning with parallel search.

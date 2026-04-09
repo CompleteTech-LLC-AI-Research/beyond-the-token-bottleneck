@@ -1,0 +1,1 @@
+- [[raw/pdf/arxiv-2510.12167.pdf|PDF]] ([[raw/latex/arxiv-2510.12167.tar.gz|LaTeX source]])

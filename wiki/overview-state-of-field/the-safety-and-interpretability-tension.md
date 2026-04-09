@@ -1,0 +1,5 @@
+As latent communication grows more capable, it also grows more opaque. When agents exchange raw hidden states or KV-cache entries, no human can inspect what was communicated. This creates a fundamental tension explored in [[safety-interpretability]]: the methods that carry the most information are the hardest to audit.
+
+Two approaches offer partial solutions. [[thought-communication-multiagent|ThoughtComm]]'s identifiable latent factors provide mathematical guarantees that communicated content can be decomposed and inspected. [[latentcompress-open-call|LatentCompress]]'s slot-attention probing mechanism enables interpretable compression where the bottleneck itself becomes a point of inspection. But neither has been tested at the scale or adversarial rigor required for deployment in safety-critical systems.
+
+The practical implication: any production deployment of latent multi-agent systems must choose a position on the information-density vs. auditability frontier. [[practical-systems]] provides a decision guide that includes safety and auditability as explicit constraint dimensions.

@@ -1,0 +1,5 @@
+- **Homogeneous architecture required**: All agents must share the same model family and layer structure. Heterogeneous agents would need trainable adapters for layer mapping.
+- Only tested on Qwen3 (4B/8B/14B).
+- Requires open-weight models (needs KV cache access).
+- $\lambda$ regularization value for ridge regression not specified — unclear sensitivity.
+- Fixed $K$ latent steps per agent (no adaptive stopping).

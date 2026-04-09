@@ -1,0 +1,8 @@
+The first comprehensive empirical analysis of the **internal mechanisms** of [[latent-space-reasoning|latent reasoning]] methods. Cui et al. test four representative latent reasoning approaches — [[coconut-reasoning-latent-space|Coconut]], CODI, SIM-CoT, and CoLaR — on GPT-2 and LLaMA-3.2-1B-Instruct against GSM8K-Aug and ProsQA, and report two findings that **directly challenge** the central narrative of the field:
+
+1. **Pervasive shortcut behavior** — most latent methods retain non-trivial accuracy even when latent reasoning is *entirely disabled* (depth = 0) or *destroyed by Gaussian noise* ($\sigma = 100$, far above the embedding norm). They are not actually using their latent steps.
+2. **The BFS hypothesis is false in its strong form** — while a single latent vector can encode multiple candidate trajectories (as [[superposition-coconut-theory|Zhu et al.]] proved theoretically), the *iterative* reasoning process exhibits **implicit pruning**, not parallel BFS expansion. Increasing latent depth *decreases* the diversity of next-step distributions, the opposite of true breadth-first search.
+
+The paper introduces a **weak/strong supervision taxonomy**, identifies a fundamental **supervision–exploration trade-off** ([[catastrophic-forgetting|complementary to the alignment trade-off]]), and proposes an **Improved Coconut** training scheme that mixes earlier-stage data into later stages, raising GPT-2's GSM8K-Aug accuracy from 34.09% to 41.06%.
+
+This is the strongest piece of empirical evidence to date that the [[frontier-research-directions|#1 paradigm-shift direction]] (frontier-scale superposition reasoning) has a much harder problem than the field assumed: latent capacity exists, but **the optimization process actively destroys it**.

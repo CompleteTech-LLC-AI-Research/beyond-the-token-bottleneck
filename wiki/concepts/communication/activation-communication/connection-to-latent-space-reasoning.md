@@ -1,0 +1,3 @@
+Activation communication is closely related to [[latent-space-reasoning]]. [[coconut-reasoning-latent-space|Coconut]] and [[latentmas-collaboration|LatentMAS]] demonstrate that hidden states fed back as input embeddings can encode **superpositions of reasoning paths**. When these hidden states are shared between agents (as in LatentMAS), it enables **collaborative reasoning in latent space** — agents think together without ever "speaking."
+
+Both are instances of the [[continuous-vs-discrete-representation|continuous vs. discrete trade-off]] applied in complementary contexts (intra-agent vs. inter-agent).

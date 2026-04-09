@@ -1,0 +1,3 @@
+This paper introduces **Coconut** (Chain of Continuous Thought), a paradigm that allows LLMs to reason in continuous latent space rather than through discrete natural language tokens. Instead of generating a chain-of-thought as text, the model feeds its **last hidden state** directly back as the next input embedding, bypassing the token decoding and re-encoding steps entirely. The model alternates between "language mode" (standard autoregressive generation) and "latent mode" (hidden-state feedback loop), controlled by special `<bot>` and `<eot>` tokens.
+
+This is a foundational paper for [[latent-space-reasoning]] — the intra-model counterpart to [[embedding-space-communication|inter-model latent communication]].

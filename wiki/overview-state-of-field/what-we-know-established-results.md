@@ -1,0 +1,8 @@
+- **Continuous > discrete for inter-model transfer**: Every paper in the communication thread confirms this, across diverse architectures and tasks.
+- **Superposition is real and provable**: Not a metaphor — continuous thoughts mathematically encode parallel BFS paths, reducing complexity from $O(n^2)$ to $D$ steps.
+- **Cross-family communication works**: AC demonstrates zero-shot activation transfer across LLaMA/Qwen/Gemma. The Platonic Representation Hypothesis provides theoretical grounding.
+- **30% of KV layers $\approx$ full performance**: [[kvcomm-kth-selective|KVComm]]'s finding suggests massive redundancy in what is transmitted between agents.
+- **Training-free methods are competitive**: [[latentmas-collaboration|LatentMAS]], [[agent-primitives-building-blocks|Agent Primitives]], [[kvcomm-kth-selective|KVComm]], and [[state-delta-trajectory|SDE]] achieve strong results without model modification.
+- **Scaling is task-contingent**: The [[scaling-agent-systems|Scaling paper]] shows multi-agent benefits range from +80.9% (finance) to -70% (sequential planning). The baseline paradox (beta = -0.404) means single-agent accuracy above ~45% often makes MAS counterproductive.
+- **Composable primitives > ad-hoc designs**: Agent Primitives' structured operators outperform monolithic MAS architectures across 5 model families.
+- **Self-improvement through shared spaces**: Cyclic translation through a shared latent space improves the original model — an unexplained but reproducible phenomenon observed in [[kv-cache-alignment-shared-space|KV Alignment]], [[cache-to-cache-semantic-communication|C2C]], and KVComm.

@@ -1,0 +1,12 @@
+- [[latent-space-reasoning]] — 8-method comparison spectrum, superposition, training challenges
+- [[continuous-vs-discrete-representation]] — 4× to 2600× information density advantage
+- [[catastrophic-forgetting]] — Why latent reasoning breaks instruction-tuned models
+- [[embedding-space-communication]] — 10-level depth-compatibility spectrum
+- [[activation-communication]] — 5-paper synthesis, cross-model compatibility
+- [[kv-cache-communication]] — 4 design dimensions with 4 papers
+- [[thought-structure]] — Shared/private decomposition, agreement routing
+- [[latent-variable-model]] — Identifiability theory for ThoughtComm
+- [[multi-agent-debate]] — Debate paradigm, scaling principles, architecture comparison
+- [[temperature-diversity]] — Anchor/explorer dynamics in embedding-space debate
+
+---

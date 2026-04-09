@@ -1,0 +1,5 @@
+- Requires pretraining from scratch — cannot be applied to existing models (contrast with [[softcot-efficient-reasoning|SoftCoT]] which freezes the backbone entirely)
+- Zero-delay fragility: pause-trained models break without pauses at inference, unlike [[coconut-reasoning-latent-space|Coconut]] which degrades gracefully
+- Only tested at 130M and 1B; no experiments on larger models or encoder-decoder architectures. [[softcot-efficient-reasoning|SoftCoT]]'s [[catastrophic-forgetting]] finding suggests that applying pause-pretraining to instruction-tuned models at larger scale may face additional challenges.
+- No formal theoretical result (Section 6 is explicitly informal — no theorems despite the discussion of computational width). [[cot-expressivity-theory|Feng et al.]] later provided the formal framework that pause tokens' intuitions pointed toward.
+- Optimal $M_\text{ft}$ is task-dependent with no principled selection method — the inverted-U pattern on GSM8K ($M_\text{ft}=10$ optimal, $M_\text{ft}=50$ harmful) vs. monotonic improvement on SQuAD suggests fundamentally different compute demands across tasks

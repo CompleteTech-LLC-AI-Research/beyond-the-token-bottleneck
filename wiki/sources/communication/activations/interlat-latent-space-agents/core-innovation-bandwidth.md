@@ -1,0 +1,1 @@
+A discrete token carries ~15 bits. A hidden state carries ~40,000 bits — a **2,600x bandwidth increase** per position. This enables transmitting the sender's full reasoning trajectory, including uncertainty and alternative paths that sampling collapses.

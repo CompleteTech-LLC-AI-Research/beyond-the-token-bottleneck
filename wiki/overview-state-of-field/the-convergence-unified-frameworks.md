@@ -1,0 +1,5 @@
+Three systems combine both threads — latent reasoning within agents AND latent communication between agents — as detailed in [[unified-frameworks]]:
+
+- **[[latentmas-collaboration|LatentMAS]]**: Training-free, 4x faster than text MAS, GSM8K 95.2%, 70-84% token reduction. Homogeneous architecture only.
+- **[[vision-wormhole-heterogeneous|Vision Wormhole]]**: Repurposes VLM visual pathways as universal continuous channels, solving the heterogeneous architecture problem. The only system that works across fully different model families without per-pair training.
+- **[[agent-primitives-building-blocks|Agent Primitives]]**: Composable operators (Review/Voting/Planning) structured by an Organizer agent. Outperforms 10 existing MAS methods, achieving 75.3% average vs. 58.8% single-agent (+16.5pp) on Qwen3-8B. Uses **fewer tokens than single agents** on smaller models, with only 1.3-1.6x latency overhead. Critical detail: RoPE positional re-encoding is mandatory for LLaMA models (without it, 27-60pp accuracy drops).

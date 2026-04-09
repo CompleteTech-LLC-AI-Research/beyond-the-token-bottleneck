@@ -1,0 +1,8 @@
+| Their Direction           | Our Corresponding Direction    | Overlap | Gap                                                                                                                                        |
+| ------------------------- | ------------------------------ | ------- | ------------------------------------------------------------------------------------------------------------------------------------------ |
+| 1. Large-scale compressor | 8. Learned compression bounds  | High    | They focus on engineering; we focus on theoretical bounds                                                                                  |
+| 2. Native pretraining     | 1. Superposition at scale      | Medium  | They want communication-native pretraining; we want BFS-native reasoning. Could be the same objective.                                     |
+| 3. Hybrid latent+tool use | (Not in our analysis)          | None    | They identified a practical gap we missed                                                                                                  |
+| (Not in their analysis)   | 2. Disentangling superposition | None    | Their slots might accidentally do this (but see [[inference-time-scaling-continuous-reasoning\|Wang et al.]] geometric homogeneity caveat) |
+| (Not in their analysis)   | 3. Self-improvement effect     | None    | Testable with their existing infrastructure                                                                                                |
+| (Not in their analysis)   | 4. State deltas                | None    | Could improve their compression                                                                                                            |
