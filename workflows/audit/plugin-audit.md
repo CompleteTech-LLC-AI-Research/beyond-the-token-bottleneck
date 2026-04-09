@@ -69,14 +69,15 @@ Use this workflow when the task sounds like:
 1. Inventory plugins by reading `.obsidian/community-plugins.json` and each plugin's `manifest.json` and `data.json`.
 2. For each plugin, check compliance:
    - LaTeX Suite / Extended MathJax: scan all wiki pages for unwrapped math, Unicode math symbols such as `∈`, `ℝ`, and `≈`, plaintext subscripts like `h_T`, or expressions outside `$...$` delimiters. Convert any found.
-   - Pandoc: run [verify frontmatter completeness](../_shared/procedures/verify-frontmatter-completeness.md) on a sample of pages, then return here. The universal-minimum check covers the `title:` requirement; the fragment is the canonical schema.
+   - Pandoc: run [verify frontmatter completeness](../_shared/procedures/verify-frontmatter-completeness.md) on a sample of pages, then return here.
    - Preamble: check that macros in `preamble.sty` are used consistently, with no raw `\mathbb{R}` when `\R` is available.
    - Diagrams: check for ASCII art in code blocks that should be Mermaid. Check for `.drawio` files, which should not exist. Check for `\n` inside Mermaid node labels — replace with `<br>`. Check for math notation (subscripts, superscripts, LaTeX-like expressions) in Mermaid node labels — these should use the side-by-side notation pattern (`[!diagram|left]` + `[!notation|right]` callouts) per AGENTS.md §Diagram Maintenance rule 6.
-3. **Bulk fix any issues found using parallel subagents.** Run [parallel subagent protocol](../_shared/procedures/parallel-subagent-protocol.md) in full, then return here and continue with step 4. The fragment owns scope boundaries (one agent per file group) and the canonical coordinator-only file enumeration.
+3. **Bulk fix any issues found using parallel subagents.** Run [parallel subagent protocol](../_shared/procedures/parallel-subagent-protocol.md) in full, then return here and continue with step 4.
 4. Run [update index and assets](../_shared/procedures/update-index-and-assets.md) if any files were added or moved, then return here and continue with step 5.
 5. Run the [stale count sweep](../_shared/procedures/stale-count-sweep.md) if page counts changed, then return here and continue with step 6.
 6. Run [spot check agent output](../_shared/procedures/spot-check-agent-output.md) on the parallel fixes, then return here and continue with step 7.
 7. Log the audit in `wiki/log.md`.
+8. Run [commit and push](../_shared/procedures/commit-and-push.md) in full, then return here.
 
 ## Completion Checklist
 - All items in [`../_shared/checklists/base.md`](../_shared/checklists/base.md) hold.
