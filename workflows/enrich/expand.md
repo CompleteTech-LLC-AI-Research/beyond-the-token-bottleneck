@@ -74,13 +74,15 @@ Do not use this workflow for new-source onboarding, direct question answering, s
 ## Procedure
 
 1. Identify thin pages — source summaries under 500 words, concept pages under 800 words, entity pages without contribution timelines or strategic positioning.
-2. For **source pages**: Re-read the PDF. Add mechanism details, experimental numbers, ablation results, limitations, and connections to the broader wiki.
+2. For **source pages**: Re-read the PDF. Add mechanism details, experimental numbers, ablation results, limitations, and connections to the broader wiki. Run [verify frontmatter completeness](../_shared/procedures/verify-frontmatter-completeness.md) on each expanded source page.
 3. For **concept pages**: Add theoretical foundations, comparison tables, quantitative evidence, trade-off analyses, open questions, and section-specific PDF citations.
-4. For **entity pages**: Add contribution timelines (date/paper/role/result tables), collaboration patterns across institutions, ecosystem impact, strategic positioning relative to frontier research directions, and enriched researcher profiles.
+4. For **entity pages**: Add contribution timelines (date/paper/role/result tables), collaboration patterns across institutions, ecosystem impact, strategic positioning relative to frontier research directions, and enriched researcher profiles. Follow the [entity-partials](../_shared/procedures/entity-partials.md) procedure for timeline and researcher table structure.
 5. Update `wiki/log.md` with what was expanded.
+6. **Commit and push.** Run [commit and push](../_shared/procedures/commit-and-push.md) in full.
 
 ## Completion Checklist
 
+- All items in [`../_shared/checklists/base.md`](../_shared/checklists/base.md) hold.
 - Thin pages were identified against the depth standard.
 - Source pages were re-read before being expanded.
 - Concept pages include stronger theory, comparisons, and citations.
