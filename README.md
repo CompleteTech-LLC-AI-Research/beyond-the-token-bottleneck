@@ -1,3 +1,5 @@
+<p align="center"><img src="assets/banner.jpg" alt="Discrete amber tokens funnel through a narrow gate and open into a flowing blue, teal and violet vector field and star network under an observatory night sky." width="100%"></p>
+
 # Beyond the Token Bottleneck
 
 ### What happens when LLMs stop talking and start *thinking* in vectors?
