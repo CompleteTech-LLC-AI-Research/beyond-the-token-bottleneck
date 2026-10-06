@@ -8,7 +8,9 @@
 
 An open research wiki mapping the frontier of **latent-space reasoning**, **continuous thought**, and **inter-agent latent communication** in large language models.
 
-[Explore the Wiki](#-entry-points) | [View the Spectrum](#-the-communication-depth-spectrum) | [Read the Overview](wiki/overview-state-of-field.md)
+**Status:** a working research wiki that is still being extended. To try it, clone the repo and open it as an Obsidian vault (see [Quick Start](#quick-start)), or read the pages on GitHub starting from the [overview](wiki/overview-state-of-field.md).
+
+[Explore the Wiki](#entry-points) | [View the Spectrum](#the-communication-depth-spectrum) | [Read the Overview](wiki/overview-state-of-field.md)
 
 ---
 
