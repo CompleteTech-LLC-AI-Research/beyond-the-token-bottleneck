@@ -1,0 +1,13 @@
+{
+  "worktree": {
+    "setup": [
+      "echo \"No project-wide dependency installation is required; follow component setup when needed.\""
+    ],
+    "teardown": "echo \"Setup starts no persistent services; Paseo handles worktree removal.\""
+  },
+  "scripts": {
+    "diff-check": {
+      "command": "git diff --check"
+    }
+  }
+}
